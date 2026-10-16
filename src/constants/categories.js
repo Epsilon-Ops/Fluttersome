@@ -11,7 +11,7 @@ export const categories = [
     {
       id: 'competitions',
       label: 'Compétitions',
-      shortLabel: 'Courses',
+      shortLabel: 'Competitions',
       icon: '🏁',
       color: '#39E58C',
       path: '/competitions',

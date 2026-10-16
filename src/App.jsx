@@ -3,6 +3,9 @@ import { useState } from 'react'
 import { categories } from './constants/categories'
 import Sidebar from './components/Sidebar'
 import BottomNav from './components/BottomNav'
+
+import Competitions from './pages/Competitions'
+
 import './App.css'
 
 export default function App() {
@@ -39,10 +42,12 @@ export default function App() {
         </header>
 
         <div className="page-container">
-          {activePage === 'dashboard' ? (
-            <Dashboard />
-          ) : (
-            <section className="empty-page">
+        {activePage === 'dashboard' ? (
+          <Dashboard />
+        ) : activePage === 'competitions' ? (
+          <Competitions />
+        ) : (
+          <section className="empty-page">
               <div
                 className="empty-page-icon"
                 style={{
