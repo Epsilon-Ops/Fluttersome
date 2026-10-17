@@ -1,0 +1,141 @@
+
+/* =========================================
+   EPSILON — BARRE SUPÉRIEURE
+   ========================================= */
+
+   .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  
+    min-height: 62px;
+    padding: 0 28px;
+  
+    border-bottom: 1px solid var(--color-border);
+    background: rgb(255 255 255 / 96%);
+    backdrop-filter: blur(12px);
+  }
+  
+  .topbar-context,
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  
+  .topbar-context .eyebrow {
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  
+  .topbar-divider {
+    color: #b9c3ce;
+  }
+  
+  .topbar-current {
+    overflow: hidden;
+    color: var(--color-primary);
+    font-size: 13px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .sync-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  
+  .sync-status .status-indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-success);
+    box-shadow: none;
+  }
+  
+  .avatar {
+    display: grid;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+  
+    border: 1px solid #cbd9e8;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+  
+    font-size: 13px;
+    font-weight: 800;
+  }
+  
+  /* =========================================
+     MOBILE
+     ========================================= */
+  
+  @media (max-width: 768px) {
+    .topbar {
+      min-height: 56px;
+      padding: 0 16px;
+    }
+  
+    .topbar-context,
+    .topbar-right {
+      gap: 8px;
+    }
+  
+    .topbar-context .eyebrow {
+      font-size: 9px;
+      letter-spacing: 0.04em;
+    }
+  
+    .topbar-current {
+      font-size: 12px;
+    }
+  
+    .sync-status {
+      font-size: 0;
+      gap: 0;
+    }
+  
+    .sync-status .status-indicator {
+      width: 7px;
+      height: 7px;
+    }
+  
+    .avatar {
+      flex-basis: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .topbar {
+      padding: 0 10px;
+    }
+  
+    .topbar-context,
+    .topbar-right {
+      gap: 6px;
+    }
+  
+    .topbar-context .eyebrow {
+      font-size: 8px;
+    }
+  }
+  

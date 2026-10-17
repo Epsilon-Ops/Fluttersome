@@ -1,0 +1,26 @@
+.status-indicator,
+.system-dot,
+.section-tag-dot {
+  background: #27855b;
+  box-shadow: none;
+}
+
+.system-dot-muted {
+  background: #aab5c4;
+}
+
+.sync-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #858895;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+  
+  .sync-status .status-indicator {
+    width: 6px;
+    height: 6px;
+    background: #f4c95d;
+    box-shadow: none;
+  }

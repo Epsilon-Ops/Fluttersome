@@ -1,441 +1,1319 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   Design system : bleu institutionnel / rouge accent
+   Adapté au composant React Competitions.jsx
+   ========================================================= */
 
-/* EPSILON — Module Compétitions */
+/* =========================================================
+   1. VARIABLES ET STRUCTURE GÉNÉRALE
+   ========================================================= */
 
-.competitions-page {
+   .competitions-page {
+    --competition-blue: #173f73;
+    --competition-blue-dark: #102f57;
+    --competition-blue-light: #edf4fb;
+  
+    --competition-red: #d93446;
+    --competition-red-dark: #b92537;
+    --competition-red-light: #fff1f2;
+  
+    --competition-text: #253448;
+    --competition-muted: #6b7789;
+    --competition-border: #dce3eb;
+    --competition-border-strong: #cbd5df;
+    --competition-surface: #ffffff;
+    --competition-surface-soft: #f5f7fa;
+  
+    /* Échelle commune des espacements */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+  
+    /* Dimensions des composants */
+    --competition-panel-padding: 20px;
+    --competition-section-gap: 24px;
+    --competition-control-height: 40px;
+  
     display: flex;
     flex-direction: column;
-    gap: 28px;
-    min-width: 0;
-    --competition-green: #39e58c;
-  }
+    gap: var(--competition-section-gap);
   
-  .competitions-page .welcome-section {
-    margin-bottom: 0;
-  }
-  
-  .competition-tabs {
-    display: flex;
-    gap: 8px;
-    padding: 5px;
-    overflow-x: auto;
-    border: 1px solid #25282f;
-    border-radius: 14px;
-    background: #0d0f13;
-    scrollbar-width: thin;
-  }
-  
-  .competition-tab {
-    flex: 0 0 auto;
-    padding: 11px 15px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    background: transparent;
-    color: #969ba7;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 160ms ease, color 160ms ease;
-  }
-  
-  .competition-tab:hover {
-    color: #f4f5f7;
-    background: #191c22;
-  }
-  
-  .competition-tab.is-active {
-    color: #39e58c;
-    background: #14291f;
-    border-color: #28563e;
-  }
-  
-  .competition-toolbar {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .competition-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 0;
-  }
-  
-  .competition-field label {
-    color: #a1a6b2;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  
-  .competition-field input,
-  .competition-field select,
-  .competition-field textarea {
     width: 100%;
-    min-height: 44px;
-    padding: 11px 12px;
-    border: 1px solid #30343d;
-    border-radius: 10px;
-    outline: none;
-    background: #101217;
-    color: #f4f5f7;
-    font-size: 14px;
-  }
-  
-  .competition-field input:focus,
-  .competition-field select:focus,
-  .competition-field textarea:focus {
-    border-color: #39e58c;
-    box-shadow: 0 0 0 3px #39e58c1a;
-  }
-  
-  .competition-field input::placeholder,
-  .competition-field textarea::placeholder {
-    color: #666d79;
-  }
-  
-  .competition-form-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  
-  .competition-form-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-  
-  .competition-form-grid .field-wide {
-    grid-column: span 2;
-  }
-  
-  .competition-form-grid .field-full {
-    grid-column: 1 / -1;
-  }
-  
-  .competition-form-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  .competition-primary-button {
-    min-height: 44px;
-    padding: 12px 18px;
-    border: 1px solid #39e58c;
-    border-radius: 10px;
-    background: #39e58c;
-    color: #07120b;
-    font-weight: 800;
-    cursor: pointer;
-    transition: transform 160ms ease, filter 160ms ease;
-  }
-  
-  .competition-primary-button:hover {
-    filter: brightness(1.08);
-    transform: translateY(-1px);
-  }
-  
-  .competition-primary-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-    transform: none;
-  }
-  
-  .competition-hint {
-    color: #8e95a2;
-    font-size: 12px;
-    line-height: 1.6;
-  }
-  
-  .competition-error {
-    padding: 12px 14px;
-    border: 1px solid #71363d;
-    border-radius: 10px;
-    background: #2a171b;
-    color: #ff9aa6;
-    font-size: 13px;
-  }
-  
-  .competition-metric-card {
     min-width: 0;
-    padding: 20px;
-    border: 1px solid #292d35;
-    border-radius: 16px;
-    background: linear-gradient(145deg, #15181e, #0e1014);
+  
+    color: var(--competition-text);
   }
   
-  .competition-metric-label {
-    color: #a1a6b2;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+  /* Évite les débordements liés aux paddings et aux bordures */
+  .competitions-page *,
+  .competitions-page *::before,
+  .competitions-page *::after {
+    box-sizing: border-box;
   }
   
-  .competition-metric-value {
+  /* Réinitialisation typographique locale */
+  .competitions-page :where(h1, h2, h3, h4, p) {
+    margin-top: 0;
+  }
+  
+  .competitions-page :where(button, input, select, textarea) {
+    font-family: inherit;
+  }
+  
+  .competitions-page :where(
+    .welcome-section,
+    .section-heading,
+    .competition-toolbar,
+    .competition-tabs,
+    .competition-form-panel,
+    .panel,
+    .metrics-grid,
+    .competition-history-list
+  ) {
+    min-width: 0;
+  }
+  
+  /* =========================================================
+     2. TYPOGRAPHIE ET ESPACEMENTS DES TEXTES
+     ========================================================= */
+  
+  /* Surtitres : SUIVI SPORTIF, CENTRE DE PERFORMANCE, etc. */
+  .competitions-page .eyebrow {
     display: block;
-    margin-top: 16px;
-    color: #f4f5f7;
-    font-family: 'DM Mono', monospace;
-    font-size: clamp(25px, 3vw, 36px);
-    font-weight: 500;
-    overflow-wrap: anywhere;
-  }
   
-  .competition-metric-note {
-    margin: 10px 0 0;
-    color: #858c99;
-    font-size: 12px;
-    line-height: 1.5;
-  }
+    margin: 0 0 var(--space-2);
   
-  .competition-history-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .competition-history-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(80px, 0.7fr) minmax(90px, 0.8fr) auto;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid #252830;
-  }
-  
-  .competition-history-row:last-child {
-    border-bottom: 0;
-  }
-  
-  .competition-history-main {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 0;
-  }
-  
-  .competition-history-title {
-    color: #f4f5f7;
-    font-size: 14px;
-    font-weight: 700;
-  }
-  
-  .competition-history-subtitle {
-    color: #858c99;
-    font-size: 12px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-  }
-  
-  .competition-time {
-    color: #39e58c;
-    font-family: 'DM Mono', monospace;
-    font-size: 18px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  
-  .competition-type-badge {
-    display: inline-flex;
-    width: fit-content;
-    padding: 5px 8px;
-    border: 1px solid #2e6649;
-    border-radius: 7px;
-    background: #14291f;
-    color: #6af0a8;
+    color: var(--competition-muted);
     font-size: 10px;
     font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 0.075em;
     text-transform: uppercase;
   }
   
-  .competition-type-badge.training {
-    border-color: #294e78;
-    background: #142235;
-    color: #80bdff;
+  /* Titres principaux */
+  .competitions-page .welcome-section h1 {
+    margin: 0 0 var(--space-3);
+  
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 750;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
   }
   
-  .competition-delete-button {
-    min-width: 38px;
-    min-height: 38px;
-    border: 1px solid #353943;
-    border-radius: 9px;
-    background: #15171d;
-    color: #b3b8c2;
-    cursor: pointer;
+  .competitions-page .welcome-section h1 span {
+    color: #ffffff;
   }
   
-  .competition-delete-button:hover {
-    border-color: #9d444e;
-    color: #ff9aa6;
-  }
-  
-  .competition-empty-state {
-    padding: 28px 18px;
-    border: 1px dashed #343842;
-    border-radius: 14px;
-    text-align: center;
-  }
-  
-  .competition-empty-state h3 {
-    margin: 0 0 8px;
-    color: #e8eaf0;
-    font-size: 16px;
-  }
-  
-  .competition-empty-state p {
+  .competitions-page .section-heading h2 {
     margin: 0;
-    color: #8e95a2;
+  
+    color: var(--competition-blue);
+    font-size: clamp(21px, 2.5vw, 25px);
+    font-weight: 750;
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+  }
+  
+  /* Titres des panneaux */
+  .competitions-page .panel-heading h3 {
+    margin: 0;
+  
+    color: var(--competition-blue);
+    font-size: 17px;
+    font-weight: 750;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Paragraphes descriptifs */
+  .competitions-page .welcome-description {
+    max-width: 600px;
+    margin: 0;
+  
+    color: var(--competition-muted);
     font-size: 13px;
     line-height: 1.7;
   }
   
-  .competition-storage-note {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 13px 15px;
-    border: 1px solid #30343d;
-    border-radius: 12px;
-    color: #969daa;
-    font-size: 12px;
+  /* Description sur fond bleu */
+  .competitions-page .welcome-section .welcome-description {
+    color: #e0e9f4;
+  }
+  
+  /* Petits textes secondaires */
+  .competitions-page .competition-hint,
+  .competitions-page .competition-toggle-hint,
+  .competitions-page .competition-history-subtitle,
+  .competitions-page .competition-metric-note {
+    color: var(--competition-muted);
+    font-size: 11px;
     line-height: 1.6;
   }
   
-  @media (max-width: 760px) {
+  /* =========================================================
+     3. BANNIÈRE D'ACCUEIL
+     ========================================================= */
+  
+  .competitions-page .welcome-section {
+    display: flex;
+    align-items: center;
+  
+    min-height: 160px;
+    padding: 28px 30px;
+  
+    border: 0;
+    border-left: 5px solid var(--competition-red);
+    border-radius: 5px;
+  
+    background: linear-gradient(
+      110deg,
+      #102f57 0%,
+      #173f73 65%,
+      #245b91 100%
+    );
+  
+    box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+  }
+  
+  .competitions-page .welcome-section > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .welcome-section .eyebrow {
+    margin-bottom: var(--space-3);
+    color: #dbe8f6;
+  }
+  
+  .competitions-page .welcome-section h1 {
+    overflow-wrap: anywhere;
+  }
+  
+  /* =========================================================
+     4. EN-TÊTE DE SECTION
+     ========================================================= */
+  
+  .competitions-page .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  
+  .competitions-page .section-heading > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .section-heading .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+  
+  .competitions-page .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  
+    flex-shrink: 0;
+    padding: 7px 10px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 4px;
+  
+    background: #ffffff;
+    color: #52647b;
+  
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+  
+  .competitions-page .section-tag-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+  
+    border-radius: 50%;
+    background: #299764;
+  }
+  
+  /* =========================================================
+     5. NAVIGATION PAR ONGLETS
+     ========================================================= */
+  
+  .competitions-page .competition-tabs {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 4px;
+  
+    min-width: 0;
+    padding: 5px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 5px;
+  
+    background: #ffffff;
+  }
+  
+  .competitions-page .competition-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 0;
+    min-height: 42px;
+    padding: 9px 8px;
+  
+    border: 1px solid transparent;
+    border-radius: 4px;
+  
+    background: transparent;
+    color: var(--competition-muted);
+  
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+  
+    cursor: pointer;
+  
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+  
+  .competitions-page .competition-tab:hover {
+    background: var(--competition-surface-soft);
+    color: var(--competition-blue);
+  }
+  
+  .competitions-page .competition-tab.is-active {
+    border-color: var(--competition-blue);
+    background: var(--competition-blue);
+    color: #ffffff;
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     6. BARRE DE FILTRES
+     ========================================================= */
+  
+  .competitions-page .competition-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  
+    min-width: 0;
+    padding: var(--space-4);
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 5px;
+  
+    background: #ffffff;
+  }
+  
+  .competitions-page .competition-toolbar .competition-field {
+    flex: 0 1 220px;
+    width: min(100%, 220px) !important;
+  }
+  
+  .competitions-page .competition-toolbar .competition-hint {
+    flex: 1 1 240px;
+    margin: 0 0 3px;
+  
+    text-align: right;
+  }
+  
+  /* =========================================================
+     7. CHAMPS DE FORMULAIRE
+     ========================================================= */
+  
+  /*
+   * Le JSX contient des champs dans la grille et d'autres
+   * directement dans le formulaire.
+   * Chaque champ gère donc lui-même ses espacements internes.
+   */
+  
+  .competitions-page .competition-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-field label {
+    display: block;
+    margin: 0;
+  
+    color: #45566a;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+  
+  .competitions-page .competition-field input,
+  .competitions-page .competition-field select,
+  .competitions-page .competition-field textarea {
+    display: block;
+  
+    width: 100%;
+    min-width: 0;
+    min-height: var(--competition-control-height);
+    padding: 9px 11px;
+  
+    border: 1px solid var(--competition-border-strong);
+    border-radius: var(--radius-control, 5px);
+  
+    background: #ffffff;
+    color: var(--competition-text);
+  
+    font-size: 13px;
+    line-height: 1.4;
+  
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
+  }
+  
+  .competitions-page .competition-field select {
+    cursor: pointer;
+  }
+  
+  .competitions-page .competition-field textarea {
+    min-height: 82px;
+    resize: vertical;
+  }
+  
+  .competitions-page .competition-field input:hover,
+  .competitions-page .competition-field select:hover,
+  .competitions-page .competition-field textarea:hover {
+    border-color: #9cabbc;
+  }
+  
+  .competitions-page .competition-field input:focus-visible,
+  .competitions-page .competition-field select:focus-visible,
+  .competitions-page .competition-field textarea:focus-visible {
+    border-color: var(--competition-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(23 63 115 / 12%);
+  }
+  
+  .competitions-page .competition-field input::placeholder,
+  .competitions-page .competition-field textarea::placeholder {
+    color: #8995a3;
+    opacity: 1;
+  }
+  
+  /* Curseur du ressenti */
+  .competitions-page .competition-field input[type="range"] {
+    width: 100%;
+    min-height: 24px;
+    margin: 0;
+    padding: 0;
+  
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  
+    accent-color: var(--competition-red);
+    box-shadow: none;
+    cursor: pointer;
+  }
+  
+  /* Les aides doivent rester compactes */
+  .competitions-page .competition-field .competition-hint {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  
+  /* =========================================================
+     8. PANNEAU DU FORMULAIRE
+     ========================================================= */
+  
+  .competitions-page .panel,
+  .competitions-page .competition-form-panel {
+    min-width: 0;
+    overflow: hidden;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 5px;
+  
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(23 63 115 / 4%);
+  }
+  
+  /* En-tête cliquable du formulaire */
+  .competitions-page .competition-form-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  
+    width: 100%;
+    padding: 17px 19px;
+  
+    border: 0;
+    background: #ffffff;
+    color: var(--competition-text);
+  
+    text-align: left;
+    cursor: pointer;
+  
+    transition: background-color 150ms ease;
+  }
+  
+  .competitions-page .competition-form-toggle:hover {
+    background: var(--competition-surface-soft);
+  }
+  
+  .competitions-page .competition-form-toggle > span:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-form-toggle .eyebrow {
+    margin: 0 0 var(--space-1);
+  }
+  
+  .competitions-page .competition-form-toggle strong {
+    color: var(--competition-blue);
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+  
+  .competitions-page .competition-toggle-hint {
+    display: block;
+    margin: 0;
+  }
+  
+  .competitions-page .competition-toggle-icon {
+    display: grid;
+    place-items: center;
+  
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 4px;
+  
+    background: var(--competition-red-light);
+    color: var(--competition-red);
+  
+    font-size: 22px;
+    line-height: 1;
+  }
+  
+  .competitions-page .competition-form-toggle:hover
+  .competition-toggle-icon {
+    background: #ffe4e7;
+  }
+  
+  /* Formulaire complet : grille + champs + aide + actions */
+  .competitions-page .competition-form-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  
+    min-width: 0;
+    padding: var(--competition-panel-padding);
+  
+    border-top: 1px solid var(--competition-border);
+  }
+  
+  /* Grille des trois premiers champs par ligne */
+  .competitions-page .competition-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-form-grid .field-full {
+    grid-column: 1 / -1;
+  }
+  
+  /*
+   * Le JSX utilise aussi field-wide en dehors de la grille.
+   * On lui applique une largeur complète sans changer
+   * l'organisation verticale du formulaire.
+   */
+  .competitions-page .competition-form-panel .field-wide {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* Note informative du formulaire */
+  .competitions-page .competition-form-panel form > .competition-hint {
+    margin: 0;
+    padding: 11px 13px;
+  
+    border-left: 3px solid #9bb7d5;
+    border-radius: 0 3px 3px 0;
+  
+    background: #f4f7fb;
+    color: #52647b;
+  
+    font-size: 11px;
+    line-height: 1.65;
+  }
+  
+  /* Actions */
+  .competitions-page .competition-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  
+    margin: 0;
+    padding-top: var(--space-4);
+  
+    border-top: 1px solid var(--competition-border);
+  }
+  
+  /* =========================================================
+     9. BOUTONS
+     ========================================================= */
+  
+  .competitions-page .competition-primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+  
+    min-height: 42px;
+    padding: 10px 17px;
+  
+    border: 1px solid var(--competition-red);
+    border-radius: 4px;
+  
+    background: var(--competition-red);
+    color: #ffffff;
+  
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+  
+    cursor: pointer;
+  
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease;
+  }
+  
+  .competitions-page .competition-primary-button:hover {
+    border-color: var(--competition-red-dark);
+    background: var(--competition-red-dark);
+  }
+  
+  .competitions-page .competition-primary-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+  
+  .competitions-page .competition-delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex: 0 0 34px;
+    width: 34px;
+    min-height: 34px;
+    padding: 5px;
+  
+    border: 1px solid var(--competition-border-strong);
+    border-radius: 4px;
+  
+    background: #ffffff;
+    color: var(--competition-muted);
+  
+    font-size: 22px;
+    line-height: 1;
+  
+    cursor: pointer;
+  
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease,
+      color 150ms ease;
+  }
+  
+  .competitions-page .competition-delete-button:hover {
+    border-color: #e7a0a8;
+    background: var(--competition-red-light);
+    color: var(--competition-red-dark);
+  }
+  
+  /* =========================================================
+     10. EN-TÊTES DES PANNEAUX
+     ========================================================= */
+  
+  .competitions-page .panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  
+    min-width: 0;
+    padding: 17px 19px;
+  
+    border-bottom: 1px solid var(--competition-border);
+    background: #ffffff;
+  }
+  
+  .competitions-page .panel-heading > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .panel-heading .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+  
+  .competitions-page .panel-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex: 0 0 auto;
+    min-width: 34px;
+    min-height: 34px;
+    padding: 6px;
+  
+    border: 1px solid #d8e4f1;
+    border-radius: 4px;
+  
+    background: var(--competition-blue-light);
+    color: var(--competition-blue);
+  
+    font-size: 13px;
+    font-weight: 700;
+  }
+  
+  /* =========================================================
+     11. CARTES STATISTIQUES
+     ========================================================= */
+  
+  .competitions-page .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-3);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-metric-card {
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  
+    min-width: 0;
+    min-height: 132px;
+    overflow: hidden;
+  
+    padding: 17px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 5px;
+  
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(23 63 115 / 4%);
+  }
+  
+  .competitions-page .competition-metric-card::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+  
+    width: 3px;
+  
+    background: var(--competition-blue);
+    content: "";
+  }
+  
+  .competitions-page .competition-metric-label {
+    margin: 0;
+  
+    color: var(--competition-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  
+  .competitions-page .competition-metric-value {
+    display: block;
+    max-width: 100%;
+  
+    margin: var(--space-3) 0 0;
+  
+    color: var(--competition-blue);
+    font-family: "DM Mono", monospace;
+    font-size: clamp(22px, 2.4vw, 31px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  
+    overflow-wrap: anywhere;
+  }
+  
+  .competitions-page .competition-metric-note {
+    margin: auto 0 0;
+    padding-top: var(--space-2);
+  
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  
+  /* =========================================================
+     12. LIGNES DE PERFORMANCE
+     ========================================================= */
+  
+  .competitions-page .competition-history-list {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-history-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    align-items: center;
+    gap: var(--space-4);
+  
+    min-width: 0;
+    padding: 16px 19px;
+  
+    border-bottom: 1px solid #e5eaf0;
+    background: #ffffff;
+  
+    transition: background-color 120ms ease;
+  }
+  
+  .competitions-page .competition-history-row:last-child {
+    border-bottom: 0;
+  }
+  
+  .competitions-page .competition-history-row:hover {
+    background: #f7f9fc;
+  }
+  
+  /* Colonne de gauche */
+  .competitions-page .competition-history-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-history-title {
+    margin: 0;
+  
+    color: var(--competition-blue);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.45;
+  
+    overflow-wrap: anywhere;
+  }
+  
+  .competitions-page .competition-history-subtitle {
+    display: block;
+    max-width: 100%;
+  
+    margin: 0;
+  
+    color: var(--competition-muted);
+    font-size: 11px;
+    line-height: 1.6;
+  
+    overflow-wrap: anywhere;
+  }
+  
+  /* Chrono */
+  .competitions-page .competition-history-time-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  
+    min-width: 90px;
+  }
+  
+  .competitions-page .competition-time {
+    margin: 0;
+  
+    color: var(--competition-blue);
+    font-family: "DM Mono", monospace;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  
+  /* Type de performance et chronométrage */
+  .competitions-page .competition-history-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  
+    min-width: 100px;
+  }
+  
+  /* Actions */
+  .competitions-page .competition-history-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2);
+  }
+  
+  /* =========================================================
+     13. BADGES DE TYPE
+     ========================================================= */
+  
+  .competitions-page .competition-type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: fit-content;
+    max-width: 100%;
+    padding: 5px 8px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 3px;
+  
+    background: var(--competition-red-light);
+    color: #a52232;
+  
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+  
+  .competitions-page .competition-type-badge.training {
+    border-color: #cbdff4;
+    background: #edf5ff;
+    color: #245f9d;
+  }
+  
+  /* =========================================================
+     14. ÉTAT VIDE
+     ========================================================= */
+  
+  .competitions-page .competition-empty-state {
+    margin: var(--space-4);
+    padding: 30px 20px;
+  
+    border: 1px dashed var(--competition-border-strong);
+    border-radius: 4px;
+  
+    background: #fafbfd;
+    text-align: center;
+  }
+  
+  .competitions-page .competition-empty-state h3 {
+    margin: 0 0 var(--space-2);
+  
+    color: var(--competition-blue);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  
+  .competitions-page .competition-empty-state p {
+    max-width: 440px;
+    margin: 0 auto;
+  
+    color: var(--competition-muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  
+  /* =========================================================
+     15. ERREURS ET VALIDATION
+     ========================================================= */
+  
+  .competitions-page .competition-error {
+    margin: 0;
+    padding: 12px 14px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 4px;
+  
+    background: var(--competition-red-light);
+    color: #a52232;
+  
+    font-size: 12px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+  
+  /* =========================================================
+     16. NOTE DE STOCKAGE
+     ========================================================= */
+  
+  .competitions-page .competition-storage-note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  
+    min-width: 0;
+    padding: 13px 15px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 4px;
+  
+    background: #ffffff;
+    color: var(--competition-muted);
+  
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  
+  .competitions-page .competition-storage-note > span:first-child {
+    flex: 0 0 auto;
+    color: var(--competition-blue);
+  }
+  
+  /* =========================================================
+     17. ACCESSIBILITÉ
+     ========================================================= */
+  
+  .competitions-page :where(
+    .competition-form-toggle,
+    .competition-tab,
+    .competition-delete-button,
+    .competition-primary-button
+  ):focus-visible {
+    outline: 3px solid rgb(0 84 155 / 30%);
+    outline-offset: 3px;
+  }
+  
+  @media (hover: none) {
+    .competitions-page .competition-tab:hover,
+    .competitions-page .competition-form-toggle:hover,
+    .competitions-page .competition-history-row:hover {
+      background-color: inherit;
+    }
+  }
+  
+  /* =========================================================
+     18. TABLETTE
+     ========================================================= */
+  
+  @media (max-width: 1000px) {
     .competitions-page {
-      gap: 22px;
+      --competition-panel-padding: 17px;
+      --competition-section-gap: 20px;
     }
   
-    .competition-form-grid {
+    .competitions-page .competition-tabs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  
+    .competitions-page .metrics-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 13px;
     }
   
-    .competition-history-row {
+    .competitions-page .competition-form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .competitions-page .competition-history-row {
       grid-template-columns: minmax(0, 1fr) auto auto;
-      gap: 10px;
+      gap: var(--space-3);
     }
   
-    .competition-history-main {
-      grid-column: 1;
-    }
-  
-    .competition-history-time-wrap {
-      grid-column: 2;
-      grid-row: 1;
-    }
-  
-    .competition-history-actions {
+    .competitions-page .competition-history-actions {
       grid-column: 3;
       grid-row: 1;
     }
   
-    .competition-history-meta {
-      grid-column: 1 / -1;
+    .competitions-page .competition-history-meta {
+      min-width: 0;
     }
   }
   
-  @media (max-width: 430px) {
-    .competition-form-grid {
-      grid-template-columns: minmax(0, 1fr);
+  /* =========================================================
+     19. MOBILE
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .competitions-page {
+      --competition-panel-padding: 14px;
+      --competition-section-gap: 16px;
     }
   
-    .competition-form-grid .field-wide,
-    .competition-form-grid .field-full {
+    .competitions-page .welcome-section {
+      min-height: 0;
+      padding: 24px 18px;
+    }
+  
+    .competitions-page .welcome-section h1 {
+      font-size: clamp(27px, 7vw, 31px);
+    }
+  
+    .competitions-page .welcome-section .welcome-description {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+  
+    .competitions-page .section-heading {
+      align-items: flex-start;
+    }
+  
+    .competitions-page .section-heading h2 {
+      font-size: 20px;
+    }
+  
+    .competitions-page .section-tag {
+      padding: 6px 8px;
+    }
+  
+    /* Deux colonnes de navigation */
+    .competitions-page .competition-tabs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px;
+      padding: 4px;
+    }
+  
+    .competitions-page .competition-tab {
+      min-height: 40px;
+      padding: 8px 5px;
+      font-size: 11px;
+    }
+  
+    /* Filtres */
+    .competitions-page .competition-toolbar {
+      align-items: stretch;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding: 13px;
+    }
+  
+    .competitions-page .competition-toolbar .competition-field {
+      flex: 1 1 auto;
+      width: 100% !important;
+    }
+  
+    .competitions-page .competition-toolbar .competition-hint {
+      flex: 0 1 auto;
+      margin: 0;
+      text-align: left;
+    }
+  
+    /* Formulaire */
+    .competitions-page .competition-form-toggle {
+      gap: var(--space-3);
+      padding: 14px;
+    }
+  
+    .competitions-page .competition-form-toggle strong {
+      font-size: 14px;
+    }
+  
+    .competitions-page .competition-toggle-icon {
+      flex-basis: 34px;
+      width: 34px;
+      height: 34px;
+    }
+  
+    .competitions-page .competition-form-panel form {
+      gap: var(--space-4);
+    }
+  
+    .competitions-page .competition-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-4);
+    }
+  
+    .competitions-page .competition-form-grid .field-full {
       grid-column: auto;
     }
   
-    .competition-form-actions {
+    .competitions-page .competition-field input,
+    .competitions-page .competition-field select,
+    .competitions-page .competition-field textarea {
+      font-size: 16px;
+    }
+  
+    .competitions-page .competition-form-actions {
+      flex-direction: column;
       align-items: stretch;
     }
   
+    .competitions-page .competition-form-actions
     .competition-primary-button {
       width: 100%;
     }
   
-    .competition-metric-card {
+    /* Statistiques */
+    .competitions-page .metrics-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+    }
+  
+    .competitions-page .competition-metric-card {
+      min-height: 125px;
+      padding: 14px 12px;
+    }
+  
+    .competitions-page .competition-metric-label {
+      font-size: 9px;
+      line-height: 1.5;
+    }
+  
+    .competitions-page .competition-metric-value {
+      margin-top: var(--space-3);
+      font-size: clamp(20px, 5.8vw, 27px);
+    }
+  
+    .competitions-page .competition-metric-note {
+      font-size: 10px;
+    }
+  
+    /* En-têtes de panneaux */
+    .competitions-page .panel-heading {
+      gap: var(--space-3);
+      padding: 14px;
+    }
+  
+    .competitions-page .panel-heading h3 {
+      font-size: 16px;
+    }
+  
+    /* Historique : deux colonnes et deux rangées */
+    .competitions-page .competition-history-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 14px 12px;
+    }
+  
+    .competitions-page .competition-history-main {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  
+    .competitions-page .competition-history-time-wrap {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: start;
+      min-width: 0;
+    }
+  
+    .competitions-page .competition-history-meta {
+      grid-column: 1;
+      grid-row: 2;
+  
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+  
+      min-width: 0;
+    }
+  
+    .competitions-page .competition-history-actions {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: center;
+    }
+  
+    .competitions-page .competition-time {
+      font-size: 15px;
+    }
+  
+    .competitions-page .competition-history-subtitle {
+      font-size: 11px;
+    }
+  
+    /* État vide et note de stockage */
+    .competitions-page .competition-empty-state {
+      margin: 12px;
+      padding: 24px 15px;
+    }
+  
+    .competitions-page .competition-storage-note {
+      gap: var(--space-2);
+      padding: 11px;
+    }
+  
+    /* Les autres sections restent lisibles */
+    .competitions-page > .panel > .welcome-description {
+      padding: 0 14px 16px;
+    }
+  }
+  
+  /* =========================================================
+     20. PETITS ÉCRANS
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .competitions-page .metrics-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .competitions-page .competition-metric-card {
+      min-height: 0;
       padding: 15px;
     }
-  }
   
-
-  .competition-form-toggle {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #f4f5f7;
-    text-align: left;
-    cursor: pointer;
-  }
-  
-  .competition-form-toggle > span:first-child {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .competition-form-toggle strong {
-    font-size: 19px;
-    font-weight: 700;
-  }
-  
-  .competition-toggle-hint {
-    color: #8e95a2;
-    font-size: 12px;
-    line-height: 1.5;
-  }
-  
-  .competition-toggle-icon {
-    display: grid;
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
-    place-items: center;
-    border: 1px solid #2e6649;
-    border-radius: 12px;
-    background: #14291f;
-    color: #39e58c;
-    font-size: 25px;
-    transition: transform 160ms ease, background 160ms ease;
-  }
-  
-  .competition-form-toggle:hover .competition-toggle-icon {
-    background: #1b392a;
-    transform: scale(1.04);
-  }
-  
-  .competition-form-panel form {
-    padding-top: 22px;
-    border-top: 1px solid #252830;
-  }
-  
-  .competition-field input[type='range'] {
-    min-height: 30px;
-    padding: 0;
-    accent-color: #39e58c;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-  
-  @media (max-width: 430px) {
-    .competition-form-toggle strong {
-      font-size: 17px;
+    .competitions-page .competition-history-row {
+      gap: 8px;
+      padding: 12px 10px;
     }
   
-    .competition-toggle-icon {
-      flex-basis: 38px;
-      width: 38px;
-      height: 38px;
+    .competitions-page .competition-history-title {
+      font-size: 12px;
+    }
+  
+    .competitions-page .competition-time {
+      font-size: 13px;
+    }
+  
+    .competitions-page .competition-type-badge {
+      padding: 4px 6px;
+      font-size: 9px;
+    }
+  }
+  
+  /* =========================================================
+     21. PRÉFÉRENCE POUR LES MOUVEMENTS RÉDUITS
+     ========================================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .competitions-page *,
+    .competitions-page *::before,
+    .competitions-page *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
     }
   }
   

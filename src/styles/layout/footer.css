@@ -1,0 +1,24 @@
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 38px 22px;
+    border-top: 1px solid #1c1e24;
+    color: #686b77;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+  
+  .footer-separator {
+    padding: 0 5px;
+    color: #b7ff4a;
+  }
+
+  .app-footer {
+    border-top-color: var(--color-border);
+    color: #7b8798;
+  }
+  
+  .footer-separator {
+    color: var(--color-accent);
+  }

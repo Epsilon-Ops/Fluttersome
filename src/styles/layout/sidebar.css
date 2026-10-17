@@ -1,0 +1,198 @@
+
+/* =========================================
+   EPSILON — NAVIGATION LATÉRALE
+   ========================================= */
+
+   .sidebar {
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 20;
+  
+    display: flex;
+    flex-direction: column;
+  
+    width: var(--sidebar-width, 250px);
+    padding: 24px 16px 18px;
+  
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+  }
+  
+  /* Identité */
+  
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 8px 27px;
+  }
+  
+  .brand-mark {
+    display: grid;
+    flex: 0 0 39px;
+    width: 39px;
+    height: 39px;
+    place-items: center;
+  
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    background: var(--color-primary);
+    color: #fff;
+  
+    font-size: 21px;
+    font-weight: 800;
+  }
+  
+  .brand-name {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+  
+  .brand-caption {
+    margin-top: 4px;
+    color: var(--color-muted);
+    font-size: 9px;
+    letter-spacing: 0.07em;
+  }
+  
+  /* Sections */
+  
+  .sidebar-section-label,
+  .eyebrow {
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  
+  .sidebar-section-label {
+    padding: 0 10px 10px;
+  }
+  
+  /* Liens */
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .nav-item {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  
+    width: 100%;
+    min-height: 43px;
+    padding: 0 11px;
+  
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: #596879;
+  
+    text-align: left;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  
+    transition:
+      color 150ms ease,
+      background-color 150ms ease,
+      border-color 150ms ease;
+  }
+  
+  .nav-item:hover {
+    background: #f3f6f9;
+    color: var(--color-primary);
+  }
+  
+  .nav-item.active {
+    border-color: #d8e4f0;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+  
+  .nav-icon,
+  .bottom-nav-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-icon {
+    width: 21px;
+    color: #758394;
+    font-size: 17px;
+  }
+  
+  .nav-icon svg,
+  .bottom-nav-icon svg {
+    display: block;
+  }
+  
+  .nav-item.active .nav-icon {
+    color: var(--color-primary);
+  }
+  
+  .nav-active-dot {
+    flex: 0 0 5px;
+    width: 5px;
+    height: 5px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+  
+  /* Pied de navigation */
+  
+  .sidebar-footer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: auto;
+    padding: 15px 10px 2px;
+  
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+  
+  .status-indicator,
+  .system-dot,
+  .section-tag-dot,
+  .coming-soon-dot {
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-success);
+    box-shadow: none;
+  }
+  
+  /* Tablettes et écrans intermédiaires */
+  
+  @media (max-width: 1150px) {
+    .sidebar {
+      width: 220px;
+      padding-right: 12px;
+      padding-left: 12px;
+    }
+  }
+  
+  /* Accessibilité */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .nav-item {
+      transition: none;
+    }
+  }
+  

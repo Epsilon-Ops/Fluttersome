@@ -1,6 +1,7 @@
 
 import { categories } from '../constants/categories'
-import '../styles/Sidebar.css'
+import CategoryIcon from './CategoryIcon'
+import { AppIcon } from './icons/index.jsx'
 
 export default function Sidebar({ activePage, onNavigate }) {
   return (
@@ -26,7 +27,9 @@ export default function Sidebar({ activePage, onNavigate }) {
             style={{ '--category-color': category.color }}
             onClick={() => onNavigate(category.id)}
           >
-            <span className="nav-icon">{category.icon}</span>
+            <span className="nav-icon">
+              <CategoryIcon name={category.icon} size={19} />
+            </span>
             <span>{category.label}</span>
             {activePage === category.id && (
               <span className="nav-active-dot" />
