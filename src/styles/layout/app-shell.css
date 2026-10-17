@@ -1,6 +1,5 @@
-
 /* =========================================
-   Application
+   EPSILON — APPLICATION RESPONSIVE
    ========================================= */
 
    .app-shell {
@@ -9,103 +8,86 @@
     color: var(--color-text);
   }
   
-  /* =========================================
-     Avatar
-     ========================================= */
+  /* Avatar */
   
   .avatar {
     display: grid;
     place-items: center;
+    flex: 0 0 32px;
     width: 32px;
     height: 32px;
-    border: 1px solid #30323a;
+    border: 1px solid #cbd9e8;
     border-radius: 50%;
-    background: #17191f;
-    color: #f4f5f7;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
     font-size: 12px;
     font-weight: 700;
   }
   
-  /* =========================================
-     Main layout
-     ========================================= */
+  /* Contenu principal */
   
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width, 250px);
+    background: var(--color-background);
+  }
+  
+  .page-container {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-max-width, 1440px);
+    min-width: 0;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--color-text);
+  }
+  
+  /* Tablettes et écrans intermédiaires */
+  
+  @media (max-width: 1150px) and (min-width: 769px) {
     .main-content {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      min-height: 100vh;
-      margin-left: 252px;
-      padding-bottom: 74px;
-      background: var(--color-background);
+      margin-left: 220px;
     }
   
     .page-container {
-      flex: 1;
-      width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 19px 24px 25px;
-      color: var(--color-text);
-    }
-  
-  /* =========================================
-     Petits écrans
-     ========================================= */
-  
-     @media (max-width: 1150px) {
-      .main-content {
-        margin-left: 220px;
-      }
-    
-      .page-container {
-        padding-right: 18px;
-        padding-left: 18px;
-      }
-    }
-
-  @media (max-width: 380px) {
-    .welcome-section {
-      padding: 21px 17px;
-    }
-  
-    .welcome-section h1 {
-      font-size: 29px;
-    }
-  
-    .section-tag {
-      max-width: 108px;
-      font-size: 7px;
-    }
-  
-    .metric-card-top {
-      gap: 6px;
-    }
-  
-    .metric-icon {
-      font-size: 14px;
-    }
-  
-    .metric-label {
-      letter-spacing: 0;
-    }
-  
-    .panel-bottom {
-      flex-wrap: wrap;
+      padding: 20px 18px 24px;
     }
   }
   
-  /* =========================================
-     Réduction des animations
-     ========================================= */
+  /* Téléphones */
+  
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+      padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    }
+  
+    .page-container {
+      padding: 16px 12px 24px;
+    }
+  }
+  
+  /* Très petits téléphones */
+  
+  @media (max-width: 380px) {
+    .page-container {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+  
+  /* Accessibilité */
   
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
-  
