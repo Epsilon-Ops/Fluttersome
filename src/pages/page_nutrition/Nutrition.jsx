@@ -8,6 +8,7 @@ import {
   loadHydrationData,
   saveHydrationData,
 } from '../../utils/nutritionHelpers'
+import '../../styles/Nutrition.css'
 
 function formatWater(amount) {
   const liters = amount / 1000

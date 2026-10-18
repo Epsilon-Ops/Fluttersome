@@ -1,359 +1,748 @@
 
-/* ========================================
-   NUTRITION — HYDRATATION
-======================================== */
+/* =========================================================
+   EPSILON — NUTRITION
+   Design : structure institutionnelle, accent vert
+   ========================================================= */
 
-.hydration-page {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.25rem;
-    color: var(--text-primary, #202124);
-  }
-  
-  .hydration-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .hydration-header h1 {
-    margin: 0.35rem 0;
-    font-size: clamp(1.7rem, 4vw, 2.25rem);
-    font-weight: 750;
-    letter-spacing: -0.04em;
-  }
-  
-  .hydration-header p {
-    margin: 0;
-    color: var(--text-secondary, #777);
-    line-height: 1.5;
-  }
-  
-  .hydration-card {
-    min-width: 0;
-    padding: clamp(1rem, 3vw, 1.5rem);
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 1.25rem;
-    background: var(--card-bg, #fff);
-    box-shadow: 0 3px 14px rgb(20 30 50 / 4%);
-  }
-  
-  .hydration-card h2 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-  
-  .hydration-summary {
-    color: #fff;
-    border: none;
-    background: linear-gradient(135deg, #1768a8, #398bd1);
-    box-shadow: 0 10px 28px rgb(34 117 183 / 18%);
-  }
-  
-  .hydration-summary-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .hydration-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
-    opacity: 0.85;
-  }
-  
-  .hydration-total {
-    margin: 0.5rem 0 0.25rem;
-    font-size: clamp(2rem, 7vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    font-variant-numeric: tabular-nums;
-  }
-  
-  .hydration-muted {
-    margin: 0.4rem 0 0;
-    color: var(--text-secondary, #777);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .hydration-summary .hydration-muted {
-    color: rgb(255 255 255 / 82%);
-  }
-  
-  .hydration-progress-ring {
-    display: grid;
-    flex: 0 0 auto;
-    width: clamp(76px, 19vw, 112px);
-    aspect-ratio: 1;
-    place-items: center;
-    border-radius: 50%;
-    background: conic-gradient(
-      #b7f4e1 var(--hydration-progress, 0%),
-      rgb(255 255 255 / 20%) 0
-    );
-    position: relative;
-  }
-  
-  .hydration-progress-ring::before {
-    position: absolute;
-    inset: 7px;
-    border-radius: 50%;
-    background: #2478b8;
-    content: '';
-  }
-  
-  .hydration-progress-ring strong {
-    position: relative;
-    font-size: clamp(1rem, 3vw, 1.35rem);
-  }
-  
-  .hydration-progress-track {
-    width: 100%;
-    height: 9px;
-    margin-top: 1.25rem;
-    overflow: hidden;
-    border-radius: 999px;
-    background: rgb(255 255 255 / 22%);
-  }
-  
-  .hydration-progress-fill {
-    height: 100%;
-    border-radius: inherit;
-    background: #b7f4e1;
-    transition: width 200ms ease;
-  }
-  
-  .hydration-remaining {
-    margin: 0.85rem 0 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .hydration-quick-actions {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-top: 1.25rem;
-  }
-  
-  .hydration-quick-button {
-    display: flex;
-    min-width: 0;
-    min-height: 112px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.2rem;
-    padding: 0.75rem 0.35rem;
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 1rem;
-    background: var(--surface-secondary, #f8fafc);
-    color: var(--text-primary, #202124);
-    cursor: pointer;
-    transition: border-color 150ms ease, transform 150ms ease;
-  }
-  
-  .hydration-quick-button:hover {
-    border-color: #398bd1;
-  }
-  
-  .hydration-quick-button:active {
-    transform: scale(0.97);
-  }
-  
-  .hydration-quick-button span {
-    font-size: 1.35rem;
-  }
-  
-  .hydration-quick-button strong {
-    font-size: 1.25rem;
-  }
-  
-  .hydration-quick-button small {
-    color: var(--text-secondary, #777);
-  }
-  
-  .hydration-custom-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1.25rem;
-  }
-  
-  .hydration-custom-form label {
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
-  
-  .hydration-custom-row {
-    display: flex;
-    align-items: stretch;
-    gap: 0.75rem;
-  }
-  
-  .hydration-custom-row input,
-  .hydration-history-heading input {
-    min-width: 0;
-    min-height: 44px;
-    padding: 0.65rem 0.8rem;
-    border: 1px solid var(--border-color, #d1d5db);
-    border-radius: 0.75rem;
-    background: var(--input-bg, #fff);
-    color: var(--text-primary, #202124);
-    font: inherit;
-  }
-  
-  .hydration-custom-row input {
-    flex: 1;
-    width: 100%;
-  }
-  
-  .hydration-custom-row button {
-    flex: 0 0 auto;
-    min-height: 44px;
-  }
-  
-  .hydration-history-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  }
-  
-  .hydration-history-heading input {
-    max-width: 100%;
-  }
-  
-  .hydration-empty {
-    margin: 1.25rem 0 0;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    background: var(--surface-secondary, #f8fafc);
-    color: var(--text-secondary, #777);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .hydration-entry-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-  }
-  
-  .hydration-entry {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid var(--border-color, #e5e7eb);
-  }
-  
-  .hydration-entry:last-child {
-    border-bottom: none;
-  }
-  
-  .hydration-entry-icon {
-    display: grid;
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
-    place-items: center;
-    border-radius: 0.85rem;
-    background: #e8f4ff;
-    font-size: 1.25rem;
-  }
-  
-  .hydration-entry-info {
-    display: flex;
-    flex: 1;
-    min-width: 0;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-  
-  .hydration-entry-info strong {
-    font-size: 0.95rem;
-  }
-  
-  .hydration-entry-info span {
-    color: var(--text-secondary, #777);
-    font-size: 0.8rem;
-  }
-  
-  .hydration-delete-button {
-    padding: 0.45rem 0.6rem;
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 0.65rem;
-    background: transparent;
-    color: var(--text-secondary, #777);
-    font: inherit;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-  
-  .hydration-delete-button:hover {
-    border-color: #dc5555;
-    color: #c62828;
-  }
-  
-  .hydration-message {
-    margin: 0;
-    padding: 0.8rem 1rem;
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 0.8rem;
-    background: var(--surface-secondary, #f8fafc);
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .hydration-page button:focus-visible,
-  .hydration-page input:focus-visible {
-    outline: 3px solid rgb(57 139 209 / 40%);
-    outline-offset: 2px;
-  }
-  
-  @media (max-width: 520px) {
-    .hydration-page {
-      gap: 1rem;
-      padding: 0.85rem;
-    }
-  
-    .hydration-card {
-      border-radius: 1rem;
-    }
-  
-    .hydration-quick-actions {
-      gap: 0.5rem;
-    }
-  
-    .hydration-quick-button {
-      min-height: 100px;
-    }
-  
-    .hydration-custom-row {
-      flex-wrap: wrap;
-    }
-  
-    .hydration-custom-row button {
-      flex: 1 1 100%;
-    }
-  
-    .hydration-entry {
-      gap: 0.55rem;
-    }
-  
-    .hydration-delete-button {
-      font-size: 0.75rem;
-    }
-  }
-  
+   .nutrition-page,
+   .hydration-page {
+     --nutrition-green: #27855b;
+     --nutrition-green-dark: #1e6947;
+     --nutrition-green-light: #edf7f1;
+   
+     --nutrition-blue: #173f73;
+     --nutrition-text: #253448;
+     --nutrition-muted: #6b7789;
+     --nutrition-border: #dce3eb;
+     --nutrition-border-strong: #cbd5df;
+     --nutrition-surface: #ffffff;
+     --nutrition-surface-soft: #f5f7fa;
+   
+     --nutrition-space-1: 4px;
+     --nutrition-space-2: 8px;
+     --nutrition-space-3: 12px;
+     --nutrition-space-4: 16px;
+     --nutrition-space-5: 20px;
+     --nutrition-space-6: 24px;
+   
+     display: flex;
+     flex-direction: column;
+     gap: 24px;
+   
+     width: 100%;
+     min-width: 0;
+   
+     color: var(--nutrition-text);
+   }
+   
+   .nutrition-page *,
+   .nutrition-page *::before,
+   .nutrition-page *::after,
+   .hydration-page *,
+   .hydration-page *::before,
+   .hydration-page *::after {
+     box-sizing: border-box;
+   }
+   
+   .nutrition-page :where(h1, h2, h3, p),
+   .hydration-page :where(h1, h2, h3, p) {
+     margin-top: 0;
+   }
+   
+   .nutrition-page :where(button, input, select, textarea),
+   .hydration-page :where(button, input, select, textarea) {
+     font-family: inherit;
+   }
+   
+   /* =========================================================
+      EN-TÊTE
+      ========================================================= */
+   
+   .nutrition-page > header,
+   .hydration-page > .hydration-header {
+     display: flex;
+     align-items: center;
+   
+     min-height: 160px;
+     padding: 28px 30px;
+   
+     border: 0;
+     border-left: 5px solid var(--nutrition-green);
+     border-radius: 5px;
+   
+     background: linear-gradient(
+       110deg,
+       #102f57 0%,
+       #173f73 65%,
+       #245b91 100%
+     );
+   
+     box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+   }
+   
+   .nutrition-page > header h1,
+   .hydration-page .hydration-header h1 {
+     margin: 0 0 12px;
+   
+     color: #ffffff;
+     font-size: clamp(28px, 4vw, 36px);
+     font-weight: 750;
+     line-height: 1.15;
+     letter-spacing: -0.045em;
+     overflow-wrap: anywhere;
+   }
+   
+   .nutrition-page > header .eyebrow,
+   .hydration-page .hydration-header .eyebrow {
+     display: block;
+     margin: 0 0 12px;
+   
+     color: #dbe8f6;
+     font-size: 10px;
+     font-weight: 700;
+     line-height: 1.45;
+     letter-spacing: 0.075em;
+     text-transform: uppercase;
+   }
+   
+   .nutrition-page > header p,
+   .hydration-page .hydration-header p {
+     max-width: 600px;
+     margin: 0;
+   
+     color: #e0e9f4;
+     font-size: 13px;
+     line-height: 1.7;
+   }
+   
+   /* =========================================================
+      CARTES ET PANNEAUX
+      ========================================================= */
+   
+   .nutrition-page .nutrition-card,
+   .hydration-page .hydration-card {
+     min-width: 0;
+     overflow: hidden;
+   
+     padding: 20px;
+   
+     border: 1px solid var(--nutrition-border);
+     border-radius: 5px;
+   
+     background: var(--nutrition-surface);
+     box-shadow: 0 2px 8px rgb(23 63 115 / 4%);
+   }
+   
+   .nutrition-page .nutrition-card h2,
+   .hydration-page .hydration-card h2 {
+     margin: 0 0 8px;
+   
+     color: var(--nutrition-blue);
+     font-size: 17px;
+     font-weight: 750;
+     line-height: 1.4;
+     letter-spacing: -0.02em;
+   }
+   
+   .hydration-page .hydration-muted {
+     margin-bottom: 0;
+   
+     color: var(--nutrition-muted);
+     font-size: 12px;
+     line-height: 1.7;
+   }
+   
+   /* =========================================================
+      RÉSUMÉ DE L'HYDRATATION
+      ========================================================= */
+   
+   .hydration-page .hydration-summary {
+     padding: 24px;
+     background: linear-gradient(145deg, #ffffff 0%, #f6fbf8 100%);
+   }
+   
+   .hydration-page .hydration-summary-top {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 20px;
+   
+     min-width: 0;
+     margin-bottom: 20px;
+   }
+   
+   .hydration-page .hydration-label {
+     display: block;
+     margin-bottom: 8px;
+   
+     color: var(--nutrition-muted);
+     font-size: 10px;
+     font-weight: 700;
+     line-height: 1.5;
+     letter-spacing: 0.075em;
+   }
+   
+   .hydration-page .hydration-total {
+     margin: 0 0 8px;
+   
+     color: var(--nutrition-green-dark);
+     font-size: clamp(32px, 5vw, 44px);
+     font-weight: 750;
+     line-height: 1.15;
+     letter-spacing: -0.045em;
+     font-variant-numeric: tabular-nums;
+     overflow-wrap: anywhere;
+   }
+   
+   .hydration-page .hydration-progress-ring {
+     display: grid;
+     place-items: center;
+   
+     flex: 0 0 100px;
+     width: 100px;
+     height: 100px;
+   
+     border-radius: 50%;
+     background: conic-gradient(
+       var(--nutrition-green) var(--hydration-progress, 0%),
+       #e2e9e5 0
+     );
+   
+     position: relative;
+   }
+   
+   .hydration-page .hydration-progress-ring::before {
+     position: absolute;
+     inset: 7px;
+   
+     border-radius: 50%;
+     background: #ffffff;
+     content: "";
+   }
+   
+   .hydration-page .hydration-progress-ring strong {
+     position: relative;
+     z-index: 1;
+   
+     color: var(--nutrition-green-dark);
+     font-size: 20px;
+     font-weight: 750;
+     font-variant-numeric: tabular-nums;
+   }
+   
+   .hydration-page .hydration-progress-track {
+     width: 100%;
+     height: 10px;
+     overflow: hidden;
+   
+     border-radius: 999px;
+     background: #e2e9e5;
+   }
+   
+   .hydration-page .hydration-progress-fill {
+     height: 100%;
+     border-radius: inherit;
+   
+     background: linear-gradient(
+       90deg,
+       #27855b,
+       #55b783
+     );
+   
+     transition: width 200ms ease;
+   }
+   
+   .hydration-page .hydration-remaining {
+     margin: 14px 0 0;
+     padding: 12px 14px;
+   
+     border-left: 3px solid var(--nutrition-green);
+     border-radius: 0 4px 4px 0;
+   
+     background: var(--nutrition-green-light);
+     color: var(--nutrition-green-dark);
+   
+     font-size: 12px;
+     font-weight: 600;
+     line-height: 1.65;
+   }
+   
+   /* =========================================================
+      AJOUT D'EAU
+      ========================================================= */
+   
+   .hydration-page .hydration-quick-actions {
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 12px;
+   
+     margin-top: 20px;
+   }
+   
+   .hydration-page .hydration-quick-button {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     gap: 5px;
+   
+     min-width: 0;
+     min-height: 105px;
+     padding: 14px 8px;
+   
+     border: 1px solid var(--nutrition-border);
+     border-radius: 5px;
+   
+     background: #ffffff;
+     color: var(--nutrition-text);
+   
+     cursor: pointer;
+   
+     transition:
+       border-color 150ms ease,
+       background-color 150ms ease,
+       transform 150ms ease;
+   }
+   
+   .hydration-page .hydration-quick-button:hover {
+     border-color: #9ac9ae;
+     background: var(--nutrition-green-light);
+   }
+   
+   .hydration-page .hydration-quick-button:active {
+     transform: scale(0.98);
+   }
+   
+   .hydration-page .hydration-quick-button > span {
+     font-size: 22px;
+     line-height: 1.2;
+   }
+   
+   .hydration-page .hydration-quick-button strong {
+     color: var(--nutrition-green-dark);
+     font-size: 20px;
+     font-weight: 750;
+     font-variant-numeric: tabular-nums;
+   }
+   
+   .hydration-page .hydration-quick-button small {
+     color: var(--nutrition-muted);
+     font-size: 11px;
+   }
+   
+   /* =========================================================
+      FORMULAIRES ET CHAMPS
+      ========================================================= */
+   
+   .hydration-page .hydration-custom-form {
+     display: flex;
+     flex-direction: column;
+     gap: 9px;
+   
+     min-width: 0;
+     margin-top: 18px;
+   }
+   
+   .hydration-page .hydration-custom-form label {
+     color: #45566a;
+     font-size: 12px;
+     font-weight: 650;
+     line-height: 1.45;
+   }
+   
+   .hydration-page .hydration-custom-row {
+     display: flex;
+     align-items: stretch;
+     gap: 10px;
+   
+     min-width: 0;
+   }
+   
+   .hydration-page .hydration-custom-row input,
+   .hydration-page input[type="date"] {
+     width: 100%;
+     min-width: 0;
+     min-height: 42px;
+     padding: 9px 11px;
+   
+     border: 1px solid var(--nutrition-border-strong);
+     border-radius: 5px;
+   
+     background: #ffffff;
+     color: var(--nutrition-text);
+   
+     font-size: 14px;
+     line-height: 1.4;
+   
+     transition:
+       border-color 150ms ease,
+       box-shadow 150ms ease;
+   }
+   
+   .hydration-page .hydration-custom-row input:focus-visible,
+   .hydration-page input[type="date"]:focus-visible {
+     border-color: var(--nutrition-green);
+     outline: none;
+     box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
+   }
+   
+   .hydration-page .hydration-custom-row .training-primary-button,
+   .hydration-page .hydration-custom-row .training-secondary-button {
+     flex: 0 0 auto;
+     min-height: 42px;
+     padding: 10px 16px;
+   
+     border-radius: 4px;
+     font-size: 12px;
+     font-weight: 700;
+     cursor: pointer;
+   }
+   
+   .hydration-page .hydration-custom-row .training-primary-button {
+     border: 1px solid var(--nutrition-green);
+     background: var(--nutrition-green);
+     color: #ffffff;
+   }
+   
+   .hydration-page .hydration-custom-row .training-primary-button:hover {
+     border-color: var(--nutrition-green-dark);
+     background: var(--nutrition-green-dark);
+   }
+   
+   .hydration-page .hydration-custom-row .training-secondary-button {
+     border: 1px solid var(--nutrition-border-strong);
+     background: #ffffff;
+     color: var(--nutrition-blue);
+   }
+   
+   .hydration-page .hydration-custom-row .training-secondary-button:hover {
+     background: var(--nutrition-surface-soft);
+   }
+   
+   .hydration-page .hydration-custom-form > small {
+     font-size: 11px;
+     line-height: 1.6;
+   }
+   
+   /* =========================================================
+      JOURNAL DES PRISES
+      ========================================================= */
+   
+   .hydration-page .hydration-history-heading {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 14px;
+   
+     min-width: 0;
+     margin-bottom: 16px;
+   }
+   
+   .hydration-page .hydration-history-heading > div {
+     min-width: 0;
+   }
+   
+   .hydration-page .hydration-history-heading h2 {
+     margin-bottom: 6px;
+   }
+   
+   .hydration-page .hydration-history-heading input[type="date"] {
+     width: auto;
+     max-width: 100%;
+   }
+   
+   .hydration-page .hydration-entry-list {
+     width: 100%;
+     min-width: 0;
+   }
+   
+   .hydration-page .hydration-entry {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+   
+     min-width: 0;
+     padding: 13px 0;
+   
+     border-bottom: 1px solid #e5eaf0;
+   }
+   
+   .hydration-page .hydration-entry:last-child {
+     border-bottom: 0;
+     padding-bottom: 0;
+   }
+   
+   .hydration-page .hydration-entry-icon {
+     display: grid;
+     place-items: center;
+   
+     flex: 0 0 40px;
+     width: 40px;
+     height: 40px;
+   
+     border: 1px solid #d5eadc;
+     border-radius: 5px;
+   
+     background: var(--nutrition-green-light);
+     font-size: 19px;
+   }
+   
+   .hydration-page .hydration-entry-info {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+   
+     flex: 1 1 auto;
+     min-width: 0;
+   }
+   
+   .hydration-page .hydration-entry-info strong {
+     color: var(--nutrition-blue);
+     font-size: 14px;
+     font-weight: 750;
+     font-variant-numeric: tabular-nums;
+   }
+   
+   .hydration-page .hydration-entry-info span {
+     color: var(--nutrition-muted);
+     font-size: 11px;
+   }
+   
+   .hydration-page .hydration-delete-button {
+     flex: 0 0 auto;
+     min-height: 34px;
+     padding: 7px 10px;
+   
+     border: 1px solid var(--nutrition-border-strong);
+     border-radius: 4px;
+   
+     background: #ffffff;
+     color: var(--nutrition-muted);
+   
+     font-size: 11px;
+     font-weight: 650;
+     cursor: pointer;
+   }
+   
+   .hydration-page .hydration-delete-button:hover {
+     border-color: #e7a0a8;
+     background: #fff1f2;
+     color: #b92537;
+   }
+   
+   .hydration-page .hydration-empty {
+     margin: 0;
+     padding: 26px 16px;
+   
+     border: 1px dashed var(--nutrition-border-strong);
+     border-radius: 4px;
+   
+     background: #fafbfd;
+     color: var(--nutrition-muted);
+   
+     font-size: 12px;
+     line-height: 1.7;
+     text-align: center;
+   }
+   
+   /* =========================================================
+      MESSAGES ET ACCESSIBILITÉ
+      ========================================================= */
+   
+   .hydration-page .hydration-message {
+     margin: 0;
+     padding: 12px 14px;
+   
+     border: 1px solid #cce6d5;
+     border-radius: 4px;
+   
+     background: var(--nutrition-green-light);
+     color: var(--nutrition-green-dark);
+   
+     font-size: 12px;
+     line-height: 1.6;
+   }
+   
+   .hydration-page :where(button, input):focus-visible {
+     outline: 3px solid rgb(39 133 91 / 25%);
+     outline-offset: 3px;
+   }
+   
+   @media (hover: none) {
+     .hydration-page .hydration-quick-button:hover,
+     .hydration-page .hydration-delete-button:hover {
+       background-color: inherit;
+     }
+   }
+   
+   /* =========================================================
+      TABLETTE
+      ========================================================= */
+   
+   @media (max-width: 1000px) {
+     .nutrition-page,
+     .hydration-page {
+       gap: 20px;
+     }
+   
+     .nutrition-page .nutrition-card,
+     .hydration-page .hydration-card {
+       padding: 17px;
+     }
+   }
+   
+   /* =========================================================
+      MOBILE
+      ========================================================= */
+   
+   @media (max-width: 600px) {
+     .nutrition-page,
+     .hydration-page {
+       gap: 16px;
+     }
+   
+     .nutrition-page > header,
+     .hydration-page > .hydration-header {
+       min-height: 0;
+       padding: 24px 18px;
+     }
+   
+     .nutrition-page > header h1,
+     .hydration-page .hydration-header h1 {
+       font-size: clamp(27px, 7vw, 31px);
+     }
+   
+     .nutrition-page > header p,
+     .hydration-page .hydration-header p {
+       font-size: 12px;
+       line-height: 1.7;
+     }
+   
+     .nutrition-page .nutrition-card,
+     .hydration-page .hydration-card {
+       padding: 14px;
+     }
+   
+     .hydration-page .hydration-summary {
+       padding: 18px 14px;
+     }
+   
+     .hydration-page .hydration-summary-top {
+       gap: 12px;
+       margin-bottom: 16px;
+     }
+   
+     .hydration-page .hydration-total {
+       font-size: clamp(29px, 8vw, 38px);
+     }
+   
+     .hydration-page .hydration-progress-ring {
+       flex-basis: 78px;
+       width: 78px;
+       height: 78px;
+     }
+   
+     .hydration-page .hydration-progress-ring::before {
+       inset: 6px;
+     }
+   
+     .hydration-page .hydration-progress-ring strong {
+       font-size: 16px;
+     }
+   
+     .hydration-page .hydration-quick-actions {
+       gap: 8px;
+       margin-top: 16px;
+     }
+   
+     .hydration-page .hydration-quick-button {
+       min-height: 94px;
+       padding: 10px 5px;
+     }
+   
+     .hydration-page .hydration-quick-button strong {
+       font-size: 18px;
+     }
+   
+     .hydration-page .hydration-custom-row {
+       flex-direction: column;
+     }
+   
+     .hydration-page .hydration-custom-row input {
+       font-size: 16px;
+     }
+   
+     .hydration-page .hydration-custom-row .training-primary-button,
+     .hydration-page .hydration-custom-row .training-secondary-button {
+       width: 100%;
+       min-height: 44px;
+     }
+   
+     .hydration-page .hydration-history-heading {
+       align-items: stretch;
+       flex-direction: column;
+     }
+   
+     .hydration-page .hydration-history-heading input[type="date"] {
+       width: 100%;
+       font-size: 16px;
+     }
+   
+     .hydration-page .hydration-entry {
+       gap: 9px;
+     }
+   
+     .hydration-page .hydration-entry-icon {
+       flex-basis: 34px;
+       width: 34px;
+       height: 34px;
+     }
+   
+     .hydration-page .hydration-delete-button {
+       padding: 7px;
+       font-size: 10px;
+     }
+   }
+   
+   /* =========================================================
+      PETITS ÉCRANS
+      ========================================================= */
+   
+   @media (max-width: 360px) {
+     .hydration-page .hydration-summary-top {
+       align-items: flex-start;
+     }
+   
+     .hydration-page .hydration-progress-ring {
+       flex-basis: 68px;
+       width: 68px;
+       height: 68px;
+     }
+   
+     .hydration-page .hydration-entry {
+       flex-wrap: wrap;
+     }
+   
+     .hydration-page .hydration-delete-button {
+       margin-left: auto;
+     }
+   }
+   
+   /* =========================================================
+      MOUVEMENTS RÉDUITS
+      ========================================================= */
+   
+   @media (prefers-reduced-motion: reduce) {
+     .nutrition-page *,
+     .nutrition-page *::before,
+     .nutrition-page *::after,
+     .hydration-page *,
+     .hydration-page *::before,
+     .hydration-page *::after {
+       scroll-behavior: auto !important;
+       animation: none !important;
+       transition: none !important;
+     }
+   }
+   
