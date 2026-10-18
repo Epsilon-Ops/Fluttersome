@@ -13,7 +13,7 @@ import Training from './pages/page_entrainement/Training'
 import Strength from './pages/page_musculation/Strength'
 import Mood from './pages/Mood'
 import Sleep from './pages/Sleep'
-import Nutrition from './pages/Nutrition'
+import Nutrition from './pages/page_nutrition/Nutrition'
 import Tasks from './pages/Tasks'
 import Coach from './pages/Coach'
 
