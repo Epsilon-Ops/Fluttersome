@@ -20,6 +20,7 @@ import {
   formatShortDate,
   parseDistances,
   getBlockStats,
+  makeId,
 } from '../../utils/trainingHelpers'
 
 export default function Training() {
@@ -165,22 +166,24 @@ export default function Training() {
       const index = previous.findIndex(
         (block) => block.id === blockId,
       )
-
+  
       if (index === -1) return previous
-
+  
       const source = previous[index]
-
+  
       const copy = {
         ...source,
-        id: crypto.randomUUID
-          ? crypto.randomUUID()
-          : `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+        id: makeId(),
         name: `${source.name || 'Bloc'} (copie)`,
+        courses: (source.courses || []).map((course) => ({
+          ...course,
+          id: makeId(),
+        })),
       }
-
+  
       const next = [...previous]
       next.splice(index + 1, 0, copy)
-
+  
       return next
     })
   }
@@ -191,54 +194,62 @@ export default function Training() {
     )
   }
 
+
   function handleSubmit(event) {
     event.preventDefault()
     setError('')
-
+  
     if (!selectedDay || !sessionTitle.trim()) {
       setError('Choisis une date et indique le nom de la séance.')
       return
     }
-
+  
     if (blocks.length === 0) {
       setError('Ajoute au moins un bloc à ta séance.')
       return
     }
-
-    for (let index = 0; index < blocks.length; index += 1) {
-      const block = blocks[index]
-      const distances = parseDistances(block.distances || '')
-
-      if (
-        distances.length === 0 ||
-        distances.some(
-          (distance) =>
-            !Number.isFinite(distance) ||
-            distance <= 0 ||
-            distance > 10000,
-        )
-      ) {
-        setError(
-          `Vérifie les distances du bloc ${index + 1}. Utilise des mètres séparés par des virgules.`,
-        )
+  
+    for (let blockIndex = 0; blockIndex < blocks.length; blockIndex += 1) {
+      const block = blocks[blockIndex]
+      const courses = Array.isArray(block.courses) ? block.courses : []
+  
+      if (courses.length === 0) {
+        setError(`Ajoute au moins une course au bloc ${blockIndex + 1}.`)
         return
       }
-
-      if (
-        block.targetIntensity !== '' &&
-        (
-          !Number.isFinite(Number(block.targetIntensity)) ||
-          Number(block.targetIntensity) < 1 ||
-          Number(block.targetIntensity) > 100
-        )
-      ) {
-        setError(
-          `L'intensité du bloc ${index + 1} doit être comprise entre 1 et 100 %.`,
-        )
-        return
+  
+      for (let courseIndex = 0; courseIndex < courses.length; courseIndex += 1) {
+        const course = courses[courseIndex]
+        const distance = Number(course.distance)
+  
+        if (
+          !Number.isFinite(distance) ||
+          distance <= 0 ||
+          distance > 10000
+        ) {
+          setError(
+            `Vérifie la distance de la course ${courseIndex + 1} du bloc ${blockIndex + 1}. Elle doit être comprise entre 1 et 10 000 mètres.`,
+          )
+          return
+        }
+  
+        if (
+          course.targetIntensity !== '' &&
+          course.targetIntensity != null &&
+          (
+            !Number.isFinite(Number(course.targetIntensity)) ||
+            Number(course.targetIntensity) < 1 ||
+            Number(course.targetIntensity) > 100
+          )
+        ) {
+          setError(
+            `L'intensité de la course ${courseIndex + 1} du bloc ${blockIndex + 1} doit être comprise entre 1 et 100 %.`,
+          )
+          return
+        }
       }
     }
-
+  
     if (
       rpe !== '' &&
       (
@@ -250,38 +261,42 @@ export default function Training() {
       setError('Le RPE doit être compris entre 1 et 10.')
       return
     }
-
-    const blockStats = getBlockStats(blocks)
-
+  
+    const normalizedBlocks = blocks.map((block) => ({
+      ...block,
+      courses: block.courses.map((course) => ({
+        ...course,
+        distance: String(Number(course.distance)),
+        targetIntensity:
+          course.targetIntensity === '' || course.targetIntensity == null
+            ? null
+            : Number(course.targetIntensity),
+        recoveryAfter: course.recoveryAfter || '',
+        result: course.result || '',
+        notes: course.notes || '',
+      })),
+    }))
+  
+    const blockStats = getBlockStats(normalizedBlocks)
+  
     const newSession = {
-      id: editingSessionId || undefined,
+      id: editingSessionId || makeId(),
       date: selectedDay,
       type: sessionType,
       title: sessionTitle.trim(),
       notes: sessionNotes.trim(),
       status: 'planned',
-
-      blocks: blocks.map((block) => ({
-        ...block,
-        distances: parseDistances(block.distances).join(', '),
-        targetIntensity:
-          block.targetIntensity === ''
-            ? null
-            : Number(block.targetIntensity),
-      })),
-
+      blocks: normalizedBlocks,
       plannedDistance: blockStats.distance,
       plannedRepetitions: blockStats.repetitions,
       rpe: rpe === '' ? null : Number(rpe),
-
       distance: 0,
       highIntensityDistance: 0,
       repetitions: 0,
       duration: 0,
-
       createdAt: Date.now(),
     }
-
+  
     if (editingSessionId) {
       setSessions((previous) =>
         previous.map((session) =>
@@ -289,23 +304,27 @@ export default function Training() {
             ? {
                 ...session,
                 ...newSession,
-                id: editingSessionId,
+                id: session.id,
                 status: session.status,
                 createdAt: session.createdAt,
+                distance: session.distance || 0,
+                highIntensityDistance: session.highIntensityDistance || 0,
+                repetitions: session.repetitions || 0,
+                duration: session.duration || 0,
               }
             : session,
         ),
       )
     } else {
-      newSession.id = newSession.id || createEmptyBlock().id
       setSessions((previous) => [...previous, newSession])
     }
-
+  
     setEditingSessionId(null)
     setSessionTitle('')
     setSessionNotes('')
     setShowForm(false)
   }
+  
 
   function updateSessionStatus(id, status) {
     setSessions((previous) =>

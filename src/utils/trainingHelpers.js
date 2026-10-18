@@ -49,18 +49,33 @@ export function makeId() {
     : `${Date.now()}-${Math.random().toString(36).slice(2)}`
 }
 
+export function createEmptyCourse(overrides = {}) {
+  return {
+    id: makeId(),
+    distance: '30',
+    condition: 'Départ trépieds',
+    customCondition: '',
+    recoveryAfter: '2 min',
+    targetIntensity: '',
+    referenceDistance: 'none',
+    result: '',
+    notes: '',
+    ...overrides,
+  }
+}
+
 export function createEmptyBlock(overrides = {}) {
+  const defaultCourses = [
+    createEmptyCourse({ distance: '30' }),
+    createEmptyCourse({ distance: '30' }),
+    createEmptyCourse({ distance: '30' }),
+  ]
+
   return {
     id: makeId(),
     name: 'Nouveau bloc',
-    distances: '30, 30, 30',
-    condition: 'Départ trépieds',
-    customCondition: '',
-    recoveryBetweenReps: '2 min',
+    courses: defaultCourses,
     recoveryAfterBlock: '4 min',
-    targetIntensity: '',
-    referenceDistance: 'none',
-    results: '',
     notes: '',
     ...overrides,
   }
@@ -77,42 +92,103 @@ export function loadTrainingSessions() {
     if (!Array.isArray(parsed)) return []
 
     return parsed.map((session) => {
-      if (Array.isArray(session.blocks)) {
-        return session
-      }
-
-      // Migration des séances enregistrées dans l'ancienne version.
       const legacyDistances = Array.isArray(session.distanceSequence)
         ? session.distanceSequence
         : []
 
-      const legacyBlock = createEmptyBlock({
-        name: 'Bloc importé',
-        distances: legacyDistances.join(', '),
-        condition: 'Course classique',
-        recoveryBetweenReps: session.recoveryBetweenReps || '',
-        recoveryAfterBlock: session.recoveryBetweenBlocks || '',
-        targetIntensity:
-          session.targetIntensity == null
-            ? ''
-            : String(session.targetIntensity),
-        referenceDistance: session.referenceRecord || 'none',
-        results: session.results || '',
-      })
+      let blocks
+
+      if (Array.isArray(session.blocks)) {
+        blocks = session.blocks.map((block) => {
+          if (Array.isArray(block.courses)) {
+            return {
+              ...block,
+              courses: block.courses.map((course) => ({
+                ...course,
+                id: course.id || makeId(),
+              })),
+            }
+          }
+
+          const distances = parseDistances(block.distances || '')
+
+          const oldResults = String(block.results || '')
+            .split(/[;,\n]/)
+            .map((result) => result.trim())
+
+          const courses = distances.map((distance, index) =>
+            createEmptyCourse({
+              distance: String(distance),
+              condition: block.condition || 'Course classique',
+              customCondition: block.customCondition || '',
+              recoveryAfter: block.recoveryBetweenReps || '',
+              targetIntensity:
+                block.targetIntensity == null
+                  ? ''
+                  : String(block.targetIntensity),
+              referenceDistance: block.referenceDistance || 'none',
+              result: oldResults[index] || '',
+              notes: '',
+            }),
+          )
+
+          return {
+            ...block,
+            courses,
+            recoveryAfterBlock: block.recoveryAfterBlock || '',
+            notes: block.notes || '',
+          }
+        })
+      } else {
+        const distances = legacyDistances.length
+          ? legacyDistances
+          : []
+
+        blocks = distances.length
+          ? [
+              {
+                ...createEmptyBlock({
+                  name: 'Bloc importé',
+                  recoveryAfterBlock:
+                    session.recoveryBetweenBlocks || '',
+                  notes: session.notes || '',
+                }),
+                courses: distances.map((distance, index) =>
+                  createEmptyCourse({
+                    distance: String(distance),
+                    condition: 'Course classique',
+                    recoveryAfter:
+                      session.recoveryBetweenReps || '',
+                    targetIntensity:
+                      session.targetIntensity == null
+                        ? ''
+                        : String(session.targetIntensity),
+                    referenceDistance:
+                      session.referenceRecord || 'none',
+                    result:
+                      String(session.results || '')
+                        .split(/[;,\n]/)
+                        .map((result) => result.trim())[index] || '',
+                  }),
+                ),
+              },
+            ]
+          : []
+      }
+
+      const stats = getBlockStats(blocks)
 
       return {
         ...session,
-        blocks: legacyDistances.length > 0 ? [legacyBlock] : [],
+        blocks,
         plannedDistance:
-          session.plannedDistance ??
-          legacyDistances.reduce((sum, distance) => sum + distance, 0) *
-            Number(session.blockCount || 1),
+          session.plannedDistance ?? stats.distance,
         plannedRepetitions:
-          session.plannedRepetitions ??
-          legacyDistances.length * Number(session.blockCount || 1),
+          session.plannedRepetitions ?? stats.repetitions,
       }
     })
-  } catch {
+  } catch (error) {
+    console.error('Impossible de charger les séances EPSILON :', error)
     return []
   }
 }
@@ -178,17 +254,26 @@ export function formatWeekRange(monday) {
 }
 
 export function parseDistances(value = '') {
-  if (!value.trim()) return []
+  if (typeof value !== 'string' || !value.trim()) return []
 
   return value
-    .split(/[;,]/)
+    .split(/[;,\n]/)
     .map((part) => Number(part.trim()))
+    .filter((distance) => Number.isFinite(distance))
 }
 
 export function getBlockStats(blocks = []) {
   return blocks.reduce(
     (total, block) => {
-      const distances = parseDistances(block.distances || '')
+      let distances
+
+      if (Array.isArray(block.courses)) {
+        distances = block.courses.map((course) =>
+          Number(course.distance),
+        )
+      } else {
+        distances = parseDistances(block.distances || '')
+      }
 
       const validDistances = distances.filter(
         (distance) =>

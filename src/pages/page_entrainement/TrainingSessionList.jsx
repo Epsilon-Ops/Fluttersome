@@ -20,7 +20,6 @@ export default function TrainingSessionList({
       <div className="training-panel-heading">
         <div>
           <span className="eyebrow">ORGANISATION</span>
-
           <h2>
             {selectedDay === today
               ? 'Séances du jour'
@@ -40,7 +39,8 @@ export default function TrainingSessionList({
       {sessions.length > 0 ? (
         <div className="training-session-list">
           {sessions.map((session) => {
-            const summary = getBlockStats(session.blocks || [])
+            const blocks = session.blocks || []
+            const summary = getBlockStats(blocks)
 
             return (
               <article
@@ -63,20 +63,116 @@ export default function TrainingSessionList({
                   )}
 
                   <p className="training-field-help">
-                    {session.blocks
-                      ? `${session.blocks.length} bloc(s) · ${summary.repetitions} répétitions configurées · ${summary.distance.toLocaleString('fr-FR')} m prévus`
-                      : `${session.plannedRepetitions || 0} répétitions prévues · ${(session.plannedDistance || 0).toLocaleString('fr-FR')} m prévus`}
+                    {blocks.length} bloc(s) · {summary.repetitions}{' '}
+                    courses · {summary.distance.toLocaleString('fr-FR')}{' '}
+                    m prévus
                   </p>
 
-                  {session.blocks?.map((block, index) => (
-                    <p
-                      className="training-field-help"
-                      key={block.id || index}
-                    >
-                      Bloc {index + 1} : {block.name} — {block.distances} m
-                      {block.condition ? ` · ${block.condition}` : ''}
-                    </p>
-                  ))}
+                  {blocks.map((block, blockIndex) => {
+                    const courses = Array.isArray(block.courses)
+                      ? block.courses
+                      : []
+
+                    // Compatibilité d'affichage avec les anciens blocs.
+                    const legacyDistances = typeof block.distances === 'string'
+                      ? block.distances
+                          .split(/[;\n,]/)
+                          .map((value) => value.trim())
+                          .filter(Boolean)
+                      : []
+
+                    return (
+                      <div
+                        className="training-session-block-summary"
+                        key={block.id || blockIndex}
+                      >
+                        <h4>
+                          Bloc {blockIndex + 1}
+                          {block.name ? ` — ${block.name}` : ''}
+                        </h4>
+
+                        {courses.length > 0 ? (
+                          <div className="training-session-courses">
+                            {courses.map((course, courseIndex) => (
+                              <div
+                                className="training-session-course"
+                                key={course.id || courseIndex}
+                              >
+                                <div className="training-session-course-main">
+                                  <strong>
+                                    {course.distance || '—'} m
+                                  </strong>
+
+                                  <span>
+                                    {course.condition === 'Condition personnalisée'
+                                      ? course.customCondition ||
+                                        course.condition
+                                      : course.condition || 'Départ non précisé'}
+                                  </span>
+                                </div>
+
+                                <div className="training-session-course-details">
+                                  {course.targetIntensity != null &&
+                                    course.targetIntensity !== '' && (
+                                      <span>
+                                        Intensité : {course.targetIntensity} %
+                                      </span>
+                                    )}
+
+                                  {course.recoveryAfter && (
+                                    <span>
+                                      Récupération : {course.recoveryAfter}
+                                    </span>
+                                  )}
+
+                                  {course.result && (
+                                    <span>
+                                      Chrono : {course.result} s
+                                    </span>
+                                  )}
+
+                                  {course.referenceDistance &&
+                                    course.referenceDistance !== 'none' && (
+                                      <span>
+                                        Référence : {course.referenceDistance} m
+                                      </span>
+                                    )}
+                                </div>
+
+                                {course.notes && (
+                                  <p className="training-session-notes">
+                                    {course.notes}
+                                  </p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : legacyDistances.length > 0 ? (
+                          <p className="training-field-help">
+                            Anciennes distances : {legacyDistances.join(', ')} m
+                            {block.condition ? ` · ${block.condition}` : ''}
+                          </p>
+                        ) : (
+                          <p className="training-field-help">
+                            Aucune course configurée.
+                          </p>
+                        )}
+
+                        {block.recoveryAfterBlock && (
+                          <p className="training-field-help">
+                            Récupération après le bloc :{' '}
+                            {block.recoveryAfterBlock}
+                          </p>
+                        )}
+
+                        {block.notes && (
+                          <p className="training-session-notes">
+                            {block.notes}
+                          </p>
+                        )}
+                      </div>
+                    )
+                  })}
 
                   <span
                     className={`training-status training-status-${session.status}`}
@@ -141,7 +237,6 @@ export default function TrainingSessionList({
           </span>
 
           <h3>Aucune séance prévue</h3>
-
           <p>Ajoute une séance puis construis-la bloc par bloc.</p>
 
           <button
