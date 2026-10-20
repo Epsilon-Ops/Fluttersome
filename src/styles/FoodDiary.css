@@ -1,0 +1,436 @@
+
+/* =========================================
+   EPSILON — JOURNAL ALIMENTAIRE
+   ========================================= */
+
+   .food-diary {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    color: #243247;
+  }
+  
+  .food-diary,
+  .food-diary * {
+    box-sizing: border-box;
+  }
+  
+  .food-diary-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .food-diary-header h2 {
+    margin: 8px 0;
+    color: #173f73;
+    font-size: clamp(1.45rem, 3vw, 1.9rem);
+    font-weight: 750;
+    letter-spacing: -0.035em;
+  }
+  
+  .food-diary-header p {
+    max-width: 620px;
+    margin: 0;
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  
+  .food-date-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 190px;
+    color: #526176;
+    font-size: 0.82rem;
+    font-weight: 650;
+  }
+  
+  /* Résumé de la journée */
+  
+  .food-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .food-summary-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e3eaf1;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgb(23 63 115 / 4%);
+  }
+  
+  .food-summary-card span {
+    color: #718096;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  
+  .food-summary-card strong {
+    color: #173f73;
+    font-size: 1.65rem;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+  }
+  
+  /* Cartes principales */
+  
+  .food-diary-card {
+    min-width: 0;
+    padding: clamp(18px, 3vw, 28px);
+    background: #ffffff;
+    border: 1px solid #e3eaf1;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgb(23 63 115 / 4%);
+  }
+  
+  .food-diary-card h3 {
+    margin: 0 0 8px;
+    color: #173f73;
+    font-size: 1.15rem;
+    font-weight: 750;
+  }
+  
+  .food-muted {
+    margin: 0 0 20px;
+    color: #718096;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  
+  /* Formulaire */
+  
+  .food-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .food-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  .food-form label,
+  .food-diary-card > label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    color: #40516a;
+    font-size: 0.86rem;
+    font-weight: 650;
+  }
+  
+  .food-diary input,
+  .food-diary select,
+  .food-diary textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    color: #243247;
+    background: #ffffff;
+    border: 1px solid #d8e1eb;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.92rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .food-diary input:focus,
+  .food-diary select:focus,
+  .food-diary textarea:focus {
+    outline: none;
+    border-color: #27855b;
+    box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
+  }
+  
+  .food-diary input::placeholder,
+  .food-diary textarea::placeholder {
+    color: #9aa7b7;
+    font-weight: 400;
+  }
+  
+  .food-diary textarea {
+    resize: vertical;
+    min-height: 85px;
+    line-height: 1.55;
+  }
+  
+  .food-primary-button {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 45px;
+    padding: 12px 20px;
+    color: #ffffff;
+    background: #27855b;
+    border: 1px solid #27855b;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .food-primary-button:hover {
+    background: #206e4b;
+    box-shadow: 0 5px 12px rgb(39 133 91 / 16%);
+  }
+  
+  .food-primary-button:active {
+    transform: translateY(1px);
+  }
+  
+  .food-primary-button:focus-visible,
+  .food-delete-button:focus-visible {
+    outline: 3px solid rgb(39 133 91 / 25%);
+    outline-offset: 3px;
+  }
+  
+  /* Informations facultatives */
+  
+  .food-optional-fields {
+    padding: 16px;
+    background: #f7faf8;
+    border: 1px solid #e0ebe3;
+    border-radius: 12px;
+  }
+  
+  .food-optional-fields summary {
+    color: #246b4c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .food-optional-fields .food-muted {
+    margin: 14px 0;
+    font-size: 0.84rem;
+  }
+  
+  /* Liste des repas */
+  
+  .food-list-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  
+  .food-list-heading h3 {
+    margin-bottom: 5px;
+  }
+  
+  .food-list-heading .food-muted {
+    margin-bottom: 0;
+  }
+  
+  .food-empty {
+    padding: 26px 18px;
+    color: #718096;
+    background: #f8fafc;
+    border: 1px dashed #d5e0eb;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+  
+  .food-entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .food-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+    padding: 17px;
+    background: #fbfcfe;
+    border: 1px solid #e7edf3;
+    border-radius: 13px;
+  }
+  
+  .food-entry-time {
+    flex-shrink: 0;
+    min-width: 55px;
+    padding-top: 3px;
+    color: #27855b;
+    font-size: 0.9rem;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .food-entry-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .food-meal-type {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 9px;
+    color: #246b4c;
+    background: #e9f5ed;
+    border-radius: 6px;
+    font-size: 0.73rem;
+    font-weight: 700;
+  }
+  
+  .food-entry-content h4 {
+    margin: 0 0 6px;
+    color: #173f73;
+    font-size: 0.98rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  
+  .food-entry-content p {
+    margin: 4px 0 0;
+    color: #718096;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  
+  .food-entry-content .food-entry-notes {
+    margin-top: 10px;
+    padding-top: 10px;
+    color: #526176;
+    border-top: 1px solid #e7edf3;
+    white-space: pre-wrap;
+  }
+  
+  .food-delete-button {
+    flex-shrink: 0;
+    padding: 7px 10px;
+    color: #b63845;
+    background: #fff5f5;
+    border: 1px solid #f1d9dc;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .food-delete-button:hover {
+    background: #ffe8ea;
+    border-color: #e9bdc2;
+  }
+  
+  /* Messages */
+  
+  .food-message {
+    margin: 0;
+    padding: 12px 15px;
+    color: #246b4c;
+    background: #edf8f0;
+    border: 1px solid #d4ebda;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  
+  /* Adaptation tablette */
+  
+  @media (max-width: 900px) {
+    .food-summary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .food-diary-header {
+      flex-direction: column;
+    }
+  
+    .food-date-field {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  /* Adaptation mobile */
+  
+  @media (max-width: 560px) {
+    .food-diary {
+      gap: 16px;
+    }
+  
+    .food-summary-grid {
+      gap: 10px;
+    }
+  
+    .food-summary-card {
+      padding: 14px;
+      border-radius: 12px;
+    }
+  
+    .food-summary-card strong {
+      font-size: 1.35rem;
+    }
+  
+    .food-summary-card span {
+      font-size: 0.76rem;
+    }
+  
+    .food-diary-card {
+      padding: 17px;
+      border-radius: 14px;
+    }
+  
+    .food-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 15px;
+    }
+  
+    .food-primary-button {
+      width: 100%;
+    }
+  
+    .food-entry {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px;
+    }
+  
+    .food-entry-content {
+      flex-basis: calc(100% - 70px);
+    }
+  
+    .food-delete-button {
+      margin-left: auto;
+    }
+  
+    .food-optional-fields {
+      padding: 13px;
+    }
+  }
+  
