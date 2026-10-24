@@ -1,0 +1,99 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Boutons et interactions
+   ========================================================= */
+
+   .training-icon-button,
+   .training-today-button,
+   .training-primary-button,
+   .training-secondary-button,
+   .training-text-button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+   
+     min-height: 36px;
+     padding: 8px 12px;
+   
+     border-radius: var(--radius-control);
+   
+     font-size: 12px;
+     font-weight: 700;
+     cursor: pointer;
+   
+     transition:
+       background 150ms ease,
+       border-color 150ms ease,
+       color 150ms ease;
+   }
+   
+   /* Bouton icône */
+   
+   .training-icon-button {
+     width: 36px;
+     padding: 0;
+   
+     color: var(--color-primary);
+     background: var(--color-surface);
+     border: 1px solid var(--color-border);
+   
+     font-size: 18px;
+   }
+   
+   .training-icon-button:hover {
+     background: var(--color-primary-light);
+     border-color: var(--color-primary);
+   }
+   
+   /* Boutons secondaires */
+   
+   .training-today-button,
+   .training-secondary-button {
+     color: var(--color-primary);
+     background: var(--color-primary-light);
+     border: 1px solid transparent;
+   }
+   
+   .training-today-button:hover,
+   .training-secondary-button:hover {
+     border-color: var(--color-primary);
+   }
+   
+   /* Bouton principal */
+   
+   .training-primary-button {
+     color: #ffffff;
+     background: var(--color-primary);
+     border: 1px solid var(--color-primary);
+   }
+   
+   .training-primary-button:hover {
+     background: var(--color-primary-hover);
+     border-color: var(--color-primary-hover);
+   }
+   
+   /* Bouton textuel */
+   
+   .training-text-button {
+     min-height: 32px;
+     padding: 6px 8px;
+   
+     color: var(--color-muted);
+     background: transparent;
+     border: 1px solid transparent;
+   
+     font-size: 11px;
+   }
+   
+   .training-text-button:hover {
+     color: var(--color-danger);
+     background: var(--color-accent-light);
+   }
+   
+   /* États désactivés */
+   
+   .training-block-actions button:disabled {
+     opacity: 0.45;
+     cursor: not-allowed;
+   }

@@ -1,0 +1,27 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Point d'entrée des styles
+   ========================================================= */
+
+/*
+ * Les variables globales du thème sont définies ailleurs.
+ * Si variables.css est leur unique source, importe-le une
+ * seule fois depuis le point d'entrée CSS global du projet.
+ */
+
+ @import "./layout.css";
+
+ @import "./buttons.css";
+ @import "./weekly-planning.css";
+ 
+ @import "./statistics.css";
+ @import "./sessions.css";
+ 
+ @import "./modal-form.css";
+ @import "./block-builder.css";
+ @import "./courses.css";
+ @import "./session-summary.css";
+ 
+ @import "./empty-state.css";
+ 
+ @import "./responsive.css";

@@ -1,6 +1,6 @@
 
 import { useEffect, useMemo, useState } from 'react'
-import '../../styles/Training.css'
+import '../../styles/main_pages/page_entrainement/index.css'
 
 import TrainingHeader from './TrainingHeader'
 import TrainingWeek from './TrainingWeek'

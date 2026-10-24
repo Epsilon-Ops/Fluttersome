@@ -1,0 +1,106 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Liste des séances
+   ========================================================= */
+
+   .training-session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .training-session-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  
+    min-width: 0;
+    padding: 16px;
+  
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+  
+  .training-session-marker {
+    flex: 0 0 4px;
+    align-self: stretch;
+    min-height: 48px;
+  
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+  
+  .training-session-card:nth-child(even) .training-session-marker {
+    background: var(--color-accent);
+  }
+  
+  .training-session-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .training-session-type {
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+  
+  .training-session-content h3 {
+    margin: 5px 0 7px;
+  
+    color: var(--color-text);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+  
+  .training-session-notes {
+    margin: 0 0 10px;
+  
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  
+  /* Statuts */
+  
+  .training-status {
+    display: inline-flex;
+    align-items: center;
+  
+    padding: 4px 8px;
+  
+    border-radius: var(--radius-pill);
+  
+    font-size: 10px;
+    font-weight: 700;
+  }
+  
+  .training-status-planned {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+  
+  .training-status-completed {
+    color: var(--color-success);
+    background: #eaf7ef;
+  }
+  
+  .training-status-cancelled {
+    color: var(--color-danger);
+    background: var(--color-accent-light);
+  }
+  
+  /* Actions d'une séance */
+  
+  .training-session-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+  }

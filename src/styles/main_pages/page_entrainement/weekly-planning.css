@@ -1,0 +1,73 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Planning hebdomadaire
+   ========================================================= */
+
+   .training-week-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .training-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+  }
+  
+  .training-day-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  
+    min-width: 0;
+    padding: 12px 4px;
+  
+    color: var(--color-text);
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  
+    cursor: pointer;
+  
+    transition:
+      background 150ms ease,
+      border-color 150ms ease;
+  }
+  
+  .training-day-button:hover {
+    border-color: var(--color-primary);
+  }
+  
+  .training-day-button.is-today {
+    border-color: var(--color-primary);
+  }
+  
+  .training-day-button.is-selected {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    box-shadow: inset 0 -3px 0 var(--color-accent);
+  }
+  
+  .training-day-name {
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  
+  .training-day-number {
+    font-size: 21px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .training-day-indicator {
+    min-height: 14px;
+  
+    color: var(--color-muted);
+    font-size: 9px;
+    text-align: center;
+  }

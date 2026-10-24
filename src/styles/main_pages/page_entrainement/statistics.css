@@ -1,0 +1,69 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Indicateurs de volume
+   ========================================================= */
+
+   .training-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  
+    margin-bottom: 24px;
+  }
+  
+  .training-metric-card {
+    min-width: 0;
+    padding: 18px;
+  
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .training-metric-card:nth-child(even) {
+    border-top-color: var(--color-accent);
+  }
+  
+  .training-metric-label {
+    display: block;
+  
+    min-height: 30px;
+  
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    line-height: 1.5;
+  }
+  
+  .training-metric-number {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+  
+    margin: 10px 0 7px;
+  }
+  
+  .training-metric-number strong {
+    color: var(--color-primary);
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+  }
+  
+  .training-metric-number > span {
+    color: var(--color-muted);
+    font-size: 11px;
+  }
+  
+  .training-metric-card p {
+    margin: 0;
+  
+    color: var(--color-muted);
+    font-size: 10px;
+    line-height: 1.5;
+  }

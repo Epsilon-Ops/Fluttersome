@@ -1,0 +1,35 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   Éléments de présentation des compétitions
+   ========================================================= */
+
+/* =========================================================
+   BADGES DE TYPE
+   ========================================================= */
+
+   .competitions-page .competition-type-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: fit-content;
+    max-width: 100%;
+    padding: 5px 8px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 3px;
+  
+    background: var(--competition-red-light);
+    color: #a52232;
+  
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+  
+  .competitions-page .competition-type-badge.training {
+    border-color: #cbdff4;
+    background: #edf5ff;
+    color: #245f9d;
+  }

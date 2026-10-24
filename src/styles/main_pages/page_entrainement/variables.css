@@ -1,0 +1,17 @@
+/* =========================================================
+   EPSILON — THÈME BLEU CLAIR
+   Variables globales
+   ========================================================= */
+
+   :root {
+    --color-primary: #4b91d1;
+    --color-primary-hover: #347bbd;
+    --color-primary-light: #eaf4ff;
+  
+    --color-accent: #76b7ee;
+    --color-accent-light: #f0f8ff;
+  
+    --color-border: #d5e5f4;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f5faff;
+  }

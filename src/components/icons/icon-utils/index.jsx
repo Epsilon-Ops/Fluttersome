@@ -1,9 +1,15 @@
+import {
+  ArrowUpIcon,
+  ArrowRightIcon,
+  ArrowDownIcon,
+  ArrowLeftIcon,
+} from '../icon-list/Arrow-Icons'
 
 import {
     SmileIcon,
     MoonIcon,
     HeartIcon,
-  } from '../icon-list/Emotion-Icons'
+} from '../icon-list/Emotion-Icons'
   
   import {
     LeafIcon,
@@ -25,6 +31,16 @@ import {
   } from '../icon-list/Interface-Icons'
   
   export const iconMap = {
+    // -----------------------------
+    // Flèches -----------------------------
+    // -----------------------------
+    // >>> Flèches classiques
+    arrow_up: ArrowUpIcon,
+    arrow_up_right: ArrowUpRightIcon,
+    arrow_right: ArrowRightIcon,
+    arrow_down: ArrowDownIcon,
+    arrow_left: ArrowLeftIcon,
+
     dashboard: DashboardIcon,
     trophy: TrophyIcon,
     activity: ActivityIcon,
@@ -36,7 +52,6 @@ import {
     sun: SunIcon,
     check: CheckIcon,
     sparkles: SparklesIcon,
-    arrowUpRight: ArrowUpRightIcon,
     info: InfoIcon,
   }
   

@@ -1,0 +1,50 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Courses individuelles
+   ========================================================= */
+
+   .training-course-card {
+    min-width: 0;
+    padding: 14px;
+    margin: 12px 0;
+  
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+  }
+  
+  .training-course-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  
+    margin-bottom: 14px;
+  }
+  
+  .training-course-heading h4 {
+    margin: 0;
+  
+    color: var(--color-primary);
+    font-size: 14px;
+  }
+  
+  .training-course-card .training-form-grid {
+    margin-top: 0;
+  }
+  
+  .training-course-card input,
+  .training-course-card select,
+  .training-course-card textarea {
+    box-sizing: border-box;
+  
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .training-course-card {
+      padding: 10px;
+    }
+  }

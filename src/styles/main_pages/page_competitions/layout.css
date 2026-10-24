@@ -1,0 +1,193 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   Structure et mise en page
+   ========================================================= */
+
+   .competitions-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--competition-section-gap);
+  
+    width: 100%;
+    min-width: 0;
+  
+    color: var(--competition-text);
+  }
+  
+  /* Évite les débordements liés aux paddings et aux bordures */
+  .competitions-page *,
+  .competitions-page *::before,
+  .competitions-page *::after {
+    box-sizing: border-box;
+  }
+  
+  /* Réinitialisation typographique locale */
+  .competitions-page :where(h1, h2, h3, h4, p) {
+    margin-top: 0;
+  }
+  
+  .competitions-page :where(button, input, select, textarea) {
+    font-family: inherit;
+  }
+  
+  .competitions-page :where(
+    .welcome-section,
+    .section-heading,
+    .competition-toolbar,
+    .competition-tabs,
+    .competition-form-panel,
+    .panel,
+    .metrics-grid,
+    .competition-history-list
+  ) {
+    min-width: 0;
+  }
+  
+  /* =========================================================
+     BANNIÈRE D'ACCUEIL
+     ========================================================= */
+  
+  .competitions-page .welcome-section {
+    display: flex;
+    align-items: center;
+  
+    min-height: 160px;
+    padding: 28px 30px;
+  
+    border: 0;
+    border-left: 5px solid var(--competition-red);
+    border-radius: 5px;
+  
+    background: linear-gradient(
+      110deg,
+      #102f57 0%,
+      #173f73 65%,
+      #245b91 100%
+    );
+  
+    box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+  }
+  
+  .competitions-page .welcome-section > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .welcome-section .eyebrow {
+    margin-bottom: var(--space-3);
+    color: #dbe8f6;
+  }
+  
+  .competitions-page .welcome-section h1 {
+    overflow-wrap: anywhere;
+  }
+  
+  .competitions-page .welcome-section h1 span {
+    color: #ffffff;
+  }
+  
+  /* =========================================================
+     EN-TÊTE DE SECTION
+     ========================================================= */
+  
+  .competitions-page .section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  
+  .competitions-page .section-heading > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .section-heading .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+  
+  .competitions-page .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  
+    flex-shrink: 0;
+    padding: 7px 10px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 4px;
+  
+    background: #ffffff;
+    color: #52647b;
+  
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+  
+  .competitions-page .section-tag-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+  
+    border-radius: 50%;
+    background: #299764;
+  }
+  
+  /* =========================================================
+     PANNEAUX
+     ========================================================= */
+  
+  .competitions-page .panel,
+  .competitions-page .competition-form-panel {
+    min-width: 0;
+    overflow: hidden;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 5px;
+  
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgb(23 63 115 / 4%);
+  }
+  
+  /* En-têtes des panneaux */
+  .competitions-page .panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  
+    min-width: 0;
+    padding: 17px 19px;
+  
+    border-bottom: 1px solid var(--competition-border);
+    background: #ffffff;
+  }
+  
+  .competitions-page .panel-heading > div {
+    min-width: 0;
+  }
+  
+  .competitions-page .panel-heading .eyebrow {
+    margin-bottom: var(--space-2);
+  }
+  
+  .competitions-page .panel-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex: 0 0 auto;
+    min-width: 34px;
+    min-height: 34px;
+    padding: 6px;
+  
+    border: 1px solid #d8e4f1;
+    border-radius: 4px;
+  
+    background: var(--competition-blue-light);
+    color: var(--competition-blue);
+  
+    font-size: 13px;
+    font-weight: 700;
+  }

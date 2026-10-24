@@ -1,0 +1,177 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Responsive
+   ========================================================= */
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+   @media (max-width: 1000px) {
+    .training-metrics-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  /* =========================================================
+     MOBILE
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .training-page .welcome-section {
+      margin-bottom: 20px;
+    }
+  
+    /* Panneaux */
+  
+    .training-week-panel,
+    .training-panel {
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+  
+    .training-week-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  
+    .training-week-heading h2,
+    .training-section-heading h2,
+    .training-panel-heading h2 {
+      font-size: 16px;
+    }
+  
+    .training-week-actions {
+      width: 100%;
+    }
+  
+    .training-today-button {
+      flex: 1;
+    }
+  
+    /* Planning hebdomadaire */
+  
+    .training-week-days {
+      gap: 4px;
+    }
+  
+    .training-day-button {
+      gap: 6px;
+      padding: 10px 2px;
+    }
+  
+    .training-day-name {
+      font-size: 9px;
+    }
+  
+    .training-day-number {
+      font-size: 18px;
+    }
+  
+    .training-day-indicator {
+      font-size: 8px;
+      overflow-wrap: anywhere;
+    }
+  
+    /* Statistiques */
+  
+    .training-metrics-grid {
+      gap: 8px;
+    }
+  
+    .training-metric-card {
+      padding: 12px;
+    }
+  
+    .training-metric-label {
+      min-height: 30px;
+      font-size: 9px;
+    }
+  
+    .training-metric-number {
+      gap: 4px;
+    }
+  
+    .training-metric-number strong {
+      font-size: 24px;
+    }
+  
+    /* En-têtes de section */
+  
+    .training-section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .training-panel-heading {
+      align-items: flex-start;
+    }
+  
+    /* Séances */
+  
+    .training-session-card {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px;
+    }
+  
+    .training-session-content {
+      flex-basis: calc(100% - 18px);
+    }
+  
+    .training-session-actions {
+      width: 100%;
+      justify-content: flex-start;
+      padding-left: 14px;
+    }
+  
+    /* Formulaire */
+  
+    .training-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+  
+    .training-field-full {
+      grid-column: auto;
+    }
+  
+    /* Bilan hebdomadaire */
+  
+    .training-summary-grid {
+      gap: 7px;
+    }
+  
+    .training-summary-grid > div {
+      padding: 10px 8px;
+    }
+  
+    .training-summary-value {
+      font-size: 21px;
+    }
+  
+    .training-summary-label {
+      font-size: 10px;
+      line-height: 1.5;
+    }
+  
+    /* Boutons */
+  
+    .training-primary-button,
+    .training-secondary-button {
+      font-size: 11px;
+    }
+  }
+  
+  /* =========================================================
+     MOUVEMENTS RÉDUITS
+     ========================================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-page *,
+    .training-page *::before,
+    .training-page *::after {
+      transition: none !important;
+    }
+  }

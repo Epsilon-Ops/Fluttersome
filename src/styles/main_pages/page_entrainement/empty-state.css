@@ -1,0 +1,53 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   États vides et stockage
+   ========================================================= */
+
+   .training-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    padding: 32px 18px;
+  
+    text-align: center;
+  }
+  
+  .training-empty-icon {
+    display: grid;
+  
+    width: 42px;
+    height: 42px;
+    margin-bottom: 12px;
+  
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    border-radius: 50%;
+  
+    font-size: 24px;
+    place-items: center;
+  }
+  
+  .training-empty-state h3 {
+    margin: 0 0 8px;
+  
+    color: var(--color-text);
+    font-size: 15px;
+  }
+  
+  .training-empty-state p {
+    max-width: 440px;
+    margin: 0 0 18px;
+  
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  
+  .training-storage-note {
+    margin: 16px 2px 0;
+  
+    color: var(--color-muted);
+    font-size: 11px;
+    line-height: 1.7;
+  }

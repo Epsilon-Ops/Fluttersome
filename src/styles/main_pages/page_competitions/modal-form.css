@@ -1,0 +1,163 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   Formulaire
+   ========================================================= */
+
+/* =========================================================
+   EN-TÊTE CLIQUABLE
+   ========================================================= */
+
+   .competitions-page .competition-form-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  
+    width: 100%;
+    padding: 17px 19px;
+  
+    border: 0;
+    background: #ffffff;
+    color: var(--competition-text);
+  
+    text-align: left;
+    cursor: pointer;
+  
+    transition: background-color 150ms ease;
+  }
+  
+  .competitions-page .competition-form-toggle:hover {
+    background: var(--competition-surface-soft);
+  }
+  
+  .competitions-page .competition-form-toggle > span:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-form-toggle .eyebrow {
+    margin: 0 0 var(--space-1);
+  }
+  
+  .competitions-page .competition-form-toggle strong {
+    color: var(--competition-blue);
+    font-size: 15px;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+  
+  .competitions-page .competition-toggle-hint {
+    display: block;
+    margin: 0;
+  }
+  
+  .competitions-page .competition-toggle-icon {
+    display: grid;
+    place-items: center;
+  
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 4px;
+  
+    background: var(--competition-red-light);
+    color: var(--competition-red);
+  
+    font-size: 22px;
+    line-height: 1;
+  }
+  
+  .competitions-page .competition-form-toggle:hover
+  .competition-toggle-icon {
+    background: #ffe4e7;
+  }
+  
+  /* =========================================================
+     FORMULAIRE COMPLET
+     ========================================================= */
+  
+  .competitions-page .competition-form-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  
+    min-width: 0;
+    padding: var(--competition-panel-padding);
+  
+    border-top: 1px solid var(--competition-border);
+  }
+  
+  /* Grille des champs */
+  .competitions-page .competition-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  
+    min-width: 0;
+  }
+  
+  .competitions-page .competition-form-grid .field-full {
+    grid-column: 1 / -1;
+  }
+  
+  /* Champs pleine largeur hors grille */
+  .competitions-page .competition-form-panel .field-wide {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  /* Note informative */
+  .competitions-page .competition-form-panel form > .competition-hint {
+    margin: 0;
+    padding: 11px 13px;
+  
+    border-left: 3px solid #9bb7d5;
+    border-radius: 0 3px 3px 0;
+  
+    background: #f4f7fb;
+    color: #52647b;
+  
+    font-size: 11px;
+    line-height: 1.65;
+  }
+  
+  /* =========================================================
+     ACTIONS DU FORMULAIRE
+     ========================================================= */
+  
+  .competitions-page .competition-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  
+    margin: 0;
+    padding-top: var(--space-4);
+  
+    border-top: 1px solid var(--competition-border);
+  }
+  
+  /* =========================================================
+     ERREURS ET VALIDATION
+     ========================================================= */
+  
+  .competitions-page .competition-error {
+    margin: 0;
+    padding: 12px 14px;
+  
+    border: 1px solid #f0c5ca;
+    border-radius: 4px;
+  
+    background: var(--competition-red-light);
+    color: #a52232;
+  
+    font-size: 12px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }

@@ -1,0 +1,75 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   Typographie
+   ========================================================= */
+
+/* Surtitres */
+.competitions-page .eyebrow {
+    display: block;
+  
+    margin: 0 0 var(--space-2);
+  
+    color: var(--competition-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+  }
+  
+  /* Titres principaux */
+  .competitions-page .welcome-section h1 {
+    margin: 0 0 var(--space-3);
+  
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 750;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  }
+  
+  .competitions-page .section-heading h2 {
+    margin: 0;
+  
+    color: var(--competition-blue);
+    font-size: clamp(21px, 2.5vw, 25px);
+    font-weight: 750;
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+  }
+  
+  /* Titres des panneaux */
+  .competitions-page .panel-heading h3 {
+    margin: 0;
+  
+    color: var(--competition-blue);
+    font-size: 17px;
+    font-weight: 750;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Paragraphes descriptifs */
+  .competitions-page .welcome-description {
+    max-width: 600px;
+    margin: 0;
+  
+    color: var(--competition-muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  
+  /* Description sur fond bleu */
+  .competitions-page .welcome-section .welcome-description {
+    color: #e0e9f4;
+  }
+  
+  /* Petits textes secondaires */
+  .competitions-page .competition-hint,
+  .competitions-page .competition-toggle-hint,
+  .competitions-page .competition-history-subtitle,
+  .competitions-page .competition-metric-note {
+    color: var(--competition-muted);
+    font-size: 11px;
+    line-height: 1.6;
+  }

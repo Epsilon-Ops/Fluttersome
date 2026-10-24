@@ -1,0 +1,90 @@
+/* =========================================================
+   EPSILON — ENTRAÎNEMENT
+   Structure générale
+   ========================================================= */
+
+   .training-page {
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 28px;
+  }
+  
+  .training-page .welcome-section {
+    margin-bottom: 28px;
+  }
+  
+  .training-page .welcome-description {
+    max-width: 680px;
+  }
+  
+  .training-week-panel,
+  .training-panel {
+    min-width: 0;
+    margin-bottom: 20px;
+    padding: 20px;
+  
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* En-têtes partagés */
+  
+  .training-week-heading,
+  .training-section-heading,
+  .training-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .training-week-heading {
+    margin-bottom: 20px;
+  }
+  
+  .training-week-heading h2,
+  .training-section-heading h2,
+  .training-panel-heading h2 {
+    margin: 5px 0 0;
+    font-size: 18px;
+  }
+  
+  .training-section-heading {
+    margin: 28px 0 14px;
+  }
+  
+  .training-panel-heading {
+    margin-bottom: 18px;
+  }
+  
+  .training-panel-heading h2 {
+    color: var(--color-primary);
+  }
+  
+  /* Badge local */
+  
+  .training-local-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  
+    padding: 6px 9px;
+  
+    color: var(--color-muted);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+  
+    font-size: 10px;
+    font-weight: 700;
+  }
+  
+  .training-local-badge > span {
+    width: 7px;
+    height: 7px;
+  
+    background: var(--color-success);
+    border-radius: 50%;
+  }

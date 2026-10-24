@@ -1,6 +1,6 @@
 
 import { useMemo, useState } from 'react'
-import '../../styles/Competitions.css'
+import '../../styles/main_pages/page_competitions/index.css'
 
 import CompetitionHeader from './CompetitionHeader'
 import CompetitionTabs from './CompetitionTabs'

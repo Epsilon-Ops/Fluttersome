@@ -1,0 +1,64 @@
+/* =========================================================
+   EPSILON — COMPÉTITIONS
+   États vides et stockage
+   ========================================================= */
+
+/* =========================================================
+   ÉTAT VIDE
+   ========================================================= */
+
+   .competitions-page .competition-empty-state {
+    margin: var(--space-4);
+    padding: 30px 20px;
+  
+    border: 1px dashed var(--competition-border-strong);
+    border-radius: 4px;
+  
+    background: #fafbfd;
+    text-align: center;
+  }
+  
+  .competitions-page .competition-empty-state h3 {
+    margin: 0 0 var(--space-2);
+  
+    color: var(--competition-blue);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  
+  .competitions-page .competition-empty-state p {
+    max-width: 440px;
+    margin: 0 auto;
+  
+    color: var(--competition-muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  
+  /* =========================================================
+     NOTE DE STOCKAGE
+     ========================================================= */
+  
+  .competitions-page .competition-storage-note {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  
+    min-width: 0;
+    padding: 13px 15px;
+  
+    border: 1px solid var(--competition-border);
+    border-radius: 4px;
+  
+    background: #ffffff;
+    color: var(--competition-muted);
+  
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  
+  .competitions-page .competition-storage-note > span:first-child {
+    flex: 0 0 auto;
+    color: var(--competition-blue);
+  }

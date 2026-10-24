@@ -2,6 +2,7 @@ import { iconMap } from './index'
 
 export const ICON_CATEGORIES = [
   { value: 'all', label: 'Toutes les catégories' },
+  { value: 'fleches', label: 'Flèches' },
   { value: 'sport', label: 'Sport' },
   { value: 'emotion', label: 'Émotions & bien-être' },
   { value: 'nature', label: 'Nature' },
@@ -9,6 +10,41 @@ export const ICON_CATEGORIES = [
 ]
 
 export const ICON_SEARCHER = [
+  // Flèches --------------------------------------------
+
+  {
+    name: 'arrow_up',
+    category: 'fleches',
+    label: 'Flèche vers le haut',
+    keywords: ['fleche','haut'],
+  },
+  {
+    name: 'arrow_up_right',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
+    name: 'arrow_right',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
+    name: 'arrow_down',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
+    name: 'arrow_left',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+
+  // --------------------------------------------
+
   {
     name: 'dashboard',
     category: 'interface',
@@ -74,12 +110,6 @@ export const ICON_SEARCHER = [
     category: 'interface',
     label: 'Éclat',
     keywords: ['idée', 'inspiration', 'créativité', 'nouveau'],
-  },
-  {
-    name: 'arrowUpRight',
-    category: 'interface',
-    label: 'Flèche montante',
-    keywords: ['progression', 'évolution', 'direction'],
   },
   {
     name: 'info',
