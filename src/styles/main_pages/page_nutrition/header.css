@@ -1,0 +1,88 @@
+
+/* En-têtes nutrition et hydratation */
+
+.nutrition-page > header,
+.hydration-page > .hydration-header {
+  display: flex;
+  align-items: center;
+  min-height: 160px;
+  padding: 28px 30px;
+  border: 0;
+  border-left: 5px solid var(--nutrition-green);
+  border-radius: 5px;
+  background: linear-gradient(
+    110deg,
+    #102f57 0%,
+    #173f73 65%,
+    #245b91 100%
+  );
+  box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+}
+
+.nutrition-page > header h1,
+.hydration-page .hydration-header h1 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.nutrition-page > header .eyebrow,
+.hydration-page .hydration-header .eyebrow {
+  display: block;
+  margin: 0 0 12px;
+  color: #dbe8f6;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.nutrition-page > header p,
+.hydration-page .hydration-header p {
+  max-width: 600px;
+  margin: 0;
+  color: #e0e9f4;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* En-tête du journal alimentaire */
+
+.food-diary-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.food-diary-header h2 {
+  margin: 8px 0;
+  color: #173f73;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.food-diary-header p {
+  max-width: 620px;
+  margin: 0;
+  color: #718096;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.food-date-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 190px;
+  color: #526176;
+  font-size: 0.82rem;
+  font-weight: 650;
+}

@@ -1,0 +1,89 @@
+
+.strength-form {
+    display: grid;
+    gap: 24px;
+  }
+  
+  .strength-form-heading h2 {
+    margin: 6px 0;
+    color: var(--color-text);
+    font-size: 22px;
+  }
+  
+  .strength-form-heading p {
+    margin: 0;
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+  
+  .strength-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  .strength-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+  
+  .strength-field > span {
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .strength-field input,
+  .strength-field select,
+  .strength-field textarea {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+  }
+  
+  .strength-field input:focus,
+  .strength-field select:focus,
+  .strength-field textarea:focus {
+    outline: 2px solid #7652B5;
+    outline-offset: 1px;
+  }
+  
+  .strength-field textarea {
+    resize: vertical;
+  }
+  
+  .strength-field-full {
+    grid-column: 1 / -1;
+  }
+  
+  .strength-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .strength-session-edit {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-text);
+    font: inherit;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .strength-session-edit:hover {
+    color: #7652B5;
+    text-decoration: underline;
+  }
+  

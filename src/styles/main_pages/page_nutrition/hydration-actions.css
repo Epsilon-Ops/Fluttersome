@@ -1,0 +1,141 @@
+
+/* Ajout rapide */
+
+.hydration-page .hydration-quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  .hydration-page .hydration-quick-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 0;
+    min-height: 105px;
+    padding: 14px 8px;
+    border: 1px solid var(--nutrition-border);
+    border-radius: 5px;
+    background: #ffffff;
+    color: var(--nutrition-text);
+    cursor: pointer;
+    transition:
+      border-color 150ms ease,
+      background-color 150ms ease,
+      transform 150ms ease;
+  }
+  
+  .hydration-page .hydration-quick-button:hover {
+    border-color: #9ac9ae;
+    background: var(--nutrition-green-light);
+  }
+  
+  .hydration-page .hydration-quick-button:active {
+    transform: scale(0.98);
+  }
+  
+  .hydration-page .hydration-quick-button > span {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  
+  .hydration-page .hydration-quick-button strong {
+    color: var(--nutrition-green-dark);
+    font-size: 20px;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .hydration-page .hydration-quick-button small {
+    color: var(--nutrition-muted);
+    font-size: 11px;
+  }
+  
+  /* Formulaire personnalisé */
+  
+  .hydration-page .hydration-custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    margin-top: 18px;
+  }
+  
+  .hydration-page .hydration-custom-form label {
+    color: #45566a;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+  
+  .hydration-page .hydration-custom-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 0;
+  }
+  
+  .hydration-page .hydration-custom-row input,
+  .hydration-page input[type="date"] {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid var(--nutrition-border-strong);
+    border-radius: 5px;
+    background: #ffffff;
+    color: var(--nutrition-text);
+    font-size: 14px;
+    line-height: 1.4;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
+  }
+  
+  .hydration-page .hydration-custom-row input:focus-visible,
+  .hydration-page input[type="date"]:focus-visible {
+    border-color: var(--nutrition-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
+  }
+  
+  .hydration-page .hydration-custom-row .training-primary-button,
+  .hydration-page .hydration-custom-row .training-secondary-button {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .hydration-page .hydration-custom-row .training-primary-button {
+    border: 1px solid var(--nutrition-green);
+    background: var(--nutrition-green);
+    color: #ffffff;
+  }
+  
+  .hydration-page .hydration-custom-row .training-primary-button:hover {
+    border-color: var(--nutrition-green-dark);
+    background: var(--nutrition-green-dark);
+  }
+  
+  .hydration-page .hydration-custom-row .training-secondary-button {
+    border: 1px solid var(--nutrition-border-strong);
+    background: #ffffff;
+    color: var(--nutrition-blue);
+  }
+  
+  .hydration-page .hydration-custom-row .training-secondary-button:hover {
+    background: var(--nutrition-surface-soft);
+  }
+  
+  .hydration-page .hydration-custom-form > small {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  

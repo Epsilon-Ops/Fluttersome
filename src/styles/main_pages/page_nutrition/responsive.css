@@ -1,0 +1,266 @@
+
+/* =========================================================
+   TABLETTE — HYDRATATION ET NUTRITION
+   ========================================================= */
+
+   @media (max-width: 1000px) {
+    .nutrition-page,
+    .hydration-page {
+      gap: 20px;
+    }
+  
+    .nutrition-page .nutrition-card,
+    .hydration-page .hydration-card {
+      padding: 17px;
+    }
+  }
+  
+  /* =========================================================
+     TABLETTE — JOURNAL ALIMENTAIRE
+     ========================================================= */
+  
+  @media (max-width: 900px) {
+    .food-summary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .food-diary-header {
+      flex-direction: column;
+    }
+  
+    .food-date-field {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  /* =========================================================
+     MOBILE — HYDRATATION ET NUTRITION
+     ========================================================= */
+  
+  @media (max-width: 600px) {
+    .nutrition-page,
+    .hydration-page {
+      gap: 16px;
+    }
+  
+    .nutrition-page > header,
+    .hydration-page > .hydration-header {
+      min-height: 0;
+      padding: 24px 18px;
+    }
+  
+    .nutrition-page > header h1,
+    .hydration-page .hydration-header h1 {
+      font-size: clamp(27px, 7vw, 31px);
+    }
+  
+    .nutrition-page > header p,
+    .hydration-page .hydration-header p {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+  
+    .nutrition-page .nutrition-card,
+    .hydration-page .hydration-card {
+      padding: 14px;
+    }
+  
+    /* Résumé d'hydratation */
+  
+    .hydration-page .hydration-summary {
+      padding: 18px 14px;
+    }
+  
+    .hydration-page .hydration-summary-top {
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+  
+    .hydration-page .hydration-total {
+      font-size: clamp(29px, 8vw, 38px);
+    }
+  
+    .hydration-page .hydration-progress-ring {
+      flex-basis: 78px;
+      width: 78px;
+      height: 78px;
+    }
+  
+    .hydration-page .hydration-progress-ring::before {
+      inset: 6px;
+    }
+  
+    .hydration-page .hydration-progress-ring strong {
+      font-size: 16px;
+    }
+  
+    /* Ajout d'eau */
+  
+    .hydration-page .hydration-quick-actions {
+      gap: 8px;
+      margin-top: 16px;
+    }
+  
+    .hydration-page .hydration-quick-button {
+      min-height: 94px;
+      padding: 10px 5px;
+    }
+  
+    .hydration-page .hydration-quick-button strong {
+      font-size: 18px;
+    }
+  
+    .hydration-page .hydration-custom-row {
+      flex-direction: column;
+    }
+  
+    .hydration-page .hydration-custom-row input {
+      font-size: 16px;
+    }
+  
+    .hydration-page .hydration-custom-row .training-primary-button,
+    .hydration-page .hydration-custom-row .training-secondary-button {
+      width: 100%;
+      min-height: 44px;
+    }
+  
+    /* Historique d'hydratation */
+  
+    .hydration-page .hydration-history-heading {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  
+    .hydration-page .hydration-history-heading input[type="date"] {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .hydration-page .hydration-entry {
+      gap: 9px;
+    }
+  
+    .hydration-page .hydration-entry-icon {
+      flex-basis: 34px;
+      width: 34px;
+      height: 34px;
+    }
+  
+    .hydration-page .hydration-delete-button {
+      padding: 7px;
+      font-size: 10px;
+    }
+  }
+  
+  /* =========================================================
+     MOBILE — JOURNAL ALIMENTAIRE
+     ========================================================= */
+  
+  @media (max-width: 560px) {
+    .food-diary {
+      gap: 16px;
+    }
+  
+    .food-summary-grid {
+      gap: 10px;
+    }
+  
+    .food-summary-card {
+      padding: 14px;
+      border-radius: 12px;
+    }
+  
+    .food-summary-card strong {
+      font-size: 1.35rem;
+    }
+  
+    .food-summary-card span {
+      font-size: 0.76rem;
+    }
+  
+    .food-diary-card {
+      padding: 17px;
+      border-radius: 14px;
+    }
+  
+    .food-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 15px;
+    }
+  
+    .food-primary-button {
+      width: 100%;
+    }
+  
+    .food-entry {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px;
+    }
+  
+    .food-entry-content {
+      flex-basis: calc(100% - 70px);
+    }
+  
+    .food-delete-button {
+      margin-left: auto;
+    }
+  
+    .food-optional-fields {
+      padding: 13px;
+    }
+  }
+  
+  /* =========================================================
+     PETITS ÉCRANS
+     ========================================================= */
+  
+  @media (max-width: 360px) {
+    .hydration-page .hydration-summary-top {
+      align-items: flex-start;
+    }
+  
+    .hydration-page .hydration-progress-ring {
+      flex-basis: 68px;
+      width: 68px;
+      height: 68px;
+    }
+  
+    .hydration-page .hydration-entry {
+      flex-wrap: wrap;
+    }
+  
+    .hydration-page .hydration-delete-button {
+      margin-left: auto;
+    }
+  }
+  
+  /* =========================================================
+     INTERACTIONS TACTILES
+     ========================================================= */
+  
+  @media (hover: none) {
+    .hydration-page .hydration-quick-button:hover,
+    .hydration-page .hydration-delete-button:hover {
+      background-color: inherit;
+    }
+  }
+  
+  /* =========================================================
+     MOUVEMENTS RÉDUITS
+     ========================================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .nutrition-page *,
+    .nutrition-page *::before,
+    .nutrition-page *::after,
+    .hydration-page *,
+    .hydration-page *::before,
+    .hydration-page *::after {
+      scroll-behavior: auto !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  

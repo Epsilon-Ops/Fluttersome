@@ -1,0 +1,94 @@
+
+.hydration-page .hydration-summary {
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff 0%, #f6fbf8 100%);
+  }
+  
+  .hydration-page .hydration-summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 0;
+    margin-bottom: 20px;
+  }
+  
+  .hydration-page .hydration-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--nutrition-muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+  }
+  
+  .hydration-page .hydration-total {
+    margin: 0 0 8px;
+    color: var(--nutrition-green-dark);
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 750;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+  
+  .hydration-page .hydration-progress-ring {
+    display: grid;
+    place-items: center;
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--nutrition-green) var(--hydration-progress, 0%),
+      #e2e9e5 0
+    );
+    position: relative;
+  }
+  
+  .hydration-page .hydration-progress-ring::before {
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    background: #ffffff;
+    content: "";
+  }
+  
+  .hydration-page .hydration-progress-ring strong {
+    position: relative;
+    z-index: 1;
+    color: var(--nutrition-green-dark);
+    font-size: 20px;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .hydration-page .hydration-progress-track {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e2e9e5;
+  }
+  
+  .hydration-page .hydration-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #27855b, #55b783);
+    transition: width 200ms ease;
+  }
+  
+  .hydration-page .hydration-remaining {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border-left: 3px solid var(--nutrition-green);
+    border-radius: 0 4px 4px 0;
+    background: var(--nutrition-green-light);
+    color: var(--nutrition-green-dark);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.65;
+  }
+  

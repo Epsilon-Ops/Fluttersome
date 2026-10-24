@@ -1,0 +1,135 @@
+
+/* En-tête et statistiques */
+@media (max-width: 900px) {
+    .strength-metrics-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .strength-header {
+      align-items: stretch;
+      padding: 16px;
+    }
+  
+    .strength-header-main {
+      align-items: flex-start;
+    }
+  
+    .strength-header > button {
+      width: 100%;
+    }
+  
+    .strength-metrics-grid {
+      gap: 10px;
+    }
+  
+    .strength-metric-card {
+      padding: 12px;
+    }
+  }
+  
+  /* Panneaux et calendrier */
+  @media (max-width: 700px) {
+    .strength-panel {
+      padding: 14px;
+    }
+  
+    .strength-week-grid {
+      gap: 4px;
+    }
+  
+    .strength-week-day {
+      padding: 10px 2px;
+      gap: 6px;
+    }
+  
+    .strength-week-day-name,
+    .strength-week-day-month {
+      font-size: 9px;
+    }
+  
+    .strength-week-day-number {
+      font-size: 17px;
+    }
+  
+    .strength-week-day-count {
+      font-size: 9px;
+    }
+  }
+  
+  /* Formulaires */
+  @media (max-width: 600px) {
+    .strength-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+  
+    .strength-field-full {
+      grid-column: auto;
+    }
+  
+    .strength-form-actions {
+      flex-direction: column-reverse;
+    }
+  
+    .strength-form-actions button {
+      width: 100%;
+    }
+  }
+  
+  /* Blocs d'entraînement */
+  @media (max-width: 600px) {
+    .strength-block-card {
+      padding: 13px;
+    }
+  
+    .strength-blocks-section .strength-panel-heading {
+      align-items: stretch;
+    }
+  
+    .strength-blocks-section .strength-panel-heading > button {
+      width: 100%;
+    }
+  
+    .strength-block-exercises > .strength-exercise-heading {
+      align-items: stretch;
+    }
+  
+    .strength-block-exercises > .strength-exercise-heading > button {
+      width: 100%;
+    }
+  }
+  
+  /* Exercices et séries */
+  @media (max-width: 700px) {
+    .strength-exercise-card {
+      padding: 12px;
+    }
+  
+    .strength-set-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .strength-set-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  
+  /* Détails des séances */
+  @media (max-width: 480px) {
+    .strength-session-summary {
+      flex-wrap: wrap;
+    }
+  
+    .strength-session-summary::after {
+      margin-left: auto;
+    }
+  
+    .strength-status {
+      order: 1;
+    }
+  }
+  

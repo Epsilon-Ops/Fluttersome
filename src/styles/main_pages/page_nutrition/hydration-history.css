@@ -1,0 +1,106 @@
+
+.hydration-page .hydration-history-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    min-width: 0;
+    margin-bottom: 16px;
+  }
+  
+  .hydration-page .hydration-history-heading > div {
+    min-width: 0;
+  }
+  
+  .hydration-page .hydration-history-heading h2 {
+    margin-bottom: 6px;
+  }
+  
+  .hydration-page .hydration-history-heading input[type="date"] {
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .hydration-page .hydration-entry-list {
+    width: 100%;
+    min-width: 0;
+  }
+  
+  .hydration-page .hydration-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5eaf0;
+  }
+  
+  .hydration-page .hydration-entry:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .hydration-page .hydration-entry-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d5eadc;
+    border-radius: 5px;
+    background: var(--nutrition-green-light);
+    font-size: 19px;
+  }
+  
+  .hydration-page .hydration-entry-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  
+  .hydration-page .hydration-entry-info strong {
+    color: var(--nutrition-blue);
+    font-size: 14px;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .hydration-page .hydration-entry-info span {
+    color: var(--nutrition-muted);
+    font-size: 11px;
+  }
+  
+  .hydration-page .hydration-delete-button {
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 1px solid var(--nutrition-border-strong);
+    border-radius: 4px;
+    background: #ffffff;
+    color: var(--nutrition-muted);
+    font-size: 11px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+  
+  .hydration-page .hydration-delete-button:hover {
+    border-color: #e7a0a8;
+    background: #fff1f2;
+    color: #b92537;
+  }
+  
+  .hydration-page .hydration-empty {
+    margin: 0;
+    padding: 26px 16px;
+    border: 1px dashed var(--nutrition-border-strong);
+    border-radius: 4px;
+    background: #fafbfd;
+    color: var(--nutrition-muted);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  

@@ -1,0 +1,84 @@
+
+.strength-panel {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .strength-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  
+  .strength-panel-heading h2 {
+    margin: 4px 0 0;
+    color: var(--color-text);
+    font-size: 19px;
+  }
+  
+  .strength-week-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .strength-week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 8px;
+  }
+  
+  .strength-week-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    padding: 12px 5px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    font: inherit;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  
+  .strength-week-day:hover {
+    border-color: #7652B5;
+  }
+  
+  .strength-week-day.is-selected {
+    border-color: #7652B5;
+    background: #f1ebfa;
+  }
+  
+  .strength-week-day.is-today .strength-week-day-number {
+    color: #7652B5;
+  }
+  
+  .strength-week-day-name,
+  .strength-week-day-month {
+    color: var(--color-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  .strength-week-day-number {
+    font-size: 21px;
+  }
+  
+  .strength-week-day-count {
+    color: var(--color-muted);
+    font-size: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  

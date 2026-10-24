@@ -1,0 +1,40 @@
+
+/* Messages de l'hydratation */
+
+.hydration-page .hydration-message {
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid #cce6d5;
+    border-radius: 4px;
+    background: var(--nutrition-green-light);
+    color: var(--nutrition-green-dark);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  
+  /* Messages du journal alimentaire */
+  
+  .food-message {
+    margin: 0;
+    padding: 12px 15px;
+    color: #246b4c;
+    background: #edf8f0;
+    border: 1px solid #d4ebda;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  
+  /* Accessibilité clavier */
+  
+  .hydration-page :where(button, input):focus-visible {
+    outline: 3px solid rgb(39 133 91 / 25%);
+    outline-offset: 3px;
+  }
+  
+  .food-primary-button:focus-visible,
+  .food-delete-button:focus-visible {
+    outline: 3px solid rgb(39 133 91 / 25%);
+    outline-offset: 3px;
+  }
+  

@@ -1,0 +1,57 @@
+
+.strength-block-card {
+    display: grid;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+  }
+  
+  .strength-block-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .strength-block-heading h3 {
+    margin: 5px 0 0;
+    color: var(--color-text);
+    font-size: 17px;
+  }
+  
+  .strength-danger-button {
+    color: #b42318;
+  }
+  
+  .strength-blocks-section {
+    display: grid;
+    gap: 16px;
+  }
+  
+  .strength-blocks-section .strength-panel-heading {
+    margin-bottom: 0;
+  }
+  
+  .strength-blocks-list {
+    display: grid;
+    gap: 14px;
+  }
+  
+  .strength-block-exercises {
+    display: grid;
+    gap: 14px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .strength-block-exercises > .strength-exercise-heading {
+    margin-bottom: 2px;
+  }
+  
+  .strength-block-exercises > .strength-exercise-heading > div {
+    min-width: 0;
+  }
+  

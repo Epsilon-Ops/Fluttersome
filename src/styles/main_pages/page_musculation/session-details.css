@@ -1,0 +1,134 @@
+
+.strength-session-details {
+    min-width: 0;
+  }
+  
+  .strength-session-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 2px;
+    cursor: pointer;
+    list-style: none;
+  }
+  
+  .strength-session-summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .strength-session-summary::after {
+    content: '+';
+    flex-shrink: 0;
+    color: var(--color-muted);
+    font-size: 22px;
+  }
+  
+  .strength-session-details[open] .strength-session-summary::after {
+    content: '−';
+  }
+  
+  .strength-session-summary-main {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+  }
+  
+  .strength-session-summary-main > strong {
+    overflow-wrap: anywhere;
+    color: var(--color-text);
+    font-size: 15px;
+  }
+  
+  .strength-session-meta {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .strength-status {
+    flex-shrink: 0;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  
+  .strength-status.is-completed {
+    background: #e6f4ea;
+    color: #216e39;
+  }
+  
+  .strength-status.is-planned {
+    background: #f1ebfa;
+    color: #7652b5;
+  }
+  
+  .strength-session-preview {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+    overflow-wrap: anywhere;
+  }
+  
+  .strength-session-preview > p,
+  .strength-preview-notes p {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .strength-preview-block {
+    display: grid;
+    gap: 8px;
+    padding: 13px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+  }
+  
+  .strength-preview-block h4 {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 14px;
+  }
+  
+  .strength-preview-exercises,
+  .strength-preview-sets {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .strength-preview-exercises > li > strong {
+    color: var(--color-text);
+    font-size: 13px;
+  }
+  
+  .strength-preview-exercises > li > p {
+    margin-top: 4px;
+  }
+  
+  .strength-preview-sets {
+    gap: 5px;
+    margin-top: 8px;
+  }
+  
+  .strength-preview-sets li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    color: var(--color-muted);
+    font-size: 12px;
+  }
+  
+  .strength-preview-notes {
+    display: grid;
+    gap: 5px;
+  }
+  

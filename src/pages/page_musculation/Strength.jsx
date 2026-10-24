@@ -7,7 +7,7 @@ import StrengthWeek from './StrengthWeek'
 import StrengthForm from './StrengthForm'
 import StrengthSessionPreview from './StrengthSessionPreview'
 
-import '../../styles/Strength.css'
+import '../../styles/main_pages/page_musculation/index.css'
 
 import {
   STRENGTH_STORAGE_KEY,

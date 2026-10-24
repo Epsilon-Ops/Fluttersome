@@ -1,8 +1,11 @@
 import {
   ArrowUpIcon,
   ArrowRightIcon,
+  ArrowDownRightIcon,
   ArrowDownIcon,
+  ArrowDownLeftIcon,
   ArrowLeftIcon,
+  ArrowUpLeftIcon,
 } from '../icon-list/Arrow-Icons'
 
 import {
@@ -38,8 +41,11 @@ import {
     arrow_up: ArrowUpIcon,
     arrow_up_right: ArrowUpRightIcon,
     arrow_right: ArrowRightIcon,
+    arrow_down_right: ArrowDownRightIcon,
     arrow_down: ArrowDownIcon,
+    arrow_down_left: ArrowDownLeftIcon,
     arrow_left: ArrowLeftIcon,
+    arrow_up_left: ArrowUpLeftIcon,
 
     dashboard: DashboardIcon,
     trophy: TrophyIcon,

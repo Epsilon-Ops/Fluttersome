@@ -1,0 +1,28 @@
+
+.nutrition-page .nutrition-card,
+.hydration-page .hydration-card {
+  min-width: 0;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid var(--nutrition-border);
+  border-radius: 5px;
+  background: var(--nutrition-surface);
+  box-shadow: 0 2px 8px rgb(23 63 115 / 4%);
+}
+
+.nutrition-page .nutrition-card h2,
+.hydration-page .hydration-card h2 {
+  margin: 0 0 8px;
+  color: var(--nutrition-blue);
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.hydration-page .hydration-muted {
+  margin-bottom: 0;
+  color: var(--nutrition-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}

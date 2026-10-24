@@ -8,7 +8,7 @@ import {
   loadHydrationData,
   saveHydrationData,
 } from '../../utils/nutritionHelpers'
-import '../../styles/Nutrition.css'
+import '../../styles/main_pages/page_nutrition/index.css'
 
 function formatWater(amount) {
   return `${(amount / 1000).toLocaleString('fr-FR', {

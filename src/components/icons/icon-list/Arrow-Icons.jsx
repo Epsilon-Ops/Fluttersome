@@ -48,3 +48,36 @@ export function ArrowRightIcon(props) {
         </Svg>
       )
 }
+
+export function ArrowUpLeftIcon(props) {
+  return (
+    <Svg {...props}>
+      <g transform="rotate(270 12 12)">
+        <path d="M7 17 17 7" />
+        <path d="M7 7h10v10" />
+      </g>
+    </Svg>
+  )
+}
+
+export function ArrowDownRightIcon(props) {
+  return (
+    <Svg {...props}>
+      <g transform="rotate(90 12 12)">
+        <path d="M7 17 17 7" />
+        <path d="M7 7h10v10" />
+      </g>
+    </Svg>
+  )
+}
+
+export function ArrowDownLeftIcon(props) {
+  return (
+    <Svg {...props}>
+      <g transform="rotate(180 12 12)">
+        <path d="M7 17 17 7" />
+        <path d="M7 7h10v10" />
+      </g>
+    </Svg>
+  )
+}

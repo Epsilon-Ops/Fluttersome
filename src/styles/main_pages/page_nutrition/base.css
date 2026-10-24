@@ -1,0 +1,68 @@
+
+/* EPSILON — NUTRITION : base commune */
+
+.nutrition-page,
+.hydration-page {
+  --nutrition-green: #27855b;
+  --nutrition-green-dark: #1e6947;
+  --nutrition-green-light: #edf7f1;
+
+  --nutrition-blue: #173f73;
+  --nutrition-text: #253448;
+  --nutrition-muted: #6b7789;
+  --nutrition-border: #dce3eb;
+  --nutrition-border-strong: #cbd5df;
+  --nutrition-surface: #ffffff;
+  --nutrition-surface-soft: #f5f7fa;
+
+  --nutrition-space-1: 4px;
+  --nutrition-space-2: 8px;
+  --nutrition-space-3: 12px;
+  --nutrition-space-4: 16px;
+  --nutrition-space-5: 20px;
+  --nutrition-space-6: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  width: 100%;
+  min-width: 0;
+
+  color: var(--nutrition-text);
+}
+
+.nutrition-page *,
+.nutrition-page *::before,
+.nutrition-page *::after,
+.hydration-page *,
+.hydration-page *::before,
+.hydration-page *::after {
+  box-sizing: border-box;
+}
+
+.nutrition-page :where(h1, h2, h3, p),
+.hydration-page :where(h1, h2, h3, p) {
+  margin-top: 0;
+}
+
+.nutrition-page :where(button, input, select, textarea),
+.hydration-page :where(button, input, select, textarea) {
+  font-family: inherit;
+}
+
+/* Journal alimentaire */
+
+.food-diary {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+  color: #243247;
+}
+
+.food-diary,
+.food-diary * {
+  box-sizing: border-box;
+}

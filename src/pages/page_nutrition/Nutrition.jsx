@@ -1,7 +1,7 @@
 
 import Hydration from './Hydration'
 import FoodDiary from './FoodDiary'
-import '../../styles/Nutrition.css'
+import '../../styles/main_pages/page_nutrition/index.css'
 
 export default function Nutrition() {
   return (

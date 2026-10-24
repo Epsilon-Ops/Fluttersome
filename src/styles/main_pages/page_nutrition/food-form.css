@@ -1,0 +1,117 @@
+
+/* Formulaire alimentaire */
+
+.food-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .food-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  .food-form label,
+  .food-diary-card > label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+    color: #40516a;
+    font-size: 0.86rem;
+    font-weight: 650;
+  }
+  
+  .food-diary input,
+  .food-diary select,
+  .food-diary textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    color: #243247;
+    background: #ffffff;
+    border: 1px solid #d8e1eb;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.92rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .food-diary input:focus,
+  .food-diary select:focus,
+  .food-diary textarea:focus {
+    outline: none;
+    border-color: #27855b;
+    box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
+  }
+  
+  .food-diary input::placeholder,
+  .food-diary textarea::placeholder {
+    color: #9aa7b7;
+    font-weight: 400;
+  }
+  
+  .food-diary textarea {
+    resize: vertical;
+    min-height: 85px;
+    line-height: 1.55;
+  }
+  
+  /* Bouton principal */
+  
+  .food-primary-button {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 45px;
+    padding: 12px 20px;
+    color: #ffffff;
+    background: #27855b;
+    border: 1px solid #27855b;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  .food-primary-button:hover {
+    background: #206e4b;
+    box-shadow: 0 5px 12px rgb(39 133 91 / 16%);
+  }
+  
+  .food-primary-button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Champs facultatifs */
+  
+  .food-optional-fields {
+    padding: 16px;
+    background: #f7faf8;
+    border: 1px solid #e0ebe3;
+    border-radius: 12px;
+  }
+  
+  .food-optional-fields summary {
+    color: #246b4c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .food-optional-fields .food-muted {
+    margin: 14px 0;
+    font-size: 0.84rem;
+  }
+  

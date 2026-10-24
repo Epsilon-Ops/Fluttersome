@@ -31,13 +31,31 @@ export const ICON_SEARCHER = [
     keywords: ['progression', 'évolution', 'direction'],
   },
   {
+    name: 'arrow_down_right',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
     name: 'arrow_down',
     category: 'fleches',
     label: 'Flèche montante',
     keywords: ['progression', 'évolution', 'direction'],
   },
   {
+    name: 'arrow_down_left',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
     name: 'arrow_left',
+    category: 'fleches',
+    label: 'Flèche montante',
+    keywords: ['progression', 'évolution', 'direction'],
+  },
+  {
+    name: 'arrow_up_left',
     category: 'fleches',
     label: 'Flèche montante',
     keywords: ['progression', 'évolution', 'direction'],

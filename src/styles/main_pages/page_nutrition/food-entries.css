@@ -1,0 +1,124 @@
+
+/* En-tête de la liste */
+
+.food-list-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  
+  .food-list-heading h3 {
+    margin-bottom: 5px;
+  }
+  
+  .food-list-heading .food-muted {
+    margin-bottom: 0;
+  }
+  
+  /* Liste vide */
+  
+  .food-empty {
+    padding: 26px 18px;
+    color: #718096;
+    background: #f8fafc;
+    border: 1px dashed #d5e0eb;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+  
+  /* Liste des repas */
+  
+  .food-entry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .food-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+    padding: 17px;
+    background: #fbfcfe;
+    border: 1px solid #e7edf3;
+    border-radius: 13px;
+  }
+  
+  .food-entry-time {
+    flex-shrink: 0;
+    min-width: 55px;
+    padding-top: 3px;
+    color: #27855b;
+    font-size: 0.9rem;
+    font-weight: 750;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  .food-entry-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .food-meal-type {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 9px;
+    color: #246b4c;
+    background: #e9f5ed;
+    border-radius: 6px;
+    font-size: 0.73rem;
+    font-weight: 700;
+  }
+  
+  .food-entry-content h4 {
+    margin: 0 0 6px;
+    color: #173f73;
+    font-size: 0.98rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  
+  .food-entry-content p {
+    margin: 4px 0 0;
+    color: #718096;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  
+  .food-entry-content .food-entry-notes {
+    margin-top: 10px;
+    padding-top: 10px;
+    color: #526176;
+    border-top: 1px solid #e7edf3;
+    white-space: pre-wrap;
+  }
+  
+  /* Suppression d'un repas */
+  
+  .food-delete-button {
+    flex-shrink: 0;
+    padding: 7px 10px;
+    color: #b63845;
+    background: #fff5f5;
+    border: 1px solid #f1d9dc;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .food-delete-button:hover {
+    background: #ffe8ea;
+    border-color: #e9bdc2;
+  }
+  

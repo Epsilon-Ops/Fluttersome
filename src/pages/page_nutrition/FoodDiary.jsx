@@ -8,7 +8,7 @@ import {
   loadFoodEntries,
   saveFoodEntries,
 } from '../../utils/foodHelpers'
-import '../../styles/FoodDiary.css'
+import '../../styles/main_pages/page_nutrition/index.css'
 
 const initialForm = () => createFoodEntry({
   date: getFoodLocalDate(),
