@@ -37,3 +37,10 @@ function Svg({ size = 20, children, className = '' }) {
     )
   }
   
+  export function MoonIcon(props) {
+    return (
+      <Svg {...props}>
+        <path d="M20.985 12.486A9 9 0 0 1 11.514 3.015a9 9 0 1 0 9.471 9.471Z" />
+      </Svg>
+    )
+  }

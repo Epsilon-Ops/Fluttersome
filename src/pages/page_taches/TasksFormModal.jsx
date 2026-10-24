@@ -1,8 +1,18 @@
+
 import { useEffect, useState } from 'react'
 import {
   TASK_CATEGORIES,
   TASK_PRIORITIES,
 } from '../../utils/taskHelpers'
+import {
+  AppIcon,
+  iconMap,
+} from '../../components/icons'
+import {
+  TASK_COLOR_PALETTES,
+  DEFAULT_TASK_ICON,
+  DEFAULT_TASK_COLOR,
+} from '../../components/icons/icon-colors'
 
 const EMPTY_FORM = {
   title: '',
@@ -12,6 +22,8 @@ const EMPTY_FORM = {
   duration: '',
   notes: '',
   subtasks: [],
+  icon: DEFAULT_TASK_ICON,
+  color: DEFAULT_TASK_COLOR,
 }
 
 export default function TasksFormModal({
@@ -39,6 +51,8 @@ export default function TasksFormModal({
             subtasks: (task.subtasks ?? []).map(
               (subtask) => ({ ...subtask }),
             ),
+            icon: task.icon ?? DEFAULT_TASK_ICON,
+            color: task.color ?? DEFAULT_TASK_COLOR,
           }
         : {
             ...EMPTY_FORM,
@@ -199,6 +213,63 @@ export default function TasksFormModal({
               placeholder="Ex. Réviser les maths"
             />
           </label>
+
+          <section className="tasks-appearance">
+            <div className="tasks-form-field">
+              <span>Icône</span>
+
+              <div className="tasks-icon-picker">
+                {Object.keys(iconMap).map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    className={`tasks-icon-option ${
+                      form.icon === name ? 'is-selected' : ''
+                    }`}
+                    onClick={() => updateField('icon', name)}
+                    aria-label={`Choisir l'icône ${name}`}
+                    aria-pressed={form.icon === name}
+                  >
+                    <AppIcon name={name} size={22} />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="tasks-form-field">
+              <span>Couleur</span>
+
+              <div className="tasks-color-picker">
+                {TASK_COLOR_PALETTES.map((palette) => (
+                  <button
+                    key={palette.id}
+                    type="button"
+                    className={`tasks-color-option ${
+                      form.color === palette.id
+                        ? 'is-selected'
+                        : ''
+                    }`}
+                    onClick={() =>
+                      updateField('color', palette.id)
+                    }
+                    aria-label={`Choisir la couleur ${palette.label}`}
+                    aria-pressed={form.color === palette.id}
+                    title={palette.label}
+                    style={{
+                      '--task-primary': palette.primary,
+                      '--task-accent': palette.accent,
+                    }}
+                  >
+                    <span />
+                  </button>
+                ))}
+              </div>
+
+              <p className="tasks-form-hint">
+                Couleur principale et couleur accentuée
+              </p>
+            </div>
+          </section>
 
           <div className="tasks-form-grid">
             <label className="tasks-form-field">

@@ -1,3 +1,9 @@
+import {
+  DEFAULT_TASK_ICON,
+  DEFAULT_TASK_COLOR,
+  TASK_COLOR_PALETTES,
+} from '../components/icons/icon-colors'
+
 export const TASK_CATEGORIES = [
     { value: 'etudes', label: 'Études' },
     { value: 'maison', label: 'Maison' },
@@ -158,6 +164,16 @@ export const TASK_CATEGORIES = [
     return {
       id: existingTask?.id ?? createTaskId(),
       title: String(values.title ?? '').trim(),
+      icon: values.icon || existingTask?.icon || DEFAULT_TASK_ICON,
+      color: TASK_COLOR_PALETTES.some(
+        (palette) => palette.id === values.color
+      )
+        ? values.color
+        : TASK_COLOR_PALETTES.some(
+              (palette) => palette.id === existingTask?.color
+            )
+          ? existingTask.color
+          : DEFAULT_TASK_COLOR,
       due: values.due || '',
       priority: values.priority || 'normal',
       category: values.category || 'personnel',
