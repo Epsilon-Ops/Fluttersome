@@ -1,7 +1,7 @@
 import {
   ICON_CATEGORIES,
   ICON_SEARCHER,
-} from '../../components/icons/icon-searcher'
+} from '../../components/icons/icon-utils/icon-searcher'
 import { useEffect, useState } from 'react'
 import {
   TASK_CATEGORIES,
@@ -10,12 +10,12 @@ import {
 import {
   AppIcon,
   iconMap,
-} from '../../components/icons'
+} from '../../components/icons/icon-utils/index'
 import {
   TASK_COLOR_PALETTES,
   DEFAULT_TASK_ICON,
   DEFAULT_TASK_COLOR,
-} from '../../components/icons/icon-colors'
+} from '../../components/icons/icon-utils/icon-colors'
 
 const EMPTY_FORM = {
   title: '',

@@ -1,6 +1,6 @@
 
-import { AppIcon } from '../../components/icons'
-import { getTaskColorPalette } from '../../components/icons/icon-colors'
+import { AppIcon } from '../../components/icons/icon-utils/index'
+import { getTaskColorPalette } from '../../components/icons/icon-utils/icon-colors'
 import TasksSubtasks from './TasksSubtasks'
 
 export default function TasksCard({

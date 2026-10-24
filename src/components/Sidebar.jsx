@@ -1,7 +1,7 @@
 
 import { categories } from '../constants/categories'
 import CategoryIcon from './CategoryIcon'
-import { AppIcon } from './icons/index.jsx'
+import { AppIcon } from './icons/icon-utils/index.jsx'
 
 export default function Sidebar({ activePage, onNavigate }) {
   return (

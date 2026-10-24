@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 import { categories } from './constants/categories'
-import { AppIcon } from './components/icons/index.jsx'
+import { AppIcon } from './components/icons/icon-utils/index.jsx'
 
 import Sidebar from './components/Sidebar'
 import BottomNav from './components/BottomNav'

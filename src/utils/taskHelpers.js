@@ -2,7 +2,7 @@ import {
   DEFAULT_TASK_ICON,
   DEFAULT_TASK_COLOR,
   TASK_COLOR_PALETTES,
-} from '../components/icons/icon-colors'
+} from '../components/icons/icon-utils/icon-colors'
 
 export const TASK_CATEGORIES = [
     { value: 'etudes', label: 'Études' },

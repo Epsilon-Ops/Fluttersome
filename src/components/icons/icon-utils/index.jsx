@@ -3,18 +3,18 @@ import {
     SmileIcon,
     MoonIcon,
     HeartIcon,
-  } from './Emotion-Icons'
+  } from '../icon-list/Emotion-Icons'
   
   import {
     LeafIcon,
     SunIcon,
-  } from './Nature-Icons'
+  } from '../icon-list/Nature-Icons'
   
   import {
     TrophyIcon,
     ActivityIcon,
     DumbbellIcon,
-  } from './Sport-Icons'
+  } from '../icon-list/Sport-Icons'
   
   import {
     DashboardIcon,
@@ -22,7 +22,7 @@ import {
     SparklesIcon,
     ArrowUpRightIcon,
     InfoIcon,
-  } from './Interface-Icons'
+  } from '../icon-list/Interface-Icons'
   
   export const iconMap = {
     dashboard: DashboardIcon,

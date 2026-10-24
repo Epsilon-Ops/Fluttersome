@@ -1,4 +1,4 @@
-import { AppIcon } from '../components/icons'
+import { AppIcon } from '../components/icons/icon-utils/index'
 
 export default function PagePlaceholder({
   title,

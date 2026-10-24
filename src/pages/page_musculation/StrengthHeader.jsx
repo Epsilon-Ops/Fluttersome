@@ -1,5 +1,5 @@
 
-import { DumbbellIcon } from '../../components/icons/Sport-Icons'
+import { DumbbellIcon } from '../../components/icons/icon-list/Sport-Icons'
 
 export default function StrengthHeader({ onAdd }) {
   return (
