@@ -1,0 +1,224 @@
+
+/* =====================================================
+   EPSILON — CARTES DE TÂCHES
+   ===================================================== */
+
+   .tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .task-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--tasks-border);
+    border-radius: 5px;
+    background: var(--tasks-surface);
+    box-shadow: 0 2px 8px rgb(23 63 115 / 3%);
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+  }
+  
+  .task-card:hover {
+    border-color: var(--tasks-border-strong);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 4%);
+  }
+  
+  .task-card.is-overdue {
+    border-left: 3px solid var(--tasks-red);
+  }
+  
+  .task-card.is-completed {
+    opacity: 0.72;
+  }
+  
+  .task-card-checkbox {
+    position: relative;
+    display: grid;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    margin-top: 2px;
+    place-items: center;
+    cursor: pointer;
+  }
+  
+  .task-card-checkbox input {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .task-card-checkbox > span {
+    width: 19px;
+    height: 19px;
+    border: 1.5px solid #b7c5ce;
+    border-radius: 3px;
+    background: white;
+  }
+  
+  .task-card-checkbox input:checked + span {
+    border-color: var(--tasks-accent);
+    background: var(--tasks-accent);
+  }
+  
+  .task-card-checkbox input:checked + span::after {
+    display: block;
+    width: 5px;
+    height: 9px;
+    margin: 2px 0 0 6px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    content: "";
+    transform: rotate(45deg);
+  }
+  
+  .task-card-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--task-primary);
+    color: var(--task-accent);
+  }
+  
+  .task-card-main {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .task-card-title-button {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--tasks-accent);
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .task-card-title {
+    color: #202124;
+    font-size: 0.96rem;
+    font-weight: 600;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+  
+  .task-card.is-completed .task-card-title {
+    color: #85858b;
+    text-decoration: line-through;
+  }
+  
+  .task-card-title-button:disabled {
+    cursor: default;
+  }
+  
+  .task-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-top: 9px;
+  }
+  
+  .task-category,
+  .task-priority,
+  .task-due,
+  .task-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    max-width: 100%;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 650;
+  }
+  
+  .task-category,
+  .task-due,
+  .task-duration {
+    border: 1px solid var(--tasks-border);
+    background: var(--tasks-bg);
+    color: #52647b;
+  }
+  
+  .priority-high,
+  .task-due.overdue {
+    border: 1px solid #f0c5ca;
+    background: var(--tasks-red-light);
+    color: #a52232;
+  }
+  
+  .priority-normal {
+    border: 1px solid #ead9a8;
+    background: #fff8e7;
+    color: #806019;
+  }
+  
+  .priority-low {
+    border: 1px solid #c9e3d4;
+    background: #edf7f0;
+    color: #33764c;
+  }
+  
+  .task-card-notes {
+    margin: 10px 0 0;
+    color: var(--tasks-muted);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  
+  .task-card-actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .task-action-button {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--tasks-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .task-action-button:hover {
+    border-color: var(--tasks-border-strong);
+    background: var(--tasks-bg);
+  }
+  
+  .task-action-button.delete:hover {
+    border-color: #f0c5ca;
+    background: var(--tasks-red-light);
+    color: var(--tasks-red-dark);
+  }
+  
+  .tasks-list-empty {
+    padding: 22px;
+    border: 1px dashed var(--tasks-border-strong);
+    border-radius: 4px;
+    color: var(--tasks-muted);
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  

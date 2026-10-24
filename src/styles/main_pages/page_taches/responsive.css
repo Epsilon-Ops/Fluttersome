@@ -1,0 +1,198 @@
+
+/* =====================================================
+   EPSILON — RESPONSIVE ET ACCESSIBILITÉ
+   ===================================================== */
+
+/* Styles globaux des contrôles */
+
+.tasks-page button,
+.tasks-page input,
+.tasks-page select,
+.tasks-page textarea,
+.tasks-modal button,
+.tasks-modal input,
+.tasks-modal select,
+.tasks-modal textarea {
+  font: inherit;
+}
+
+.tasks-page button,
+.tasks-modal button {
+  cursor: pointer;
+}
+
+.tasks-page :where(button, input, select, textarea):focus-visible,
+.tasks-modal :where(button, input, select, textarea):focus-visible {
+  outline: 3px solid rgb(0 84 155 / 30%);
+  outline-offset: 3px;
+}
+
+/* Tablettes */
+
+@media (max-width: 800px) {
+  .tasks-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tasks-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Écrans intermédiaires */
+
+@media (max-width: 640px) {
+  .tasks-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tasks-collapsible-heading {
+    padding: 12px;
+  }
+
+  .tasks-collapsible-content {
+    padding-top: 8px;
+  }
+
+  .tasks-toolbar-advanced .tasks-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Mobiles */
+
+@media (max-width: 520px) {
+  .tasks-page {
+    gap: 19px;
+  }
+
+  .tasks-header {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 18px;
+  }
+
+  .tasks-header-mark {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    border-radius: 4px;
+    font-size: 1.35rem;
+  }
+
+  .tasks-header-content p {
+    font-size: 0.82rem;
+  }
+
+  .tasks-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tasks-toolbar-top {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tasks-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tasks-stat-card {
+    padding: 14px;
+  }
+
+  .tasks-stats-grid .tasks-stat-card {
+    padding: 12px;
+  }
+
+  .task-card {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .task-card-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .task-card-actions {
+    gap: 2px;
+  }
+
+  .task-action-button {
+    width: 29px;
+    height: 32px;
+  }
+
+  .task-card-meta {
+    gap: 6px;
+  }
+
+  .tasks-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .tasks-modal {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .tasks-modal-header,
+  .tasks-form {
+    padding: 18px;
+  }
+
+  .tasks-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tasks-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .tasks-form-actions button {
+    width: 100%;
+  }
+
+  .tasks-filter-panel {
+    margin: 12px 0 18px;
+    border-radius: 12px;
+  }
+
+  .tasks-filter-summary {
+    min-height: 48px;
+    padding: 10px 12px;
+  }
+
+  .tasks-filter-content {
+    padding: 0 12px 12px;
+  }
+
+  .tasks-icon-search-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tasks-icon-results {
+    max-height: 240px;
+  }
+}
+
+/* Préférences de mouvement réduit */
+
+@media (prefers-reduced-motion: reduce) {
+  .tasks-page *,
+  .tasks-page *::before,
+  .tasks-page *::after,
+  .tasks-modal *,
+  .tasks-modal *::before,
+  .tasks-modal *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

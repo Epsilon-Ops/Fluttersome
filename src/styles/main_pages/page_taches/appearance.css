@@ -1,0 +1,156 @@
+
+/* =====================================================
+   EPSILON — APPARENCE ET PERSONNALISATION
+   ===================================================== */
+
+   .tasks-appearance {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .tasks-icon-picker,
+  .tasks-color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .tasks-icon-option {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #e2e2e7;
+    border-radius: 10px;
+    background: #fff;
+    color: #404047;
+    cursor: pointer;
+  }
+  
+  .tasks-icon-option.is-selected {
+    border-color: var(--task-primary);
+    background: #f1f1f3;
+    color: var(--task-primary);
+    box-shadow: 0 0 0 2px rgb(32 33 36 / 8%);
+  }
+  
+  .tasks-color-option {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    place-items: center;
+    border: 1px solid #dedee3;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .tasks-color-option span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--task-accent);
+    border-radius: 50%;
+    background: var(--task-primary);
+  }
+  
+  .tasks-color-option.is-selected {
+    outline: 2px solid var(--task-primary);
+    outline-offset: 2px;
+  }
+  
+  .tasks-icon-search-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(150px, 0.65fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .tasks-icon-search-controls input,
+  .tasks-icon-search-controls select {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #e2e2e7;
+    border-radius: 10px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+  }
+  
+  .tasks-icon-results {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 280px;
+    margin-top: 16px;
+    padding: 2px 4px 4px 2px;
+    overflow-y: auto;
+  }
+  
+  .tasks-icon-group {
+    min-width: 0;
+  }
+  
+  .tasks-icon-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9e9ed;
+    color: #404047;
+    font-size: 13px;
+    font-weight: 650;
+  }
+  
+  .tasks-icon-group-title span {
+    display: inline-grid;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    place-items: center;
+    border-radius: 6px;
+    background: #f1f1f4;
+    color: #666671;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  .tasks-icon-picker {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+    gap: 8px;
+    margin-top: 0;
+  }
+  
+  .tasks-icon-option {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+  }
+  
+  .tasks-icon-empty {
+    margin: 8px 0;
+    padding: 18px 12px;
+    border: 1px dashed #dedee5;
+    border-radius: 10px;
+    background: #f7f7f9;
+    color: #686873;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .tasks-icon-option:focus-visible,
+  .tasks-color-option:focus-visible,
+  .tasks-icon-search-controls input:focus-visible,
+  .tasks-icon-search-controls select:focus-visible {
+    outline: 2px solid #2457c5;
+    outline-offset: 3px;
+  }
+  

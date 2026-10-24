@@ -1,5 +1,6 @@
+
 import { useMemo, useState } from 'react'
-import '../../styles/Tasks.css'
+import '../../styles/main_pages/page_taches/index.css'
 
 import useTasks from '../../hooks/useTasks'
 import {
@@ -22,6 +23,13 @@ const INITIAL_FILTERS = {
   status: 'all',
 }
 
+const TAB_TITLES = {
+  overview: 'Vue d’ensemble',
+  all: 'Toutes les tâches',
+  upcoming: 'À venir',
+  completed: 'Terminées',
+}
+
 export default function Tasks() {
   const {
     tasks,
@@ -35,15 +43,15 @@ export default function Tasks() {
 
   const [activeTab, setActiveTab] = useState('overview')
   const [filters, setFilters] = useState(INITIAL_FILTERS)
+  const [filtersOpen, setFiltersOpen] = useState(false)
   const [formOpen, setFormOpen] = useState(false)
   const [editingTask, setEditingTask] = useState(null)
 
-  const today = new Date()
   const todayLabel = new Intl.DateTimeFormat('fr-FR', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
-  }).format(today)
+  }).format(new Date())
 
   const counts = useMemo(
     () => ({
@@ -80,11 +88,22 @@ export default function Tasks() {
     return filteredTasks.filter((task) => !task.completed)
   }, [activeTab, filteredTasks])
 
+  const activeFilterCount = [
+    filters.search.trim() !== '',
+    filters.category !== 'all',
+    filters.priority !== 'all',
+    filters.status !== 'all',
+  ].filter(Boolean).length
+
   function updateFilter(field, value) {
     setFilters((current) => ({
       ...current,
       [field]: value,
     }))
+  }
+
+  function resetFilters() {
+    setFilters(INITIAL_FILTERS)
   }
 
   function openCreateForm() {
@@ -115,17 +134,15 @@ export default function Tasks() {
   function changeTab(tab) {
     setActiveTab(tab)
 
-    if (tab === 'completed') {
-      setFilters((current) => ({
-        ...current,
-        status: 'completed',
-      }))
-    } else if (filters.status === 'completed') {
-      setFilters((current) => ({
-        ...current,
-        status: 'all',
-      }))
-    }
+    setFilters((current) => ({
+      ...current,
+      status:
+        tab === 'completed'
+          ? 'completed'
+          : current.status === 'completed'
+            ? 'all'
+            : current.status,
+    }))
   }
 
   return (
@@ -135,15 +152,7 @@ export default function Tasks() {
       <section className="tasks-page-heading">
         <div>
           <span className="eyebrow">ESPACE PERSONNEL</span>
-          <h2>
-            {activeTab === 'overview'
-              ? 'Vue d’ensemble'
-              : activeTab === 'all'
-                ? 'Toutes les tâches'
-                : activeTab === 'upcoming'
-                  ? 'À venir'
-                  : 'Terminées'}
-          </h2>
+          <h2>{TAB_TITLES[activeTab] ?? 'Mes tâches'}</h2>
           <p className="tasks-date">{todayLabel}</p>
         </div>
 
@@ -163,25 +172,62 @@ export default function Tasks() {
         counts={counts}
       />
 
-      <TasksToolbar
-        search={filters.search}
-        onSearchChange={(value) =>
-          updateFilter('search', value)
-        }
-        category={filters.category}
-        onCategoryChange={(value) =>
-          updateFilter('category', value)
-        }
-        priority={filters.priority}
-        onPriorityChange={(value) =>
-          updateFilter('priority', value)
-        }
-        status={filters.status}
-        onStatusChange={(value) =>
-          updateFilter('status', value)
-        }
-        onCreate={openCreateForm}
-      />
+      <details
+        className="tasks-filter-panel"
+        open={filtersOpen}
+        onToggle={(event) => setFiltersOpen(event.currentTarget.open)}
+      >
+        <summary className="tasks-filter-summary">
+          <span className="tasks-filter-summary-label">
+            <span aria-hidden="true">☷</span>
+            Recherche et filtres
+            {activeFilterCount > 0 && (
+              <span className="tasks-filter-count">
+                {activeFilterCount}
+              </span>
+            )}
+          </span>
+
+          <span className="tasks-filter-summary-action">
+            {filtersOpen ? 'Réduire' : 'Afficher'}
+            <span aria-hidden="true">
+              {filtersOpen ? '−' : '+'}
+            </span>
+          </span>
+        </summary>
+
+        <div className="tasks-filter-content">
+          <TasksToolbar
+            search={filters.search}
+            onSearchChange={(value) =>
+              updateFilter('search', value)
+            }
+            category={filters.category}
+            onCategoryChange={(value) =>
+              updateFilter('category', value)
+            }
+            priority={filters.priority}
+            onPriorityChange={(value) =>
+              updateFilter('priority', value)
+            }
+            status={filters.status}
+            onStatusChange={(value) =>
+              updateFilter('status', value)
+            }
+            onCreate={openCreateForm}
+          />
+
+          {activeFilterCount > 0 && (
+            <button
+              type="button"
+              className="tasks-reset-filters"
+              onClick={resetFilters}
+            >
+              Effacer les filtres
+            </button>
+          )}
+        </div>
+      </details>
 
       {activeTab === 'overview' ? (
         <TasksOverview
@@ -203,7 +249,10 @@ export default function Tasks() {
                     ? 'ÉCHÉANCES FUTURES'
                     : 'LISTE COMPLÈTE'}
               </span>
-              <h2>{visibleTasks.length} tâche(s)</h2>
+              <h2>
+                {visibleTasks.length}{' '}
+                {visibleTasks.length > 1 ? 'tâches' : 'tâche'}
+              </h2>
             </div>
           </div>
 
@@ -226,15 +275,25 @@ export default function Tasks() {
                     : 'Aucune tâche trouvée'}
               </h3>
               <p>
-                Essaie de modifier tes filtres ou ajoute une
-                nouvelle tâche.
+                Modifie tes filtres ou ajoute une nouvelle tâche.
               </p>
+
+              {activeFilterCount > 0 && (
+                <button
+                  type="button"
+                  className="tasks-secondary-button"
+                  onClick={resetFilters}
+                >
+                  Effacer les filtres
+                </button>
+              )}
+
               <button
                 type="button"
-                className="tasks-secondary-button"
-                onClick={() => setFilters(INITIAL_FILTERS)}
+                className="tasks-primary-button"
+                onClick={openCreateForm}
               >
-                Réinitialiser les filtres
+                + Nouvelle tâche
               </button>
             </div>
           )}

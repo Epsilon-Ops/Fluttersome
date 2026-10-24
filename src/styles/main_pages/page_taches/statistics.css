@@ -1,0 +1,140 @@
+
+/* =====================================================
+   EPSILON — STATISTIQUES
+   ===================================================== */
+
+   .tasks-stats-panel {
+    margin-bottom: 16px;
+    overflow: hidden;
+    border: 1px solid var(--tasks-border);
+    border-radius: 14px;
+    background: var(--tasks-surface);
+  }
+  
+  .tasks-collapsible-heading {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .tasks-collapsible-heading:hover {
+    background: #fafafd;
+  }
+  
+  .tasks-collapsible-title {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .tasks-collapsible-name {
+    color: var(--tasks-ink);
+    font-size: 15px;
+    font-weight: 650;
+  }
+  
+  .tasks-collapsible-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .tasks-chevron {
+    display: inline-grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 8px;
+    background: #f4f4f7;
+    color: var(--tasks-muted);
+    font-size: 19px;
+  }
+  
+  .tasks-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0 16px 16px;
+  }
+  
+  .tasks-stats-grid .tasks-stat-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--tasks-border);
+    border-radius: 10px;
+    background: #f8f8fa;
+    box-shadow: none;
+  }
+  
+  .tasks-stats-grid .tasks-stat-card::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    border-radius: 10px 0 0 10px;
+    background: var(--tasks-accent);
+    content: "";
+  }
+  
+  .tasks-stats-grid .tasks-stat-card.overdue::before {
+    background: var(--tasks-red);
+  }
+  
+  .tasks-stat-icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 4px;
+    background: var(--tasks-accent-light);
+    color: var(--tasks-accent);
+    font-size: 1.15rem;
+    font-weight: 800;
+  }
+  
+  .tasks-stat-card.overdue .tasks-stat-icon {
+    background: var(--tasks-red-light);
+    color: var(--tasks-red-dark);
+  }
+  
+  .tasks-stat-label {
+    display: block;
+    color: var(--tasks-muted);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  
+  .tasks-stats-grid .tasks-stat-card strong {
+    display: block;
+    margin-top: 8px;
+    color: var(--tasks-accent);
+    font-size: 23px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  
+  .tasks-section .tasks-collapsible-heading {
+    border: 1px solid var(--tasks-border);
+    border-radius: 12px;
+  }
+  
+  .tasks-section.overdue .tasks-collapsible-heading {
+    border-color: #f0d2d2;
+  }
+  
+  .tasks-collapsible-content {
+    padding-top: 12px;
+  }
+  

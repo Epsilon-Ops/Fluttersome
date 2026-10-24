@@ -1,0 +1,210 @@
+
+/* =====================================================
+   EPSILON — MODALE ET FORMULAIRE
+   ===================================================== */
+
+   .tasks-modal-backdrop {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgb(16 47 87 / 55%);
+    backdrop-filter: blur(3px);
+  }
+  
+  .tasks-modal {
+    width: min(100%, 650px);
+    max-height: min(90vh, 900px);
+    overflow-y: auto;
+    border: 1px solid var(--tasks-border);
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 16px 48px rgb(16 47 87 / 18%);
+  }
+  
+  .tasks-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid var(--tasks-border);
+  }
+  
+  .tasks-modal-header h2 {
+    margin: 6px 0 8px;
+    color: var(--tasks-accent);
+    font-size: 1.4rem;
+  }
+  
+  .tasks-modal-header p {
+    color: var(--tasks-muted);
+  }
+  
+  .tasks-modal-close {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border: 1px solid var(--tasks-border-strong);
+    border-radius: 4px;
+    background: white;
+    color: var(--tasks-muted);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  
+  .tasks-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+  }
+  
+  .tasks-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+  
+  .tasks-form-field > span {
+    color: #45566a;
+    font-size: 0.83rem;
+    font-weight: 700;
+  }
+  
+  .tasks-form-field input,
+  .tasks-form-field select,
+  .tasks-form-field textarea {
+    font-size: 0.88rem;
+  }
+  
+  .tasks-form-field textarea {
+    resize: vertical;
+    line-height: 1.5;
+  }
+  
+  .tasks-form-field input::placeholder,
+  .tasks-form-field textarea::placeholder,
+  .tasks-add-subtask input::placeholder {
+    color: #9aa7b0;
+  }
+  
+  .tasks-form-field .required {
+    color: var(--tasks-red-dark);
+  }
+  
+  .tasks-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .tasks-form-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .tasks-form-section-heading h3 {
+    margin: 0;
+    color: var(--tasks-accent);
+    font-size: 0.92rem;
+  }
+  
+  .tasks-form-section-heading p {
+    margin: 5px 0 0;
+    color: var(--tasks-muted);
+    font-size: 0.8rem;
+  }
+  
+  .tasks-form-section-heading > span {
+    display: grid;
+    min-width: 27px;
+    height: 27px;
+    padding: 0 6px;
+    place-items: center;
+    border-radius: 4px;
+    background: var(--tasks-accent-light);
+    color: #52647b;
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+  
+  .tasks-form-subtask-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--tasks-border);
+    font-size: 0.85rem;
+  }
+  
+  .tasks-form-subtask-row span {
+    overflow-wrap: anywhere;
+  }
+  
+  .tasks-form-subtask-row button {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--tasks-red-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .tasks-add-subtask {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .tasks-add-subtask input {
+    flex: 1;
+  }
+  
+  .tasks-add-subtask button {
+    padding: 9px 12px;
+    border: 1px solid var(--tasks-border-strong);
+    border-radius: 4px;
+    background: white;
+    color: var(--tasks-accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .tasks-add-subtask button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+  
+  .tasks-form-error {
+    margin: 0;
+    padding: 11px 12px;
+    border: 1px solid #f0c5ca;
+    border-radius: 4px;
+    background: var(--tasks-red-light);
+    color: #a52232;
+    font-size: 0.84rem;
+  }
+  
+  .tasks-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 6px;
+  }
+  

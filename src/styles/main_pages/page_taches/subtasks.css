@@ -1,0 +1,75 @@
+
+/* =====================================================
+   EPSILON — SOUS-TÂCHES
+   ===================================================== */
+
+   .task-subtasks {
+    margin-top: 12px;
+  }
+  
+  .task-subtasks-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 7px 0;
+    border: 0;
+    background: transparent;
+    color: #637583;
+    text-align: left;
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+  
+  .task-subtasks-progress-label {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  
+  .task-subtasks-progress {
+    width: 58px;
+    height: 5px;
+    overflow: hidden;
+    border-radius: 3px;
+    background: #e5eaf0;
+  }
+  
+  .task-subtasks-progress > span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--tasks-accent);
+    transition: width 0.2s ease;
+  }
+  
+  .task-subtasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 0 4px 12px;
+  }
+  
+  .task-subtask {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: var(--tasks-ink);
+    font-size: 0.83rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  
+  .task-subtask input {
+    margin-top: 3px;
+    accent-color: var(--tasks-accent);
+  }
+  
+  .task-subtask-title {
+    overflow-wrap: anywhere;
+  }
+  
+  .task-subtask-title.completed {
+    color: var(--tasks-muted);
+    text-decoration: line-through;
+  }
+  

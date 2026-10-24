@@ -1,4 +1,7 @@
-
+import {
+  ICON_CATEGORIES,
+  ICON_SEARCHER,
+} from '../../components/icons/icon-searcher'
 import { useEffect, useState } from 'react'
 import {
   TASK_CATEGORIES,
@@ -35,6 +38,55 @@ export default function TasksFormModal({
   const [form, setForm] = useState(EMPTY_FORM)
   const [newSubtask, setNewSubtask] = useState('')
   const [error, setError] = useState('')
+  const [iconCategory, setIconCategory] = useState('all')
+  const [iconSearch, setIconSearch] = useState('')
+
+  const normalizedSearch = iconSearch
+  .trim()
+  .toLocaleLowerCase('fr')
+
+const filteredIcons = ICON_SEARCHER.filter((item) => {
+  const matchesCategory =
+    iconCategory === 'all' ||
+    item.category === iconCategory
+
+  const searchableText = [
+    item.name,
+    item.label,
+    ...item.keywords,
+    ICON_CATEGORIES.find(
+      (category) => category.value === item.category,
+    )?.label ?? '',
+  ]
+    .join(' ')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('fr')
+
+  const normalizedQuery = normalizedSearch
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+
+  return (
+    matchesCategory &&
+    searchableText.includes(normalizedQuery)
+  )
+})
+
+const groupedIcons = ICON_CATEGORIES
+  .filter((category) => category.value !== 'all')
+  .filter(
+    (category) =>
+      iconCategory === 'all' ||
+      category.value === iconCategory,
+  )
+  .map((category) => ({
+    ...category,
+    icons: filteredIcons.filter(
+      (item) => item.category === category.value,
+    ),
+  }))
+  .filter((category) => category.icons.length > 0)
 
   useEffect(() => {
     if (!open) return
@@ -215,26 +267,70 @@ export default function TasksFormModal({
           </label>
 
           <section className="tasks-appearance">
-            <div className="tasks-form-field">
-              <span>Icône</span>
+          <div className="tasks-form-field">
+            <span>Icône</span>
 
-              <div className="tasks-icon-picker">
-                {Object.keys(iconMap).map((name) => (
-                  <button
-                    key={name}
-                    type="button"
-                    className={`tasks-icon-option ${
-                      form.icon === name ? 'is-selected' : ''
-                    }`}
-                    onClick={() => updateField('icon', name)}
-                    aria-label={`Choisir l'icône ${name}`}
-                    aria-pressed={form.icon === name}
-                  >
-                    <AppIcon name={name} size={22} />
-                  </button>
+            <div className="tasks-icon-search-controls">
+              <input
+                type="search"
+                value={iconSearch}
+                onChange={(event) => setIconSearch(event.target.value)}
+                placeholder="Rechercher : cardio, sommeil, objectif..."
+                aria-label="Rechercher une icône par nom ou mot-clé"
+              />
+
+              <select
+                value={iconCategory}
+                onChange={(event) => setIconCategory(event.target.value)}
+                aria-label="Filtrer les icônes par catégorie"
+              >
+                {ICON_CATEGORIES.map((category) => (
+                  <option key={category.value} value={category.value}>
+                    {category.label}
+                  </option>
                 ))}
-              </div>
+              </select>
             </div>
+
+            <div className="tasks-icon-results">
+              {groupedIcons.length > 0 ? (
+                groupedIcons.map((group) => (
+                  <section
+                    className="tasks-icon-group"
+                    key={group.value}
+                    aria-label={group.label}
+                  >
+                    <h4 className="tasks-icon-group-title">
+                      {group.label}
+                      <span>{group.icons.length}</span>
+                    </h4>
+
+                    <div className="tasks-icon-picker">
+                      {group.icons.map((item) => (
+                        <button
+                          key={item.name}
+                          type="button"
+                          className={`tasks-icon-option ${
+                            form.icon === item.name ? 'is-selected' : ''
+                          }`}
+                          onClick={() => updateField('icon', item.name)}
+                          aria-label={`Choisir ${item.label}`}
+                          aria-pressed={form.icon === item.name}
+                          title={`${item.label} — ${item.keywords.join(', ')}`}
+                        >
+                          <AppIcon name={item.name} size={22} />
+                        </button>
+                      ))}
+                    </div>
+                  </section>
+                ))
+              ) : (
+                <p className="tasks-icon-empty">
+                  Aucune icône trouvée. Essaie un autre mot-clé.
+                </p>
+              )}
+            </div>
+          </div>
 
             <div className="tasks-form-field">
               <span>Couleur</span>

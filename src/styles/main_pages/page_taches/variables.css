@@ -1,0 +1,37 @@
+
+/* =====================================================
+   EPSILON — VARIABLES ET THÈME
+   ===================================================== */
+
+   .tasks-page {
+    --tasks-accent: #173f73;
+    --tasks-accent-dark: #102f57;
+    --tasks-accent-light: #edf4fb;
+  
+    --tasks-red: #20a6a6;
+    --tasks-red-dark: #167f83;
+    --tasks-red-light: #e8f8f7;
+  
+    --tasks-ink: #253448;
+    --tasks-muted: #6b7789;
+  
+    --tasks-border: #dce3eb;
+    --tasks-border-strong: #cbd5df;
+  
+    --tasks-surface: #ffffff;
+    --tasks-bg: #f5f7fa;
+  
+    /* Compatibilité avec les sélecteurs de personnalisation */
+    --task-primary: var(--tasks-accent);
+    --task-accent: #ffffff;
+  }
+  
+  .tasks-page *,
+  .tasks-page *::before,
+  .tasks-page *::after,
+  .tasks-modal *,
+  .tasks-modal *::before,
+  .tasks-modal *::after {
+    box-sizing: border-box;
+  }
+  

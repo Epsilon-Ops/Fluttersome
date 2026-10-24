@@ -1,0 +1,103 @@
+
+/* =====================================================
+   EPSILON — BOUTONS ET ONGLETS
+   ===================================================== */
+
+   .tasks-primary-button,
+   .tasks-secondary-button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     min-height: 42px;
+     padding: 10px 16px;
+     border: 1px solid transparent;
+     border-radius: 4px;
+     font-size: 0.88rem;
+     font-weight: 700;
+     transition:
+       background 0.15s ease,
+       border-color 0.15s ease,
+       transform 0.15s ease;
+   }
+   
+   .tasks-primary-button {
+     border-color: var(--tasks-red);
+     background: var(--tasks-red);
+     color: white;
+   }
+   
+   .tasks-primary-button:hover {
+     border-color: var(--tasks-red-dark);
+     background: var(--tasks-red-dark);
+   }
+   
+   .tasks-secondary-button {
+     border-color: var(--tasks-border-strong);
+     background: white;
+     color: var(--tasks-ink);
+   }
+   
+   .tasks-secondary-button:hover {
+     background: var(--tasks-bg);
+   }
+   
+   .tasks-primary-button:active,
+   .tasks-secondary-button:active {
+     transform: translateY(1px);
+   }
+   
+   .tasks-tabs {
+     display: flex;
+     gap: 4px;
+     overflow-x: auto;
+     border-bottom: 1px solid var(--tasks-border);
+     scrollbar-width: thin;
+   }
+   
+   .tasks-tab {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     flex-shrink: 0;
+     padding: 12px 14px;
+     border: 0;
+     border-bottom: 3px solid transparent;
+     border-radius: 4px 4px 0 0;
+     background: transparent;
+     color: var(--tasks-muted);
+     font-size: 0.86rem;
+     font-weight: 650;
+     cursor: pointer;
+   }
+   
+   .tasks-tab:hover {
+     color: var(--tasks-accent);
+   }
+   
+   .tasks-tab.active {
+     border-bottom-color: var(--tasks-accent);
+     color: var(--tasks-accent);
+     font-weight: 700;
+   }
+   
+   .tasks-tab-count,
+   .tasks-count {
+     display: inline-grid;
+     min-width: 25px;
+     height: 25px;
+     padding: 0 6px;
+     place-items: center;
+     border-radius: 4px;
+     background: var(--tasks-accent-light);
+     color: #52647b;
+     font-size: 0.75rem;
+     font-weight: 750;
+   }
+   
+   .tasks-count.danger {
+     background: var(--tasks-red-light);
+     color: var(--tasks-red-dark);
+   }
+   

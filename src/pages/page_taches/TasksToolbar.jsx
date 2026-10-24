@@ -1,45 +1,72 @@
+
+import { useState } from 'react'
 import {
-    TASK_CATEGORIES,
-    TASK_PRIORITIES,
-  } from '../../utils/taskHelpers'
-  
-  export default function TasksToolbar({
-    search,
-    onSearchChange,
-    category,
-    onCategoryChange,
-    priority,
-    onPriorityChange,
-    status,
-    onStatusChange,
-    onCreate,
-  }) {
-    return (
-      <section className="tasks-toolbar">
-        <div className="tasks-toolbar-top">
-          <label className="tasks-search">
-            <span aria-hidden="true">⌕</span>
-            <input
-              type="search"
-              value={search}
-              onChange={(event) =>
-                onSearchChange(event.target.value)
-              }
-              placeholder="Rechercher une tâche..."
-              aria-label="Rechercher par titre"
-            />
-          </label>
-  
-          <button
-            type="button"
-            className="tasks-primary-button"
-            onClick={onCreate}
-          >
-            <span aria-hidden="true">+</span>
-            Nouvelle tâche
-          </button>
-        </div>
-  
+  TASK_CATEGORIES,
+  TASK_PRIORITIES,
+} from '../../utils/taskHelpers'
+
+export default function TasksToolbar({
+  search,
+  onSearchChange,
+  category,
+  onCategoryChange,
+  priority,
+  onPriorityChange,
+  status,
+  onStatusChange,
+}) {
+  const [filtersOpen, setFiltersOpen] = useState(false)
+
+  const activeFilterCount = [
+    category !== 'all',
+    priority !== 'all',
+    status !== 'all',
+  ].filter(Boolean).length
+
+  function resetFilters() {
+    onSearchChange('')
+    onCategoryChange('all')
+    onPriorityChange('all')
+    onStatusChange('all')
+  }
+
+  return (
+    <section className="tasks-toolbar">
+      <label className="tasks-search">
+        <span aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          value={search}
+          onChange={(event) =>
+            onSearchChange(event.target.value)
+          }
+          placeholder="Rechercher une tâche..."
+          aria-label="Rechercher par titre"
+        />
+      </label>
+
+      <details
+        className="tasks-toolbar-advanced"
+        open={filtersOpen}
+        onToggle={(event) =>
+          setFiltersOpen(event.currentTarget.open)
+        }
+      >
+        <summary className="tasks-toolbar-summary">
+          <span>
+            Filtres avancés
+            {activeFilterCount > 0 && (
+              <span className="tasks-filter-count">
+                {activeFilterCount}
+              </span>
+            )}
+          </span>
+
+          <span className="tasks-toolbar-summary-action">
+            {filtersOpen ? 'Réduire −' : 'Afficher +'}
+          </span>
+        </summary>
+
         <div className="tasks-filters">
           <label className="tasks-filter">
             <span>Catégorie</span>
@@ -57,7 +84,7 @@ import {
               ))}
             </select>
           </label>
-  
+
           <label className="tasks-filter">
             <span>Priorité</span>
             <select
@@ -74,7 +101,7 @@ import {
               ))}
             </select>
           </label>
-  
+
           <label className="tasks-filter">
             <span>Statut</span>
             <select
@@ -89,20 +116,18 @@ import {
               <option value="completed">Terminées</option>
             </select>
           </label>
-  
-          <button
-            type="button"
-            className="tasks-reset-filters"
-            onClick={() => {
-              onSearchChange('')
-              onCategoryChange('all')
-              onPriorityChange('all')
-              onStatusChange('all')
-            }}
-          >
-            Réinitialiser
-          </button>
+
+          {(activeFilterCount > 0 || search !== '') && (
+            <button
+              type="button"
+              className="tasks-reset-filters"
+              onClick={resetFilters}
+            >
+              Réinitialiser
+            </button>
+          )}
         </div>
-      </section>
-    )
-  }
+      </details>
+    </section>
+  )
+}
