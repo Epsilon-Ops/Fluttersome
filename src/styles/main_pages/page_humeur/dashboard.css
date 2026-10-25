@@ -1,73 +1,199 @@
+
 .mood-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 24px;
-    padding: 6px;
-    overflow-x: auto;
-    border: 1px solid var(--mood-color-border);
-    border-radius: var(--mood-radius-md);
-    background: var(--mood-color-surface);
-    scrollbar-width: thin;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 6px;
+  overflow-x: auto;
+  border: 1px solid var(--mood-color-border);
+  border-radius: var(--mood-radius-md);
+  background: var(--mood-color-surface);
+  scrollbar-width: thin;
+}
+
+.mood-tabs__button {
+  flex: 1 0 auto;
+  min-height: 44px;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--mood-color-muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--mood-transition),
+    color var(--mood-transition),
+    box-shadow var(--mood-transition);
+}
+
+.mood-tabs__button:hover {
+  background: #f3f5fc;
+  color: var(--mood-color-primary-dark);
+}
+
+.mood-tabs__button.is-active {
+  background: var(--mood-color-primary);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgb(82 101 184 / 20%);
+}
+
+.mood-dashboard {
+  min-width: 0;
+}
+
+.mood-dashboard__header {
+  margin-bottom: 24px;
+}
+
+.mood-dashboard__title {
+  margin: 0 0 8px;
+  color: var(--mood-color-text);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.mood-dashboard__description {
+  margin: 0;
+  color: var(--mood-color-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.mood-dashboard__section,
+.mood-section {
+  min-width: 0;
+}
+
+.mood-section {
+  padding: 24px;
+  border: 1px solid var(--mood-color-border);
+  border-radius: var(--mood-radius-lg);
+  background: var(--mood-color-surface);
+  box-shadow: var(--mood-shadow-card);
+}
+
+.mood-section__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.mood-section__heading h2,
+.mood-section__heading h3 {
+  margin: 0;
+  color: var(--mood-color-text);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.mood-add-button,
+.mood-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: var(--mood-color-primary);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    background var(--mood-transition),
+    transform var(--mood-transition),
+    box-shadow var(--mood-transition);
+}
+
+.mood-add-button:hover,
+.mood-primary-button:hover {
+  background: var(--mood-color-primary-dark);
+  box-shadow: 0 4px 12px rgb(82 101 184 / 20%);
+}
+
+.mood-add-button:active,
+.mood-primary-button:active {
+  transform: translateY(1px);
+}
+
+.mood-add-flow {
+  display: grid;
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.mood-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid var(--mood-color-border);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--mood-color-text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--mood-transition),
+    border-color var(--mood-transition);
+}
+
+.mood-secondary-button:hover {
+  border-color: var(--mood-color-primary);
+  background: #f6f7ff;
+}
+
+.mood-feedback {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.mood-feedback--error {
+  border: 1px solid #f0c7cd;
+  background: #fff3f4;
+  color: #a32636;
+}
+
+.mood-today-entries {
+  display: grid;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.mood-today-entries > h3 {
+  margin: 0 0 4px;
+  color: var(--mood-color-text);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .mood-section {
+    padding: 17px;
   }
-  
+
+  .mood-section__heading {
+    align-items: stretch;
+  }
+
+  .mood-add-button {
+    width: 100%;
+  }
+
   .mood-tabs__button {
-    flex: 1 0 auto;
-    min-height: 44px;
-    padding: 11px 20px;
-    border: 0;
-    border-radius: 10px;
-    background: transparent;
-    color: var(--mood-color-muted);
-    font-size: 0.94rem;
-    font-weight: 700;
-    transition:
-      background var(--mood-transition),
-      color var(--mood-transition),
-      box-shadow var(--mood-transition);
+    padding-inline: 14px;
   }
-  
-  .mood-tabs__button:hover {
-    background: #f3f5fc;
-    color: var(--mood-color-primary-dark);
-  }
-  
-  .mood-tabs__button.is-active {
-    background: var(--mood-color-primary);
-    color: #ffffff;
-    box-shadow: 0 3px 8px rgb(82 101 184 / 20%);
-  }
-  
-  .mood-dashboard {
-    min-width: 0;
-  }
-  
-  .mood-dashboard__header {
-    margin-bottom: 24px;
-  }
-  
-  .mood-dashboard__title {
-    margin: 0 0 8px;
-    color: var(--mood-color-text);
-    font-size: 1.45rem;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-  }
-  
-  .mood-dashboard__description {
-    margin: 0;
-    color: var(--mood-color-muted);
-    font-size: 0.95rem;
-    line-height: 1.65;
-  }
-  
-  .mood-dashboard__section {
-    min-width: 0;
-  }
-  
-  .mood-dashboard__panel {
-    padding: 24px;
-    border: 1px solid var(--mood-color-border);
-    border-radius: var(--mood-radius-lg);
-    background: var(--mood-color-surface);
-    box-shadow: var(--mood-shadow-card);
-  }
+}

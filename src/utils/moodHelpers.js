@@ -1,4 +1,9 @@
 
+import {
+  getMoodById,
+  getMoodCategory,
+} from '../constants/moods'
+
 export const MOOD_STORAGE_KEY = 'epsilon_mood_entries_v1'
 
 export function makeMoodId() {
@@ -9,14 +14,9 @@ export function makeMoodId() {
     return crypto.randomUUID()
   }
 
-  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+  return `mood-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
 }
 
-/**
- * Renvoie la date locale au format YYYY-MM-DD.
- * Évite le décalage de date que peut provoquer toISOString()
- * dans les fuseaux horaires autres que UTC.
- */
 export function getLocalDateString(date = new Date()) {
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
@@ -25,56 +25,54 @@ export function getLocalDateString(date = new Date()) {
   return `${year}-${month}-${day}`
 }
 
-/**
- * Lit les entrées enregistrées.
- * Retourne un tableau vide si le stockage est absent ou invalide.
- */
 export function loadMoodEntries() {
   try {
-    if (typeof localStorage === 'undefined') return []
+    if (typeof localStorage === 'undefined') {
+      return []
+    }
 
     const stored = localStorage.getItem(MOOD_STORAGE_KEY)
 
-    if (!stored) return []
+    if (!stored) {
+      return []
+    }
 
     const parsed = JSON.parse(stored)
 
-    if (!Array.isArray(parsed)) return []
+    if (!Array.isArray(parsed)) {
+      return []
+    }
 
     return parsed
-      .filter(
-        (entry) =>
-          entry &&
-          typeof entry.id === 'string' &&
-          typeof entry.date === 'string' &&
-          typeof entry.moodId === 'string',
-      )
+      .filter((entry) => entry && typeof entry === 'object')
       .sort((a, b) => {
-        const dateComparison = b.date.localeCompare(a.date)
+        const dateComparison = String(b.date || '').localeCompare(
+          String(a.date || '')
+        )
 
-        if (dateComparison !== 0) return dateComparison
+        if (dateComparison !== 0) {
+          return dateComparison
+        }
 
-        return Number(b.createdAt || 0) - Number(a.createdAt || 0)
+        return String(b.time || '').localeCompare(
+          String(a.time || '')
+        )
       })
   } catch {
     return []
   }
 }
 
-/**
- * Vérifie les valeurs d'une entrée avant enregistrement.
- */
 export function validateMoodEntry(data) {
   if (!data || typeof data !== 'object') {
-    return 'Les données de l’entrée sont invalides.'
+    return 'Les informations de cette émotion sont invalides.'
   }
 
-  if (typeof data.moodId !== 'string' || !data.moodId.trim()) {
-    return 'Choisis une émotion avant d’enregistrer.'
+  if (typeof data.moodId !== 'string' || !getMoodById(data.moodId)) {
+    return 'Choisis une émotion valide.'
   }
 
   if (
-    typeof data.valence !== 'number' ||
     !Number.isFinite(data.valence) ||
     data.valence < -5 ||
     data.valence > 5
@@ -83,7 +81,6 @@ export function validateMoodEntry(data) {
   }
 
   if (
-    typeof data.intensity !== 'number' ||
     !Number.isInteger(data.intensity) ||
     data.intensity < 1 ||
     data.intensity > 5
@@ -91,37 +88,50 @@ export function validateMoodEntry(data) {
     return 'L’intensité doit être comprise entre 1 et 5.'
   }
 
+  if (typeof data.date !== 'string' ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(data.date)) {
+    return 'Choisis une date valide.'
+  }
+
+  const [year, month, day] = data.date.split('-').map(Number)
+  const parsedDate = new Date(year, month - 1, day)
+
   if (
-    typeof data.date !== 'string' ||
-    !/^\d{4}-\d{2}-\d{2}$/.test(data.date) ||
-    Number.isNaN(new Date(`${data.date}T12:00:00`).getTime())
+    parsedDate.getFullYear() !== year ||
+    parsedDate.getMonth() !== month - 1 ||
+    parsedDate.getDate() !== day
   ) {
-    return 'La date de l’entrée est invalide.'
+    return 'La date choisie n’existe pas.'
   }
 
   if (
-    data.activities !== undefined &&
-    (!Array.isArray(data.activities) ||
-      !data.activities.every((activity) => typeof activity === 'string'))
+    data.time !== undefined &&
+    data.time !== '' &&
+    !/^([01]\d|2[0-3]):[0-5]\d$/.test(data.time)
   ) {
-    return 'La liste des activités est invalide.'
+    return 'Choisis une heure valide.'
   }
 
   if (
     data.note !== undefined &&
     typeof data.note !== 'string'
   ) {
-    return 'La note doit être du texte.'
+    return 'Le commentaire doit être du texte.'
   }
 
-  return ''
+  if (
+    data.activities !== undefined &&
+    (
+      !Array.isArray(data.activities) ||
+      !data.activities.every((activity) => typeof activity === 'string')
+    )
+  ) {
+    return 'Les activités sélectionnées sont invalides.'
+  }
+
+  return null
 }
 
-/**
- * Retourne une copie normalisée d'une entrée.
- * Les informations de l'émotion sont conservées en instantané
- * pour préserver l'historique si la banque d'émotions évolue.
- */
 export function createMoodEntry(data, mood) {
   const validationError = validateMoodEntry(data)
 
@@ -129,24 +139,24 @@ export function createMoodEntry(data, mood) {
     throw new Error(validationError)
   }
 
-  if (!mood || mood.id !== data.moodId) {
-    throw new Error('L’émotion choisie est introuvable.')
+  const validMood = getMoodById(mood?.id)
+
+  if (!validMood || validMood.id !== data.moodId) {
+    throw new Error('L’émotion choisie ne correspond pas aux données.')
   }
+
+  const category = getMoodCategory(validMood.category)
+  const now = new Date()
 
   return {
     id: makeMoodId(),
     date: data.date,
-    time:
-      typeof data.time === 'string' &&
-      /^([01]\d|2[0-3]):([0-5]\d)$/.test(data.time)
-        ? data.time
-        : `${String(new Date().getHours()).padStart(2, '0')}:${String(
-            new Date().getMinutes(),
-          ).padStart(2, '0')}`,
-    moodId: mood.id,
-    moodLabel: mood.label,
-    category: mood.category,
-    categoryColor: mood.color || null,
+    time: data.time || `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`,
+    moodId: validMood.id,
+    moodLabel: validMood.label,
+    icon: validMood.icon,
+    category: validMood.category,
+    categoryColor: category?.color || null,
     valence: data.valence,
     intensity: data.intensity,
     activities: [...new Set(data.activities || [])],
@@ -155,46 +165,37 @@ export function createMoodEntry(data, mood) {
   }
 }
 
-/**
- * Renvoie les entrées d'une date donnée.
- */
 export function getMoodEntriesForDate(entries, date) {
   return entries.filter((entry) => entry.date === date)
 }
 
-/**
- * Renvoie les entrées des sept derniers jours calendaires,
- * aujourd'hui inclus, sans inclure les dates futures.
- */
 export function getWeeklyMoodEntries(entries, referenceDate = new Date()) {
-  const today = getLocalDateString(referenceDate)
-  const firstDay = new Date(referenceDate)
+  const start = new Date(
+    referenceDate.getFullYear(),
+    referenceDate.getMonth(),
+    referenceDate.getDate() - 6
+  )
 
-  firstDay.setHours(12, 0, 0, 0)
-  firstDay.setDate(firstDay.getDate() - 6)
-
-  const firstDate = getLocalDateString(firstDay)
+  const startString = getLocalDateString(start)
+  const endString = getLocalDateString(referenceDate)
 
   return entries.filter(
-    (entry) => entry.date >= firstDate && entry.date <= today,
+    (entry) => entry.date >= startString && entry.date <= endString
   )
 }
 
-/**
- * Renvoie les entrées du mois de la date de référence.
- */
 export function getMonthlyMoodEntries(entries, referenceDate = new Date()) {
   const year = referenceDate.getFullYear()
-  const month = String(referenceDate.getMonth() + 1).padStart(2, '0')
-  const prefix = `${year}-${month}-`
+  const month = referenceDate.getMonth()
 
-  return entries.filter((entry) => entry.date.startsWith(prefix))
+  return entries.filter((entry) => {
+    const [entryYear, entryMonth] = entry.date.split('-').map(Number)
+
+    return entryYear === year && entryMonth === month + 1
+  })
 }
 
-/**
- * Calcule des indicateurs simples pour une série d'entrées.
- */
-export function getMoodMetrics(entries = []) {
+export function getMoodMetrics(entries) {
   const validEntries = entries.filter(
     (entry) =>
       Number.isFinite(entry.valence) &&
@@ -202,7 +203,7 @@ export function getMoodMetrics(entries = []) {
       entry.valence <= 5 &&
       Number.isFinite(entry.intensity) &&
       entry.intensity >= 1 &&
-      entry.intensity <= 5,
+      entry.intensity <= 5
   )
 
   if (validEntries.length === 0) {
@@ -211,48 +212,48 @@ export function getMoodMetrics(entries = []) {
       averageValence: null,
       averageIntensity: null,
       mostFrequentMood: null,
-      activityCounts: [],
+      activityCounts: {},
     }
   }
 
-  const average = (values) =>
-    Math.round(
-      (values.reduce((sum, value) => sum + value, 0) / values.length) * 10,
-    ) / 10
+  const valenceTotal = validEntries.reduce(
+    (total, entry) => total + entry.valence,
+    0
+  )
 
-  const moodCounts = new Map()
-  const activityCounts = new Map()
+  const intensityTotal = validEntries.reduce(
+    (total, entry) => total + entry.intensity,
+    0
+  )
 
-  for (const entry of validEntries) {
-    moodCounts.set(
-      entry.moodId,
-      (moodCounts.get(entry.moodId) || 0) + 1,
-    )
+  const moodCounts = {}
+  const activityCounts = {}
 
-    for (const activity of new Set(entry.activities || [])) {
-      activityCounts.set(
-        activity,
-        (activityCounts.get(activity) || 0) + 1,
-      )
-    }
-  }
+  validEntries.forEach((entry) => {
+    moodCounts[entry.moodId] = (moodCounts[entry.moodId] || 0) + 1
 
-  const mostFrequentMood = [...moodCounts.entries()].sort(
-    (a, b) => b[1] - a[1],
+    ;(entry.activities || []).forEach((activityId) => {
+      activityCounts[activityId] =
+        (activityCounts[activityId] || 0) + 1
+    })
+  })
+
+  const mostFrequentMoodId = Object.keys(moodCounts).sort(
+    (a, b) => moodCounts[b] - moodCounts[a]
   )[0]
 
   return {
     entryCount: validEntries.length,
-    averageValence: average(validEntries.map((entry) => entry.valence)),
-    averageIntensity: average(validEntries.map((entry) => entry.intensity)),
-    mostFrequentMood: mostFrequentMood
-      ? {
-          id: mostFrequentMood[0],
-          count: mostFrequentMood[1],
-        }
-      : null,
-    activityCounts: [...activityCounts.entries()]
-      .map(([id, count]) => ({ id, count }))
-      .sort((a, b) => b.count - a.count),
+    averageValence: Number(
+      (valenceTotal / validEntries.length).toFixed(1)
+    ),
+    averageIntensity: Number(
+      (intensityTotal / validEntries.length).toFixed(1)
+    ),
+    mostFrequentMood: {
+      id: mostFrequentMoodId,
+      count: moodCounts[mostFrequentMoodId],
+    },
+    activityCounts,
   }
 }

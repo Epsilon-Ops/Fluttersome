@@ -1,91 +1,140 @@
+
 .mood-statistics__grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mood-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 145px;
+  padding: 22px;
+  border: 1px solid var(--mood-color-border);
+  border-radius: var(--mood-radius-md);
+  background: #ffffff;
+  box-shadow: var(--mood-shadow-card);
+}
+
+.mood-stat-card__label {
+  color: var(--mood-color-muted);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.mood-stat-card__value {
+  margin-top: 14px;
+  color: var(--mood-color-text);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.mood-stat-card__value--text {
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.mood-stat-card__hint {
+  margin-top: 8px;
+  color: var(--mood-color-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.mood-stat-card__frequent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--mood-color-text);
+  font-size: 0.95rem;
+  font-weight: 750;
+}
+
+.mood-statistics__breakdown {
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--mood-color-border);
+  border-radius: var(--mood-radius-md);
+  background: #ffffff;
+  box-shadow: var(--mood-shadow-card);
+}
+
+.mood-statistics__title {
+  margin-bottom: 18px;
+}
+
+.mood-statistics__mood-list {
+  display: grid;
+  gap: 16px;
+}
+
+.mood-statistics__mood {
+  min-width: 0;
+}
+
+.mood-statistics__mood-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.mood-statistics__mood-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  color: var(--mood-color-text);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.mood-statistics__mood-name svg {
+  flex: 0 0 auto;
+}
+
+.mood-statistics__mood-count {
+  flex: 0 0 auto;
+  color: var(--mood-color-muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.mood-statistics__bar {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #edf0f7;
+}
+
+.mood-statistics__bar-fill {
+  height: 100%;
+  min-width: 0;
+  border-radius: inherit;
+  background: var(--mood-category-color, var(--mood-color-primary));
+  transition: width var(--mood-transition);
+}
+
+@media (max-width: 600px) {
+  .mood-statistics__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
-  
+
   .mood-stat-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    min-width: 0;
-    min-height: 145px;
-    padding: 22px;
-    border: 1px solid var(--mood-color-border);
-    border-radius: var(--mood-radius-md);
-    background: #ffffff;
-    box-shadow: var(--mood-shadow-card);
+    min-height: 120px;
+    padding: 18px;
   }
-  
-  .mood-stat-card__label {
-    color: var(--mood-color-muted);
-    font-size: 0.85rem;
-    font-weight: 650;
+
+  .mood-statistics__breakdown {
+    padding: 17px;
   }
-  
-  .mood-stat-card__value {
-    margin-top: 14px;
-    color: var(--mood-color-text);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 850;
-    letter-spacing: -0.04em;
-    line-height: 1.2;
-  }
-  
-  .mood-stat-card__value--text {
-    font-size: clamp(1.05rem, 2vw, 1.45rem);
-    letter-spacing: -0.02em;
-    overflow-wrap: anywhere;
-  }
-  
-  .mood-stat-card__hint {
-    margin-top: 8px;
-    color: var(--mood-color-muted);
-    font-size: 0.78rem;
-    line-height: 1.5;
-  }
-  
-  .mood-statistics__activities {
-    margin-top: 28px;
-    padding: 22px;
-    border: 1px solid var(--mood-color-border);
-    border-radius: var(--mood-radius-md);
-    background: #ffffff;
-  }
-  
-  .mood-statistics__subtitle {
-    margin: 0 0 16px;
-    color: var(--mood-color-text);
-    font-size: 1rem;
-    font-weight: 800;
-  }
-  
-  .mood-statistics__activity-list {
-    display: grid;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .mood-statistics__activity {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 14px;
-    border-radius: var(--mood-radius-sm);
-    background: #f6f7fb;
-    color: var(--mood-color-text);
-    font-size: 0.88rem;
-  }
-  
-  .mood-statistics__activity span {
-    overflow-wrap: anywhere;
-  }
-  
-  .mood-statistics__activity strong {
-    flex: 0 0 auto;
-    color: var(--mood-color-primary-dark);
-    font-weight: 800;
-  }
+}

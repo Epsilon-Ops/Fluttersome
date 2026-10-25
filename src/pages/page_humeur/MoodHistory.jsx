@@ -1,102 +1,99 @@
+
 import { useMemo, useState } from 'react'
 import MoodHistoryItem from './MoodHistoryItem'
 import MoodEmptyState from './MoodEmptyState'
-import { loadMoodEntries } from '../../utils/moodHelpers'
+import {
+  getLocalDateString,
+  getWeeklyMoodEntries,
+  getMonthlyMoodEntries,
+} from '../../utils/moodHelpers'
 
-export default function MoodHistory() {
-  const [period, setPeriod] = useState('week')
-  const [entries] = useState(() => loadMoodEntries())
+export default function MoodHistory({
+  entries = [],
+  onDelete,
+}) {
+  const [period, setPeriod] = useState('all')
 
   const filteredEntries = useMemo(() => {
-    const now = new Date()
-    const today = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-    )
-
-    let startDate
+    const referenceDate = new Date()
 
     if (period === 'week') {
-      startDate = new Date(today)
-      startDate.setDate(today.getDate() - 6)
-    } else {
-      startDate = new Date(today.getFullYear(), today.getMonth(), 1)
+      return getWeeklyMoodEntries(entries, referenceDate)
     }
 
-    const startString = [
-      startDate.getFullYear(),
-      String(startDate.getMonth() + 1).padStart(2, '0'),
-      String(startDate.getDate()).padStart(2, '0'),
-    ].join('-')
+    if (period === 'month') {
+      return getMonthlyMoodEntries(entries, referenceDate)
+    }
 
-    const todayString = [
-      today.getFullYear(),
-      String(today.getMonth() + 1).padStart(2, '0'),
-      String(today.getDate()).padStart(2, '0'),
-    ].join('-')
-
-    return entries
-      .filter((entry) => entry.date >= startString && entry.date <= todayString)
-      .sort((a, b) => {
-        const dateComparison = b.date.localeCompare(a.date)
-        if (dateComparison !== 0) return dateComparison
-        return (b.time || '').localeCompare(a.time || '')
-      })
+    return [...entries]
   }, [entries, period])
 
-  return (
-    <section className="mood-history">
-      <div className="mood-history__toolbar">
-        <div>
-          <h3 className="mood-history__title">Ton historique</h3>
-          <p className="mood-history__description">
-            Retrouve les humeurs que tu as enregistrées.
-          </p>
-        </div>
+  const today = getLocalDateString()
 
-        <div className="mood-history__period" aria-label="Période de l'historique">
+  return (
+    <div className="mood-history">
+      <div className="mood-history__toolbar">
+        <p className="mood-history__count">
+          {filteredEntries.length}{' '}
+          {filteredEntries.length > 1 ? 'entrées' : 'entrée'}
+        </p>
+
+        <div
+          className="mood-history__filters"
+          role="group"
+          aria-label="Filtrer l’historique"
+        >
           <button
             type="button"
-            className={`mood-history__period-button ${
+            className={`mood-history__filter ${
+              period === 'all' ? 'is-active' : ''
+            }`}
+            aria-pressed={period === 'all'}
+            onClick={() => setPeriod('all')}
+          >
+            Tout
+          </button>
+
+          <button
+            type="button"
+            className={`mood-history__filter ${
               period === 'week' ? 'is-active' : ''
             }`}
             aria-pressed={period === 'week'}
             onClick={() => setPeriod('week')}
           >
-            Semaine
+            7 derniers jours
           </button>
 
           <button
             type="button"
-            className={`mood-history__period-button ${
+            className={`mood-history__filter ${
               period === 'month' ? 'is-active' : ''
             }`}
             aria-pressed={period === 'month'}
             onClick={() => setPeriod('month')}
           >
-            Mois
+            Ce mois-ci
           </button>
         </div>
       </div>
 
-      <p className="mood-history__count">
-        {filteredEntries.length}{' '}
-        {filteredEntries.length > 1 ? 'entrées' : 'entrée'}
-      </p>
-
       {filteredEntries.length === 0 ? (
         <MoodEmptyState
-          title="Aucune humeur pour cette période"
-          description="Lorsque tu enregistreras une humeur, elle apparaîtra ici."
+          title="Aucune émotion pour cette période"
+          description="Les émotions que tu enregistres apparaîtront ici. Tu peux noter plusieurs ressentis dans une même journée."
         />
       ) : (
         <div className="mood-history__list">
           {filteredEntries.map((entry) => (
-            <MoodHistoryItem key={entry.id} entry={entry} />
+            <MoodHistoryItem
+              key={entry.id}
+              entry={entry}
+              onDelete={onDelete}
+            />
           ))}
         </div>
       )}
-    </section>
+    </div>
   )
 }

@@ -1,16 +1,18 @@
 
-import { useState } from 'react'
-import {
-  moods,
-  MOOD_CATEGORIES,
-} from '../../constants/moods'
+import { useEffect, useState } from 'react'
+import { moods, MOOD_CATEGORIES } from '../../constants/moods'
 import MoodCategory from './MoodCategory'
 
-export default function MoodSelector({ onSelect, selectedMoodId = null }) {
+export default function MoodSelector({
+  onSelect,
+  selectedMoodId = null,
+}) {
   const [internalSelectedId, setInternalSelectedId] =
     useState(selectedMoodId)
 
-  const activeMoodId = selectedMoodId ?? internalSelectedId
+  useEffect(() => {
+    setInternalSelectedId(selectedMoodId)
+  }, [selectedMoodId])
 
   function handleSelect(mood) {
     setInternalSelectedId(mood.id)
@@ -23,16 +25,20 @@ export default function MoodSelector({ onSelect, selectedMoodId = null }) {
   return (
     <div className="mood-selector">
       <div className="mood-selector__intro">
-        <h3 className="mood-selector__title">Choisis ton émotion</h3>
+        <h3 className="mood-selector__title">
+          Choisis ton émotion
+        </h3>
+
         <p className="mood-selector__description">
           Sélectionne celle qui correspond le mieux à ton ressenti.
+          Tu pourras en enregistrer plusieurs pour une même journée.
         </p>
       </div>
 
       <div className="mood-selector__categories">
         {MOOD_CATEGORIES.map((category) => {
           const categoryMoods = moods.filter(
-            (mood) => mood.category === category.id,
+            (mood) => mood.category === category.id
           )
 
           return (
@@ -40,7 +46,7 @@ export default function MoodSelector({ onSelect, selectedMoodId = null }) {
               key={category.id}
               category={category}
               moods={categoryMoods}
-              selectedMoodId={activeMoodId}
+              selectedMoodId={internalSelectedId}
               onSelect={handleSelect}
             />
           )
