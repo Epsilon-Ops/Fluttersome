@@ -15,7 +15,7 @@ import Mood from './pages/page_humeur/Mood'
 import Sleep from './pages/page_sommeil/Sleep'
 import Nutrition from './pages/page_nutrition/Nutrition'
 import Tasks from './pages/page_taches/Tasks'
-import Coach from './pages/Coach'
+import Coach from './pages/page_coach/Coach'
 
 import './styles/settings/variables.css'
 import './styles/settings/fonts.css'

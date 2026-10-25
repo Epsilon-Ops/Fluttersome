@@ -1,4 +1,4 @@
-import { AppIcon } from '../components/icons/icon-utils/index'
+import { AppIcon } from '../../components/icons/icon-utils/index'
 
 export default function Coach() {
   return (
