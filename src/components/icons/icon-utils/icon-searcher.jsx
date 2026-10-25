@@ -10,8 +10,11 @@ export const ICON_CATEGORIES = [
 ]
 
 export const ICON_SEARCHER = [
+  //  --------------------------------------------
   // Flèches --------------------------------------------
+  //  --------------------------------------------
 
+  // Flèches Classiques >>>
   {
     name: 'arrow_up',
     category: 'fleches',
@@ -59,6 +62,14 @@ export const ICON_SEARCHER = [
     category: 'fleches',
     label: 'Flèche montante',
     keywords: ['progression', 'évolution', 'direction'],
+  },
+
+  // Flèches Maigres >>>
+  {
+    name: 'arrow_up',
+    category: 'fleches',
+    label: 'Flèche vers le haut',
+    keywords: ['fleche','haut'],
   },
 
   // --------------------------------------------
