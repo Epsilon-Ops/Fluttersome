@@ -1,0 +1,140 @@
+@media (max-width: 900px) {
+    .mood-page {
+      padding: 22px;
+    }
+  
+    .mood-header {
+      padding: 26px;
+    }
+  
+    .mood-selector__categories {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .mood-category__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .mood-page {
+      padding: 14px;
+    }
+  
+    .mood-header {
+      margin-bottom: 18px;
+      padding: 22px 18px;
+      border-radius: var(--mood-radius-md);
+    }
+  
+    .mood-header__title {
+      font-size: 1.85rem;
+    }
+  
+    .mood-header__description {
+      font-size: 0.9rem;
+    }
+  
+    .mood-tabs {
+      gap: 4px;
+      margin-bottom: 18px;
+      padding: 4px;
+    }
+  
+    .mood-tabs__button {
+      min-height: 42px;
+      padding: 10px 12px;
+      font-size: 0.84rem;
+    }
+  
+    .mood-dashboard__title {
+      font-size: 1.25rem;
+    }
+  
+    .mood-dashboard__panel,
+    .mood-category,
+    .mood-entry-form {
+      padding: 17px;
+    }
+  
+    .mood-selector__categories {
+      gap: 12px;
+    }
+  
+    .mood-category__list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .mood-option {
+      min-height: 46px;
+    }
+  
+    .mood-entry-form {
+      gap: 20px;
+      margin-top: 18px;
+    }
+  
+    .mood-entry-form__datetime {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+  
+    .mood-entry-form__actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .mood-entry-form__button {
+      width: 100%;
+    }
+  
+    .mood-history__toolbar,
+    .mood-statistics__header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+  
+    .mood-history__period,
+    .mood-statistics__period {
+      align-self: flex-start;
+    }
+  
+    .mood-history-item {
+      padding: 16px;
+    }
+  
+    .mood-history-item__heading {
+      flex-direction: column;
+      gap: 6px;
+    }
+  
+    .mood-statistics__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+  
+    .mood-stat-card {
+      min-height: 120px;
+      padding: 18px;
+    }
+  
+    .mood-statistics__activities {
+      padding: 17px;
+    }
+  
+    .mood-empty-state {
+      padding: 32px 18px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .mood-page *,
+    .mood-page *::before,
+    .mood-page *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }

@@ -1,0 +1,18 @@
+.mood-page {
+    --mood-color-primary: #5265b8;
+    --mood-color-primary-dark: #3e4f9b;
+    --mood-color-text: #20243a;
+    --mood-color-muted: #73798c;
+    --mood-color-border: #e5e8f0;
+    --mood-color-surface: #ffffff;
+    --mood-color-background: #f6f7fb;
+    --mood-color-success: #27855b;
+    --mood-color-danger: #d93446;
+  
+    --mood-radius-sm: 8px;
+    --mood-radius-md: 14px;
+    --mood-radius-lg: 20px;
+  
+    --mood-shadow-card: 0 4px 18px rgb(32 36 58 / 5%);
+    --mood-transition: 180ms ease;
+  }

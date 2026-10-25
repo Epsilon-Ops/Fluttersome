@@ -1,0 +1,97 @@
+.mood-page {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    margin-inline: auto;
+    padding: 28px;
+    box-sizing: border-box;
+  }
+  
+  .mood-page *,
+  .mood-page *::before,
+  .mood-page *::after {
+    box-sizing: border-box;
+  }
+  
+  .mood-page button,
+  .mood-page input,
+  .mood-page textarea,
+  .mood-page select {
+    font: inherit;
+  }
+  
+  .mood-page button {
+    cursor: pointer;
+  }
+  
+  .mood-page button:focus-visible,
+  .mood-page input:focus-visible,
+  .mood-page textarea:focus-visible,
+  .mood-page select:focus-visible {
+    outline: 3px solid rgb(82 101 184 / 35%);
+    outline-offset: 3px;
+  }
+  
+  .mood-header {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    padding: 32px;
+    border: 1px solid #e7eafa;
+    border-radius: var(--mood-radius-lg);
+    background:
+      radial-gradient(
+        circle at 95% 10%,
+        rgb(151 164 226 / 20%),
+        transparent 35%
+      ),
+      linear-gradient(135deg, #ffffff, #f3f5ff);
+  }
+  
+  .mood-header__content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+  }
+  
+  .mood-header__eyebrow {
+    margin: 0 0 10px;
+    color: var(--mood-color-primary);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+  
+  .mood-header__title {
+    margin: 0;
+    color: var(--mood-color-text);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+  }
+  
+  .mood-header__description {
+    max-width: 620px;
+    margin: 14px 0 0;
+    color: var(--mood-color-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .mood-page__content {
+    min-width: 0;
+  }
+  
+  .mood-page h1,
+  .mood-page h2,
+  .mood-page h3,
+  .mood-page h4,
+  .mood-page p {
+    overflow-wrap: anywhere;
+  }
+  
+  .mood-page button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
