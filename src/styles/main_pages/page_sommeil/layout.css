@@ -1,0 +1,179 @@
+
+.sleep-page {
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 2rem;
+  }
+  
+  .sleep-page .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  .sleep-page .section-heading h2 {
+    margin: 0.35rem 0 0;
+    color: var(--sleep-text);
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    font-weight: 750;
+    letter-spacing: -0.035em;
+  }
+  
+  .sleep-page .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 999px;
+    color: var(--sleep-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  
+  .sleep-page .section-tag-dot {
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: var(--sleep-success);
+  }
+  
+  .sleep-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.35rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 14px;
+    background: var(--sleep-surface);
+  }
+  
+  .sleep-tab {
+    flex: 1 1 130px;
+    min-height: 42px;
+    padding: 0.7rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--sleep-muted);
+    font-size: 0.88rem;
+    font-weight: 650;
+    transition:
+      color 160ms ease,
+      background 160ms ease,
+      border-color 160ms ease;
+  }
+  
+  .sleep-tab:hover {
+    background: var(--sleep-surface-hover);
+    color: var(--sleep-text);
+  }
+  
+  .sleep-tab.active,
+  .sleep-tab[aria-selected="true"] {
+    border-color: var(--sleep-border);
+    background: rgba(141, 156, 255, 0.13);
+    color: var(--sleep-text);
+  }
+  
+  .sleep-primary-action {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 1rem;
+  }
+  
+  .sleep-primary-button,
+  .sleep-secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 42px;
+    padding: 0.7rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition:
+      background 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+  
+  .sleep-primary-button {
+    background: var(--sleep-accent-strong);
+    color: #fff;
+  }
+  
+  .sleep-primary-button:hover {
+    background: var(--sleep-accent);
+    transform: translateY(-1px);
+  }
+  
+  .sleep-secondary-button {
+    border-color: var(--sleep-border);
+    background: var(--sleep-surface);
+    color: var(--sleep-text);
+  }
+  
+  .sleep-secondary-button:hover {
+    background: var(--sleep-surface-hover);
+  }
+  
+  .sleep-error {
+    margin: 0 0 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(255, 146, 155, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 146, 155, 0.08);
+    color: var(--sleep-danger);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .sleep-page .panel {
+    min-width: 0;
+    border: 1px solid var(--sleep-border);
+    border-radius: 18px;
+    background: var(--sleep-surface);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  .sleep-page .panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .sleep-page .panel-heading h3 {
+    margin: 0.35rem 0 0;
+    color: var(--sleep-text);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .sleep-page .welcome-description {
+    color: var(--sleep-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  
+  .sleep-page .sleep-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 999px;
+    color: var(--sleep-muted);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+  

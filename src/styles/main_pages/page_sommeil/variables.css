@@ -1,0 +1,50 @@
+
+.sleep-page {
+    --sleep-bg: #0d1220;
+    --sleep-surface: #151c2d;
+    --sleep-surface-hover: #1b2539;
+    --sleep-border: rgba(160, 177, 214, 0.15);
+    --sleep-text: #edf2ff;
+    --sleep-muted: #9aa8c2;
+    --sleep-accent: #8d9cff;
+    --sleep-accent-strong: #7185ff;
+    --sleep-success: #7bd9b0;
+    --sleep-warning: #ffd18b;
+    --sleep-danger: #ff929b;
+  
+    color: var(--sleep-text);
+  }
+  
+  .sleep-page *,
+  .sleep-page *::before,
+  .sleep-page *::after {
+    box-sizing: border-box;
+  }
+  
+  .sleep-page button,
+  .sleep-page input,
+  .sleep-page select,
+  .sleep-page textarea {
+    font: inherit;
+  }
+  
+  .sleep-page button {
+    cursor: pointer;
+  }
+  
+  .sleep-page button:focus-visible,
+  .sleep-page input:focus-visible,
+  .sleep-page select:focus-visible,
+  .sleep-page textarea:focus-visible {
+    outline: 2px solid var(--sleep-accent);
+    outline-offset: 3px;
+  }
+  
+  .sleep-page .eyebrow {
+    color: var(--sleep-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+  }
+  

@@ -1,0 +1,92 @@
+
+.sleep-history-panel {
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .sleep-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+  
+  .sleep-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+    transition:
+      border-color 160ms ease,
+      background 160ms ease;
+  }
+  
+  .sleep-history-item:hover {
+    border-color: rgba(141, 156, 255, 0.35);
+    background: rgba(141, 156, 255, 0.035);
+  }
+  
+  .sleep-history-main {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  
+  .sleep-history-main strong {
+    color: var(--sleep-text);
+    font-size: 0.98rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  
+  .sleep-history-main > span {
+    color: var(--sleep-muted);
+    font-size: 0.84rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  
+  .sleep-history-actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .sleep-history-actions button {
+    min-height: 36px;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 9px;
+    background: var(--sleep-surface);
+    color: var(--sleep-text);
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+  
+  .sleep-history-actions button:hover {
+    border-color: var(--sleep-accent);
+    background: var(--sleep-surface-hover);
+  }
+  
+  .sleep-history-actions button[aria-label*="Supprimer"],
+  .sleep-history-actions button[data-action="delete"] {
+    color: var(--sleep-danger);
+  }
+  
+  .sleep-history-empty {
+    padding: 2rem 1rem;
+    border: 1px dashed var(--sleep-border);
+    border-radius: 14px;
+    color: var(--sleep-muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+  

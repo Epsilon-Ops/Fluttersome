@@ -1,0 +1,39 @@
+
+.sleep-target-panel {
+  margin-top: 1rem;
+}
+
+.sleep-target-panel .sleep-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 280px;
+  margin-top: 1rem;
+}
+
+.sleep-target-panel .sleep-field > span {
+  color: var(--sleep-muted, #9aa8c2);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.sleep-target-panel input {
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid var(--sleep-border, #303a50);
+  border-radius: 10px;
+  background: var(--sleep-bg, #0d1220);
+  color: var(--sleep-text, #edf2ff);
+}
+
+.sleep-target-summary {
+  margin-top: 0.75rem;
+  color: var(--sleep-muted, #9aa8c2);
+  font-size: 0.9rem;
+}
+
+.sleep-target-summary strong {
+  color: var(--sleep-text, #edf2ff);
+}

@@ -1,0 +1,131 @@
+
+.sleep-form-panel {
+    margin-bottom: 1rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  
+  .sleep-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  
+  .sleep-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  
+  .sleep-field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .sleep-field > span,
+  .sleep-field > label {
+    color: var(--sleep-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  
+  .sleep-field input,
+  .sleep-field select,
+  .sleep-field textarea {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 10px;
+    background: var(--sleep-bg);
+    color: var(--sleep-text);
+    font-size: 0.9rem;
+    transition: border-color 160ms ease;
+  }
+  
+  .sleep-field input:hover,
+  .sleep-field select:hover,
+  .sleep-field textarea:hover {
+    border-color: rgba(141, 156, 255, 0.5);
+  }
+  
+  .sleep-field input:focus,
+  .sleep-field select:focus,
+  .sleep-field textarea:focus {
+    border-color: var(--sleep-accent);
+    outline: none;
+  }
+  
+  .sleep-field input::placeholder,
+  .sleep-field textarea::placeholder {
+    color: #77839c;
+  }
+  
+  .sleep-field input[type="date"],
+  .sleep-field input[type="time"] {
+    color-scheme: dark;
+  }
+  
+  .sleep-field input[type="range"] {
+    min-height: auto;
+    padding: 0.5rem 0;
+    accent-color: var(--sleep-accent);
+  }
+  
+  .sleep-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: 12px;
+  }
+  
+  .sleep-fieldset legend {
+    padding: 0 0.4rem;
+    color: var(--sleep-text);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  
+  .sleep-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: var(--sleep-muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  
+  .sleep-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin: 0.1rem 0 0;
+    accent-color: var(--sleep-accent-strong);
+  }
+  
+  .sleep-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sleep-border);
+  }
+  
+  .sleep-form-actions button {
+    min-width: 120px;
+  }
+  
+  .sleep-form .sleep-error {
+    margin-bottom: 0;
+  }
+  
