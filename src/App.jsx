@@ -27,6 +27,7 @@ import './styles/dashboard/panel.css'
 import './styles/dashboard/welcome.css'
 import './styles/dashboard/metrics.css'
 import './styles/dashboard/marks.css'
+import './styles/dashboard/home.css'
 
 import './styles/layout/app-shell.css'
 import './styles/layout/sidebar.css'
@@ -37,6 +38,7 @@ import './styles/layout/bottom-nav.css'
 import './styles/loading/status.css'
 import './styles/pages/empty-page.css'
 import './styles/pages/page-placeholder.css'
+
 
 
 const pageComponents = {
@@ -89,7 +91,11 @@ export default function App() {
         </header>
 
         <div className="page-container">
+        {activePage === 'dashboard' ? (
+          <Dashboard onNavigate={setActivePage} />
+        ) : (
           <PageComponent />
+        )}
         </div>
 
         <footer className="app-footer">
