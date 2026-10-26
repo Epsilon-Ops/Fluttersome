@@ -9,8 +9,11 @@ import SleepHistory from './SleepHistory'
 import SleepStatistics from './SleepStatistics'
 import SleepReadinessPlaceholder from './SleepReadinessPlaceholder'
 import SleepForm from './SleepForm'
+import BodyFeelingForm from './BodyFeelingForm'
+import BodyFeelingHistory from './BodyFeelingHistory'
 
 import useSleep from '../../hooks/useSleep'
+import useBodyFeelings from '../../hooks/useBodyFeelings'
 
 export default function Sleep() {
   const {
@@ -23,11 +26,19 @@ export default function Sleep() {
     updateSleepTarget,
   } = useSleep()
 
+  const {
+    feelings,
+    addFeeling,
+    deleteFeeling,
+    storageError: bodyFeelingStorageError,
+  } = useBodyFeelings()
+
   const [activeSection, setActiveSection] =
     useState('Vue d’ensemble')
   const [formOpen, setFormOpen] = useState(false)
   const [editingNight, setEditingNight] = useState(null)
   const [error, setError] = useState('')
+  const [bodyFeelingError, setBodyFeelingError] = useState('')
 
   function handleSave(nightData) {
     setError('')
@@ -87,8 +98,34 @@ export default function Sleep() {
   function handleSectionChange(section) {
     setActiveSection(section)
     setError('')
+    setBodyFeelingError('')
     setFormOpen(false)
     setEditingNight(null)
+  }
+
+  function handleAddBodyFeeling(data) {
+    setBodyFeelingError('')
+
+    const result = addFeeling(data)
+
+    if (!result.success) {
+      setBodyFeelingError(
+        Object.values(result.errors || {}).join(' ' ) ||
+          'Impossible d’enregistrer cette observation.',
+      )
+    }
+
+    return result
+  }
+
+  function handleDeleteBodyFeeling(id) {
+    const confirmed = window.confirm(
+      'Supprimer cette observation corporelle ?',
+    )
+
+    if (confirmed) {
+      deleteFeeling(id)
+    }
   }
 
   return (
@@ -116,6 +153,32 @@ export default function Sleep() {
         <div className="sleep-error" role="alert">
           {error || storageError}
         </div>
+      )}
+
+      {activeSection === 'Ressenti corporel' && (
+        <section className="body-feeling-section">
+          <div className="body-feeling-intro">
+            <h3>Comment se sent ton corps ?</h3>
+            <p>
+              Enregistre tes sensations à tout moment, puis retrouve
+              leur évolution dans l’historique. Ces observations sont
+              indépendantes de tes nuits de sommeil.
+            </p>
+          </div>
+
+          {(bodyFeelingError || bodyFeelingStorageError) && (
+            <div className="sleep-error" role="alert">
+              {bodyFeelingError || bodyFeelingStorageError}
+            </div>
+          )}
+
+          <BodyFeelingForm onSubmit={handleAddBodyFeeling} />
+
+          <BodyFeelingHistory
+            feelings={feelings}
+            onDelete={handleDeleteBodyFeeling}
+          />
+        </section>
       )}
 
       {(activeSection === 'Vue d’ensemble' ||

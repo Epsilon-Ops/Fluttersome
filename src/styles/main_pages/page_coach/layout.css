@@ -1,0 +1,91 @@
+
+.page-section:has(.coach-dashboard) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+  
+  .coach-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    min-width: 0;
+    align-items: start;
+  }
+  
+  .coach-dashboard > * {
+    min-width: 0;
+  }
+  
+  .coach-dashboard .coach-summary,
+  .coach-dashboard .coach-alerts,
+  .coach-dashboard .coach-chat,
+  .coach-dashboard .coach-performance-analysis,
+  .coach-dashboard .coach-progression-trends {
+    grid-column: 1 / -1;
+  }
+  
+  .coach-dashboard .panel {
+    padding: 22px;
+    border: 1px solid var(--coach-border);
+    border-radius: var(--coach-radius);
+    background: var(--coach-bg);
+    color: var(--coach-text);
+    box-shadow: var(--coach-shadow);
+  }
+  
+  .coach-dashboard .panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  
+  .coach-dashboard .panel-header h2 {
+    margin: 6px 0 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  
+  .coach-dashboard .panel p {
+    color: var(--coach-muted);
+    line-height: 1.65;
+  }
+  
+  .coach-dashboard .eyebrow {
+    color: var(--coach-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+  }
+  
+  .coach-dashboard .status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border: 1px solid var(--coach-border);
+    border-radius: 999px;
+    color: var(--coach-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .coach-dashboard h3 {
+    color: var(--coach-text);
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+  
+  .coach-dashboard button {
+    font: inherit;
+  }
+  
+  .coach-dashboard button:focus-visible {
+    outline: 2px solid var(--coach-accent);
+    outline-offset: 3px;
+  }
+  

@@ -1,0 +1,42 @@
+
+.coach-alerts__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  
+  .coach-alert {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--coach-border);
+    border-left: 4px solid var(--coach-accent);
+    border-radius: 12px;
+    background: var(--coach-bg);
+  }
+  
+  .coach-alert h3 {
+    margin: 0 0 8px;
+  }
+  
+  .coach-alert p {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+  
+  .coach-alert--info {
+    border-left-color: var(--coach-accent);
+  }
+  
+  .coach-alert--warning {
+    border-left-color: var(--coach-warning);
+  }
+  
+  .coach-alert--danger {
+    border-left-color: var(--coach-danger);
+  }
+  
+  .coach-alerts > p {
+    margin-bottom: 0;
+  }
+  

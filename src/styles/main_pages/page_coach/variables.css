@@ -1,0 +1,14 @@
+
+:root {
+    --coach-bg: var(--card-bg, #ffffff);
+    --coach-text: var(--text-primary, #172033);
+    --coach-muted: var(--text-secondary, #64748b);
+    --coach-border: var(--border-color, #e2e8f0);
+    --coach-accent: var(--accent-color, #3b82f6);
+    --coach-success: var(--success-color, #16a34a);
+    --coach-warning: var(--warning-color, #d97706);
+    --coach-danger: var(--danger-color, #dc2626);
+    --coach-radius: 16px;
+    --coach-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  }
+  

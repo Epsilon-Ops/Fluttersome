@@ -1,0 +1,81 @@
+
+@media (max-width: 1000px) {
+    .coach-dashboard {
+      gap: 16px;
+    }
+  
+    .coach-dashboard .panel {
+      padding: 18px;
+    }
+  
+    .coach-decision-comparison__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .coach-decision-option:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .page-section:has(.coach-dashboard) {
+      gap: 18px;
+    }
+  
+    .coach-dashboard {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+  
+    .coach-dashboard > * {
+      grid-column: 1 / -1;
+    }
+  
+    .coach-dashboard .panel {
+      padding: 16px;
+      border-radius: 14px;
+    }
+  
+    .coach-dashboard .panel-header {
+      gap: 10px;
+    }
+  
+    .coach-alerts__list,
+    .coach-performance-analysis__list,
+    .coach-progression-trends__periods,
+    .coach-chat__questions,
+    .coach-decision-comparison__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  
+    .coach-decision-option:last-child {
+      grid-column: auto;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .coach-dashboard .panel {
+      padding: 13px;
+    }
+  
+    .coach-dashboard .panel-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .coach-readiness-breakdown__heading {
+      align-items: flex-start;
+    }
+  
+    .coach-chat__question {
+      padding: 11px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .coach-readiness-breakdown__fill,
+    .coach-chat__question {
+      transition: none;
+    }
+  }
+  

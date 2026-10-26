@@ -1,0 +1,33 @@
+
+.coach-summary > p {
+    margin: 0;
+    font-size: 0.96rem;
+  }
+  
+  .coach-summary__priorities {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--coach-border);
+  }
+  
+  .coach-summary__priorities h3 {
+    margin: 0 0 12px;
+  }
+  
+  .coach-summary__priorities ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .coach-summary__priorities li {
+    padding-left: 4px;
+    color: var(--coach-muted);
+    line-height: 1.55;
+  }
+  
+  .coach-summary__priorities > p {
+    margin-bottom: 0;
+  }
+  
