@@ -1,51 +1,79 @@
-/* =========================================
-   EPSILON — APPLICATION RESPONSIVE
-   ========================================= */
+
+/* ==========================================
+   FLUTTERSOME — APP SHELL
+   ========================================== */
 
    .app-shell {
+    position: relative;
+    display: flex;
     min-height: 100vh;
+    isolation: isolate;
+    overflow-x: clip;
     background: var(--color-background);
     color: var(--color-text);
   }
   
-  /* Avatar */
-  
-  .avatar {
-    display: grid;
-    place-items: center;
-    flex: 0 0 32px;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #cbd9e8;
-    border-radius: 50%;
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-    font-size: 12px;
-    font-weight: 700;
-  }
-  
-  /* Contenu principal */
-  
   .main-content {
     display: flex;
+    flex: 1;
     flex-direction: column;
     min-width: 0;
     min-height: 100vh;
-    margin-left: var(--sidebar-width, 250px);
-    background: var(--color-background);
+    margin-left: var(--sidebar-width);
+    background: transparent;
   }
   
   .page-container {
     flex: 1;
     width: 100%;
-    max-width: var(--content-max-width, 1440px);
+    max-width: var(--content-max-width);
     min-width: 0;
     margin: 0 auto;
-    padding: 24px;
+    padding: clamp(20px, 2.5vw, 36px);
     color: var(--color-text);
   }
   
-  /* Tablettes et écrans intermédiaires */
+  /* Avatar partagé */
+  
+  .avatar {
+    display: grid;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid rgb(185 154 255 / 35%);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 20%, #3A3155, #171522 75%);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 12%),
+      0 0 18px rgb(157 111 255 / 10%);
+  }
+  
+  /* Footer partagé */
+  
+  .app-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 28px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+  }
+  
+  .footer-separator {
+    padding: 0 5px;
+    color: var(--color-accent);
+  }
+  
+  /* Tablettes */
   
   @media (max-width: 1150px) and (min-width: 769px) {
     .main-content {
@@ -53,7 +81,7 @@
     }
   
     .page-container {
-      padding: 20px 18px 24px;
+      padding: 22px 18px;
     }
   }
   
@@ -61,33 +89,31 @@
   
   @media (max-width: 768px) {
     .main-content {
+      min-height: 100vh;
       margin-left: 0;
       padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     }
   
     .page-container {
-      padding: 16px 12px 24px;
+      padding: 18px 14px 28px;
+    }
+  
+    .app-footer {
+      gap: 12px;
+      padding: 16px 14px;
+      font-size: 9px;
+      letter-spacing: 0.04em;
     }
   }
-  
-  /* Très petits téléphones */
   
   @media (max-width: 380px) {
     .page-container {
       padding-right: 10px;
       padding-left: 10px;
     }
-  }
   
-  /* Accessibilité */
-  
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      scroll-behavior: auto !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+    .app-footer {
+      font-size: 8px;
     }
   }
+  

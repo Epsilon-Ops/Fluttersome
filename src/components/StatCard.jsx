@@ -13,10 +13,10 @@ export default function StatCard({
     <>
       <div className="stat-card__top">
         <span className="stat-card__title">{title}</span>
-
+  
         <span
           className="stat-card__icon"
-          style={{ color: accent }}
+          style={{ color: accent, '--stat-accent': accent }}
           aria-hidden="true"
         >
           <AppIcon name={icon} size={22} />

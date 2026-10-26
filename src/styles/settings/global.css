@@ -1,7 +1,7 @@
 
-/* =========================================
-   RESET
-   ========================================= */
+/* ==========================================
+   FLUTTERSOME — GLOBAL FOUNDATION
+   ========================================== */
 
    *,
    *::before,
@@ -15,23 +15,31 @@
      background: var(--color-background);
      scroll-behavior: smooth;
      -webkit-text-size-adjust: 100%;
+     scrollbar-color: #49405F transparent;
    }
    
    body {
      min-width: 320px;
      min-height: 100vh;
      margin: 0;
-     background: var(--color-background);
+     background:
+       radial-gradient(
+         ellipse at 50% -20%,
+         rgb(113 75 180 / 9%),
+         transparent 55%
+       ),
+       var(--color-background);
      color: var(--color-text);
-     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-       sans-serif;
+     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
      font-size: 14px;
-     line-height: 1.5;
+     line-height: 1.6;
    }
    
-   /* =========================================
-      TYPOGRAPHIE
-      ========================================= */
+   #root {
+     min-height: 100vh;
+   }
+   
+   /* TYPOGRAPHIE */
    
    h1,
    h2,
@@ -40,23 +48,24 @@
    h5,
    h6 {
      margin-top: 0;
-     color: var(--color-primary);
-     font-weight: 700;
+     color: var(--color-text);
+     font-weight: 750;
      line-height: 1.25;
    }
    
    h1 {
-     font-size: clamp(1.65rem, 2.5vw, 2.15rem);
-     letter-spacing: -0.035em;
+     font-size: clamp(1.8rem, 3vw, 2.6rem);
+     letter-spacing: -0.045em;
    }
    
    h2 {
-     font-size: 1.4rem;
-     letter-spacing: -0.02em;
+     font-size: clamp(1.3rem, 2vw, 1.7rem);
+     letter-spacing: -0.03em;
    }
    
    h3 {
-     font-size: 1.1rem;
+     font-size: 1.05rem;
+     letter-spacing: -0.015em;
    }
    
    p {
@@ -73,7 +82,6 @@
      font-weight: 700;
    }
    
-   /* Chiffres, chronos et performances */
    .mono,
    .performance-value,
    .mark-value,
@@ -84,19 +92,19 @@
      font-variant-numeric: tabular-nums;
    }
    
-   /* =========================================
-      LIENS ET INTERACTIONS
-      ========================================= */
+   /* LIENS */
    
    a {
      color: var(--color-primary);
      text-decoration: none;
-     transition: color 150ms ease;
+     transition: color var(--motion-fast) ease;
    }
    
    a:hover {
-     color: var(--color-primary-hover);
+     color: var(--color-accent);
    }
+   
+   /* CONTRÔLES */
    
    button,
    input,
@@ -116,40 +124,32 @@
    }
    
    :where(button, input, select, textarea, a):focus-visible {
-     outline: 3px solid rgb(0 84 155 / 30%);
-     outline-offset: 2px;
+     outline: 2px solid var(--color-accent);
+     outline-offset: 3px;
    }
    
-   ::selection {
-     color: #ffffff;
-     background: var(--color-primary);
+   /* BOUTONS : INTERACTION TACTILE */
+   
+   button:not(:disabled) {
+     transition:
+       color var(--motion-fast) ease,
+       border-color var(--motion-fast) ease,
+       background-color var(--motion-fast) ease,
+       box-shadow var(--motion-normal) ease,
+       transform var(--motion-fast) var(--motion-smooth);
    }
    
-   /* =========================================
-      APPLICATION
-      ========================================= */
-   
-   #root {
-     min-height: 100vh;
+   button:not(:disabled):active {
+     transform: scale(0.975);
    }
    
-   img,
-   svg {
-     max-width: 100%;
-   }
-   
-   img {
-     height: auto;
-   }
-   
-   /* =========================================
-      PANNEAUX ET CARTES
-      ========================================= */
+   /* SURFACES GÉNÉRIQUES */
    
    .card,
    .panel,
    .dashboard-card {
      min-width: 0;
+     color: var(--color-text);
      background: var(--color-surface);
      border: 1px solid var(--color-border);
      border-radius: var(--radius-card);
@@ -163,18 +163,52 @@
      align-items: center;
      justify-content: space-between;
      gap: 12px;
-     padding: 14px 16px;
+     padding: 16px 18px;
      border-bottom: 1px solid var(--color-border);
    }
    
    .card-body,
    .panel-body {
-     padding: 16px;
+     min-width: 0;
+     padding: 18px;
    }
    
-   /* =========================================
-      TABLEAUX SPORTIFS
-      ========================================= */
+   /* FORMULAIRES */
+   
+   input,
+   select,
+   textarea {
+     max-width: 100%;
+     color: var(--color-text);
+     background: #141520;
+     border: 1px solid var(--color-border);
+     border-radius: var(--radius-control);
+     accent-color: var(--color-accent);
+   }
+   
+   input,
+   select {
+     min-height: 40px;
+     padding: 8px 12px;
+   }
+   
+   textarea {
+     padding: 12px;
+     resize: vertical;
+   }
+   
+   input::placeholder,
+   textarea::placeholder {
+     color: #777A93;
+   }
+   
+   :where(input, select, textarea):focus {
+     border-color: var(--color-primary);
+     outline: none;
+     box-shadow: 0 0 0 3px rgb(185 154 255 / 10%);
+   }
+   
+   /* TABLEAUX */
    
    table {
      width: 100%;
@@ -183,22 +217,26 @@
    }
    
    thead {
-     background: var(--color-surface-alt);
+     background: rgb(255 255 255 / 3%);
    }
    
    th {
      color: var(--color-muted);
      font-size: 11px;
      font-weight: 700;
-     letter-spacing: 0.045em;
+     letter-spacing: 0.06em;
      text-align: left;
      text-transform: uppercase;
    }
    
    th,
    td {
-     padding: 11px 12px;
+     padding: 12px;
      border-bottom: 1px solid var(--color-border);
+   }
+   
+   td {
+     vertical-align: middle;
    }
    
    tbody tr:last-child td {
@@ -206,53 +244,30 @@
    }
    
    tbody tr:hover {
-     background: var(--color-primary-light);
+     background: rgb(185 154 255 / 5%);
    }
    
-   td {
-     vertical-align: middle;
-   }
+   /* MÉDIAS */
    
-   /* =========================================
-      FORMULAIRES
-      ========================================= */
-   
-   input,
-   select,
-   textarea {
+   img,
+   svg {
      max-width: 100%;
-     color: var(--color-text);
-     background: var(--color-surface);
-     border: 1px solid #cbd4de;
-     border-radius: var(--radius-control);
    }
    
-   input,
-   select {
-     min-height: 38px;
-     padding: 7px 10px;
+   img {
+     height: auto;
    }
    
-   textarea {
-     padding: 10px;
+   ::selection {
+     color: #080910;
+     background: var(--color-accent);
    }
    
-   input::placeholder,
-   textarea::placeholder {
-     color: #8994a1;
-   }
-   
-   :where(input, select, textarea):focus {
-     border-color: var(--color-primary-hover);
-   }
-   
-   /* =========================================
-      SCROLLBARS
-      ========================================= */
+   /* SCROLLBARS */
    
    * {
      scrollbar-width: thin;
-     scrollbar-color: #bdc7d2 transparent;
+     scrollbar-color: #49405F transparent;
    }
    
    *::-webkit-scrollbar {
@@ -261,19 +276,17 @@
    }
    
    *::-webkit-scrollbar-thumb {
-     background: #bdc7d2;
+     background: #49405F;
      border: 2px solid transparent;
-     border-radius: 10px;
+     border-radius: 999px;
      background-clip: padding-box;
    }
    
    *::-webkit-scrollbar-thumb:hover {
-     background-color: #8997a6;
+     background-color: #7770A0;
    }
    
-   /* =========================================
-      RESPONSIVE
-      ========================================= */
+   /* RESPONSIVE */
    
    @media (max-width: 768px) {
      body {
@@ -283,12 +296,12 @@
      .card-header,
      .panel-header,
      .section-header {
-       padding: 12px;
+       padding: 13px;
      }
    
      .card-body,
      .panel-body {
-       padding: 12px;
+       padding: 13px;
      }
    
      th,
@@ -302,6 +315,8 @@
        -webkit-overflow-scrolling: touch;
      }
    }
+   
+   /* ACCESSIBILITÉ */
    
    @media (prefers-reduced-motion: reduce) {
      *,

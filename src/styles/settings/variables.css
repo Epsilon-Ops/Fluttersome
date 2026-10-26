@@ -1,6 +1,6 @@
 
 :root {
-  /* Typographie */
+  /* TYPOGRAPHIE */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -10,44 +10,70 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Identité visuelle — inspiration FFA */
-  --color-primary: #003b70;
-  --color-primary-hover: #00549b;
-  --color-primary-light: #eaf2f9;
+  /* BLACK DIAMOND */
+  color-scheme: dark;
 
-  --color-accent: #e30613;
-  --color-accent-hover: #bd0010;
-  --color-accent-light: #fff0f1;
+  --color-background: #080910;
+  --color-surface: #11121B;
+  --color-surface-alt: #171824;
+  --color-surface-raised: #202131;
+  --color-surface-glass: rgb(20 21 33 / 84%);
 
-  /* Surfaces */
-  --color-background: #f1f3f6;
-  --color-surface: #ffffff;
-  --color-surface-alt: #f7f8fa;
+  /* IDENTITÉ */
+  --color-primary: #B99AFF;
+  --color-primary-hover: #D4C0FF;
+  --color-primary-light: rgb(185 154 255 / 13%);
 
-  /* Texte */
-  --color-text: #202a35;
-  --color-muted: #687584;
-  --color-border: #dce2e8;
+  --color-accent: #00E5FF;
+  --color-accent-hover: #75F1FF;
+  --color-accent-light: rgb(0 229 255 / 12%);
 
-  /* États */
-  --color-success: #16804a;
-  --color-warning: #a96700;
-  --color-danger: #c62836;
+  --color-secondary: #FF4FD8;
+  --color-secondary-light: rgb(255 79 216 / 12%);
 
-  /* Apparence */
-  --radius-card: 6px;
-  --radius-control: 4px;
+  /* TEXTE */
+  --color-text: #F5F5FF;
+  --color-muted: #A1A2B9;
+  --color-border: rgb(190 190 255 / 14%);
+
+  --color-success: #45F0B0;
+  --color-warning: #FFC66D;
+  --color-danger: #FF6489;
+
+  /* COMPATIBILITÉ AVEC LES ANCIENNES FEUILLES CSS */
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-muted);
+  --border-color: var(--color-border);
+  --card-bg: var(--color-surface);
+  --surface-secondary: var(--color-surface-alt);
+  --accent-color: var(--color-accent);
+
+  /* RAYONS */
+  --radius-card: 20px;
+  --radius-control: 12px;
   --radius-pill: 999px;
 
-  --shadow-card: 0 1px 4px rgb(20 40 65 / 5%);
-  --shadow-dropdown: 0 5px 18px rgb(20 40 65 / 12%);
+  /* OMBRES */
+  --shadow-card:
+    0 10px 30px rgb(0 0 0 / 24%),
+    inset 0 1px 0 rgb(255 255 255 / 5%);
 
-  /* Dimensions */
+  --shadow-dropdown:
+    0 20px 60px rgb(0 0 0 / 48%),
+    0 0 0 1px rgb(190 190 255 / 10%);
+
+  --shadow-glow-violet:
+    0 0 24px rgb(157 111 255 / 16%);
+
+  --shadow-glow-cyan:
+    0 0 24px rgb(0 229 255 / 12%);
+
+  /* DIMENSIONS */
   --content-max-width: 1440px;
   --sidebar-width: 250px;
   --topbar-height: 64px;
 
-  /* Espacements */
+  /* ESPACEMENTS */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -55,7 +81,15 @@
   --space-5: 24px;
   --space-6: 32px;
 
-  /* Thème global */
-  color: var(--color-text);
-  background-color: var(--color-background);
+  /* MOUVEMENTS */
+  --motion-fast: 150ms;
+  --motion-normal: 240ms;
+  --motion-slow: 380ms;
+
+  --motion-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-spring: cubic-bezier(0.2, 0.9, 0.25, 1.25);
+}
+
+html {
+  color-scheme: dark;
 }

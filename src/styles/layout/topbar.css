@@ -1,24 +1,25 @@
 
-/* =========================================
-   EPSILON — BARRE SUPÉRIEURE
-   ========================================= */
+/* ==========================================
+   FLUTTERSOME — TOPBAR
+   ========================================== */
 
    .topbar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 40;
   
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
   
-    min-height: 62px;
+    min-height: var(--topbar-height);
     padding: 0 28px;
   
     border-bottom: 1px solid var(--color-border);
-    background: rgb(255 255 255 / 96%);
-    backdrop-filter: blur(12px);
+    background: rgb(8 9 16 / 82%);
+    backdrop-filter: blur(24px) saturate(145%);
+    -webkit-backdrop-filter: blur(24px) saturate(145%);
   }
   
   .topbar-context,
@@ -30,19 +31,19 @@
   }
   
   .topbar-context .eyebrow {
-    color: var(--color-muted);
+    color: #898BA5;
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-weight: 800;
+    letter-spacing: 0.14em;
   }
   
   .topbar-divider {
-    color: #b9c3ce;
+    color: #55566E;
   }
   
   .topbar-current {
     overflow: hidden;
-    color: var(--color-primary);
+    color: #F3F0FF;
     font-size: 13px;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -53,39 +54,28 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--color-muted);
+    color: #A1A2B9;
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
   }
   
   .sync-status .status-indicator {
+    flex: 0 0 7px;
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background: var(--color-success);
-    box-shadow: none;
+    box-shadow: 0 0 12px rgb(69 240 176 / 45%);
   }
   
-  .avatar {
-    display: grid;
-    flex: 0 0 34px;
-    width: 34px;
-    height: 34px;
-    place-items: center;
-  
-    border: 1px solid #cbd9e8;
-    border-radius: 50%;
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-  
-    font-size: 13px;
-    font-weight: 800;
+  .topbar .avatar {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
   }
   
-  /* =========================================
-     MOBILE
-     ========================================= */
+  /* MOBILE */
   
   @media (max-width: 768px) {
     .topbar {
@@ -100,7 +90,7 @@
   
     .topbar-context .eyebrow {
       font-size: 9px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.045em;
     }
   
     .topbar-current {
@@ -108,19 +98,14 @@
     }
   
     .sync-status {
-      font-size: 0;
       gap: 0;
+      font-size: 0;
     }
   
-    .sync-status .status-indicator {
-      width: 7px;
-      height: 7px;
-    }
-  
-    .avatar {
-      flex-basis: 30px;
-      width: 30px;
-      height: 30px;
+    .topbar .avatar {
+      flex-basis: 32px;
+      width: 32px;
+      height: 32px;
     }
   }
   

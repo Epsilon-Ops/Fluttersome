@@ -116,3 +116,295 @@
     }
   }
   
+
+/* =========================================
+   EPSILON — STAT CARDS PREMIUM++
+   Black Diamond / Glass / Squish & Squash
+   ========================================= */
+
+   .dashboard-home .stat-card {
+    --stat-accent: #a68bff;
+  
+    position: relative;
+    isolation: isolate;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 166px;
+    padding: 19px;
+  
+    overflow: hidden;
+  
+    border: 1px solid color-mix(
+      in srgb,
+      var(--stat-accent) 24%,
+      transparent
+    );
+    border-radius: 18px;
+  
+    background:
+      radial-gradient(
+        ellipse at 100% 0%,
+        color-mix(in srgb, var(--stat-accent) 15%, transparent),
+        transparent 52%
+      ),
+      linear-gradient(
+        145deg,
+        #1b1b2b 0%,
+        #131421 58%,
+        #10111b 100%
+      );
+  
+    color: #f5f3ff;
+    text-align: left;
+    font: inherit;
+  
+    box-shadow:
+      0 10px 26px rgb(0 0 0 / 15%),
+      inset 0 1px 0 rgb(255 255 255 / 5%);
+  
+    transition:
+      transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background 220ms ease;
+  }
+  
+  /* Reflet de verre */
+  
+  .dashboard-home .stat-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+  
+    background: linear-gradient(
+      125deg,
+      rgb(255 255 255 / 5%),
+      transparent 38%,
+      transparent 72%,
+      color-mix(in srgb, var(--stat-accent) 5%, transparent)
+    );
+  
+    pointer-events: none;
+  }
+  
+  /* Fin liseré lumineux */
+  
+  .dashboard-home .stat-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+  
+    height: 1px;
+  
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--stat-accent) 75%, white),
+      transparent
+    );
+  
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  
+  /* En-tête */
+  
+  .dashboard-home .stat-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  
+    min-width: 0;
+  }
+  
+  .dashboard-home .stat-card__title {
+    min-width: 0;
+  
+    color: #aaa8c2;
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+  }
+  
+  /* Icône dans son médaillon */
+  
+  .dashboard-home .stat-card__icon {
+    display: grid;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+  
+    border: 1px solid color-mix(
+      in srgb,
+      var(--stat-accent) 30%,
+      transparent
+    );
+    border-radius: 13px;
+  
+    background: color-mix(
+      in srgb,
+      var(--stat-accent) 12%,
+      #151522
+    );
+  
+    filter: drop-shadow(
+      0 0 8px color-mix(in srgb, var(--stat-accent) 18%, transparent)
+    );
+  
+    transition:
+      transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      background 220ms ease;
+  }
+  
+  /* Valeur principale */
+  
+  .dashboard-home .stat-card__value {
+    margin-top: 17px;
+  
+    color: #f8f6ff;
+    font-size: clamp(25px, 2.1vw, 32px);
+    font-weight: 850;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+  
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* Sous-titre */
+  
+  .dashboard-home .stat-card__subtitle {
+    margin: 10px 0 0;
+  
+    color: #9694ad;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.6;
+  
+    overflow-wrap: anywhere;
+  }
+  
+  /* Interactions */
+  
+  .dashboard-home .stat-card--interactive {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .dashboard-home .stat-card--interactive:hover {
+    transform: translateY(-4px) scale(1.012);
+  
+    border-color: color-mix(
+      in srgb,
+      var(--stat-accent) 55%,
+      transparent
+    );
+  
+    box-shadow:
+      0 16px 34px rgb(0 0 0 / 23%),
+      0 0 22px color-mix(
+        in srgb,
+        var(--stat-accent) 12%,
+        transparent
+      ),
+      inset 0 1px 0 rgb(255 255 255 / 7%);
+  }
+  
+  .dashboard-home .stat-card--interactive:hover .stat-card__icon {
+    transform: rotate(-5deg) scale(1.07);
+  
+    background: color-mix(
+      in srgb,
+      var(--stat-accent) 19%,
+      #151522
+    );
+  }
+  
+  .dashboard-home .stat-card--interactive:active {
+    transform: translateY(0) scale(0.975);
+    transition-duration: 80ms;
+  }
+  
+  .dashboard-home .stat-card--interactive:focus-visible {
+    outline: 2px solid #bba7ff;
+    outline-offset: 3px;
+  }
+  
+  /* Quatre accents distincts, via les couleurs déjà
+     fournies par le composant React. */
+  
+  .dashboard-home .stat-card:has(
+    .stat-card__icon [style*="139, 123, 216"]
+  ) {
+    --stat-accent: #8b7bd8;
+  }
+  
+  .dashboard-home .stat-card:has(
+    .stat-card__icon [style*="71, 133, 197"]
+  ) {
+    --stat-accent: #4785c5;
+  }
+  
+  .dashboard-home .stat-card:has(
+    .stat-card__icon [style*="208, 139, 69"]
+  ) {
+    --stat-accent: #d08b45;
+  }
+  
+  .dashboard-home .stat-card:has(
+    .stat-card__icon [style*="54, 155, 132"]
+  ) {
+    --stat-accent: #369b84;
+  }
+
+  .dashboard-home .stat-card:has(.stat-card__icon) {
+    --stat-accent: #a68bff;
+  }
+  
+  .dashboard-home .stat-card:has(.stat-card__icon[style]) {
+    --stat-accent: var(--stat-accent, #a68bff);
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 768px) {
+    .dashboard-home .stat-card {
+      min-height: 150px;
+      padding: 16px;
+    }
+  
+    .dashboard-home .stat-card__icon {
+      flex-basis: 38px;
+      width: 38px;
+      height: 38px;
+    }
+  
+    .dashboard-home .stat-card__value {
+      margin-top: 13px;
+      font-size: 27px;
+    }
+  }
+  
+  /* Accessibilité */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .dashboard-home .stat-card,
+    .dashboard-home .stat-card * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+  
