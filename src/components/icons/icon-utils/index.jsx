@@ -115,7 +115,7 @@ import {
 
     // >>> Bain
     bath: BathIcon,
-    key: KeyIcon,
+    key_i: KeyIcon,
 
     dashboard: DashboardIcon,
     trophy: TrophyIcon,
