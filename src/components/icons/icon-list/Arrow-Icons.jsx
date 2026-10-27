@@ -30,27 +30,30 @@ export function ArrowUpIcon(props) {
 }
 
 export function ArrowDownIcon(props) {
-    return (
-        <Svg {...props}>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180 12 12)"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"> <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="CurrentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-        </Svg>
-      )
+  return (
+    <Svg {...props}>
+      <path d="M12 5V19" />
+      <path d="M6 13L12 19L18 13" />
+    </Svg>
+  )
 }
 
 export function ArrowLeftIcon(props) {
-    return (
-        <Svg {...props}>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(270 12 12)"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"> <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="CurrentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-        </Svg>
-      )
+  return (
+    <Svg {...props}>
+      <path d="M19 12H5" />
+      <path d="M11 6L5 12L11 18" />
+    </Svg>
+  )
 }
 
 export function ArrowRightIcon(props) {
-    return (
-        <Svg {...props}>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90 12 12)"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"> <path d="M12 6V18M12 6L7 11M12 6L17 11" stroke="CurrentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-        </Svg>
-      )
+  return (
+    <Svg {...props}>
+      <path d="M5 12H19" />
+      <path d="M13 6L19 12L13 18" />
+    </Svg>
+  )
 }
 
 export function ArrowUpLeftIcon(props) {
@@ -93,7 +96,63 @@ export function ArrowDownLeftIcon(props) {
 export function ArrowUpNarrowIcon(props) {
   return (
     <Svg {...props}>
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7.33199 7.68464C6.94146 8.07517 6.3083 8.07517 5.91777 7.68464C5.52725 7.29412 5.52725 6.66095 5.91777 6.27043L10.5834 1.60483C11.3644 0.823781 12.6308 0.82378 13.4118 1.60483L18.0802 6.27327C18.4707 6.66379 18.4707 7.29696 18.0802 7.68748C17.6897 8.078 17.0565 8.078 16.666 7.68748L13 4.02145V21.9999C13 22.5522 12.5523 22.9999 12 22.9999C11.4477 22.9999 11 22.5522 11 21.9999V4.01666L7.33199 7.68464Z" fill="CurrentColor"></path> </g></svg>
+      <path d="M12 4V20M12 4L8 8M12 4L16 8" />
+    </Svg>
+  )
+}
+
+export function ArrowDownNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M12 4V20M12 20L8 16M12 20L16 16" />
+    </Svg>
+  )
+}
+
+export function ArrowLeftNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M20 12H4M4 12L8 8M4 12L8 16" />
+    </Svg>
+  )
+}
+
+export function ArrowRightNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M4 12H20M20 12L16 8M20 12L16 16" />
+    </Svg>
+  )
+}
+
+export function ArrowUpRightNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M5 19L19 5M10 5H19V14" />
+    </Svg>
+  )
+}
+
+export function ArrowUpLeftNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M19 19L5 5M14 5H5V14" />
+    </Svg>
+  )
+}
+
+export function ArrowDownRightNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M5 5L19 19M19 10V19H10" />
+    </Svg>
+  )
+}
+
+export function ArrowDownLeftNarrowIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M19 5L5 19M5 10V19H14" />
     </Svg>
   )
 }
