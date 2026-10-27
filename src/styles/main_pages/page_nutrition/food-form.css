@@ -1,117 +1,186 @@
 
-/* Formulaire alimentaire */
+/* EPSILON — FORMULAIRE ALIMENTAIRE */
 
 .food-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.food-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  min-width: 0;
+}
+
+.food-form label,
+.food-diary-card > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+
+  color: var(--nutrition-text-soft);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+/* Champs */
+
+.food-diary input,
+.food-diary select,
+.food-diary textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 13px;
+
+  border: 1px solid var(--nutrition-border-strong);
+  border-radius: var(--nutrition-radius-sm);
+
+  background: var(--nutrition-surface-input);
+  color: var(--nutrition-text);
+
+  font: inherit;
+  font-size: 0.92rem;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.food-diary input:focus-visible,
+.food-diary select:focus-visible,
+.food-diary textarea:focus-visible {
+  border-color: var(--nutrition-cyan);
+  outline: 2px solid rgba(103, 232, 249, 0.15);
+  outline-offset: 1px;
+  box-shadow: 0 0 18px rgba(103, 232, 249, 0.06);
+}
+
+.food-diary input::placeholder,
+.food-diary textarea::placeholder {
+  color: var(--nutrition-muted);
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.food-diary select option {
+  background: #121421;
+  color: var(--nutrition-text);
+}
+
+.food-diary textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+/* Bouton principal */
+
+.food-primary-button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 45px;
+  padding: 12px 20px;
+
+  border: 1px solid transparent;
+  border-radius: var(--nutrition-radius-sm);
+
+  background: linear-gradient(
+    110deg,
+    var(--nutrition-accent-strong),
+    #7161df
+  );
+  color: #fff;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+
+  box-shadow: 0 7px 22px rgba(91, 55, 190, 0.2);
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.food-primary-button:hover {
+  background: linear-gradient(110deg, #a078ff, #8173f5);
+  box-shadow: 0 9px 26px rgba(91, 55, 190, 0.28);
+  transform: translateY(-1px);
+}
+
+.food-primary-button:active {
+  transform: translateY(0);
+}
+
+.food-primary-button:disabled {
+  box-shadow: none;
+  transform: none;
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Champs facultatifs */
+
+.food-optional-fields {
+  min-width: 0;
+  padding: 16px;
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-md);
+
+  background: rgba(18, 20, 33, 0.75);
+}
+
+.food-optional-fields summary {
+  color: var(--nutrition-accent);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.food-optional-fields summary:hover {
+  color: var(--nutrition-cyan);
+}
+
+.food-optional-fields .food-muted {
+  margin: 14px 0;
+  font-size: 0.84rem;
+}
+
+.food-optional-fields[open] summary {
+  margin-bottom: 12px;
+}
+
+@media (max-width: 620px) {
   .food-form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
   }
-  
-  .food-form label,
-  .food-diary-card > label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 0;
-    color: #40516a;
-    font-size: 0.86rem;
-    font-weight: 650;
+
+  .food-primary-button {
+    width: 100%;
   }
-  
+}
+
+@media (prefers-reduced-motion: reduce) {
   .food-diary input,
   .food-diary select,
-  .food-diary textarea {
-    width: 100%;
-    min-width: 0;
-    padding: 12px 13px;
-    color: #243247;
-    background: #ffffff;
-    border: 1px solid #d8e1eb;
-    border-radius: 10px;
-    font: inherit;
-    font-size: 0.92rem;
-    transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  
-  .food-diary input:focus,
-  .food-diary select:focus,
-  .food-diary textarea:focus {
-    outline: none;
-    border-color: #27855b;
-    box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
-  }
-  
-  .food-diary input::placeholder,
-  .food-diary textarea::placeholder {
-    color: #9aa7b7;
-    font-weight: 400;
-  }
-  
-  .food-diary textarea {
-    resize: vertical;
-    min-height: 85px;
-    line-height: 1.55;
-  }
-  
-  /* Bouton principal */
-  
+  .food-diary textarea,
   .food-primary-button {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: 45px;
-    padding: 12px 20px;
-    color: #ffffff;
-    background: #27855b;
-    border: 1px solid #27855b;
-    border-radius: 10px;
-    font: inherit;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-      background 0.2s ease,
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+    transition: none;
   }
-  
-  .food-primary-button:hover {
-    background: #206e4b;
-    box-shadow: 0 5px 12px rgb(39 133 91 / 16%);
-  }
-  
-  .food-primary-button:active {
-    transform: translateY(1px);
-  }
-  
-  /* Champs facultatifs */
-  
-  .food-optional-fields {
-    padding: 16px;
-    background: #f7faf8;
-    border: 1px solid #e0ebe3;
-    border-radius: 12px;
-  }
-  
-  .food-optional-fields summary {
-    color: #246b4c;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  
-  .food-optional-fields .food-muted {
-    margin: 14px 0;
-    font-size: 0.84rem;
-  }
-  
+}

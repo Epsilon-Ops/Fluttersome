@@ -1,0 +1,204 @@
+
+/* =========================================================
+   EPSILON — BLACK DIAMOND PREMIUM++
+   Animations & micro-interactions
+   ========================================================= */
+
+/* ---------- Animations principales ---------- */
+
+@keyframes diamond-fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes diamond-fade-in {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes diamond-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 rgba(139, 92, 246, 0),
+        0 14px 38px rgba(0, 0, 0, 0.2);
+    }
+  
+    50% {
+      box-shadow:
+        0 0 24px rgba(139, 92, 246, 0.1),
+        0 14px 38px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  @keyframes diamond-pulse {
+    0%,
+    100% {
+      opacity: 0.75;
+      transform: scale(1);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  }
+  
+  @keyframes diamond-shimmer {
+    from {
+      background-position: 100% 0;
+    }
+  
+    to {
+      background-position: -100% 0;
+    }
+  }
+  
+  /* ---------- Apparition des sections ---------- */
+  
+  .nutrition-page > .nutrition-header,
+  .nutrition-page > .nutrition-section {
+    animation: diamond-fade-up 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  
+  .nutrition-page > .nutrition-header {
+    animation-delay: 40ms;
+  }
+  
+  .nutrition-page > .nutrition-section:nth-of-type(1) {
+    animation-delay: 100ms;
+  }
+  
+  .nutrition-page > .nutrition-section:nth-of-type(2) {
+    animation-delay: 180ms;
+  }
+  
+  /* ---------- Cartes ---------- */
+  
+  .nutrition-page .nutrition-card,
+  .hydration-page .hydration-card,
+  .food-diary .food-diary-card,
+  .food-diary .food-summary-card {
+    animation: diamond-fade-in 420ms ease-out both;
+    transition:
+      border-color 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .nutrition-page .nutrition-card:hover,
+    .hydration-page .hydration-card:hover,
+    .food-diary .food-diary-card:hover,
+    .food-diary .food-summary-card:hover {
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* ---------- Boutons ---------- */
+  
+  .nutrition-page button,
+  .hydration-page button {
+    transition:
+      color 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .nutrition-page button:not(:disabled):hover,
+    .hydration-page button:not(:disabled):hover {
+      filter: brightness(1.08);
+    }
+  
+    .nutrition-page button:not(:disabled):active,
+    .hydration-page button:not(:disabled):active {
+      transform: translateY(1px) scale(0.99);
+    }
+  }
+  
+  /* ---------- Champs de formulaire ---------- */
+  
+  .nutrition-page input,
+  .nutrition-page select,
+  .nutrition-page textarea,
+  .hydration-page input,
+  .hydration-page select,
+  .hydration-page textarea {
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+  
+  /* ---------- Hydratation ---------- */
+  
+  .hydration-page .hydration-progress-ring {
+    transition:
+      background 260ms ease,
+      box-shadow 260ms ease;
+  }
+  
+  .hydration-page .hydration-progress-ring strong {
+    animation: diamond-fade-in 350ms ease-out both;
+  }
+  
+  .hydration-page .hydration-progress-fill {
+    transition: width 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  
+  /* ---------- États vides et messages ---------- */
+  
+  .food-empty,
+  .hydration-page .hydration-empty,
+  .nutrition-page .nutrition-message {
+    animation: diamond-fade-in 300ms ease-out both;
+  }
+  
+  /* ---------- Accessibilité ---------- */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .nutrition-page *,
+    .nutrition-page *::before,
+    .nutrition-page *::after,
+    .hydration-page *,
+    .hydration-page *::before,
+    .hydration-page *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* ---------- Mobile : animations plus légères ---------- */
+  
+  @media (max-width: 600px) {
+    .nutrition-page > .nutrition-header,
+    .nutrition-page > .nutrition-section {
+      animation-duration: 350ms;
+    }
+  
+    .nutrition-page .nutrition-card,
+    .hydration-page .hydration-card,
+    .food-diary .food-diary-card,
+    .food-diary .food-summary-card {
+      animation-duration: 300ms;
+    }
+  }
+  

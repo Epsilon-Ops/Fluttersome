@@ -1,58 +1,127 @@
 
+/* =========================================================
+   EPSILON COACH — Performance & Trends
+   Black Diamond Premium++
+   ========================================================= */
+
+/* Analyse des performances */
+
 .coach-performance-analysis__list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.coach-performance-analysis__item {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid var(--coach-border);
+  border-radius: var(--coach-radius);
+  background: rgba(13, 16, 28, 0.72);
+  transition:
+    border-color var(--coach-transition),
+    background-color var(--coach-transition),
+    transform var(--coach-transition);
+}
+
+.coach-performance-analysis__item h3 {
+  margin: 0 0 7px;
+  color: var(--coach-text);
+  font-size: 0.96rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.coach-performance-analysis__item p {
+  margin: 7px 0 0;
+  color: var(--coach-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.coach-performance-analysis__note {
+  margin: 18px 0 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--coach-border);
+  color: var(--coach-muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+/* Tendances de progression */
+
+.coach-progression-trends__periods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.coach-progression-trends__periods article {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid var(--coach-border);
+  border-radius: var(--coach-radius);
+  background:
+    linear-gradient(145deg, rgba(139, 92, 246, 0.07), transparent 75%),
+    var(--coach-surface);
+  transition:
+    border-color var(--coach-transition),
+    transform var(--coach-transition),
+    box-shadow var(--coach-transition);
+}
+
+.coach-progression-trends__periods h3 {
+  margin: 0 0 9px;
+  color: var(--coach-text);
+  font-size: 0.96rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.coach-progression-trends__periods p {
+  margin: 0;
+  color: var(--coach-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.coach-progression-trends > p:last-child {
+  margin-bottom: 0;
+  color: var(--coach-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .coach-performance-analysis__item:hover,
+  .coach-progression-trends__periods article:hover {
+    transform: translateY(-2px);
+    border-color: var(--coach-border-strong);
+    box-shadow: var(--coach-shadow-glow);
   }
-  
-  .coach-performance-analysis__item {
-    min-width: 0;
-    padding: 16px;
-    border: 1px solid var(--coach-border);
-    border-radius: 12px;
-  }
-  
-  .coach-performance-analysis__item h3 {
-    margin: 0 0 6px;
-  }
-  
-  .coach-performance-analysis__item p {
-    margin: 6px 0 0;
-    font-size: 0.88rem;
-    overflow-wrap: anywhere;
-  }
-  
-  .coach-performance-analysis__note {
-    margin-bottom: 0;
-    padding-top: 14px;
-    border-top: 1px solid var(--coach-border);
-    font-size: 0.84rem;
-  }
-  
+}
+
+@media (max-width: 600px) {
+  .coach-performance-analysis__list,
   .coach-progression-trends__periods {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-bottom: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
-  
+
+  .coach-performance-analysis__item,
   .coach-progression-trends__periods article {
-    padding: 16px;
-    border: 1px solid var(--coach-border);
-    border-radius: 12px;
+    padding: 15px;
   }
-  
-  .coach-progression-trends__periods h3 {
-    margin: 0 0 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-performance-analysis__item,
+  .coach-progression-trends__periods article {
+    transition: none;
   }
-  
-  .coach-progression-trends__periods p {
-    margin: 0;
-    font-size: 0.88rem;
-    overflow-wrap: anywhere;
-  }
-  
-  .coach-progression-trends > p:last-child {
-    margin-bottom: 0;
-  }
-  
+}

@@ -1,141 +1,208 @@
 
-/* Ajout rapide */
+/* EPSILON — HYDRATATION : ACTIONS */
 
 .hydration-page .hydration-quick-actions {
-    display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.hydration-page .hydration-quick-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 108px;
+  padding: 15px 8px;
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-md);
+  background: linear-gradient(145deg, #171a2a, #111320);
+  color: var(--nutrition-text);
+
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.hydration-page .hydration-quick-button:hover {
+  border-color: var(--nutrition-border-strong);
+  background: var(--nutrition-surface-hover);
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.09);
+  transform: translateY(-2px);
+}
+
+.hydration-page .hydration-quick-button:active {
+  transform: scale(0.98);
+}
+
+.hydration-page .hydration-quick-button > span {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.hydration-page .hydration-quick-button strong {
+  color: var(--nutrition-cyan);
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.hydration-page .hydration-quick-button small {
+  color: var(--nutrition-muted);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* Formulaire personnalisé */
+
+.hydration-page .hydration-custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  margin-top: 20px;
+}
+
+.hydration-page .hydration-custom-form label {
+  color: var(--nutrition-text-soft);
+  font-size: 0.8rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.hydration-page .hydration-custom-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  min-width: 0;
+}
+
+.hydration-page .hydration-custom-row input,
+.hydration-page input[type="date"] {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--nutrition-border-strong);
+  border-radius: var(--nutrition-radius-sm);
+  background: var(--nutrition-surface-input);
+  color: var(--nutrition-text);
+
+  font-size: 0.875rem;
+  line-height: 1.4;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.hydration-page .hydration-custom-row input::placeholder {
+  color: var(--nutrition-muted);
+  opacity: 0.8;
+}
+
+.hydration-page .hydration-custom-row input:focus-visible,
+.hydration-page input[type="date"]:focus-visible {
+  border-color: var(--nutrition-cyan);
+  outline: 2px solid rgba(103, 232, 249, 0.18);
+  outline-offset: 1px;
+  box-shadow: 0 0 18px rgba(103, 232, 249, 0.06);
+}
+
+.hydration-page .hydration-custom-row .training-primary-button,
+.hydration-page .hydration-custom-row .training-secondary-button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: var(--nutrition-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.hydration-page .hydration-custom-row .training-primary-button {
+  border: 1px solid transparent;
+  background: linear-gradient(
+    110deg,
+    var(--nutrition-accent-strong),
+    #7161df
+  );
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(91, 55, 190, 0.2);
+}
+
+.hydration-page .hydration-custom-row .training-primary-button:hover {
+  background: linear-gradient(110deg, #a078ff, #8173f5);
+  transform: translateY(-1px);
+}
+
+.hydration-page .hydration-custom-row .training-secondary-button {
+  border: 1px solid var(--nutrition-border-strong);
+  background: var(--nutrition-surface-soft);
+  color: var(--nutrition-text-soft);
+}
+
+.hydration-page .hydration-custom-row .training-secondary-button:hover {
+  border-color: var(--nutrition-cyan);
+  background: var(--nutrition-surface-hover);
+}
+
+.hydration-page .hydration-custom-form > small {
+  color: var(--nutrition-muted);
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 480px) {
+  .hydration-page .hydration-quick-actions {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 20px;
+    gap: 8px;
   }
-  
+
   .hydration-page .hydration-quick-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    min-width: 0;
-    min-height: 105px;
-    padding: 14px 8px;
-    border: 1px solid var(--nutrition-border);
-    border-radius: 5px;
-    background: #ffffff;
-    color: var(--nutrition-text);
-    cursor: pointer;
-    transition:
-      border-color 150ms ease,
-      background-color 150ms ease,
-      transform 150ms ease;
+    min-height: 96px;
+    padding: 12px 5px;
   }
-  
-  .hydration-page .hydration-quick-button:hover {
-    border-color: #9ac9ae;
-    background: var(--nutrition-green-light);
-  }
-  
-  .hydration-page .hydration-quick-button:active {
-    transform: scale(0.98);
-  }
-  
-  .hydration-page .hydration-quick-button > span {
-    font-size: 22px;
-    line-height: 1.2;
-  }
-  
+
   .hydration-page .hydration-quick-button strong {
-    color: var(--nutrition-green-dark);
-    font-size: 20px;
-    font-weight: 750;
-    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
   }
-  
+
   .hydration-page .hydration-quick-button small {
-    color: var(--nutrition-muted);
-    font-size: 11px;
+    font-size: 0.65rem;
+    overflow-wrap: anywhere;
   }
-  
-  /* Formulaire personnalisé */
-  
-  .hydration-page .hydration-custom-form {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    min-width: 0;
-    margin-top: 18px;
-  }
-  
-  .hydration-page .hydration-custom-form label {
-    color: #45566a;
-    font-size: 12px;
-    font-weight: 650;
-    line-height: 1.45;
-  }
-  
+
   .hydration-page .hydration-custom-row {
-    display: flex;
-    align-items: stretch;
-    gap: 10px;
-    min-width: 0;
+    flex-wrap: wrap;
   }
-  
-  .hydration-page .hydration-custom-row input,
-  .hydration-page input[type="date"] {
-    width: 100%;
-    min-width: 0;
-    min-height: 42px;
-    padding: 9px 11px;
-    border: 1px solid var(--nutrition-border-strong);
-    border-radius: 5px;
-    background: #ffffff;
-    color: var(--nutrition-text);
-    font-size: 14px;
-    line-height: 1.4;
-    transition:
-      border-color 150ms ease,
-      box-shadow 150ms ease;
+
+  .hydration-page .hydration-custom-row input {
+    flex: 1 1 100%;
   }
-  
-  .hydration-page .hydration-custom-row input:focus-visible,
-  .hydration-page input[type="date"]:focus-visible {
-    border-color: var(--nutrition-green);
-    outline: none;
-    box-shadow: 0 0 0 3px rgb(39 133 91 / 12%);
-  }
-  
+
   .hydration-page .hydration-custom-row .training-primary-button,
   .hydration-page .hydration-custom-row .training-secondary-button {
-    flex: 0 0 auto;
-    min-height: 42px;
-    padding: 10px 16px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
+    flex: 1 1 0;
   }
-  
-  .hydration-page .hydration-custom-row .training-primary-button {
-    border: 1px solid var(--nutrition-green);
-    background: var(--nutrition-green);
-    color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hydration-page .hydration-quick-button,
+  .hydration-page .hydration-custom-row input,
+  .hydration-page .hydration-custom-row button {
+    transition: none;
   }
-  
-  .hydration-page .hydration-custom-row .training-primary-button:hover {
-    border-color: var(--nutrition-green-dark);
-    background: var(--nutrition-green-dark);
-  }
-  
-  .hydration-page .hydration-custom-row .training-secondary-button {
-    border: 1px solid var(--nutrition-border-strong);
-    background: #ffffff;
-    color: var(--nutrition-blue);
-  }
-  
-  .hydration-page .hydration-custom-row .training-secondary-button:hover {
-    background: var(--nutrition-surface-soft);
-  }
-  
-  .hydration-page .hydration-custom-form > small {
-    font-size: 11px;
-    line-height: 1.6;
-  }
-  
+}

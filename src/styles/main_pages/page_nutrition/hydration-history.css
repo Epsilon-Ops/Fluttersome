@@ -1,106 +1,157 @@
 
+/* EPSILON — HYDRATATION : HISTORIQUE */
+
 .hydration-page .hydration-history-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 14px;
-    min-width: 0;
-    margin-bottom: 16px;
-  }
-  
-  .hydration-page .hydration-history-heading > div {
-    min-width: 0;
-  }
-  
-  .hydration-page .hydration-history-heading h2 {
-    margin-bottom: 6px;
-  }
-  
-  .hydration-page .hydration-history-heading input[type="date"] {
-    width: auto;
-    max-width: 100%;
-  }
-  
-  .hydration-page .hydration-entry-list {
-    width: 100%;
-    min-width: 0;
-  }
-  
-  .hydration-page .hydration-entry {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 0;
-    padding: 13px 0;
-    border-bottom: 1px solid #e5eaf0;
-  }
-  
-  .hydration-page .hydration-entry:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-  
-  .hydration-page .hydration-entry-icon {
-    display: grid;
-    place-items: center;
-    flex: 0 0 40px;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #d5eadc;
-    border-radius: 5px;
-    background: var(--nutrition-green-light);
-    font-size: 19px;
-  }
-  
-  .hydration-page .hydration-entry-info {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  min-width: 0;
+  margin-bottom: 16px;
+}
+
+.hydration-page .hydration-history-heading > div {
+  min-width: 0;
+}
+
+.hydration-page .hydration-history-heading h2 {
+  margin-bottom: 6px;
+}
+
+.hydration-page .hydration-history-heading input[type="date"] {
+  width: auto;
+  max-width: 100%;
+}
+
+.hydration-page .hydration-entry-list {
+  width: 100%;
+  min-width: 0;
+}
+
+.hydration-page .hydration-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--nutrition-border);
+  transition: background 160ms ease;
+}
+
+.hydration-page .hydration-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.hydration-page .hydration-entry-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(103, 232, 249, 0.15);
+  border-radius: var(--nutrition-radius-sm);
+  background: rgba(103, 232, 249, 0.07);
+
+  font-size: 1.2rem;
+}
+
+.hydration-page .hydration-entry-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.hydration-page .hydration-entry-info strong {
+  color: var(--nutrition-text);
+  font-size: 0.9rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.hydration-page .hydration-entry-info span {
+  color: var(--nutrition-muted);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.hydration-page .hydration-delete-button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 8px 11px;
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-sm);
+  background: var(--nutrition-surface-soft);
+  color: var(--nutrition-muted);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.hydration-page .hydration-delete-button:hover {
+  border-color: rgba(255, 146, 159, 0.45);
+  background: rgba(255, 90, 110, 0.1);
+  color: #ff929f;
+}
+
+.hydration-page .hydration-empty {
+  margin: 0;
+  padding: 28px 16px;
+
+  border: 1px dashed var(--nutrition-border-strong);
+  border-radius: var(--nutrition-radius-md);
+  background: rgba(18, 20, 33, 0.6);
+  color: var(--nutrition-muted);
+
+  font-size: 0.8rem;
+  line-height: 1.75;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .hydration-page .hydration-history-heading {
+    align-items: flex-start;
     flex-direction: column;
-    gap: 4px;
-    flex: 1 1 auto;
-    min-width: 0;
   }
-  
-  .hydration-page .hydration-entry-info strong {
-    color: var(--nutrition-blue);
-    font-size: 14px;
-    font-weight: 750;
-    font-variant-numeric: tabular-nums;
+
+  .hydration-page .hydration-history-heading input[type="date"] {
+    width: 100%;
   }
-  
-  .hydration-page .hydration-entry-info span {
-    color: var(--nutrition-muted);
-    font-size: 11px;
+
+  .hydration-page .hydration-entry {
+    align-items: flex-start;
+    gap: 10px;
   }
-  
+
+  .hydration-page .hydration-entry-icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
   .hydration-page .hydration-delete-button {
-    flex: 0 0 auto;
-    min-height: 34px;
-    padding: 7px 10px;
-    border: 1px solid var(--nutrition-border-strong);
-    border-radius: 4px;
-    background: #ffffff;
-    color: var(--nutrition-muted);
-    font-size: 11px;
-    font-weight: 650;
-    cursor: pointer;
+    padding: 7px 8px;
+    font-size: 0.68rem;
   }
-  
-  .hydration-page .hydration-delete-button:hover {
-    border-color: #e7a0a8;
-    background: #fff1f2;
-    color: #b92537;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hydration-page .hydration-entry,
+  .hydration-page .hydration-delete-button {
+    transition: none;
   }
-  
-  .hydration-page .hydration-empty {
-    margin: 0;
-    padding: 26px 16px;
-    border: 1px dashed var(--nutrition-border-strong);
-    border-radius: 4px;
-    background: #fafbfd;
-    color: var(--nutrition-muted);
-    font-size: 12px;
-    line-height: 1.7;
-    text-align: center;
-  }
-  
+}

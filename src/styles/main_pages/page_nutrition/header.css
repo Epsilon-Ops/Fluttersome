@@ -1,88 +1,190 @@
 
-/* En-têtes nutrition et hydratation */
+/* EPSILON — EN-TÊTES BLACK DIAMOND */
 
-.nutrition-page > header,
+.nutrition-page > .nutrition-header,
 .hydration-page > .hydration-header {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
-  min-height: 160px;
-  padding: 28px 30px;
-  border: 0;
-  border-left: 5px solid var(--nutrition-green);
-  border-radius: 5px;
-  background: linear-gradient(
-    110deg,
-    #102f57 0%,
-    #173f73 65%,
-    #245b91 100%
-  );
-  box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+  min-width: 0;
+  min-height: 190px;
+  padding: clamp(24px, 5vw, 42px);
+  overflow: hidden;
+
+  border: 1px solid var(--nutrition-border-strong);
+  border-radius: var(--nutrition-radius-xl);
+
+  background:
+    radial-gradient(
+      ellipse at 90% 0%,
+      rgba(139, 92, 246, 0.25),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 0% 100%,
+      rgba(103, 232, 249, 0.08),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #17152a 0%,
+      #101321 55%,
+      #0b0e19 100%
+    );
+
+  box-shadow: var(--nutrition-shadow-card);
 }
 
-.nutrition-page > header h1,
-.hydration-page .hydration-header h1 {
-  margin: 0 0 12px;
-  color: #ffffff;
-  font-size: clamp(28px, 4vw, 36px);
-  font-weight: 750;
-  line-height: 1.15;
-  letter-spacing: -0.045em;
-  overflow-wrap: anywhere;
+.nutrition-page > .nutrition-header::after,
+.hydration-page > .hydration-header::after {
+  position: absolute;
+  z-index: -1;
+  top: -95px;
+  right: -65px;
+  width: 240px;
+  height: 240px;
+
+  border: 1px solid rgba(180, 160, 255, 0.14);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 24px rgba(180, 160, 255, 0.025),
+    0 0 0 48px rgba(180, 160, 255, 0.018);
+
+  content: "";
+  pointer-events: none;
 }
 
-.nutrition-page > header .eyebrow,
-.hydration-page .hydration-header .eyebrow {
-  display: block;
-  margin: 0 0 12px;
-  color: #dbe8f6;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: 0.075em;
+.nutrition-page > .nutrition-header > div,
+.hydration-page > .hydration-header > div {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
+}
+
+.nutrition-page > .nutrition-header .eyebrow,
+.hydration-page > .hydration-header .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 14px;
+
+  color: var(--nutrition-cyan);
+  background: none;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
-.nutrition-page > header p,
-.hydration-page .hydration-header p {
-  max-width: 600px;
+.nutrition-page > .nutrition-header .eyebrow::before,
+.hydration-page > .hydration-header .eyebrow::before {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+
+  border-radius: 50%;
+  background: var(--nutrition-cyan);
+  box-shadow: 0 0 12px rgba(103, 232, 249, 0.55);
+
+  content: "";
+}
+
+.nutrition-page > .nutrition-header h1,
+.hydration-page > .hydration-header h1 {
+  margin: 0 0 14px;
+  color: var(--nutrition-text);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+  overflow-wrap: anywhere;
+}
+
+.nutrition-page > .nutrition-header p,
+.hydration-page > .hydration-header p {
+  max-width: 58ch;
   margin: 0;
-  color: #e0e9f4;
-  font-size: 13px;
-  line-height: 1.7;
+  color: var(--nutrition-muted);
+  font-size: clamp(0.92rem, 2vw, 1.02rem);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 /* En-tête du journal alimentaire */
 
-.food-diary-header {
+.nutrition-page .food-diary-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
   flex-wrap: wrap;
+  gap: 20px;
+  min-width: 0;
 }
 
-.food-diary-header h2 {
-  margin: 8px 0;
-  color: #173f73;
-  font-size: clamp(1.45rem, 3vw, 1.9rem);
-  font-weight: 750;
-  letter-spacing: -0.035em;
+.nutrition-page .food-diary-header h2 {
+  margin: 6px 0 10px;
+  color: var(--nutrition-text);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  overflow-wrap: anywhere;
 }
 
-.food-diary-header p {
+.nutrition-page .food-diary-header p {
   max-width: 620px;
   margin: 0;
-  color: #718096;
-  font-size: 0.95rem;
-  line-height: 1.65;
+  color: var(--nutrition-muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
 }
 
-.food-date-field {
+.nutrition-page .food-date-field {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 190px;
-  color: #526176;
+  min-width: min(190px, 100%);
+  color: var(--nutrition-text-soft);
   font-size: 0.82rem;
   font-weight: 650;
+}
+
+@media (max-width: 600px) {
+  .nutrition-page > .nutrition-header,
+  .hydration-page > .hydration-header {
+    min-height: auto;
+    padding: 24px 20px;
+    border-radius: var(--nutrition-radius-lg);
+  }
+
+  .nutrition-page > .nutrition-header h1,
+  .hydration-page > .hydration-header h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .nutrition-page > .nutrition-header .eyebrow,
+  .hydration-page > .hydration-header .eyebrow {
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+  }
+
+  .nutrition-page .food-diary-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nutrition-page .food-date-field {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .nutrition-page > .nutrition-header,
+  .hydration-page > .hydration-header {
+    padding: 20px 16px;
+  }
 }

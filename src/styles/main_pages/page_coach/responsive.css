@@ -1,81 +1,189 @@
 
+/* =========================================================
+   EPSILON COACH — Responsive
+   Black Diamond Premium++
+   ========================================================= */
+
+/* ---------- Tablettes et petits écrans ---------- */
+
 @media (max-width: 1000px) {
-    .coach-dashboard {
-      gap: 16px;
-    }
-  
-    .coach-dashboard .panel {
-      padding: 18px;
-    }
-  
-    .coach-decision-comparison__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  
-    .coach-decision-option:last-child {
-      grid-column: 1 / -1;
-    }
+  .coach-dashboard {
+    gap: 16px;
   }
-  
-  @media (max-width: 700px) {
-    .page-section:has(.coach-dashboard) {
-      gap: 18px;
-    }
-  
-    .coach-dashboard {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 14px;
-    }
-  
-    .coach-dashboard > * {
-      grid-column: 1 / -1;
-    }
-  
-    .coach-dashboard .panel {
-      padding: 16px;
-      border-radius: 14px;
-    }
-  
-    .coach-dashboard .panel-header {
-      gap: 10px;
-    }
-  
-    .coach-alerts__list,
-    .coach-performance-analysis__list,
-    .coach-progression-trends__periods,
-    .coach-chat__questions,
-    .coach-decision-comparison__grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  
-    .coach-decision-option:last-child {
-      grid-column: auto;
-    }
+
+  .coach-dashboard .panel {
+    padding: 19px;
   }
-  
-  @media (max-width: 420px) {
-    .coach-dashboard .panel {
-      padding: 13px;
-    }
-  
-    .coach-dashboard .panel-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .coach-readiness-breakdown__heading {
-      align-items: flex-start;
-    }
-  
-    .coach-chat__question {
-      padding: 11px;
-    }
+
+  .coach-decision-comparison__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .coach-readiness-breakdown__fill,
-    .coach-chat__question {
-      transition: none;
-    }
+
+  .coach-decision-option:last-child {
+    grid-column: 1 / -1;
   }
-  
+
+  .page-section:has(.coach-dashboard) > .page-heading {
+    gap: 18px;
+  }
+}
+
+/* ---------- Tablettes étroites et mobiles ---------- */
+
+@media (max-width: 700px) {
+  .page-section:has(.coach-dashboard) {
+    gap: 18px;
+  }
+
+  .page-section:has(.coach-dashboard) > .page-heading {
+    padding: 23px 20px;
+  }
+
+  .coach-dashboard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .coach-dashboard > * {
+    grid-column: 1 / -1;
+  }
+
+  .coach-dashboard .panel {
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .coach-dashboard .panel-header {
+    gap: 10px;
+  }
+
+  .coach-alerts__list,
+  .coach-performance-analysis__list,
+  .coach-progression-trends__periods,
+  .coach-chat__questions,
+  .coach-decision-comparison__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-decision-option:last-child {
+    grid-column: auto;
+  }
+
+  .coach-alert,
+  .coach-performance-analysis__item,
+  .coach-progression-trends__periods article,
+  .coach-decision-option {
+    min-width: 0;
+  }
+
+  .coach-readiness-breakdown__heading {
+    gap: 10px;
+  }
+}
+
+/* ---------- Petits téléphones ---------- */
+
+@media (max-width: 420px) {
+  .page-section:has(.coach-dashboard) {
+    gap: 15px;
+  }
+
+  .page-section:has(.coach-dashboard) > .page-heading {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 19px 15px;
+    border-radius: 17px;
+  }
+
+  .page-section:has(.coach-dashboard) .page-heading h1 {
+    font-size: clamp(1.8rem, 9vw, 2.35rem);
+  }
+
+  .page-section:has(.coach-dashboard) .page-description {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .page-section:has(.coach-dashboard) .metric-icon {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .coach-dashboard {
+    gap: 12px;
+  }
+
+  .coach-dashboard .panel {
+    padding: 14px;
+    border-radius: 13px;
+  }
+
+  .coach-dashboard .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .coach-readiness__score {
+    font-size: clamp(2.3rem, 12vw, 3rem);
+  }
+
+  .coach-readiness-breakdown__heading {
+    align-items: flex-start;
+  }
+
+  .coach-readiness-breakdown__heading strong {
+    max-width: 45%;
+    white-space: normal;
+  }
+
+  .coach-chat__question {
+    padding: 11px 12px;
+  }
+
+  .coach-chat__answer {
+    margin-top: 14px;
+    padding: 14px;
+  }
+
+  .coach-summary__priorities li {
+    padding-right: 10px;
+  }
+}
+
+/* ---------- Très petits écrans ---------- */
+
+@media (max-width: 340px) {
+  .page-section:has(.coach-dashboard) > .page-heading {
+    flex-direction: column;
+  }
+
+  .coach-dashboard .panel {
+    padding: 12px;
+  }
+
+  .coach-readiness-breakdown__heading {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .coach-readiness-breakdown__heading strong {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+/* ---------- Accessibilité ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-dashboard *,
+  .coach-dashboard *::before,
+  .coach-dashboard *::after,
+  .page-section:has(.coach-dashboard) > .page-heading {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

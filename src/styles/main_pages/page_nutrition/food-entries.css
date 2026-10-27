@@ -1,124 +1,193 @@
 
-/* En-tête de la liste */
+/* EPSILON — ENTRÉES ALIMENTAIRES */
 
 .food-list-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+  margin-bottom: 18px;
+}
+
+.food-list-heading h3 {
+  margin-bottom: 5px;
+  color: var(--nutrition-text);
+}
+
+.food-list-heading .food-muted {
+  margin-bottom: 0;
+}
+
+/* Liste vide */
+
+.food-empty {
+  padding: 28px 18px;
+
+  border: 1px dashed var(--nutrition-border-strong);
+  border-radius: var(--nutrition-radius-md);
+
+  background: rgba(18, 20, 33, 0.65);
+  color: var(--nutrition-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.75;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Liste des repas */
+
+.food-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.food-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+  padding: 17px;
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-md);
+
+  background: linear-gradient(
+    135deg,
+    rgba(23, 26, 42, 0.88),
+    rgba(15, 17, 30, 0.88)
+  );
+
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.food-entry-time {
+  flex-shrink: 0;
+  min-width: 55px;
+  padding-top: 3px;
+  color: var(--nutrition-cyan);
+  font-size: 0.9rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.food-entry-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.food-meal-type {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 7px;
+  padding: 5px 9px;
+
+  border: 1px solid rgba(180, 160, 255, 0.17);
+  border-radius: var(--nutrition-radius-sm);
+
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--nutrition-accent);
+
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.food-entry-content h4 {
+  margin: 0 0 6px;
+  color: var(--nutrition-text);
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.food-entry-content p {
+  margin: 4px 0 0;
+  color: var(--nutrition-muted);
+  font-size: 0.84rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.food-entry-content .food-entry-notes {
+  margin-top: 11px;
+  padding-top: 11px;
+
+  border-top: 1px solid var(--nutrition-border);
+  color: var(--nutrition-text-soft);
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Suppression d'un repas */
+
+.food-delete-button {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255, 146, 159, 0.2);
+  border-radius: var(--nutrition-radius-sm);
+
+  background: rgba(255, 90, 110, 0.07);
+  color: #ff929f;
+
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.food-delete-button:hover {
+  border-color: rgba(255, 146, 159, 0.45);
+  background: rgba(255, 90, 110, 0.15);
+  color: #ffb3bc;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .food-entry:hover {
+    border-color: var(--nutrition-border-strong);
+    background: rgba(26, 29, 48, 0.96);
   }
-  
-  .food-list-heading h3 {
-    margin-bottom: 5px;
-  }
-  
-  .food-list-heading .food-muted {
-    margin-bottom: 0;
-  }
-  
-  /* Liste vide */
-  
-  .food-empty {
-    padding: 26px 18px;
-    color: #718096;
-    background: #f8fafc;
-    border: 1px dashed #d5e0eb;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    text-align: center;
-  }
-  
-  /* Liste des repas */
-  
-  .food-entry-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
+}
+
+@media (max-width: 560px) {
   .food-entry {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    min-width: 0;
-    padding: 17px;
-    background: #fbfcfe;
-    border: 1px solid #e7edf3;
-    border-radius: 13px;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
   }
-  
+
   .food-entry-time {
-    flex-shrink: 0;
-    min-width: 55px;
-    padding-top: 3px;
-    color: #27855b;
-    font-size: 0.9rem;
-    font-weight: 750;
-    font-variant-numeric: tabular-nums;
-  }
-  
-  .food-entry-content {
-    flex: 1;
     min-width: 0;
   }
-  
-  .food-meal-type {
-    display: inline-block;
-    margin-bottom: 6px;
-    padding: 4px 9px;
-    color: #246b4c;
-    background: #e9f5ed;
-    border-radius: 6px;
-    font-size: 0.73rem;
-    font-weight: 700;
+
+  .food-entry-content {
+    flex-basis: calc(100% - 70px);
   }
-  
-  .food-entry-content h4 {
-    margin: 0 0 6px;
-    color: #173f73;
-    font-size: 0.98rem;
-    font-weight: 700;
-    overflow-wrap: anywhere;
-  }
-  
-  .food-entry-content p {
-    margin: 4px 0 0;
-    color: #718096;
-    font-size: 0.84rem;
-    line-height: 1.55;
-    overflow-wrap: anywhere;
-  }
-  
-  .food-entry-content .food-entry-notes {
-    margin-top: 10px;
-    padding-top: 10px;
-    color: #526176;
-    border-top: 1px solid #e7edf3;
-    white-space: pre-wrap;
-  }
-  
-  /* Suppression d'un repas */
-  
+
   .food-delete-button {
-    flex-shrink: 0;
-    padding: 7px 10px;
-    color: #b63845;
-    background: #fff5f5;
-    border: 1px solid #f1d9dc;
-    border-radius: 8px;
-    font: inherit;
-    font-size: 0.78rem;
-    font-weight: 650;
-    cursor: pointer;
-    transition:
-      background 0.2s ease,
-      border-color 0.2s ease;
+    margin-left: auto;
   }
-  
-  .food-delete-button:hover {
-    background: #ffe8ea;
-    border-color: #e9bdc2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .food-entry,
+  .food-delete-button {
+    transition: none;
   }
-  
+}

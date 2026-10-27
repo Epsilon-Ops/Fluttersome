@@ -1,19 +1,31 @@
 
-/* EPSILON — NUTRITION : base commune */
+/* EPSILON — NUTRITION : BLACK DIAMOND PREMIUM++ */
 
 .nutrition-page,
 .hydration-page {
-  --nutrition-green: #27855b;
-  --nutrition-green-dark: #1e6947;
-  --nutrition-green-light: #edf7f1;
+  color-scheme: dark;
 
-  --nutrition-blue: #173f73;
-  --nutrition-text: #253448;
-  --nutrition-muted: #6b7789;
-  --nutrition-border: #dce3eb;
-  --nutrition-border-strong: #cbd5df;
-  --nutrition-surface: #ffffff;
-  --nutrition-surface-soft: #f5f7fa;
+  --nutrition-bg: #090b14;
+  --nutrition-surface: #121421;
+  --nutrition-surface-soft: #171a2a;
+  --nutrition-surface-hover: #1d2033;
+  --nutrition-surface-input: #0d101c;
+
+  --nutrition-green: #7ce7bd;
+  --nutrition-green-dark: #42c99a;
+  --nutrition-green-light: rgba(124, 231, 189, 0.12);
+
+  --nutrition-blue: #b4a0ff;
+  --nutrition-accent: #b4a0ff;
+  --nutrition-accent-strong: #8b5cf6;
+  --nutrition-cyan: #67e8f9;
+
+  --nutrition-text: #f1f0ff;
+  --nutrition-text-soft: #d0cde8;
+  --nutrition-muted: #a09fb9;
+
+  --nutrition-border: rgba(173, 163, 230, 0.16);
+  --nutrition-border-strong: rgba(167, 139, 250, 0.38);
 
   --nutrition-space-1: 4px;
   --nutrition-space-2: 8px;
@@ -22,13 +34,24 @@
   --nutrition-space-5: 20px;
   --nutrition-space-6: 24px;
 
+  --nutrition-radius-sm: 10px;
+  --nutrition-radius-md: 14px;
+  --nutrition-radius-lg: 20px;
+  --nutrition-radius-xl: 26px;
+
+  --nutrition-shadow-card:
+    0 14px 38px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.025) inset;
+
+  --nutrition-shadow-glow:
+    0 0 28px rgba(139, 92, 246, 0.09);
+
   display: flex;
   flex-direction: column;
   gap: 24px;
 
   width: 100%;
   min-width: 0;
-
   color: var(--nutrition-text);
 }
 
@@ -41,14 +64,41 @@
   box-sizing: border-box;
 }
 
-.nutrition-page :where(h1, h2, h3, p),
-.hydration-page :where(h1, h2, h3, p) {
+.nutrition-page :where(h1, h2, h3, h4, p),
+.hydration-page :where(h1, h2, h3, h4, p) {
   margin-top: 0;
 }
 
 .nutrition-page :where(button, input, select, textarea),
 .hydration-page :where(button, input, select, textarea) {
-  font-family: inherit;
+  font: inherit;
+}
+
+.nutrition-page button,
+.hydration-page button {
+  cursor: pointer;
+}
+
+.nutrition-page button:disabled,
+.hydration-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.nutrition-page :where(
+  button, input, select, textarea, a, [tabindex]
+):focus-visible,
+.hydration-page :where(
+  button, input, select, textarea, a, [tabindex]
+):focus-visible {
+  outline: 2px solid var(--nutrition-cyan);
+  outline-offset: 3px;
+}
+
+.nutrition-page ::selection,
+.hydration-page ::selection {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.35);
 }
 
 /* Journal alimentaire */
@@ -59,10 +109,28 @@
   gap: 22px;
   width: 100%;
   min-width: 0;
-  color: #243247;
+  color: var(--nutrition-text);
 }
 
 .food-diary,
 .food-diary * {
   box-sizing: border-box;
+}
+
+.food-diary :where(h1, h2, h3, p) {
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nutrition-page *,
+  .nutrition-page *::before,
+  .nutrition-page *::after,
+  .hydration-page *,
+  .hydration-page *::before,
+  .hydration-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

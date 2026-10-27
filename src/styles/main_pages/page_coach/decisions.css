@@ -1,30 +1,55 @@
 
+/* =========================================================
+   EPSILON COACH — Decisions & Coach Chat
+   Black Diamond Premium++
+   ========================================================= */
+
+/* Décision de séance */
+
 .coach-session-decision__session,
 .coach-session-decision__recommendation {
-  padding: 16px;
+  min-width: 0;
+  padding: 17px;
   border: 1px solid var(--coach-border);
-  border-radius: 12px;
+  border-radius: var(--coach-radius);
+  background: rgba(13, 16, 28, 0.72);
 }
 
 .coach-session-decision__session h3,
 .coach-session-decision__recommendation h3 {
   margin: 0 0 8px;
+  color: var(--coach-text);
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .coach-session-decision__session p,
 .coach-session-decision__recommendation p {
   margin: 8px 0 0;
+  color: var(--coach-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .coach-session-decision__recommendation {
   margin-top: 14px;
-  background: var(--coach-bg);
+  border-color: rgba(103, 232, 249, 0.2);
+  background:
+    linear-gradient(145deg, rgba(103, 232, 249, 0.055), transparent 75%),
+    var(--coach-surface);
 }
 
 .coach-session-decision__note {
-  margin-bottom: 0;
+  margin: 15px 0 0;
+  color: var(--coach-muted);
   font-size: 0.84rem;
+  line-height: 1.7;
 }
+
+/* Comparaison des décisions */
 
 .coach-decision-comparison__grid {
   display: grid;
@@ -36,15 +61,29 @@
   min-width: 0;
   padding: 16px;
   border: 1px solid var(--coach-border);
-  border-radius: 12px;
+  border-radius: var(--coach-radius);
+  background: var(--coach-surface);
+  transition:
+    border-color var(--coach-transition),
+    background-color var(--coach-transition),
+    box-shadow var(--coach-transition),
+    transform var(--coach-transition);
 }
 
 .coach-decision-option h3 {
   margin: 0 0 8px;
+  color: var(--coach-text);
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .coach-decision-option p {
+  margin: 8px 0;
+  color: var(--coach-muted);
   font-size: 0.88rem;
+  line-height: 1.7;
   overflow-wrap: anywhere;
 }
 
@@ -54,8 +93,15 @@
 
 .coach-decision-option--selected {
   border-color: var(--coach-accent);
-  box-shadow: 0 0 0 1px var(--coach-accent);
+  background:
+    linear-gradient(145deg, rgba(139, 92, 246, 0.12), transparent 80%),
+    var(--coach-surface);
+  box-shadow:
+    0 0 0 1px rgba(180, 160, 255, 0.18),
+    0 0 24px rgba(139, 92, 246, 0.08);
 }
+
+/* Chat du coach */
 
 .coach-chat__questions {
   display: grid;
@@ -64,36 +110,96 @@
 }
 
 .coach-chat__question {
+  display: block;
   min-width: 0;
-  padding: 12px 14px;
+  padding: 13px 14px;
   border: 1px solid var(--coach-border);
-  border-radius: 10px;
-  background: var(--coach-bg);
-  color: var(--coach-text);
+  border-radius: var(--coach-radius-sm);
+  background: var(--coach-input-bg);
+  color: var(--coach-text-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
   text-align: left;
-  line-height: 1.5;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
   cursor: pointer;
   transition:
-    border-color 150ms ease,
-    background-color 150ms ease;
+    border-color var(--coach-transition),
+    background-color var(--coach-transition),
+    color var(--coach-transition),
+    transform var(--coach-transition),
+    box-shadow var(--coach-transition);
 }
 
 .coach-chat__question:hover {
-  border-color: var(--coach-accent);
+  border-color: var(--coach-border-strong);
+  background: rgba(139, 92, 246, 0.09);
+  color: var(--coach-text);
+  box-shadow: 0 0 18px rgba(139, 92, 246, 0.06);
+}
+
+.coach-chat__question:active {
+  transform: translateY(1px);
 }
 
 .coach-chat__answer {
+  min-width: 0;
   margin-top: 18px;
-  padding: 16px;
-  border-radius: 12px;
-  background: var(--coach-bg);
+  padding: 17px;
   border: 1px solid var(--coach-border);
+  border-radius: var(--coach-radius);
+  background:
+    linear-gradient(145deg, rgba(103, 232, 249, 0.045), transparent 75%),
+    var(--coach-input-bg);
 }
 
 .coach-chat__answer h3 {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
+  color: var(--coach-cyan);
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 .coach-chat__answer p {
-  margin-bottom: 0;
+  margin: 0;
+  color: var(--coach-text-soft);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Responsive */
+
+@media (hover: hover) and (pointer: fine) {
+  .coach-decision-option:hover {
+    border-color: var(--coach-border-strong);
+  }
+}
+
+@media (max-width: 850px) {
+  .coach-decision-comparison__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .coach-decision-comparison__grid,
+  .coach-chat__questions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-session-decision__session,
+  .coach-session-decision__recommendation,
+  .coach-decision-option,
+  .coach-chat__answer {
+    padding: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-decision-option,
+  .coach-chat__question {
+    transition: none;
+  }
 }

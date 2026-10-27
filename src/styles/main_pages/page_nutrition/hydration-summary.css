@@ -1,94 +1,145 @@
 
+/* EPSILON — HYDRATATION : RÉSUMÉ PREMIUM */
+
 .hydration-page .hydration-summary {
-    padding: 24px;
-    background: linear-gradient(145deg, #ffffff 0%, #f6fbf8 100%);
-  }
-  
+  min-width: 0;
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-lg);
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(103, 232, 249, 0.07),
+      transparent 42%
+    ),
+    linear-gradient(145deg, #171a2a 0%, #10121f 100%);
+  box-shadow: var(--nutrition-shadow-card);
+}
+
+.hydration-page .hydration-summary-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  margin-bottom: 22px;
+}
+
+.hydration-page .hydration-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--nutrition-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hydration-page .hydration-total {
+  margin: 0 0 8px;
+  color: var(--nutrition-green);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.hydration-page .hydration-progress-ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(180, 160, 255, 0.12);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--nutrition-cyan) var(--hydration-progress, 0%),
+    rgba(173, 163, 230, 0.12) 0
+  );
+  box-shadow: 0 0 26px rgba(103, 232, 249, 0.07);
+}
+
+.hydration-page .hydration-progress-ring::before {
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--nutrition-border);
+  border-radius: 50%;
+  background: #121421;
+  content: "";
+}
+
+.hydration-page .hydration-progress-ring strong {
+  position: relative;
+  z-index: 1;
+  color: var(--nutrition-text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.hydration-page .hydration-progress-track {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(173, 163, 230, 0.08);
+  border-radius: 999px;
+  background: rgba(173, 163, 230, 0.12);
+}
+
+.hydration-page .hydration-progress-fill {
+  width: var(--hydration-progress, 0%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    var(--nutrition-accent-strong),
+    var(--nutrition-cyan)
+  );
+  box-shadow: 0 0 14px rgba(103, 232, 249, 0.2);
+  transition: width 240ms ease;
+}
+
+.hydration-page .hydration-remaining {
+  margin: 16px 0 0;
+  padding: 13px 15px;
+  border: 1px solid rgba(124, 231, 189, 0.12);
+  border-left: 3px solid var(--nutrition-green);
+  border-radius: 0 var(--nutrition-radius-sm) var(--nutrition-radius-sm) 0;
+  background: rgba(124, 231, 189, 0.07);
+  color: var(--nutrition-green);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
   .hydration-page .hydration-summary-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    min-width: 0;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    gap: 12px;
   }
-  
-  .hydration-page .hydration-label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--nutrition-muted);
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 1.5;
-    letter-spacing: 0.075em;
-  }
-  
-  .hydration-page .hydration-total {
-    margin: 0 0 8px;
-    color: var(--nutrition-green-dark);
-    font-size: clamp(32px, 5vw, 44px);
-    font-weight: 750;
-    line-height: 1.15;
-    letter-spacing: -0.045em;
-    font-variant-numeric: tabular-nums;
-    overflow-wrap: anywhere;
-  }
-  
+
   .hydration-page .hydration-progress-ring {
-    display: grid;
-    place-items: center;
-    flex: 0 0 100px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: conic-gradient(
-      var(--nutrition-green) var(--hydration-progress, 0%),
-      #e2e9e5 0
-    );
-    position: relative;
+    flex-basis: 78px;
+    width: 78px;
+    height: 78px;
   }
-  
+
   .hydration-page .hydration-progress-ring::before {
-    position: absolute;
-    inset: 7px;
-    border-radius: 50%;
-    background: #ffffff;
-    content: "";
+    inset: 6px;
   }
-  
+
   .hydration-page .hydration-progress-ring strong {
-    position: relative;
-    z-index: 1;
-    color: var(--nutrition-green-dark);
-    font-size: 20px;
-    font-weight: 750;
-    font-variant-numeric: tabular-nums;
+    font-size: 0.95rem;
   }
-  
-  .hydration-page .hydration-progress-track {
-    width: 100%;
-    height: 10px;
-    overflow: hidden;
-    border-radius: 999px;
-    background: #e2e9e5;
-  }
-  
+}
+
+@media (prefers-reduced-motion: reduce) {
   .hydration-page .hydration-progress-fill {
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #27855b, #55b783);
-    transition: width 200ms ease;
+    transition: none;
   }
-  
-  .hydration-page .hydration-remaining {
-    margin: 14px 0 0;
-    padding: 12px 14px;
-    border-left: 3px solid var(--nutrition-green);
-    border-radius: 0 4px 4px 0;
-    background: var(--nutrition-green-light);
-    color: var(--nutrition-green-dark);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.65;
-  }
-  
+}

@@ -1,42 +1,97 @@
 
-.coach-alerts__list {
+/* =========================================================
+   EPSILON COACH — Alerts
+   Black Diamond Premium++
+   ========================================================= */
+
+   .coach-alerts__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
   
   .coach-alert {
+    position: relative;
     min-width: 0;
-    padding: 16px;
+    padding: 17px;
     border: 1px solid var(--coach-border);
-    border-left: 4px solid var(--coach-accent);
-    border-radius: 12px;
-    background: var(--coach-bg);
+    border-left: 3px solid var(--coach-accent);
+    border-radius: var(--coach-radius);
+    background:
+      linear-gradient(145deg, rgba(180, 160, 255, 0.055), transparent 65%),
+      var(--coach-surface);
+    transition:
+      border-color var(--coach-transition),
+      background-color var(--coach-transition),
+      transform var(--coach-transition),
+      box-shadow var(--coach-transition);
   }
   
   .coach-alert h3 {
     margin: 0 0 8px;
+    color: var(--coach-text);
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
   }
   
   .coach-alert p {
     margin: 8px 0 0;
+    color: var(--coach-muted);
     font-size: 0.9rem;
+    line-height: 1.7;
     overflow-wrap: anywhere;
   }
   
   .coach-alert--info {
-    border-left-color: var(--coach-accent);
+    border-left-color: var(--coach-info);
   }
   
   .coach-alert--warning {
     border-left-color: var(--coach-warning);
+    background:
+      linear-gradient(145deg, rgba(251, 191, 119, 0.07), transparent 70%),
+      var(--coach-surface);
   }
   
   .coach-alert--danger {
     border-left-color: var(--coach-danger);
+    background:
+      linear-gradient(145deg, rgba(251, 113, 133, 0.075), transparent 70%),
+      var(--coach-surface);
   }
   
   .coach-alerts > p {
     margin-bottom: 0;
+    color: var(--coach-muted);
+    line-height: 1.7;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .coach-alert:hover {
+      transform: translateY(-2px);
+      border-top-color: var(--coach-border-strong);
+      border-right-color: var(--coach-border-strong);
+      border-bottom-color: var(--coach-border-strong);
+      box-shadow: var(--coach-shadow-glow);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .coach-alerts__list {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+  
+    .coach-alert {
+      padding: 15px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .coach-alert {
+      transition: none;
+    }
   }
   

@@ -1,60 +1,136 @@
 
+/* EPSILON — JOURNAL ALIMENTAIRE : PREMIUM++ */
+
 /* Résumé de la journée */
 
 .food-summary-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  min-width: 0;
+}
+
+.food-summary-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 20px;
+  overflow: hidden;
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-lg);
+
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(139, 92, 246, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(145deg, #171a2a, #111320);
+
+  box-shadow: var(--nutrition-shadow-card);
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.food-summary-card span {
+  color: var(--nutrition-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.food-summary-card strong {
+  color: var(--nutrition-cyan);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+/* Cartes principales */
+
+.food-diary-card {
+  min-width: 0;
+  padding: clamp(18px, 3vw, 28px);
+
+  border: 1px solid var(--nutrition-border);
+  border-radius: var(--nutrition-radius-lg);
+
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(139, 92, 246, 0.06),
+      transparent 45%
+    ),
+    linear-gradient(145deg, #171a2a, #10121f);
+
+  box-shadow: var(--nutrition-shadow-card);
+}
+
+.food-diary-card h3 {
+  margin: 0 0 9px;
+  color: var(--nutrition-text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.food-muted {
+  margin: 0 0 20px;
+  color: var(--nutrition-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .food-summary-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--nutrition-border-strong);
+    box-shadow: var(--nutrition-shadow-card), var(--nutrition-shadow-glow);
   }
-  
+}
+
+@media (max-width: 850px) {
+  .food-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .food-summary-grid {
+    gap: 10px;
+  }
+
   .food-summary-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-    min-width: 0;
-    padding: 20px;
-    background: #ffffff;
-    border: 1px solid #e3eaf1;
-    border-radius: 15px;
-    box-shadow: 0 3px 12px rgb(23 63 115 / 4%);
+    padding: 15px;
+    border-radius: var(--nutrition-radius-md);
   }
-  
-  .food-summary-card span {
-    color: #718096;
-    font-size: 0.82rem;
-    line-height: 1.45;
-  }
-  
+
   .food-summary-card strong {
-    color: #173f73;
-    font-size: 1.65rem;
-    font-weight: 750;
-    overflow-wrap: anywhere;
+    font-size: 1.35rem;
   }
-  
-  /* Cartes principales */
-  
+
   .food-diary-card {
-    min-width: 0;
-    padding: clamp(18px, 3vw, 28px);
-    background: #ffffff;
-    border: 1px solid #e3eaf1;
-    border-radius: 18px;
-    box-shadow: 0 4px 16px rgb(23 63 115 / 4%);
+    padding: 17px;
+    border-radius: var(--nutrition-radius-md);
   }
-  
-  .food-diary-card h3 {
-    margin: 0 0 8px;
-    color: #173f73;
-    font-size: 1.15rem;
-    font-weight: 750;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .food-summary-card {
+    transition: none;
   }
-  
-  .food-muted {
-    margin: 0 0 20px;
-    color: #718096;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  
+}

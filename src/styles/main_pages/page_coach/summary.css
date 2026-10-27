@@ -1,33 +1,101 @@
 
-.coach-summary > p {
+/* =========================================================
+   EPSILON COACH — Summary
+   Black Diamond Premium++
+   ========================================================= */
+
+   .coach-summary > p {
     margin: 0;
+    color: var(--coach-text-soft);
     font-size: 0.96rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
   }
   
+  /* Bloc des priorités */
+  
   .coach-summary__priorities {
-    margin-top: 22px;
-    padding-top: 18px;
+    margin-top: 24px;
+    padding-top: 20px;
     border-top: 1px solid var(--coach-border);
   }
   
   .coach-summary__priorities h3 {
-    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 14px;
+    color: var(--coach-text);
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.5;
   }
   
   .coach-summary__priorities ul {
     display: grid;
-    gap: 10px;
+    gap: 11px;
     margin: 0;
-    padding-left: 20px;
+    padding: 0;
+    list-style: none;
   }
   
   .coach-summary__priorities li {
-    padding-left: 4px;
+    position: relative;
+    min-width: 0;
+    padding: 12px 14px 12px 35px;
+    border: 1px solid rgba(173, 163, 230, 0.1);
+    border-radius: var(--coach-radius-sm);
+    background: rgba(173, 163, 230, 0.045);
     color: var(--coach-muted);
-    line-height: 1.55;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    transition:
+      border-color var(--coach-transition),
+      background-color var(--coach-transition),
+      color var(--coach-transition);
+  }
+  
+  .coach-summary__priorities li::before {
+    position: absolute;
+    top: 19px;
+    left: 15px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--coach-cyan);
+    box-shadow: 0 0 12px rgba(103, 232, 249, 0.25);
+    content: "";
   }
   
   .coach-summary__priorities > p {
-    margin-bottom: 0;
+    margin: 12px 0 0;
+    color: var(--coach-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .coach-summary__priorities li:hover {
+      border-color: var(--coach-border-strong);
+      background: rgba(139, 92, 246, 0.07);
+      color: var(--coach-text-soft);
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .coach-summary__priorities {
+      margin-top: 20px;
+      padding-top: 17px;
+    }
+  
+    .coach-summary__priorities li {
+      padding: 11px 12px 11px 31px;
+      font-size: 0.87rem;
+    }
+  
+    .coach-summary__priorities li::before {
+      left: 12px;
+    }
   }
   

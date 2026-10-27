@@ -1,14 +1,43 @@
 
-:root {
-    --coach-bg: var(--card-bg, #ffffff);
-    --coach-text: var(--text-primary, #172033);
-    --coach-muted: var(--text-secondary, #64748b);
-    --coach-border: var(--border-color, #e2e8f0);
-    --coach-accent: var(--accent-color, #3b82f6);
-    --coach-success: var(--success-color, #16a34a);
-    --coach-warning: var(--warning-color, #d97706);
-    --coach-danger: var(--danger-color, #dc2626);
+/* =========================================================
+   EPSILON COACH — BLACK DIAMOND PREMIUM++
+   Design tokens
+   ========================================================= */
+
+   :root {
+    --coach-bg: #090b14;
+    --coach-surface: #121421;
+    --coach-surface-soft: #171a2a;
+    --coach-surface-hover: #1e2135;
+    --coach-input-bg: #0d101c;
+  
+    --coach-text: #f1f0ff;
+    --coach-muted: #a09fb9;
+    --coach-text-soft: #d0cde8;
+  
+    --coach-border: rgba(173, 163, 230, 0.16);
+    --coach-border-strong: rgba(180, 160, 255, 0.38);
+  
+    --coach-accent: #b4a0ff;
+    --coach-accent-strong: #8b5cf6;
+    --coach-cyan: #67e8f9;
+  
+    --coach-success: #7ce7bd;
+    --coach-warning: #fbbf77;
+    --coach-danger: #fb7185;
+    --coach-info: #7dd3fc;
+  
+    --coach-radius-sm: 10px;
     --coach-radius: 16px;
-    --coach-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    --coach-radius-lg: 22px;
+  
+    --coach-shadow:
+      0 14px 38px rgba(0, 0, 0, 0.24),
+      0 1px 0 rgba(255, 255, 255, 0.025) inset;
+  
+    --coach-shadow-glow:
+      0 0 28px rgba(139, 92, 246, 0.09);
+  
+    --coach-transition: 180ms ease;
   }
   
