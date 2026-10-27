@@ -1,6 +1,7 @@
 
 /* =====================================================
    EPSILON — STRUCTURE ET EN-TÊTE
+   Black Diamond Premium++
    ===================================================== */
 
    .tasks-page {
@@ -20,28 +21,54 @@
     display: block;
     color: var(--tasks-muted);
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.075em;
+    font-weight: 750;
+    letter-spacing: 0.11em;
     line-height: 1.45;
     text-transform: uppercase;
   }
   
   .tasks-header {
+    position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
     gap: 18px;
     min-width: 0;
     padding: 28px 30px;
-    border: 0;
-    border-left: 5px solid var(--tasks-red);
-    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--tasks-border);
+    border-radius: var(--tasks-radius-lg);
+    background:
+      radial-gradient(
+        circle at 0% 0%,
+        rgba(139, 92, 246, 0.2),
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(34, 211, 238, 0.09),
+        transparent 42%
+      ),
+      linear-gradient(135deg, #171525 0%, #11111c 100%);
+    box-shadow: var(--tasks-shadow);
+  }
+  
+  .tasks-header::before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 28px;
+    left: 28px;
+    height: 1px;
     background: linear-gradient(
-      110deg,
-      #102f57 0%,
-      #173f73 65%,
-      #245b91 100%
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.75),
+      rgba(34, 211, 238, 0.45),
+      transparent
     );
-    box-shadow: 0 4px 14px rgb(16 47 87 / 12%);
+    content: "";
+    pointer-events: none;
   }
   
   .tasks-header-mark {
@@ -50,15 +77,23 @@
     height: 58px;
     flex: 0 0 58px;
     place-items: center;
-    border-radius: 4px;
-    background: var(--tasks-red);
-    color: #fff;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: var(--tasks-radius-md);
+    background: linear-gradient(
+      145deg,
+      rgba(167, 139, 250, 0.24),
+      rgba(34, 211, 238, 0.1)
+    );
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    color: #e9ddff;
     font-size: 1.7rem;
     font-weight: 800;
   }
   
   .tasks-header .eyebrow {
-    color: #dbe8f6;
+    color: #c8baff;
   }
   
   .tasks-header-content {
@@ -67,11 +102,12 @@
   
   .tasks-header-content h1 {
     margin: 5px 0 6px;
-    color: #fff;
+    color: #f7f5ff;
     font-size: clamp(1.7rem, 3vw, 2.2rem);
-    font-weight: 750;
+    font-weight: 780;
     letter-spacing: -0.045em;
     line-height: 1.15;
+    text-wrap: balance;
   }
   
   .tasks-header-content p,
@@ -83,7 +119,7 @@
   }
   
   .tasks-header-content p {
-    color: #e0e9f4;
+    color: #c1bfd6;
   }
   
   .tasks-page-heading {
@@ -91,14 +127,15 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    min-width: 0;
   }
   
   .tasks-page-heading h2 {
     margin: 5px 0;
-    color: var(--tasks-accent);
-    font-size: 1.45rem;
-    font-weight: 750;
-    letter-spacing: -0.025em;
+    color: var(--tasks-ink);
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    font-weight: 760;
+    letter-spacing: -0.035em;
   }
   
   .tasks-date {
@@ -112,6 +149,7 @@
     display: flex;
     flex-direction: column;
     gap: 26px;
+    min-width: 0;
   }
   
   .tasks-section {
@@ -126,11 +164,12 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    min-width: 0;
   }
   
   .tasks-section-heading h2 {
     margin: 5px 0 0;
-    color: var(--tasks-accent);
+    color: var(--tasks-ink);
     font-size: 1.18rem;
     font-weight: 750;
     letter-spacing: -0.025em;
@@ -140,5 +179,64 @@
     margin: 0;
     color: var(--tasks-muted);
     font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  @media (hover: hover) {
+    .tasks-header {
+      transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease;
+    }
+  
+    .tasks-header:hover {
+      border-color: var(--tasks-border-strong);
+      box-shadow: var(--tasks-shadow), var(--tasks-glow);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .tasks-page {
+      gap: 19px;
+      padding-bottom: 24px;
+    }
+  
+    .tasks-header {
+      gap: 14px;
+      padding: 20px;
+      border-radius: 17px;
+    }
+  
+    .tasks-header::before {
+      right: 20px;
+      left: 20px;
+    }
+  
+    .tasks-header-mark {
+      width: 48px;
+      height: 48px;
+      flex-basis: 48px;
+      border-radius: 13px;
+      font-size: 1.4rem;
+    }
+  
+    .tasks-header-content h1 {
+      font-size: clamp(1.4rem, 6vw, 1.8rem);
+    }
+  
+    .tasks-header-content p {
+      font-size: 0.85rem;
+    }
+  
+    .tasks-page-heading {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .tasks-header {
+      transition: none;
+    }
   }
   

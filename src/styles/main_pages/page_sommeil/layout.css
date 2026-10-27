@@ -1,9 +1,17 @@
 
-.sleep-page {
+/* =====================================================
+   EPSILON — SLEEP LAYOUT
+   Black Diamond Premium++
+   ===================================================== */
+
+   .sleep-page {
     width: 100%;
     min-width: 0;
     padding-bottom: 2rem;
+    color: var(--sleep-text);
   }
+  
+  /* En-tête de section */
   
   .sleep-page .section-heading {
     display: flex;
@@ -16,22 +24,28 @@
   .sleep-page .section-heading h2 {
     margin: 0.35rem 0 0;
     color: var(--sleep-text);
-    font-size: clamp(1.35rem, 3vw, 1.8rem);
-    font-weight: 750;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
   }
+  
+  /* Badge de statut */
   
   .sleep-page .section-tag {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.7rem;
+    gap: 0.55rem;
+    flex: 0 0 auto;
+    padding: 0.48rem 0.75rem;
     border: 1px solid var(--sleep-border);
-    border-radius: 999px;
+    border-radius: var(--sleep-radius-pill);
+    background: rgba(103, 232, 249, 0.035);
     color: var(--sleep-muted);
     font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-weight: 750;
+    letter-spacing: 0.07em;
     white-space: nowrap;
   }
   
@@ -41,108 +55,171 @@
     flex: 0 0 7px;
     border-radius: 50%;
     background: var(--sleep-success);
+    box-shadow: 0 0 10px rgba(124, 231, 189, 0.25);
   }
   
+  /* Navigation par onglets */
+  
+  .sleep-page .sleep-tabs,
   .sleep-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.45rem;
+    min-width: 0;
     margin-bottom: 1.25rem;
     padding: 0.35rem;
     border: 1px solid var(--sleep-border);
-    border-radius: 14px;
-    background: var(--sleep-surface);
+    border-radius: var(--sleep-radius-md);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.045),
+        transparent 55%
+      ),
+      var(--sleep-surface);
+    box-shadow: var(--sleep-shadow-card);
   }
   
+  .sleep-page .sleep-tab,
   .sleep-tab {
     flex: 1 1 130px;
-    min-height: 42px;
+    min-width: 0;
+    min-height: 43px;
     padding: 0.7rem 1rem;
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: var(--sleep-radius-sm);
     background: transparent;
     color: var(--sleep-muted);
     font-size: 0.88rem;
-    font-weight: 650;
+    font-weight: 700;
+    line-height: 1.4;
     transition:
-      color 160ms ease,
-      background 160ms ease,
-      border-color 160ms ease;
+      color var(--sleep-motion-fast),
+      background var(--sleep-motion-fast),
+      border-color var(--sleep-motion-fast),
+      box-shadow var(--sleep-motion-fast);
   }
   
+  .sleep-page .sleep-tab:hover,
   .sleep-tab:hover {
     background: var(--sleep-surface-hover);
     color: var(--sleep-text);
   }
   
+  .sleep-page .sleep-tab.active,
   .sleep-tab.active,
+  .sleep-page .sleep-tab[aria-selected="true"],
   .sleep-tab[aria-selected="true"] {
-    border-color: var(--sleep-border);
-    background: rgba(141, 156, 255, 0.13);
-    color: var(--sleep-text);
+    border-color: var(--sleep-border-strong);
+    background:
+      linear-gradient(
+        120deg,
+        rgba(139, 92, 246, 0.2),
+        rgba(103, 232, 249, 0.055)
+      );
+    color: #e8e0ff;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.055);
   }
   
-  .sleep-primary-action {
+  /* Actions principales */
+  
+  .sleep-page .sleep-primary-action {
     display: flex;
     justify-content: flex-end;
     margin: 0 0 1rem;
   }
   
-  .sleep-primary-button,
-  .sleep-secondary-button {
+  .sleep-page .sleep-primary-button,
+  .sleep-page .sleep-secondary-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 42px;
-    padding: 0.7rem 1rem;
+    min-height: 44px;
+    padding: 0.72rem 1.05rem;
     border: 1px solid transparent;
-    border-radius: 11px;
+    border-radius: var(--sleep-radius-sm);
     font-size: 0.88rem;
-    font-weight: 700;
+    font-weight: 750;
+    line-height: 1.4;
+    text-align: center;
     transition:
-      background 160ms ease,
-      border-color 160ms ease,
-      transform 160ms ease;
+      background var(--sleep-motion-fast),
+      border-color var(--sleep-motion-fast),
+      color var(--sleep-motion-fast),
+      box-shadow var(--sleep-motion-fast),
+      transform var(--sleep-motion-fast);
   }
   
-  .sleep-primary-button {
-    background: var(--sleep-accent-strong);
-    color: #fff;
+  .sleep-page .sleep-primary-button {
+    border-color: rgba(196, 181, 253, 0.25);
+    background: linear-gradient(
+      120deg,
+      var(--sleep-accent-strong),
+      #7048d8
+    );
+    color: #ffffff;
+    box-shadow: var(--sleep-shadow-button);
   }
   
-  .sleep-primary-button:hover {
-    background: var(--sleep-accent);
-    transform: translateY(-1px);
+  .sleep-page .sleep-primary-button:hover:not(:disabled) {
+    border-color: rgba(196, 181, 253, 0.55);
+    background: linear-gradient(
+      120deg,
+      var(--sleep-accent-hover),
+      #8057e8
+    );
+    box-shadow:
+      var(--sleep-shadow-button),
+      0 0 22px rgba(139, 92, 246, 0.12);
   }
   
-  .sleep-secondary-button {
+  .sleep-page .sleep-secondary-button {
     border-color: var(--sleep-border);
-    background: var(--sleep-surface);
-    color: var(--sleep-text);
+    background: var(--sleep-surface-raised);
+    color: var(--sleep-text-soft);
   }
   
-  .sleep-secondary-button:hover {
+  .sleep-page .sleep-secondary-button:hover:not(:disabled) {
+    border-color: rgba(103, 232, 249, 0.28);
     background: var(--sleep-surface-hover);
+    color: var(--sleep-cyan);
   }
   
-  .sleep-error {
+  .sleep-page .sleep-primary-button:disabled,
+  .sleep-page .sleep-secondary-button:disabled {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+  
+  /* Messages d'erreur */
+  
+  .sleep-page .sleep-error {
     margin: 0 0 1rem;
-    padding: 0.85rem 1rem;
-    border: 1px solid rgba(255, 146, 155, 0.3);
-    border-radius: 12px;
-    background: rgba(255, 146, 155, 0.08);
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(255, 146, 159, 0.27);
+    border-radius: var(--sleep-radius-md);
+    background: rgba(255, 146, 159, 0.075);
     color: var(--sleep-danger);
     font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
   }
+  
+  /* Panneaux génériques */
   
   .sleep-page .panel {
     min-width: 0;
     border: 1px solid var(--sleep-border);
-    border-radius: 18px;
-    background: var(--sleep-surface);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-radius: var(--sleep-radius-lg);
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(139, 92, 246, 0.055),
+        transparent 42%
+      ),
+      var(--sleep-surface);
+    box-shadow: var(--sleep-shadow-card);
   }
   
   .sleep-page .panel-heading {
@@ -150,30 +227,127 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
+    min-width: 0;
   }
   
   .sleep-page .panel-heading h3 {
     margin: 0.35rem 0 0;
     color: var(--sleep-text);
     font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
   }
   
   .sleep-page .welcome-description {
     color: var(--sleep-muted);
     font-size: 0.92rem;
-    line-height: 1.7;
+    line-height: 1.75;
   }
+  
+  /* Badge de fonctionnalité à venir */
   
   .sleep-page .sleep-coming-soon {
     display: inline-flex;
     align-items: center;
-    padding: 0.35rem 0.6rem;
+    gap: 0.35rem;
+    padding: 0.38rem 0.65rem;
     border: 1px solid var(--sleep-border);
-    border-radius: 999px;
+    border-radius: var(--sleep-radius-pill);
+    background: rgba(255, 255, 255, 0.02);
     color: var(--sleep-muted);
     font-size: 0.75rem;
-    font-weight: 650;
+    font-weight: 700;
+    line-height: 1.4;
   }
   
+  /* Interactions discrètes */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .sleep-page .panel {
+      transition:
+        border-color var(--sleep-motion-normal),
+        box-shadow var(--sleep-motion-normal);
+    }
+  
+    .sleep-page .panel:hover {
+      border-color: var(--sleep-border-strong);
+      box-shadow: var(--sleep-shadow-card), var(--sleep-shadow-glow);
+    }
+  }
+  
+  /* Tablettes et mobiles */
+  
+  @media (max-width: 700px) {
+    .sleep-page .section-heading {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 1.15rem;
+    }
+  
+    .sleep-page .section-tag {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.66rem;
+    }
+  
+    .sleep-page .panel-heading {
+      flex-wrap: wrap;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sleep-page .section-heading {
+      gap: 0.75rem;
+    }
+  
+    .sleep-page .section-heading h2 {
+      font-size: 1.4rem;
+    }
+  
+    .sleep-page .sleep-tabs,
+    .sleep-tabs {
+      gap: 0.3rem;
+      padding: 0.28rem;
+    }
+  
+    .sleep-page .sleep-tab,
+    .sleep-tab {
+      flex: 1 1 calc(50% - 0.3rem);
+      min-height: 42px;
+      padding: 0.65rem 0.5rem;
+      font-size: 0.82rem;
+    }
+  
+    .sleep-page .sleep-primary-action {
+      justify-content: stretch;
+    }
+  
+    .sleep-page .sleep-primary-action > button {
+      width: 100%;
+    }
+  
+    .sleep-page .panel {
+      border-radius: var(--sleep-radius-md);
+    }
+  }
+  
+  /* Réduction des animations */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .sleep-page .sleep-tab,
+    .sleep-tab,
+    .sleep-page .sleep-primary-button,
+    .sleep-page .sleep-secondary-button,
+    .sleep-page .panel {
+      transition: none;
+    }
+  
+    .sleep-page .sleep-primary-button:hover:not(:disabled) {
+      transform: none;
+    }
+  }
+  
+  .sleep-page .welcome-eyebrow {
+    background-color: #f1f0ff;
+  }

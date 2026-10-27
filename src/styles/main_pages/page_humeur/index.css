@@ -1,8 +1,16 @@
-@import './variables.css';
-@import './layout.css';
-@import './dashboard.css';
-@import './selector.css';
-@import './form.css';
-@import './history.css';
-@import './statistics.css';
-@import './responsive.css';
+
+/* =====================================================
+   EPSILON — PAGE HUMEUR
+   Black Diamond Premium++
+   ===================================================== */
+
+   @import "./variables.css";
+   @import "./layout.css";
+   @import "./dashboard.css";
+   @import "./selector.css";
+   @import "./form.css";
+   @import "./history.css";
+   @import "./statistics.css";
+   @import "./responsive.css";
+   @import "./animations.css";
+   

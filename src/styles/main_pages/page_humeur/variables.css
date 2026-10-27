@@ -1,18 +1,61 @@
-.mood-page {
-    --mood-color-primary: #5265b8;
-    --mood-color-primary-dark: #3e4f9b;
-    --mood-color-text: #20243a;
-    --mood-color-muted: #73798c;
-    --mood-color-border: #e5e8f0;
-    --mood-color-surface: #ffffff;
-    --mood-color-background: #f6f7fb;
-    --mood-color-success: #27855b;
-    --mood-color-danger: #d93446;
+
+/* =====================================================
+   EPSILON — VARIABLES DE LA PAGE HUMEUR
+   Black Diamond Premium++
+   ===================================================== */
+
+   .mood-page {
+    color-scheme: dark;
   
-    --mood-radius-sm: 8px;
-    --mood-radius-md: 14px;
-    --mood-radius-lg: 20px;
+    /* Accents */
+    --mood-color-primary: #a78bfa;
+    --mood-color-primary-dark: #8b5cf6;
+    --mood-color-primary-soft: rgba(167, 139, 250, 0.13);
+    --mood-color-secondary: #22d3ee;
+    --mood-color-secondary-dark: #06b6d4;
   
-    --mood-shadow-card: 0 4px 18px rgb(32 36 58 / 5%);
+    /* Texte */
+    --mood-color-text: #f1f0fa;
+    --mood-color-muted: #a09fb7;
+    --mood-color-text-soft: #c5c4d8;
+  
+    /* Bordures */
+    --mood-color-border: rgba(167, 139, 250, 0.16);
+    --mood-color-border-strong: rgba(167, 139, 250, 0.32);
+  
+    /* Surfaces */
+    --mood-color-surface: #151522;
+    --mood-color-surface-raised: #1b1b2b;
+    --mood-color-surface-hover: #222238;
+    --mood-color-background: #0b0b12;
+    --mood-color-input: #10101b;
+  
+    /* États */
+    --mood-color-success: #34d399;
+    --mood-color-danger: #fb7185;
+    --mood-color-warning: #fbbf24;
+  
+    /* Rayons */
+    --mood-radius-sm: 10px;
+    --mood-radius-md: 15px;
+    --mood-radius-lg: 21px;
+  
+    /* Ombres et transitions */
+    --mood-shadow-card:
+      0 12px 32px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  
+    --mood-shadow-glow:
+      0 0 24px rgba(139, 92, 246, 0.09);
+  
     --mood-transition: 180ms ease;
   }
+  
+  /* Cohérence des dimensions dans les composants */
+  
+  .mood-page *,
+  .mood-page *::before,
+  .mood-page *::after {
+    box-sizing: border-box;
+  }
+  

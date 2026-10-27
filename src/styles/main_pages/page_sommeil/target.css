@@ -1,39 +1,107 @@
 
-.sleep-target-panel {
-  margin-top: 1rem;
-}
+/* =====================================================
+   EPSILON — SLEEP TARGET
+   Black Diamond Premium++
+   ===================================================== */
 
-.sleep-target-panel .sleep-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 280px;
-  margin-top: 1rem;
-}
+   .sleep-target-panel {
+    min-width: 0;
+    margin-top: 1rem;
+  }
+  
+  .sleep-target-panel .sleep-field {
+    display: flex;
+    max-width: 280px;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .sleep-target-panel .sleep-field > span {
+    color: var(--sleep-text-soft);
+    font-size: 0.85rem;
+    font-weight: 650;
+    line-height: 1.5;
+  }
+  
+  .sleep-target-panel input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.72rem 0.8rem;
+    border: 1px solid var(--sleep-border);
+    border-radius: var(--sleep-radius-sm);
+    background: var(--sleep-surface-input);
+    color: var(--sleep-text);
+    font: inherit;
+    font-size: 0.9rem;
+    transition:
+      border-color var(--sleep-motion-fast),
+      box-shadow var(--sleep-motion-fast);
+  }
+  
+  .sleep-target-panel input:hover {
+    border-color: var(--sleep-border-strong);
+  }
+  
+  .sleep-target-panel input:focus-visible {
+    border-color: var(--sleep-accent);
+    outline: 2px solid var(--sleep-cyan);
+    outline-offset: 2px;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.08);
+  }
+  
+  .sleep-target-summary {
+    margin: 0.85rem 0 0;
+    color: var(--sleep-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+  }
+  
+  .sleep-target-summary strong {
+    color: var(--sleep-text);
+    font-weight: 750;
+  }
+  
+  @media (max-width: 600px) {
+    .sleep-target-panel .sleep-field {
+      max-width: none;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .sleep-target-panel input {
+      transition: none;
+    }
+  }
+  
 
-.sleep-target-panel .sleep-field > span {
-  color: var(--sleep-muted, #9aa8c2);
-  font-size: 0.85rem;
-  font-weight: 600;
-}
+/* =====================================================
+   SLEEP OVERVIEW — OBJECTIF QUOTIDIEN
+   ===================================================== */
 
-.sleep-target-panel input {
-  width: 100%;
-  min-height: 44px;
-  box-sizing: border-box;
-  padding: 0.75rem;
-  border: 1px solid var(--sleep-border, #303a50);
-  border-radius: 10px;
-  background: var(--sleep-bg, #0d1220);
-  color: var(--sleep-text, #edf2ff);
-}
-
-.sleep-target-summary {
-  margin-top: 0.75rem;
-  color: var(--sleep-muted, #9aa8c2);
-  font-size: 0.9rem;
-}
-
-.sleep-target-summary strong {
-  color: var(--sleep-text, #edf2ff);
-}
+   .sleep-page .sleep-target-panel .panel-heading {
+    margin-bottom: 0.75rem;
+  }
+  
+  .sleep-page .sleep-target-panel .welcome-description {
+    max-width: 58ch;
+    margin: 0.5rem 0 1rem;
+    color: var(--sleep-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  
+  .sleep-page .sleep-target-panel .sleep-target-summary {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--sleep-border);
+  }
+  
+  .sleep-page .sleep-target-panel .sleep-target-summary strong {
+    color: var(--sleep-cyan);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+  

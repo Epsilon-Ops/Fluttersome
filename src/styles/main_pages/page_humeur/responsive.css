@@ -1,13 +1,12 @@
 
+/* =====================================================
+   EPSILON — RESPONSIVE PAGE HUMEUR
+   Black Diamond Premium++
+   ===================================================== */
+
+/* Tablettes et écrans intermédiaires */
+
 @media (max-width: 900px) {
-  .mood-page {
-    padding: 22px;
-  }
-
-  .mood-header {
-    padding: 26px;
-  }
-
   .mood-selector__categories {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -15,49 +14,15 @@
   .mood-category__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .mood-history-item {
+    gap: 13px;
+  }
 }
 
+/* Mobiles */
+
 @media (max-width: 600px) {
-  .mood-page {
-    padding: 14px;
-  }
-
-  .mood-header {
-    margin-bottom: 18px;
-    padding: 22px 18px;
-    border-radius: var(--mood-radius-md);
-  }
-
-  .mood-header__title {
-    font-size: 1.85rem;
-  }
-
-  .mood-header__description {
-    font-size: 0.9rem;
-  }
-
-  .mood-tabs {
-    gap: 4px;
-    margin-bottom: 18px;
-    padding: 4px;
-  }
-
-  .mood-tabs__button {
-    min-height: 42px;
-    padding: 10px 12px;
-    font-size: 0.84rem;
-  }
-
-  .mood-dashboard__title {
-    font-size: 1.25rem;
-  }
-
-  .mood-section,
-  .mood-category,
-  .mood-entry-form {
-    padding: 17px;
-  }
-
   .mood-selector__categories {
     gap: 12px;
   }
@@ -83,6 +48,7 @@
   .mood-entry-form__actions {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
 
   .mood-entry-form__actions > button {
@@ -101,54 +67,95 @@
   }
 
   .mood-history-item {
-    padding: 16px;
+    padding: 15px;
   }
 
   .mood-history-item__header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 6px;
   }
 
-  .mood-statistics__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
+  .mood-history-item__icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
   }
 
-  .mood-stat-card {
-    min-height: 120px;
-    padding: 18px;
+  .mood-history-item__icon svg {
+    width: 30px;
+    height: 30px;
   }
 
-  .mood-statistics__breakdown {
-    padding: 17px;
+  .mood-history-item__content {
+    flex-basis: calc(100% - 54px);
+  }
+
+  .mood-history-item__delete {
+    margin-left: auto;
   }
 
   .mood-empty-state {
     padding: 32px 18px;
   }
-  .mood-history-item__icon {
-    display: grid;
-    flex: 0 0 54px;
-    width: 54px;
-    height: 54px;
-    place-items: center;
+}
+
+/* Très petits écrans */
+
+@media (max-width: 380px) {
+  .mood-page {
+    padding: 10px;
   }
-  
-  .mood-history-item__icon svg {
-    display: block;
-    width: 50px;
-    height: 50px;
+
+  .mood-header {
+    padding: 18px 15px;
+  }
+
+  .mood-tabs {
+    gap: 3px;
+    padding: 4px;
+  }
+
+  .mood-tabs__button {
+    min-height: 40px;
+    padding: 9px 10px;
+    font-size: 0.8rem;
+  }
+
+  .mood-section,
+  .mood-category,
+  .mood-entry-form {
+    padding: 14px;
+  }
+
+  .mood-history-item {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .mood-history-item__icon {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .mood-history-item__content {
+    flex-basis: calc(100% - 46px);
+  }
+
+  .mood-stat-card {
+    padding: 15px;
   }
 }
+
+/* Accessibilité : réduire les animations */
 
 @media (prefers-reduced-motion: reduce) {
   .mood-page *,
   .mood-page *::before,
   .mood-page *::after {
     scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
   }
-
 }

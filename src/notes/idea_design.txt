@@ -1,0 +1,6 @@
+[+] Design Black Diamond ++ en base
+[-] Attrait Duolingo
+[-] Wacky Woobly Stretch & Squash animations
+[-] Black Diamond aura to everything
+[-] Effet ombrage solide sur icones pour rendu joli
+[-] Modifier la structure globale de chaque fichier pour que le css s'y adapte mieux

@@ -1,69 +1,321 @@
-.mood-selector { min-width: 0; }
 
-.mood-selector__intro { margin-bottom: 24px; }
+/* =====================================================
+   EPSILON — SÉLECTEURS D'HUMEUR ET D'ACTIVITÉ
+   Black Diamond Premium++
+   ===================================================== */
 
-.mood-selector__title { margin: 0 0 8px; color: var(--mood-color-text); font-size: 1.2rem; font-weight: 800; }
-
-.mood-selector__description { margin: 0; color: var(--mood-color-muted); font-size: 0.92rem; line-height: 1.6; }
-
-.mood-selector__categories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-
-.mood-category { min-width: 0; padding: 20px; border: 1px solid var(--mood-color-border); border-radius: var(--mood-radius-md); background: var(--mood-color-surface); }
-
-.mood-category__title { display: flex; align-items: center; gap: 9px; margin: 0 0 16px; color: var(--mood-color-text); font-size: 1rem; font-weight: 800; }
-
-.mood-category__dot { flex: 0 0 10px; width: 10px; height: 10px; border-radius: 50%; background: var(--mood-category-color, var(--mood-color-primary)); }
-
-.mood-category__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-
-.mood-option { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; min-height: 52px; padding: 10px 12px; border: 1px solid var(--mood-color-border); border-radius: var(--mood-radius-sm); background: #ffffff; color: var(--mood-color-text); text-align: left; cursor: pointer; transition: border-color var(--mood-transition), background var(--mood-transition), box-shadow var(--mood-transition), transform var(--mood-transition); }
-
-.mood-option:hover { border-color: var(--mood-option-color, var(--mood-color-primary)); background: #fafaff; transform: translateY(-1px); }
-
-.mood-option.is-selected { border-color: var(--mood-option-color, var(--mood-color-primary)); background: color-mix( in srgb, var(--mood-option-color, var(--mood-color-primary)) 9%, white ); box-shadow: inset 0 0 0 1px var(--mood-option-color, var(--mood-color-primary)); }
-
-.mood-option__icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 36px; width: 36px; height: 36px; min-width: 0; min-height: 0; color: var(--mood-option-color, var(--mood-color-primary)); }
-
-.mood-option__icon svg { display: block; width: 32px; height: 32px; max-width: 100%; flex-shrink: 0; }
-
-.mood-option__label { flex: 1; min-width: 0; font-size: 0.88rem; font-weight: 650; overflow-wrap: anywhere; }
-
-.mood-option__score { flex: 0 0 auto; color: var(--mood-option-color, var(--mood-color-muted)); font-size: 0.8rem; font-weight: 800; }
-
-.mood-option.is-selected .mood-option__label { color: var(--mood-option-color, var(--mood-color-primary-dark)); }
-
-.mood-option:focus-visible { outline: 3px solid var(--mood-color-primary); outline-offset: 3px; }
-
-/* Activités : styles conservés pour une prochaine étape. */
-
-.activity-selector { min-width: 0; margin: 0; padding: 0; border: 0; }
-
-.activity-selector__title { padding: 0; color: var(--mood-color-text); font-size: 1rem; font-weight: 800; }
-
-.activity-selector__description { margin: 8px 0 16px; color: var(--mood-color-muted); font-size: 0.9rem; line-height: 1.6; }
-
-.activity-selector__list { display: flex; flex-wrap: wrap; gap: 9px; }
-
-.activity-selector__option { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 42px; padding: 9px 13px; border: 1px solid var(--mood-color-border); border-radius: 999px; background: #ffffff; color: var(--mood-color-text); cursor: pointer; transition: border-color var(--mood-transition), background var(--mood-transition), color var(--mood-transition); }
-
-.activity-selector__option:hover { border-color: var(--mood-color-primary); }
-
-.activity-selector__option.is-selected { border-color: var(--mood-color-primary); background: #eef0ff; color: var(--mood-color-primary-dark); }
-
-.activity-selector__option-label { font-size: 0.88rem; font-weight: 650; }
-
-.activity-selector__check { display: inline-grid; width: 20px; height: 20px; flex: 0 0 20px; place-items: center; border-radius: 50%; background: #f0f1f7; color: var(--mood-color-muted); font-size: 0.9rem; font-weight: 800; }
-
-.activity-selector__option.is-selected .activity-selector__check { background: var(--mood-color-primary); color: #ffffff; }
-
-@media (max-width: 700px) { .mood-selector__categories { grid-template-columns: minmax(0, 1fr); } }
-
-@media (max-width: 420px) { .mood-category { padding: 15px; }
-
-.mood-category__list { grid-template-columns: minmax(0, 1fr); }
-
-.mood-option { min-height: 50px; padding: 9px 10px; gap: 7px; }
-
-.mood-option__icon { flex-basis: 34px; width: 34px; height: 34px; }
-
-.mood-option__icon svg { width: 30px; height: 30px; } }
+   .mood-selector,
+   .activity-selector {
+     min-width: 0;
+   }
+   
+   .mood-selector__intro {
+     margin-bottom: 24px;
+   }
+   
+   .mood-selector__title {
+     margin: 0 0 8px;
+     color: var(--mood-color-text);
+     font-size: 1.2rem;
+     font-weight: 800;
+     letter-spacing: -0.025em;
+   }
+   
+   .mood-selector__description {
+     margin: 0;
+     color: var(--mood-color-muted);
+     font-size: 0.92rem;
+     line-height: 1.65;
+   }
+   
+   .mood-selector__categories {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 16px;
+   }
+   
+   .mood-category {
+     min-width: 0;
+     padding: 20px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: var(--mood-radius-md);
+     background:
+       radial-gradient(
+         circle at 100% 0%,
+         rgba(139, 92, 246, 0.055),
+         transparent 48%
+       ),
+       var(--mood-color-surface);
+     box-shadow: var(--mood-shadow-card);
+   }
+   
+   .mood-category__title {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     margin: 0 0 16px;
+     color: var(--mood-color-text);
+     font-size: 1rem;
+     font-weight: 800;
+     letter-spacing: -0.015em;
+   }
+   
+   .mood-category__dot {
+     width: 10px;
+     height: 10px;
+     flex: 0 0 10px;
+     border-radius: 50%;
+     background: var(--mood-category-color, var(--mood-color-primary));
+     box-shadow: 0 0 12px
+       color-mix(
+         in srgb,
+         var(--mood-category-color, var(--mood-color-primary)) 32%,
+         transparent
+       );
+   }
+   
+   .mood-category__list {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 9px;
+   }
+   
+   .mood-option {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 8px;
+     min-width: 0;
+     min-height: 54px;
+     padding: 9px 11px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: var(--mood-radius-sm);
+     background: rgba(8, 8, 17, 0.48);
+     color: var(--mood-color-text);
+     text-align: left;
+     cursor: pointer;
+     transition:
+       border-color var(--mood-transition),
+       background var(--mood-transition),
+       box-shadow var(--mood-transition),
+       transform var(--mood-transition);
+   }
+   
+   .mood-option:hover {
+     border-color: var(--mood-option-color, var(--mood-color-primary));
+     background: var(--mood-color-surface-hover);
+   }
+   
+   .mood-option.is-selected {
+     border-color: var(--mood-option-color, var(--mood-color-primary));
+     background: color-mix(
+       in srgb,
+       var(--mood-option-color, var(--mood-color-primary)) 12%,
+       var(--mood-color-surface)
+     );
+     box-shadow:
+       inset 0 0 0 1px
+         color-mix(
+           in srgb,
+           var(--mood-option-color, var(--mood-color-primary)) 60%,
+           transparent
+         ),
+       0 0 18px
+         color-mix(
+           in srgb,
+           var(--mood-option-color, var(--mood-color-primary)) 8%,
+           transparent
+         );
+   }
+   
+   .mood-option__icon {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 36px;
+     height: 36px;
+     min-width: 0;
+     min-height: 0;
+     flex: 0 0 36px;
+     color: var(--mood-option-color, var(--mood-color-primary));
+   }
+   
+   .mood-option__icon svg {
+     display: block;
+     width: 32px;
+     height: 32px;
+     max-width: 100%;
+     flex-shrink: 0;
+   }
+   
+   .mood-option__label {
+     flex: 1;
+     min-width: 0;
+     color: var(--mood-color-text-soft);
+     font-size: 0.88rem;
+     font-weight: 650;
+     overflow-wrap: anywhere;
+     line-height: 1.4;
+   }
+   
+   .mood-option__score {
+     flex: 0 0 auto;
+     color: var(--mood-option-color, var(--mood-color-muted));
+     font-size: 0.8rem;
+     font-weight: 800;
+     font-variant-numeric: tabular-nums;
+   }
+   
+   .mood-option.is-selected .mood-option__label {
+     color: var(--mood-color-text);
+   }
+   
+   .mood-option:focus-visible,
+   .activity-selector__option:focus-visible {
+     outline: 2px solid var(--mood-color-primary);
+     outline-offset: 3px;
+   }
+   
+   /* -----------------------------------------------------
+      Activités
+      ----------------------------------------------------- */
+   
+   .activity-selector {
+     margin: 0;
+     padding: 0;
+     border: 0;
+   }
+   
+   .activity-selector__title {
+     padding: 0;
+     color: var(--mood-color-text);
+     font-size: 1rem;
+     font-weight: 800;
+   }
+   
+   .activity-selector__description {
+     margin: 8px 0 16px;
+     color: var(--mood-color-muted);
+     font-size: 0.9rem;
+     line-height: 1.65;
+   }
+   
+   .activity-selector__list {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 9px;
+   }
+   
+   .activity-selector__option {
+     display: inline-flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 12px;
+     min-height: 42px;
+     padding: 9px 13px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: 999px;
+     background: var(--mood-color-input);
+     color: var(--mood-color-text-soft);
+     cursor: pointer;
+     transition:
+       border-color var(--mood-transition),
+       background var(--mood-transition),
+       color var(--mood-transition),
+       box-shadow var(--mood-transition);
+   }
+   
+   .mood-option:disabled,
+   .activity-selector__option:disabled {
+     cursor: not-allowed;
+     opacity: 0.55;
+   }
+   
+   .activity-selector__option:hover {
+     border-color: var(--mood-color-border-strong);
+     background: var(--mood-color-surface-hover);
+   }
+   
+   .activity-selector__option.is-selected {
+     border-color: var(--mood-color-primary);
+     background: rgba(139, 92, 246, 0.14);
+     color: #e5dcff;
+     box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.18);
+   }
+   
+   .activity-selector__option-label {
+     font-size: 0.88rem;
+     font-weight: 650;
+   }
+   
+   .activity-selector__check {
+     display: inline-grid;
+     width: 20px;
+     height: 20px;
+     flex: 0 0 20px;
+     place-items: center;
+     border: 1px solid var(--mood-color-border);
+     border-radius: 50%;
+     background: rgba(255, 255, 255, 0.045);
+     color: var(--mood-color-muted);
+     font-size: 0.9rem;
+     font-weight: 800;
+   }
+   
+   .activity-selector__option.is-selected .activity-selector__check {
+     border-color: var(--mood-color-primary);
+     background: var(--mood-color-primary);
+     color: #100b1c;
+   }
+   
+   @media (hover: hover) and (pointer: fine) {
+     .mood-option:hover,
+     .activity-selector__option:hover {
+       transform: translateY(-1px);
+     }
+   }
+   
+   @media (max-width: 700px) {
+     .mood-selector__categories {
+       grid-template-columns: minmax(0, 1fr);
+     }
+   }
+   
+   @media (max-width: 420px) {
+     .mood-selector__intro {
+       margin-bottom: 18px;
+     }
+   
+     .mood-category {
+       padding: 15px;
+     }
+   
+     .mood-category__list {
+       grid-template-columns: minmax(0, 1fr);
+     }
+   
+     .mood-option {
+       min-height: 50px;
+       gap: 7px;
+       padding: 9px 10px;
+     }
+   
+     .mood-option__icon {
+       width: 34px;
+       height: 34px;
+       flex-basis: 34px;
+     }
+   
+     .mood-option__icon svg {
+       width: 30px;
+       height: 30px;
+     }
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+     .mood-option,
+     .activity-selector__option {
+       transition: none;
+     }
+   }
+   

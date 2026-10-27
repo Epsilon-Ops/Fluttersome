@@ -1,288 +1,370 @@
 
-.mood-history,
-.mood-statistics {
-  min-width: 0;
-}
+/* =====================================================
+   EPSILON — HISTORIQUE DES HUMEUR ET ÉTATS VIDES
+   Black Diamond Premium++
+   ===================================================== */
 
-.mood-history__toolbar,
-.mood-statistics__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.mood-history__title,
-.mood-statistics__title {
-  margin: 0;
-  color: var(--mood-color-text);
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-.mood-history__description,
-.mood-statistics__description {
-  margin: 8px 0 0;
-  color: var(--mood-color-muted);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.mood-history__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid var(--mood-color-border);
-  border-radius: 11px;
-  background: #f6f7fb;
-}
-
-.mood-history__filter {
-  min-height: 36px;
-  padding: 8px 13px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--mood-color-muted);
-  font-size: 0.84rem;
-  font-weight: 750;
-  cursor: pointer;
-  transition:
-    background var(--mood-transition),
-    color var(--mood-transition);
-}
-
-.mood-history__filter:hover {
-  color: var(--mood-color-primary-dark);
-}
-
-.mood-history__filter.is-active {
-  background: #ffffff;
-  color: var(--mood-color-primary-dark);
-  box-shadow: 0 1px 5px rgb(32 36 58 / 9%);
-}
-
-.mood-history__count {
-  margin: 0 0 16px;
-  color: var(--mood-color-muted);
-  font-size: 0.85rem;
-  font-weight: 650;
-}
-
-.mood-history__list {
-  display: grid;
-  gap: 12px;
-}
-
-.mood-history-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  min-width: 0;
-  padding: 20px;
-  border: 1px solid var(--mood-color-border);
-  border-left: 4px solid var(--mood-category-color, var(--mood-color-primary));
-  border-radius: var(--mood-radius-md);
-  background: #ffffff;
-  box-shadow: var(--mood-shadow-card);
-  transition:
-    border-color var(--mood-transition),
-    box-shadow var(--mood-transition);
-}
-
-.mood-history-item:hover {
-  box-shadow: 0 6px 22px rgb(32 36 58 / 8%);
-}
-
-.mood-history-item__icon {
-  display: grid;
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
-  place-items: center;
-  border-radius: 14px;
-  background: color-mix(
-    in srgb,
-    var(--mood-category-color, var(--mood-color-primary)) 12%,
-    white
-  );
-  color: var(--mood-category-color, var(--mood-color-primary));
-}
-
-.mood-history-item__icon svg {
-  display: block;
-  width: 50px;
-  height: 50px;
-}
-
-.mood-history-item__content {
-  flex: 1;
-  min-width: 0;
-}
-
-.mood-history-item__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-}
-
-.mood-history-item__title {
-  margin: 0;
-  color: var(--mood-color-text);
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.mood-history-item__date {
-  margin: 5px 0 0;
-  color: var(--mood-color-muted);
-  font-size: 0.8rem;
-}
-
-.mood-history-item__category {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: color-mix(
-    in srgb,
-    var(--mood-category-color, var(--mood-color-primary)) 12%,
-    white
-  );
-  color: var(--mood-category-color, var(--mood-color-primary));
-  font-size: 0.76rem;
-  font-weight: 750;
-}
-
-.mood-history-item__metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.mood-history-item__metric {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: #f0f2fa;
-  color: #4e587e;
-  font-size: 0.8rem;
-  font-weight: 650;
-}
-
-.mood-history-item__note {
-  margin: 14px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--mood-color-border);
-  color: var(--mood-color-text);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
-.mood-history-item__delete {
-  flex: 0 0 auto;
-  padding: 7px 10px;
-  border: 1px solid #e5c8cd;
-  border-radius: 9px;
-  background: #fff;
-  color: #a82c3b;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition:
-    background var(--mood-transition),
-    border-color var(--mood-transition);
-}
-
-.mood-history-item__delete:hover {
-  border-color: #d93446;
-  background: #fff1f2;
-}
-
-.mood-history-item__delete:focus-visible,
-.mood-history__filter:focus-visible {
-  outline: 3px solid var(--mood-color-primary);
-  outline-offset: 3px;
-}
-
-.mood-empty-state {
-  display: grid;
-  justify-items: center;
-  padding: 44px 24px;
-  border: 1px dashed #d7dced;
-  border-radius: var(--mood-radius-lg);
-  background: #fafbff;
-  text-align: center;
-}
-
-.mood-empty-state__icon {
-  display: grid;
-  width: 54px;
-  height: 54px;
-  place-items: center;
-  margin-bottom: 16px;
-  border-radius: 50%;
-  background: #eef0ff;
-  color: var(--mood-color-primary);
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-.mood-empty-state__title {
-  margin: 0;
-  color: var(--mood-color-text);
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.mood-empty-state__description {
-  max-width: 440px;
-  margin: 10px 0 0;
-  color: var(--mood-color-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-  .mood-history-item {
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 15px;
-  }
-
-  .mood-history-item__icon {
-    flex-basis: 42px;
-    width: 42px;
-    height: 42px;
-  }
-  
-
-  .mood-history-item__content {
-    flex-basis: calc(100% - 60px);
-  }
-
-  .mood-history-item__delete {
-    margin-left: auto;
-  }
-
-  .mood-history__filters {
-    width: 100%;
-  }
-
-  .mood-history__filter {
-    flex: 1;
-    padding-inline: 8px;
-    white-space: normal;
-  }
-}
+   .mood-history,
+   .mood-statistics {
+     min-width: 0;
+   }
+   
+   .mood-history__toolbar,
+   .mood-statistics__header {
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 16px;
+     margin-bottom: 20px;
+   }
+   
+   .mood-history__title,
+   .mood-statistics__title {
+     margin: 0;
+     color: var(--mood-color-text);
+     font-size: 1.25rem;
+     font-weight: 800;
+     letter-spacing: -0.025em;
+     line-height: 1.35;
+   }
+   
+   .mood-history__description,
+   .mood-statistics__description {
+     margin: 8px 0 0;
+     color: var(--mood-color-muted);
+     font-size: 0.9rem;
+     line-height: 1.65;
+   }
+   
+   /* Filtres de l'historique */
+   
+   .mood-history__filters {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 4px;
+     padding: 4px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: 11px;
+     background: var(--mood-color-surface);
+   }
+   
+   .mood-history__filter {
+     min-height: 36px;
+     padding: 8px 13px;
+     border: 1px solid transparent;
+     border-radius: 8px;
+     background: transparent;
+     color: var(--mood-color-muted);
+     font-size: 0.84rem;
+     font-weight: 750;
+     cursor: pointer;
+     transition:
+       background var(--mood-transition),
+       color var(--mood-transition),
+       border-color var(--mood-transition);
+   }
+   
+   .mood-history__filter:hover {
+     border-color: var(--mood-color-border);
+     background: var(--mood-color-surface-hover);
+     color: var(--mood-color-text);
+   }
+   
+   .mood-history__filter.is-active {
+     border-color: rgba(167, 139, 250, 0.25);
+     background: rgba(139, 92, 246, 0.16);
+     color: #e5dcff;
+   }
+   
+   .mood-history__count {
+     margin: 0 0 16px;
+     color: var(--mood-color-muted);
+     font-size: 0.85rem;
+     font-weight: 650;
+     font-variant-numeric: tabular-nums;
+   }
+   
+   .mood-history__list {
+     display: grid;
+     gap: 12px;
+   }
+   
+   /* Carte d'une entrée */
+   
+   .mood-history-item {
+     display: flex;
+     align-items: flex-start;
+     gap: 16px;
+     min-width: 0;
+     padding: 20px;
+     border: 1px solid var(--mood-color-border);
+     border-left: 3px solid
+       var(--mood-category-color, var(--mood-color-primary));
+     border-radius: var(--mood-radius-md);
+     background:
+       radial-gradient(
+         circle at 100% 0%,
+         rgba(139, 92, 246, 0.045),
+         transparent 42%
+       ),
+       var(--mood-color-surface);
+     box-shadow: var(--mood-shadow-card);
+     transition:
+       border-color var(--mood-transition),
+       box-shadow var(--mood-transition),
+       background var(--mood-transition);
+   }
+   
+   .mood-history-item__icon {
+     display: grid;
+     flex: 0 0 48px;
+     width: 48px;
+     height: 48px;
+     place-items: center;
+     border: 1px solid
+       color-mix(
+         in srgb,
+         var(--mood-category-color, var(--mood-color-primary)) 25%,
+         transparent
+       );
+     border-radius: 14px;
+     background: color-mix(
+       in srgb,
+       var(--mood-category-color, var(--mood-color-primary)) 13%,
+       var(--mood-color-surface)
+     );
+     color: var(--mood-category-color, var(--mood-color-primary));
+   }
+   
+   .mood-history-item__icon svg {
+     display: block;
+     width: 32px;
+     height: 32px;
+     max-width: 100%;
+   }
+   
+   .mood-history-item__content {
+     flex: 1;
+     min-width: 0;
+   }
+   
+   .mood-history-item__header {
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 8px 16px;
+   }
+   
+   .mood-history-item__title {
+     margin: 0;
+     color: var(--mood-color-text);
+     font-size: 1rem;
+     font-weight: 800;
+     line-height: 1.45;
+   }
+   
+   .mood-history-item__date {
+     margin: 5px 0 0;
+     color: var(--mood-color-muted);
+     font-size: 0.8rem;
+     line-height: 1.5;
+   }
+   
+   .mood-history-item__category {
+     display: inline-flex;
+     align-items: center;
+     min-height: 26px;
+     padding: 4px 10px;
+     border: 1px solid
+       color-mix(
+         in srgb,
+         var(--mood-category-color, var(--mood-color-primary)) 25%,
+         transparent
+       );
+     border-radius: 999px;
+     background: color-mix(
+       in srgb,
+       var(--mood-category-color, var(--mood-color-primary)) 13%,
+       var(--mood-color-surface)
+     );
+     color: var(--mood-category-color, var(--mood-color-primary));
+     font-size: 0.76rem;
+     font-weight: 750;
+     line-height: 1.4;
+   }
+   
+   .mood-history-item__metrics {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+     margin-top: 12px;
+   }
+   
+   .mood-history-item__metric {
+     display: inline-flex;
+     align-items: center;
+     min-height: 28px;
+     padding: 5px 10px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: 999px;
+     background: rgba(255, 255, 255, 0.035);
+     color: var(--mood-color-text-soft);
+     font-size: 0.8rem;
+     font-weight: 650;
+     line-height: 1.4;
+   }
+   
+   .mood-history-item__note {
+     margin: 14px 0 0;
+     padding-top: 12px;
+     border-top: 1px solid var(--mood-color-border);
+     color: var(--mood-color-text-soft);
+     font-size: 0.9rem;
+     line-height: 1.7;
+     white-space: pre-wrap;
+     overflow-wrap: anywhere;
+   }
+   
+   /* Action de suppression */
+   
+   .mood-history-item__delete {
+     flex: 0 0 auto;
+     min-height: 34px;
+     padding: 7px 10px;
+     border: 1px solid rgba(251, 113, 133, 0.27);
+     border-radius: 9px;
+     background: rgba(251, 113, 133, 0.07);
+     color: #fda4af;
+     font-size: 0.8rem;
+     font-weight: 700;
+     cursor: pointer;
+     transition:
+       background var(--mood-transition),
+       border-color var(--mood-transition),
+       color var(--mood-transition);
+   }
+   
+   .mood-history-item__delete:hover:not(:disabled) {
+     border-color: rgba(251, 113, 133, 0.55);
+     background: rgba(251, 113, 133, 0.14);
+     color: #fecdd3;
+   }
+   
+   .mood-history-item__delete:focus-visible,
+   .mood-history__filter:focus-visible {
+     outline: 2px solid var(--mood-color-primary);
+     outline-offset: 3px;
+   }
+   
+   /* État vide */
+   
+   .mood-empty-state {
+     display: grid;
+     justify-items: center;
+     padding: 44px 24px;
+     border: 1px dashed var(--mood-color-border-strong);
+     border-radius: var(--mood-radius-lg);
+     background:
+       radial-gradient(
+         circle at 50% 0%,
+         rgba(139, 92, 246, 0.08),
+         transparent 58%
+       ),
+       var(--mood-color-surface);
+     text-align: center;
+   }
+   
+   .mood-empty-state__icon {
+     display: grid;
+     width: 54px;
+     height: 54px;
+     place-items: center;
+     margin-bottom: 16px;
+     border: 1px solid var(--mood-color-border);
+     border-radius: 16px;
+     background: rgba(139, 92, 246, 0.13);
+     color: #c4b5fd;
+     font-size: 2rem;
+     font-weight: 500;
+   }
+   
+   .mood-empty-state__title {
+     margin: 0;
+     color: var(--mood-color-text);
+     font-size: 1.05rem;
+     font-weight: 800;
+   }
+   
+   .mood-empty-state__description {
+     max-width: 440px;
+     margin: 10px 0 0;
+     color: var(--mood-color-muted);
+     font-size: 0.9rem;
+     line-height: 1.7;
+   }
+   
+   /* Responsive */
+   
+   @media (hover: hover) and (pointer: fine) {
+     .mood-history-item:hover {
+       border-color: var(--mood-color-border-strong);
+       border-left-color:
+         var(--mood-category-color, var(--mood-color-primary));
+       box-shadow:
+         0 12px 28px rgba(0, 0, 0, 0.2),
+         0 0 18px rgba(139, 92, 246, 0.045);
+     }
+   }
+   
+   @media (max-width: 600px) {
+     .mood-history__toolbar,
+     .mood-statistics__header {
+       gap: 12px;
+     }
+   
+     .mood-history-item {
+       flex-wrap: wrap;
+       gap: 12px;
+       padding: 15px;
+     }
+   
+     .mood-history-item__icon {
+       flex-basis: 42px;
+       width: 42px;
+       height: 42px;
+     }
+   
+     .mood-history-item__content {
+       flex-basis: calc(100% - 60px);
+     }
+   
+     .mood-history-item__delete {
+       margin-left: auto;
+     }
+   
+     .mood-history__filters {
+       width: 100%;
+     }
+   
+     .mood-history__filter {
+       flex: 1;
+       padding-inline: 8px;
+       white-space: normal;
+     }
+   
+     .mood-empty-state {
+       padding: 32px 18px;
+       border-radius: var(--mood-radius-md);
+     }
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+     .mood-history-item,
+     .mood-history__filter,
+     .mood-history-item__delete {
+       transition: none;
+     }
+   }
+   

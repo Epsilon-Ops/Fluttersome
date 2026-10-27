@@ -1,5 +1,11 @@
 
-.sleep-history-panel {
+/* =====================================================
+   EPSILON — SLEEP HISTORY
+   Black Diamond Premium++
+   ===================================================== */
+
+   .sleep-history-panel {
+    min-width: 0;
     padding: clamp(1rem, 3vw, 1.5rem);
   }
   
@@ -7,6 +13,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    min-width: 0;
     margin-top: 1.25rem;
   }
   
@@ -18,16 +25,30 @@
     min-width: 0;
     padding: 1rem;
     border: 1px solid var(--sleep-border);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--sleep-radius-md);
+    background:
+      linear-gradient(
+        120deg,
+        rgba(139, 92, 246, 0.025),
+        transparent 65%
+      ),
+      rgba(255, 255, 255, 0.018);
     transition:
-      border-color 160ms ease,
-      background 160ms ease;
+      border-color var(--sleep-motion-normal),
+      background var(--sleep-motion-normal),
+      box-shadow var(--sleep-motion-normal);
   }
   
   .sleep-history-item:hover {
-    border-color: rgba(141, 156, 255, 0.35);
-    background: rgba(141, 156, 255, 0.035);
+    border-color: var(--sleep-border-strong);
+    background:
+      linear-gradient(
+        120deg,
+        rgba(139, 92, 246, 0.065),
+        transparent 70%
+      ),
+      var(--sleep-surface);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   }
   
   .sleep-history-main {
@@ -41,16 +62,19 @@
   .sleep-history-main strong {
     color: var(--sleep-text);
     font-size: 0.98rem;
-    font-weight: 700;
+    font-weight: 750;
+    line-height: 1.45;
     overflow-wrap: anywhere;
   }
   
   .sleep-history-main > span {
     color: var(--sleep-muted);
     font-size: 0.84rem;
-    line-height: 1.55;
+    line-height: 1.6;
     overflow-wrap: anywhere;
   }
+  
+  /* Actions de chaque entrée */
   
   .sleep-history-actions {
     display: flex;
@@ -61,19 +85,24 @@
   }
   
   .sleep-history-actions button {
-    min-height: 36px;
-    padding: 0.5rem 0.7rem;
+    min-height: 38px;
+    padding: 0.5rem 0.75rem;
     border: 1px solid var(--sleep-border);
-    border-radius: 9px;
-    background: var(--sleep-surface);
-    color: var(--sleep-text);
+    border-radius: var(--sleep-radius-sm);
+    background: var(--sleep-surface-raised);
+    color: var(--sleep-text-soft);
     font-size: 0.8rem;
-    font-weight: 650;
+    font-weight: 700;
+    transition:
+      border-color var(--sleep-motion-fast),
+      background var(--sleep-motion-fast),
+      color var(--sleep-motion-fast);
   }
   
-  .sleep-history-actions button:hover {
-    border-color: var(--sleep-accent);
+  .sleep-history-actions button:hover:not(:disabled) {
+    border-color: var(--sleep-border-strong);
     background: var(--sleep-surface-hover);
+    color: var(--sleep-accent);
   }
   
   .sleep-history-actions button[aria-label*="Supprimer"],
@@ -81,12 +110,53 @@
     color: var(--sleep-danger);
   }
   
+  .sleep-history-actions button[aria-label*="Supprimer"]:hover:not(:disabled),
+  .sleep-history-actions button[data-action="delete"]:hover:not(:disabled) {
+    border-color: rgba(255, 146, 159, 0.38);
+    background: rgba(255, 146, 159, 0.08);
+    color: #ffb0b8;
+  }
+  
+  /* Historique vide */
+  
   .sleep-history-empty {
     padding: 2rem 1rem;
     border: 1px dashed var(--sleep-border);
-    border-radius: 14px;
+    border-radius: var(--sleep-radius-md);
+    background: rgba(255, 255, 255, 0.012);
     color: var(--sleep-muted);
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.7;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 600px) {
+    .sleep-history-panel {
+      padding: 1rem;
+    }
+  
+    .sleep-history-item {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0.9rem;
+    }
+  
+    .sleep-history-actions {
+      justify-content: flex-start;
+      width: 100%;
+    }
+  
+    .sleep-history-actions button {
+      flex: 1 1 auto;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .sleep-history-item,
+    .sleep-history-actions button {
+      transition: none;
+    }
   }
   

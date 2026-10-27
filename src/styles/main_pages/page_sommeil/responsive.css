@@ -1,97 +1,189 @@
 
+/* =====================================================
+   EPSILON — SLEEP RESPONSIVE
+   Black Diamond Premium++
+   ===================================================== */
+
+/* Tablettes et mobiles */
+
 @media (max-width: 700px) {
-    .sleep-page .section-heading {
-      align-items: flex-start;
-    }
-  
-    .sleep-page .section-tag {
-      font-size: 0.64rem;
-    }
-  
-    .sleep-tabs {
-      gap: 0.25rem;
-    }
-  
-    .sleep-tab {
-      flex-basis: 100px;
-      padding: 0.65rem 0.45rem;
-      font-size: 0.8rem;
-    }
-  
-    .sleep-primary-action {
-      justify-content: stretch;
-    }
-  
-    .sleep-primary-button {
-      width: 100%;
-    }
-  
-    .sleep-metric-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .sleep-history-item {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-  
-    .sleep-history-actions {
-      width: 100%;
-      justify-content: flex-start;
-    }
-  
-    .sleep-form-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .sleep-form-actions {
-      flex-direction: column-reverse;
-    }
-  
-    .sleep-form-actions button {
-      width: 100%;
-    }
-  
-    .sleep-night-details {
-      flex-direction: column;
-    }
-  
-    .sleep-night-details span {
-      width: 100%;
-    }
+  .sleep-page .section-heading {
+    align-items: flex-start;
+    gap: 0.85rem;
   }
-  
-  @media (max-width: 400px) {
-    .sleep-page .section-heading {
-      flex-direction: column;
-    }
-  
-    .sleep-page .section-heading h2 {
-      font-size: 1.35rem;
-    }
-  
-    .sleep-main-card,
-    .sleep-metric-card,
-    .sleep-target-panel {
-      padding: 1rem;
-    }
-  
-    .sleep-duration-display {
-      font-size: 2.5rem;
-    }
-  
-    .sleep-history-actions button {
-      flex: 1;
-    }
+
+  .sleep-page .section-tag {
+    max-width: 100%;
+    font-size: 0.64rem;
   }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .sleep-page *,
-    .sleep-page *::before,
-    .sleep-page *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-    }
+
+  /* Navigation entre les sections */
+
+  .sleep-page .sleep-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
   }
-  
+
+  .sleep-page .sleep-tab {
+    flex: 1 1 120px;
+    min-width: 0;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  /* Actions principales */
+
+  .sleep-page .sleep-primary-action {
+    display: flex;
+    justify-content: stretch;
+  }
+
+  .sleep-page .sleep-primary-button {
+    width: 100%;
+  }
+
+  /* Statistiques */
+
+  .sleep-page .sleep-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .sleep-page .sleep-metric-card {
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  /* Historique */
+
+  .sleep-page .sleep-history-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .sleep-page .sleep-history-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .sleep-page .sleep-history-actions button {
+    flex: 1 1 auto;
+  }
+
+  /* Formulaire */
+
+  .sleep-page .sleep-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sleep-page .sleep-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .sleep-page .sleep-form-actions button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Détails de la nuit */
+
+  .sleep-page .sleep-night-details {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .sleep-page .sleep-night-details span {
+    width: 100%;
+  }
+
+  /* Ressenti corporel */
+
+  .sleep-page .body-feeling-form-grid,
+  .sleep-page .body-feeling-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sleep-page .body-feeling-form-header,
+  .sleep-page .body-feeling-history-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Petits mobiles */
+
+@media (max-width: 400px) {
+  .sleep-page .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sleep-page .section-heading h2 {
+    font-size: 1.35rem;
+  }
+
+  .sleep-page .sleep-main-card,
+  .sleep-page .sleep-metric-card,
+  .sleep-page .sleep-target-panel {
+    padding: 1rem;
+  }
+
+  .sleep-page .sleep-duration-display {
+    font-size: clamp(2.2rem, 12vw, 2.5rem);
+  }
+
+  .sleep-page .sleep-tabs {
+    gap: 0.35rem;
+  }
+
+  .sleep-page .sleep-tab {
+    flex-basis: 100%;
+  }
+
+  .sleep-page .sleep-history-actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sleep-page .sleep-history-actions button {
+    flex: 1 1 100px;
+  }
+
+  .sleep-page .body-feeling-intro,
+  .sleep-page .body-feeling-form,
+  .sleep-page .body-feeling-history {
+    padding: 0.9rem;
+  }
+
+  .sleep-page .body-feeling-entry-top {
+    flex-wrap: wrap;
+  }
+}
+
+/* Accessibilité : réduire les animations */
+
+@media (prefers-reduced-motion: reduce) {
+  .sleep-page *,
+  .sleep-page *::before,
+  .sleep-page *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .sleep-page .welcome-eyebrow {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+.sleep-page .welcome-eyebrow {
+  background: none;
+}

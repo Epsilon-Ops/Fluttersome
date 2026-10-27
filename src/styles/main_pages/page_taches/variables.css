@@ -1,27 +1,56 @@
 
 /* =====================================================
    EPSILON — VARIABLES ET THÈME
+   Black Diamond Premium++
    ===================================================== */
 
    .tasks-page {
-    --tasks-accent: #173f73;
-    --tasks-accent-dark: #102f57;
-    --tasks-accent-light: #edf4fb;
+    color-scheme: dark;
   
-    --tasks-red: #20a6a6;
-    --tasks-red-dark: #167f83;
-    --tasks-red-light: #e8f8f7;
+    /* Accents principaux */
+    --tasks-accent: #a78bfa;
+    --tasks-accent-dark: #8b5cf6;
+    --tasks-accent-light: rgba(167, 139, 250, 0.13);
   
-    --tasks-ink: #253448;
-    --tasks-muted: #6b7789;
+    /* Accent secondaire : cyan */
+    --tasks-red: #22d3ee;
+    --tasks-red-dark: #06b6d4;
+    --tasks-red-light: rgba(34, 211, 238, 0.12);
   
-    --tasks-border: #dce3eb;
-    --tasks-border-strong: #cbd5df;
+    /* Texte */
+    --tasks-ink: #f1f0fa;
+    --tasks-muted: #a09fb7;
+    --tasks-text-soft: #c5c4d8;
   
-    --tasks-surface: #ffffff;
-    --tasks-bg: #f5f7fa;
+    /* Bordures */
+    --tasks-border: rgba(167, 139, 250, 0.16);
+    --tasks-border-strong: rgba(167, 139, 250, 0.3);
   
-    /* Compatibilité avec les sélecteurs de personnalisation */
+    /* Surfaces */
+    --tasks-surface: #151522;
+    --tasks-surface-raised: #1b1b2b;
+    --tasks-surface-hover: #222238;
+    --tasks-bg: #0b0b12;
+  
+    /* États */
+    --tasks-success: #34d399;
+    --tasks-warning: #fbbf24;
+    --tasks-danger: #fb7185;
+  
+    /* Ombres et effets */
+    --tasks-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  
+    --tasks-glow:
+      0 0 24px rgba(139, 92, 246, 0.09);
+  
+    /* Rayons */
+    --tasks-radius-sm: 10px;
+    --tasks-radius-md: 15px;
+    --tasks-radius-lg: 21px;
+  
+    /* Compatibilité avec les sélecteurs existants */
     --task-primary: var(--tasks-accent);
     --task-accent: #ffffff;
   }

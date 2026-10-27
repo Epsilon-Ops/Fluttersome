@@ -1,14 +1,22 @@
 
 /* =====================================================
    EPSILON — STATISTIQUES
+   Black Diamond Premium++
    ===================================================== */
 
    .tasks-stats-panel {
     margin-bottom: 16px;
     overflow: hidden;
     border: 1px solid var(--tasks-border);
-    border-radius: 14px;
-    background: var(--tasks-surface);
+    border-radius: var(--tasks-radius-lg);
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(139, 92, 246, 0.055),
+        transparent 40%
+      ),
+      var(--tasks-surface);
+    box-shadow: var(--tasks-shadow);
   }
   
   .tasks-collapsible-heading {
@@ -23,45 +31,67 @@
     color: inherit;
     text-align: left;
     cursor: pointer;
+    transition: background 180ms ease;
   }
   
   .tasks-collapsible-heading:hover {
-    background: #fafafd;
+    background: rgba(167, 139, 250, 0.055);
+  }
+  
+  .tasks-collapsible-heading:focus-visible {
+    position: relative;
+    outline: 2px solid var(--tasks-red);
+    outline-offset: -3px;
   }
   
   .tasks-collapsible-title {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    min-width: 0;
   }
   
   .tasks-collapsible-name {
     color: var(--tasks-ink);
-    font-size: 15px;
-    font-weight: 650;
+    font-size: 0.94rem;
+    font-weight: 700;
   }
   
   .tasks-collapsible-actions {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
   }
   
   .tasks-chevron {
     display: inline-grid;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
     place-items: center;
-    border-radius: 8px;
-    background: #f4f4f7;
+    border: 1px solid var(--tasks-border);
+    border-radius: 9px;
+    background: var(--tasks-surface-raised);
     color: var(--tasks-muted);
     font-size: 19px;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
   }
   
+  .tasks-collapsible-heading:hover .tasks-chevron {
+    border-color: var(--tasks-border-strong);
+    background: var(--tasks-surface-hover);
+    color: var(--tasks-ink);
+  }
+  
+  /* Grille de statistiques */
   .tasks-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
+    gap: 12px;
     padding: 0 16px 16px;
   }
   
@@ -71,70 +101,133 @@
     flex-direction: column;
     gap: 9px;
     min-width: 0;
-    padding: 12px;
+    padding: 14px;
+    overflow: hidden;
     border: 1px solid var(--tasks-border);
-    border-radius: 10px;
-    background: #f8f8fa;
+    border-radius: var(--tasks-radius-md);
+    background: var(--tasks-surface-raised);
     box-shadow: none;
+    transition:
+      border-color 180ms ease,
+      background 180ms ease,
+      transform 180ms ease;
   }
   
   .tasks-stats-grid .tasks-stat-card::before {
     position: absolute;
     inset: 0 auto 0 0;
     width: 3px;
-    border-radius: 10px 0 0 10px;
+    border-radius: 3px 0 0 3px;
     background: var(--tasks-accent);
     content: "";
   }
   
   .tasks-stats-grid .tasks-stat-card.overdue::before {
-    background: var(--tasks-red);
+    background: var(--tasks-danger);
   }
   
   .tasks-stat-icon {
     display: grid;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     place-items: center;
-    border-radius: 4px;
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    border-radius: 11px;
     background: var(--tasks-accent-light);
-    color: var(--tasks-accent);
+    color: #c7b5ff;
     font-size: 1.15rem;
     font-weight: 800;
   }
   
   .tasks-stat-card.overdue .tasks-stat-icon {
-    background: var(--tasks-red-light);
-    color: var(--tasks-red-dark);
+    border-color: rgba(251, 113, 133, 0.18);
+    background: rgba(251, 113, 133, 0.11);
+    color: var(--tasks-danger);
   }
   
   .tasks-stat-label {
     display: block;
     color: var(--tasks-muted);
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.45;
   }
   
   .tasks-stats-grid .tasks-stat-card strong {
     display: block;
-    margin-top: 8px;
-    color: var(--tasks-accent);
-    font-size: 23px;
+    margin-top: 3px;
+    color: var(--tasks-ink);
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    font-weight: 780;
     font-variant-numeric: tabular-nums;
-    line-height: 1;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
   }
   
+  .tasks-stats-grid .tasks-stat-card.overdue strong {
+    color: var(--tasks-danger);
+  }
+  
+  /* Sections repliables dans les listes */
   .tasks-section .tasks-collapsible-heading {
     border: 1px solid var(--tasks-border);
-    border-radius: 12px;
+    border-radius: var(--tasks-radius-md);
+    background: var(--tasks-surface);
   }
   
   .tasks-section.overdue .tasks-collapsible-heading {
-    border-color: #f0d2d2;
+    border-color: rgba(251, 113, 133, 0.24);
   }
   
   .tasks-collapsible-content {
     padding-top: 12px;
+  }
+  
+  @media (hover: hover) {
+    .tasks-stats-grid .tasks-stat-card:hover {
+      border-color: var(--tasks-border-strong);
+      background: var(--tasks-surface-hover);
+      transform: translateY(-2px);
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .tasks-stats-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tasks-stats-grid {
+      gap: 8px;
+      padding: 0 12px 12px;
+    }
+  
+    .tasks-stats-grid .tasks-stat-card {
+      gap: 8px;
+      padding: 11px;
+    }
+  
+    .tasks-stat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+    }
+  
+    .tasks-stats-grid .tasks-stat-card strong {
+      font-size: 1.35rem;
+    }
+  
+    .tasks-collapsible-heading {
+      padding: 13px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .tasks-collapsible-heading,
+    .tasks-chevron,
+    .tasks-stats-grid .tasks-stat-card {
+      transition: none;
+    }
   }
   
