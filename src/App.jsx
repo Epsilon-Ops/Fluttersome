@@ -20,6 +20,7 @@ import Coach from './pages/page_coach/Coach'
 import './styles/settings/variables.css'
 import './styles/settings/fonts.css'
 import './styles/settings/global.css'
+import './styles/settings/animations.css'
 
 import './App.css'
 

@@ -1,84 +1,236 @@
-
 .strength-panel {
-    min-width: 0;
-    padding: 20px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface);
-    box-shadow: var(--shadow-card);
+  position: relative;
+  min-width: 0;
+  padding: 22px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.16));
+  border-radius: var(--radius-card, 20px);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(139, 92, 246, 0.055),
+      transparent 38%
+    ),
+    var(--color-surface, #11111b);
+
+  box-shadow:
+    var(--shadow-card, 0 12px 32px rgba(0, 0, 0, 0.2)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.strength-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.strength-panel-heading h2 {
+  margin: 5px 0 0;
+  color: var(--color-text, #f4f4fb);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.strength-week-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.strength-week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 9px;
+  min-width: 0;
+}
+
+.strength-week-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-width: 0;
+  min-height: 112px;
+  padding: 13px 5px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.14));
+  border-radius: var(--radius-control, 13px);
+
+  background: rgba(255, 255, 255, 0.018);
+  color: var(--color-text, #f4f4fb);
+
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.strength-week-day:hover {
+  border-color: rgba(167, 139, 250, 0.48);
+  background: rgba(139, 92, 246, 0.07);
+}
+
+.strength-week-day:active {
+  transform: scale(0.98);
+}
+
+.strength-week-day.is-selected {
+  border-color: rgba(167, 139, 250, 0.75);
+  background:
+    linear-gradient(
+      155deg,
+      rgba(139, 92, 246, 0.19),
+      rgba(34, 211, 238, 0.055)
+    ),
+    rgba(255, 255, 255, 0.025);
+
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.1),
+    0 5px 20px rgba(139, 92, 246, 0.07);
+}
+
+.strength-week-day.is-today .strength-week-day-number {
+  color: #c4b5fd;
+}
+
+.strength-week-day.is-today::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: #22d3ee;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.45);
+}
+
+.strength-week-day-name,
+.strength-week-day-month {
+  color: var(--color-muted, #a1a1b5);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.strength-week-day-number {
+  color: var(--color-text, #f4f4fb);
+  font-size: clamp(19px, 2.1vw, 23px);
+  font-weight: 750;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.strength-week-day-count {
+  max-width: 100%;
+  color: var(--color-muted, #a1a1b5);
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.strength-week-day.is-selected .strength-week-day-name,
+.strength-week-day.is-selected .strength-week-day-count {
+  color: #d6ccf9;
+}
+
+.strength-week-day.is-selected .strength-week-day-number {
+  color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .strength-panel {
+    padding: 18px;
+    border-radius: 17px;
   }
-  
-  .strength-panel-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 18px;
-  }
-  
-  .strength-panel-heading h2 {
-    margin: 4px 0 0;
-    color: var(--color-text);
-    font-size: 19px;
-  }
-  
-  .strength-week-navigation {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
+
   .strength-week-grid {
-    display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px;
   }
-  
+
   .strength-week-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    min-width: 0;
-    padding: 12px 5px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    color: var(--color-text);
-    cursor: pointer;
-    font: inherit;
-    transition: border-color 0.15s ease, background 0.15s ease;
+    min-height: 100px;
+    gap: 8px;
+    padding: 11px 3px;
   }
-  
-  .strength-week-day:hover {
-    border-color: #7652B5;
-  }
-  
-  .strength-week-day.is-selected {
-    border-color: #7652B5;
-    background: #f1ebfa;
-  }
-  
-  .strength-week-day.is-today .strength-week-day-number {
-    color: #7652B5;
-  }
-  
+
   .strength-week-day-name,
   .strength-week-day-month {
-    color: var(--color-muted);
-    font-size: 11px;
-    text-transform: uppercase;
+    font-size: 9px;
   }
-  
-  .strength-week-day-number {
-    font-size: 21px;
-  }
-  
+
   .strength-week-day-count {
-    color: var(--color-muted);
-    font-size: 10px;
-    text-align: center;
-    overflow-wrap: anywhere;
+    font-size: 9px;
   }
-  
+}
+
+@media (max-width: 520px) {
+  .strength-panel {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .strength-panel-heading {
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .strength-week-grid {
+    gap: 4px;
+  }
+
+  .strength-week-day {
+    min-height: 86px;
+    gap: 7px;
+    padding: 9px 2px;
+    border-radius: 10px;
+  }
+
+  .strength-week-day-name,
+  .strength-week-day-month {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .strength-week-day-number {
+    font-size: 18px;
+  }
+
+  .strength-week-day-count {
+    font-size: 8px;
+  }
+
+  .strength-week-day.is-today::after {
+    top: 5px;
+    right: 5px;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strength-week-day {
+    transition: none;
+  }
+}

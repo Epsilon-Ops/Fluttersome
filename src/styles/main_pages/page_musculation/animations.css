@@ -1,0 +1,87 @@
+/* =========================================
+   MUSCULATION — ANIMATIONS
+   Black Diamond Premium++
+   ========================================= */
+
+/* Apparition générale de la page */
+@keyframes strength-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apparition légère des cartes */
+  @keyframes strength-rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Pulsation lumineuse subtile */
+  @keyframes strength-soft-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 rgba(139, 92, 246, 0);
+    }
+  
+    50% {
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.08);
+    }
+  }
+  
+  /* Entrée des éléments */
+  .strength-page {
+    animation: strength-fade-in 420ms ease-out both;
+  }
+  
+  .strength-metric-card {
+    animation: strength-rise-in 450ms ease-out both;
+  }
+  
+  .strength-metric-card:nth-child(1) {
+    animation-delay: 40ms;
+  }
+  
+  .strength-metric-card:nth-child(2) {
+    animation-delay: 80ms;
+  }
+  
+  .strength-metric-card:nth-child(3) {
+    animation-delay: 120ms;
+  }
+  
+  .strength-metric-card:nth-child(4) {
+    animation-delay: 160ms;
+  }
+  
+  /* Apparition des blocs de séance */
+  .strength-block-card {
+    animation: strength-rise-in 400ms ease-out both;
+  }
+  
+  /* Ouverture des détails d'une séance */
+  .strength-session-details[open] .strength-session-preview {
+    animation: strength-fade-in 240ms ease-out both;
+  }
+  
+  /* Accessibilité : respecter les préférences de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    .strength-page,
+    .strength-metric-card,
+    .strength-block-card,
+    .strength-session-details[open] .strength-session-preview {
+      animation: none !important;
+    }
+  }

@@ -1,57 +1,105 @@
-
 .strength-block-card {
-    display: grid;
-    gap: 18px;
-    padding: 18px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface);
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  padding: 20px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.16));
+  border-radius: var(--radius-card, 18px);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(139, 92, 246, 0.07),
+      transparent 42%
+    ),
+    var(--color-surface, #11111b);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.strength-block-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.strength-block-heading h3 {
+  margin: 5px 0 0;
+  color: var(--color-text, #f4f4fb);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.strength-danger-button {
+  color: #fda4af;
+}
+
+.strength-blocks-section {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.strength-blocks-section .strength-panel-heading {
+  margin-bottom: 0;
+}
+
+.strength-blocks-list {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.strength-block-exercises {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding-top: 17px;
+  border-top: 1px solid var(--color-border, rgba(167, 139, 250, 0.14));
+}
+
+.strength-block-exercises > .strength-exercise-heading {
+  margin-bottom: 2px;
+}
+
+.strength-block-exercises > .strength-exercise-heading > div {
+  min-width: 0;
+}
+
+@media (hover: hover) {
+  .strength-block-card:hover {
+    border-color: rgba(167, 139, 250, 0.26);
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.15),
+      0 0 20px rgba(139, 92, 246, 0.035),
+      inset 0 1px 0 rgba(255, 255, 255, 0.025);
   }
-  
-  .strength-block-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  .strength-block-heading h3 {
-    margin: 5px 0 0;
-    color: var(--color-text);
-    font-size: 17px;
-  }
-  
-  .strength-danger-button {
-    color: #b42318;
-  }
-  
-  .strength-blocks-section {
-    display: grid;
+}
+
+@media (max-width: 520px) {
+  .strength-block-card {
     gap: 16px;
+    padding: 15px;
+    border-radius: 15px;
   }
-  
-  .strength-blocks-section .strength-panel-heading {
-    margin-bottom: 0;
+
+  .strength-block-heading h3 {
+    font-size: 16px;
   }
-  
-  .strength-blocks-list {
-    display: grid;
-    gap: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strength-block-card {
+    transition: none;
   }
-  
-  .strength-block-exercises {
-    display: grid;
-    gap: 14px;
-    padding-top: 16px;
-    border-top: 1px solid var(--color-border);
-  }
-  
-  .strength-block-exercises > .strength-exercise-heading {
-    margin-bottom: 2px;
-  }
-  
-  .strength-block-exercises > .strength-exercise-heading > div {
-    min-width: 0;
-  }
-  
+}

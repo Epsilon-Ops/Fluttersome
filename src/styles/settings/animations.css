@@ -1,0 +1,216 @@
+
+/* =========================================================
+   BLACK DIAMOND PREMIUM++ — SETTINGS ANIMATIONS
+   File: src/styles/settings/animations.css
+   ========================================================= */
+
+/* ---------- Keyframes ---------- */
+
+@keyframes settings-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes settings-slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes settings-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes settings-status-pulse {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgb(82 227 173 / 0%);
+    }
+  
+    50% {
+      opacity: 0.85;
+      box-shadow: 0 0 0 4px rgb(82 227 173 / 9%);
+    }
+  }
+  
+  @keyframes settings-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes settings-shimmer {
+    from {
+      background-position: 180% 0;
+    }
+  
+    to {
+      background-position: -180% 0;
+    }
+  }
+  
+  /* ---------- Entrée de page ---------- */
+  
+  .settings-page,
+  .settings-container {
+    animation: settings-fade-in 380ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  
+  /* ---------- Sections ---------- */
+  
+  .settings-page section,
+  .settings-container section {
+    animation: settings-fade-in 400ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  
+  /* ---------- Panneaux ---------- */
+  
+  .settings-page .panel,
+  .settings-page .settings-card,
+  .settings-container .panel,
+  .settings-container .settings-card {
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease,
+      transform 220ms ease;
+  }
+  
+  .settings-page .panel:hover,
+  .settings-page .settings-card:hover,
+  .settings-container .panel:hover,
+  .settings-container .settings-card:hover {
+    border-color: var(--competition-border-strong, rgb(177 163 255 / 25%));
+  }
+  
+  /* ---------- Boutons ---------- */
+  
+  .settings-page button,
+  .settings-container button,
+  .settings-page .settings-button,
+  .settings-container .settings-button {
+    transition:
+      transform 180ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      color 180ms ease;
+  }
+  
+  .settings-page button:active,
+  .settings-container button:active,
+  .settings-page .settings-button:active,
+  .settings-container .settings-button:active {
+    transform: scale(0.985);
+  }
+  
+  /* ---------- Champs ---------- */
+  
+  .settings-page input,
+  .settings-page select,
+  .settings-page textarea,
+  .settings-container input,
+  .settings-container select,
+  .settings-container textarea {
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+  
+  .settings-page input:focus,
+  .settings-page select:focus,
+  .settings-page textarea:focus,
+  .settings-container input:focus,
+  .settings-container select:focus,
+  .settings-container textarea:focus {
+    outline: none;
+    border-color: var(--competition-violet, #aa91ff);
+    box-shadow: 0 0 0 3px rgb(170 145 255 / 12%);
+  }
+  
+  /* ---------- Toggles ---------- */
+  
+  .settings-page input[type="checkbox"],
+  .settings-container input[type="checkbox"] {
+    accent-color: var(--competition-violet, #aa91ff);
+  }
+  
+  /* ---------- Messages d'état ---------- */
+  
+  .settings-page .success,
+  .settings-page .success-message,
+  .settings-container .success,
+  .settings-container .success-message {
+    animation: settings-fade-in 240ms ease both;
+  }
+  
+  .settings-page .status-indicator,
+  .settings-container .status-indicator {
+    animation: settings-status-pulse 2.8s ease-in-out infinite;
+  }
+  
+  /* ---------- Chargement ---------- */
+  
+  .settings-page .loading-spinner,
+  .settings-container .loading-spinner {
+    animation: settings-spin 900ms linear infinite;
+    will-change: transform;
+  }
+  
+  /* ---------- Focus clavier ---------- */
+  
+  .settings-page button:focus-visible,
+  .settings-page a:focus-visible,
+  .settings-page input:focus-visible,
+  .settings-page select:focus-visible,
+  .settings-page textarea:focus-visible,
+  .settings-container button:focus-visible,
+  .settings-container a:focus-visible,
+  .settings-container input:focus-visible,
+  .settings-container select:focus-visible,
+  .settings-container textarea:focus-visible {
+    outline: 2px solid var(--competition-violet, #aa91ff);
+    outline-offset: 3px;
+  }
+  
+  /* ---------- Accessibilité ---------- */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .settings-page *,
+    .settings-page *::before,
+    .settings-page *::after,
+    .settings-container *,
+    .settings-container *::before,
+    .settings-container *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  

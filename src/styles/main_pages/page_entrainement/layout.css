@@ -1,35 +1,103 @@
+
 /* =========================================================
-   EPSILON — ENTRAÎNEMENT
-   Structure générale
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Structure générale
    ========================================================= */
 
    .training-page {
     width: 100%;
     min-width: 0;
-    padding-bottom: 28px;
+    padding-bottom: 32px;
+    color: var(--color-text);
+    animation: training-fade-in 420ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  
+  .training-page *,
+  .training-page *::before,
+  .training-page *::after {
+    box-sizing: border-box;
   }
   
   .training-page .welcome-section {
+    position: relative;
+    overflow: hidden;
     margin-bottom: 28px;
-  }
-  
-  .training-page .welcome-description {
-    max-width: 680px;
-  }
-  
-  .training-week-panel,
-  .training-panel {
-    min-width: 0;
-    margin-bottom: 20px;
-    padding: 20px;
-  
-    background: var(--color-surface);
+    padding: 28px;
+    background:
+      radial-gradient(
+        ellipse at 85% 0%,
+        rgb(101 216 255 / 10%),
+        transparent 38%
+      ),
+      linear-gradient(
+        135deg,
+        #19172b 0%,
+        #151622 55%,
+        #171b2c 100%
+      );
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
   }
   
-  /* En-têtes partagés */
+  .training-page .welcome-section::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-primary),
+      var(--color-accent)
+    );
+    content: "";
+    opacity: 0.8;
+  }
+  
+  .training-page .welcome-description {
+    max-width: 680px;
+    color: var(--color-muted-strong);
+    line-height: 1.7;
+  }
+  
+  /* ---------- Panneaux ---------- */
+  
+  .training-week-panel,
+  .training-panel {
+    min-width: 0;
+    margin-bottom: 20px;
+    padding: 22px;
+    color: var(--color-text);
+    background:
+      linear-gradient(
+        145deg,
+        rgb(255 255 255 / 1.5%),
+        transparent 48%
+      ),
+      var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base),
+      background-color var(--transition-base);
+  }
+  
+  .training-week-panel:hover,
+  .training-panel:hover {
+    border-color: var(--color-border-strong);
+  }
+  
+  .training-page .training-week-panel:last-child,
+  .training-page .training-panel:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* ---------- En-têtes partagés ---------- */
   
   .training-week-heading,
   .training-section-heading,
@@ -38,6 +106,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    min-width: 0;
   }
   
   .training-week-heading {
@@ -48,7 +117,11 @@
   .training-section-heading h2,
   .training-panel-heading h2 {
     margin: 5px 0 0;
+    color: var(--color-text);
     font-size: 18px;
+    font-weight: 750;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
   }
   
   .training-section-heading {
@@ -63,28 +136,83 @@
     color: var(--color-primary);
   }
   
-  /* Badge local */
+  /* ---------- Labels et textes secondaires ---------- */
+  
+  .training-page .eyebrow {
+    color: var(--color-accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+  
+  .training-page small,
+  .training-page .muted {
+    color: var(--color-muted);
+  }
+  
+  /* ---------- Badge de stockage local ---------- */
   
   .training-local-badge {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-  
-    padding: 6px 9px;
-  
-    color: var(--color-muted);
-    background: var(--color-surface);
+    max-width: 100%;
+    padding: 7px 10px;
+    color: var(--color-muted-strong);
+    background: var(--color-surface-alt);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
-  
     font-size: 10px;
     font-weight: 700;
   }
   
   .training-local-badge > span {
+    flex: 0 0 7px;
     width: 7px;
     height: 7px;
-  
     background: var(--color-success);
     border-radius: 50%;
+    box-shadow: 0 0 10px rgb(82 227 173 / 35%);
   }
+  
+  /* ---------- États de focus ---------- */
+  
+  .training-page button:focus-visible,
+  .training-page a:focus-visible,
+  .training-page input:focus-visible,
+  .training-page select:focus-visible,
+  .training-page textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+  
+  /* ---------- Animations ---------- */
+  
+  @keyframes training-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(9px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-page {
+      animation: none;
+    }
+  
+    .training-page *,
+    .training-page *::before,
+    .training-page *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  

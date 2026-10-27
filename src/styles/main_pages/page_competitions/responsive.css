@@ -1,6 +1,7 @@
+
 /* =========================================================
-   EPSILON — COMPÉTITIONS
-   Responsive : tablette, mobile et accessibilité
+   EPSILON — BLACK DIAMOND PREMIUM++
+   Responsive et accessibilité
    ========================================================= */
 
 /* =========================================================
@@ -26,17 +27,7 @@
     }
   
     .competitions-page .competition-history-row {
-      grid-template-columns: minmax(0, 1fr) auto auto;
       gap: var(--space-3);
-    }
-  
-    .competitions-page .competition-history-actions {
-      grid-column: 3;
-      grid-row: 1;
-    }
-  
-    .competitions-page .competition-history-meta {
-      min-width: 0;
     }
   }
   
@@ -51,23 +42,27 @@
     }
   
     /* Bannière */
+  
     .competitions-page .welcome-section {
       min-height: 0;
       padding: 24px 18px;
     }
   
     .competitions-page .welcome-section h1 {
-      font-size: clamp(27px, 7vw, 31px);
+      font-size: clamp(27px, 7vw, 32px);
     }
   
     .competitions-page .welcome-section .welcome-description {
       font-size: 12px;
-      line-height: 1.7;
+      line-height: 1.75;
     }
   
     /* En-tête de section */
+  
     .competitions-page .section-heading {
       align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
     }
   
     .competitions-page .section-heading h2 {
@@ -75,23 +70,25 @@
     }
   
     .competitions-page .section-tag {
-      padding: 6px 8px;
+      padding: 6px 9px;
     }
   
-    /* Navigation : deux colonnes */
+    /* Navigation */
+  
     .competitions-page .competition-tabs {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 4px;
-      padding: 4px;
+      gap: 5px;
+      padding: 5px;
     }
   
     .competitions-page .competition-tab {
-      min-height: 40px;
+      min-height: 42px;
       padding: 8px 5px;
       font-size: 11px;
     }
   
     /* Filtres */
+  
     .competitions-page .competition-toolbar {
       align-items: stretch;
       flex-direction: column;
@@ -111,6 +108,7 @@
     }
   
     /* Formulaire */
+  
     .competitions-page .competition-form-toggle {
       gap: var(--space-3);
       padding: 14px;
@@ -121,9 +119,9 @@
     }
   
     .competitions-page .competition-toggle-icon {
-      flex-basis: 34px;
-      width: 34px;
-      height: 34px;
+      flex-basis: 36px;
+      width: 36px;
+      height: 36px;
     }
   
     .competitions-page .competition-form-panel form {
@@ -139,6 +137,8 @@
       grid-column: auto;
     }
   
+    /* Taille confortable sur mobile, sans zoom automatique iOS */
+  
     .competitions-page .competition-field input,
     .competitions-page .competition-field select,
     .competitions-page .competition-field textarea {
@@ -150,12 +150,12 @@
       align-items: stretch;
     }
   
-    .competitions-page .competition-form-actions
-    .competition-primary-button {
+    .competitions-page .competition-form-actions .competition-primary-button {
       width: 100%;
     }
   
     /* Statistiques */
+  
     .competitions-page .metrics-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 9px;
@@ -168,11 +168,9 @@
   
     .competitions-page .competition-metric-label {
       font-size: 9px;
-      line-height: 1.5;
     }
   
     .competitions-page .competition-metric-value {
-      margin-top: var(--space-3);
       font-size: clamp(20px, 5.8vw, 27px);
     }
   
@@ -180,7 +178,8 @@
       font-size: 10px;
     }
   
-    /* En-têtes de panneaux */
+    /* Panneaux */
+  
     .competitions-page .panel-heading {
       gap: var(--space-3);
       padding: 14px;
@@ -190,7 +189,8 @@
       font-size: 16px;
     }
   
-    /* Historique : deux colonnes et deux rangées */
+    /* Historique */
+  
     .competitions-page .competition-history-row {
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 10px;
@@ -231,11 +231,8 @@
       font-size: 15px;
     }
   
-    .competitions-page .competition-history-subtitle {
-      font-size: 11px;
-    }
+    /* État vide et stockage */
   
-    /* État vide et note de stockage */
     .competitions-page .competition-empty-state {
       margin: 12px;
       padding: 24px 15px;
@@ -246,12 +243,14 @@
       padding: 11px;
     }
   
-    /* Autres sections */
+    /* Sections complémentaires */
+  
     .competitions-page > .panel > .welcome-description {
       padding: 0 14px 16px;
     }
   
     /* Graphique */
+  
     .competitions-page .evolution-chart {
       margin-top: 16px;
     }
@@ -271,7 +270,7 @@
   }
   
   /* =========================================================
-     PETITS ÉCRANS
+     TRÈS PETITS ÉCRANS
      ========================================================= */
   
   @media (max-width: 360px) {
@@ -301,22 +300,14 @@
       padding: 4px 6px;
       font-size: 9px;
     }
-  }
   
-  /* =========================================================
-     APPAREILS TACTILES
-     ========================================================= */
-  
-  @media (hover: none) {
-    .competitions-page .competition-tab:hover,
-    .competitions-page .competition-form-toggle:hover,
-    .competitions-page .competition-history-row:hover {
-      background-color: inherit;
+    .competitions-page .competition-tabs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   
   /* =========================================================
-     PRÉFÉRENCE POUR LES MOUVEMENTS RÉDUITS
+     ACCESSIBILITÉ — MOUVEMENTS RÉDUITS
      ========================================================= */
   
   @media (prefers-reduced-motion: reduce) {
@@ -328,3 +319,4 @@
       transition: none !important;
     }
   }
+  

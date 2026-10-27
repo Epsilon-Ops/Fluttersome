@@ -1,89 +1,183 @@
-
 .strength-form {
-    display: grid;
-    gap: 24px;
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+}
+
+.strength-form-heading {
+  display: grid;
+  gap: 5px;
+}
+
+.strength-form-heading h2 {
+  margin: 3px 0;
+  color: var(--color-text, #f4f4fb);
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+.strength-form-heading p {
+  margin: 0;
+  color: var(--color-muted, #a1a1b5);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.strength-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+  min-width: 0;
+}
+
+.strength-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.strength-field > span {
+  color: var(--color-text, #e5e5f0);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.strength-field input,
+.strength-field select,
+.strength-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 11px 12px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.18));
+  border-radius: var(--radius-control, 11px);
+
+  background: var(--color-surface, #11111b);
+  color: var(--color-text, #f4f4fb);
+
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.strength-field input::placeholder,
+.strength-field textarea::placeholder {
+  color: var(--color-muted, #85859b);
+  opacity: 0.8;
+}
+
+.strength-field input:hover,
+.strength-field select:hover,
+.strength-field textarea:hover {
+  border-color: rgba(167, 139, 250, 0.32);
+}
+
+.strength-field input:focus,
+.strength-field select:focus,
+.strength-field textarea:focus {
+  border-color: #a78bfa;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+.strength-field select {
+  cursor: pointer;
+}
+
+.strength-field select option {
+  background: #171725;
+  color: #f4f4fb;
+}
+
+.strength-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.strength-field input[type="checkbox"],
+.strength-field input[type="radio"] {
+  width: auto;
+  min-height: auto;
+  accent-color: #a78bfa;
+}
+
+.strength-field-full {
+  grid-column: 1 / -1;
+}
+
+.strength-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.strength-session-edit {
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: #c4b5fd;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.strength-session-edit:hover {
+  color: #e9d5ff;
+  text-decoration: underline;
+}
+
+.strength-session-edit:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .strength-form {
+    gap: 20px;
   }
-  
-  .strength-form-heading h2 {
-    margin: 6px 0;
-    color: var(--color-text);
-    font-size: 22px;
-  }
-  
-  .strength-form-heading p {
-    margin: 0;
-    color: var(--color-muted);
-    line-height: 1.5;
-  }
-  
+
   .strength-form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
-  
-  .strength-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 0;
+
+  .strength-field-full {
+    grid-column: auto;
   }
-  
-  .strength-field > span {
-    color: var(--color-text);
-    font-size: 13px;
-    font-weight: 600;
+
+  .strength-form-actions {
+    justify-content: stretch;
   }
-  
+
+  .strength-form-actions > button {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
   .strength-field input,
   .strength-field select,
-  .strength-field textarea {
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 0;
-    padding: 11px 12px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-control);
-    background: var(--color-surface);
-    color: var(--color-text);
-    font: inherit;
-  }
-  
-  .strength-field input:focus,
-  .strength-field select:focus,
-  .strength-field textarea:focus {
-    outline: 2px solid #7652B5;
-    outline-offset: 1px;
-  }
-  
-  .strength-field textarea {
-    resize: vertical;
-  }
-  
-  .strength-field-full {
-    grid-column: 1 / -1;
-  }
-  
-  .strength-form-actions {
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
+  .strength-field textarea,
   .strength-session-edit {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--color-text);
-    font: inherit;
-    font-weight: 700;
-    text-align: left;
-    cursor: pointer;
+    transition: none;
   }
-  
-  .strength-session-edit:hover {
-    color: #7652B5;
-    text-decoration: underline;
-  }
-  
+}

@@ -1,6 +1,7 @@
+
 /* =========================================================
-   EPSILON — ENTRAÎNEMENT
-   Boutons et interactions
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Boutons et interactions
    ========================================================= */
 
    .training-icon-button,
@@ -13,73 +14,103 @@
      justify-content: center;
      gap: 8px;
    
-     min-height: 36px;
-     padding: 8px 12px;
+     min-height: 38px;
+     padding: 9px 13px;
    
      border-radius: var(--radius-control);
-   
+     font-family: inherit;
      font-size: 12px;
-     font-weight: 700;
+     font-weight: 750;
+     line-height: 1.3;
+     text-align: center;
+   
      cursor: pointer;
+     -webkit-tap-highlight-color: transparent;
    
      transition:
-       background 150ms ease,
-       border-color 150ms ease,
-       color 150ms ease;
+       transform var(--transition-fast, 160ms ease),
+       background var(--transition-base, 220ms ease),
+       border-color var(--transition-base, 220ms ease),
+       color var(--transition-fast, 160ms ease),
+       box-shadow var(--transition-base, 220ms ease);
+   
+     user-select: none;
    }
    
-   /* Bouton icône */
+   /* ---------- Bouton icône ---------- */
    
    .training-icon-button {
-     width: 36px;
+     flex: 0 0 38px;
+     width: 38px;
+     min-width: 38px;
      padding: 0;
    
      color: var(--color-primary);
-     background: var(--color-surface);
+     background: var(--color-surface-alt);
      border: 1px solid var(--color-border);
    
      font-size: 18px;
    }
    
    .training-icon-button:hover {
+     color: #ffffff;
      background: var(--color-primary-light);
      border-color: var(--color-primary);
+     box-shadow: var(--shadow-glow);
    }
    
-   /* Boutons secondaires */
+   /* ---------- Boutons secondaires ---------- */
    
    .training-today-button,
    .training-secondary-button {
      color: var(--color-primary);
      background: var(--color-primary-light);
-     border: 1px solid transparent;
+     border: 1px solid var(--color-border);
    }
    
    .training-today-button:hover,
    .training-secondary-button:hover {
+     color: #ffffff;
+     background: rgb(170 145 255 / 19%);
      border-color: var(--color-primary);
+     box-shadow: 0 0 18px rgb(170 145 255 / 8%);
    }
    
-   /* Bouton principal */
+   /* ---------- Bouton principal ---------- */
    
    .training-primary-button {
      color: #ffffff;
-     background: var(--color-primary);
-     border: 1px solid var(--color-primary);
+     background: linear-gradient(
+       135deg,
+       #9577ff 0%,
+       #7658e9 55%,
+       #647ff0 100%
+     );
+   
+     border: 1px solid rgb(193 175 255 / 40%);
+     box-shadow: 0 5px 16px rgb(118 88 233 / 18%);
    }
    
    .training-primary-button:hover {
-     background: var(--color-primary-hover);
-     border-color: var(--color-primary-hover);
+     background: linear-gradient(
+       135deg,
+       #ad96ff 0%,
+       #896cf5 55%,
+       #7e96ff 100%
+     );
+   
+     border-color: rgb(210 198 255 / 65%);
+     box-shadow: 0 8px 24px rgb(118 88 233 / 28%);
+     transform: translateY(-1px);
    }
    
-   /* Bouton textuel */
+   /* ---------- Bouton textuel ---------- */
    
    .training-text-button {
      min-height: 32px;
-     padding: 6px 8px;
+     padding: 6px 9px;
    
-     color: var(--color-muted);
+     color: var(--color-muted-strong);
      background: transparent;
      border: 1px solid transparent;
    
@@ -88,12 +119,67 @@
    
    .training-text-button:hover {
      color: var(--color-danger);
-     background: var(--color-accent-light);
+     background: var(--color-danger-light);
+     border-color: rgb(255 111 145 / 18%);
    }
    
-   /* États désactivés */
+   /* ---------- États actifs ---------- */
    
+   .training-icon-button:active,
+   .training-today-button:active,
+   .training-primary-button:active,
+   .training-secondary-button:active,
+   .training-text-button:active {
+     transform: scale(0.97);
+   }
+   
+   /* ---------- États désactivés ---------- */
+   
+   .training-page button:disabled,
    .training-block-actions button:disabled {
-     opacity: 0.45;
+     opacity: 0.42;
      cursor: not-allowed;
+     box-shadow: none;
+     transform: none;
    }
+   
+   /* ---------- Focus clavier ---------- */
+   
+   .training-page .training-icon-button:focus-visible,
+   .training-page .training-today-button:focus-visible,
+   .training-page .training-primary-button:focus-visible,
+   .training-page .training-secondary-button:focus-visible,
+   .training-page .training-text-button:focus-visible {
+     outline: 2px solid var(--color-accent);
+     outline-offset: 3px;
+   }
+   
+   /* ---------- Mobile ---------- */
+   
+   @media (max-width: 480px) {
+     .training-primary-button,
+     .training-secondary-button,
+     .training-today-button {
+       min-height: 40px;
+     }
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+     .training-icon-button,
+     .training-today-button,
+     .training-primary-button,
+     .training-secondary-button,
+     .training-text-button {
+       transition: none;
+     }
+   
+     .training-icon-button:active,
+     .training-today-button:active,
+     .training-primary-button:active,
+     .training-secondary-button:active,
+     .training-text-button:active,
+     .training-primary-button:hover {
+       transform: none;
+     }
+   }
+   

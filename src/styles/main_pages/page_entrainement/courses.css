@@ -1,16 +1,34 @@
 /* =========================================================
    EPSILON — ENTRAÎNEMENT
-   Courses individuelles
+   Courses individuelles — Black Diamond Premium++
    ========================================================= */
 
    .training-course-card {
     min-width: 0;
-    padding: 14px;
-    margin: 12px 0;
+    margin: 14px 0;
+    padding: 16px;
   
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    background: var(--color-surface);
+    background:
+      linear-gradient(
+        145deg,
+        rgb(170 145 255 / 4%),
+        transparent 58%
+      ),
+      var(--color-surface);
+  
+    box-shadow: var(--shadow-card);
+  
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base),
+      background var(--transition-base);
+  }
+  
+  .training-course-card:hover {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-card-hover);
   }
   
   .training-course-heading {
@@ -20,7 +38,7 @@
     flex-wrap: wrap;
     gap: 10px;
   
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   
   .training-course-heading h4 {
@@ -28,6 +46,8 @@
   
     color: var(--color-primary);
     font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
   
   .training-course-card .training-form-grid {
@@ -41,10 +61,44 @@
   
     width: 100%;
     max-width: 100%;
+    min-width: 0;
+  }
+  
+  .training-course-card input,
+  .training-course-card select,
+  .training-course-card textarea {
+    border-color: var(--color-border);
+    background-color: var(--color-surface-alt);
+  }
+  
+  .training-course-card input:hover,
+  .training-course-card select:hover,
+  .training-course-card textarea:hover {
+    border-color: var(--color-border-strong);
+  }
+  
+  .training-course-card input:focus-visible,
+  .training-course-card select:focus-visible,
+  .training-course-card textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
   
   @media (max-width: 600px) {
     .training-course-card {
-      padding: 10px;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: var(--radius-panel);
+    }
+  
+    .training-course-heading {
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-course-card {
+      transition: none;
     }
   }

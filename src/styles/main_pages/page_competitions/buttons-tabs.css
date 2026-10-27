@@ -1,5 +1,6 @@
+
 /* =========================================================
-   EPSILON — COMPÉTITIONS
+   EPSILON — PREMIUM++
    Boutons, onglets et accessibilité
    ========================================================= */
 
@@ -10,55 +11,98 @@
    .competitions-page .competition-tabs {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 4px;
+    gap: 6px;
   
     min-width: 0;
-    padding: 5px;
+    padding: 6px;
   
     border: 1px solid var(--competition-border);
-    border-radius: 5px;
+    border-radius: var(--competition-radius-lg);
   
-    background: #ffffff;
+    background: linear-gradient(
+      145deg,
+      rgb(26 27 43 / 96%),
+      rgb(17 18 29 / 98%)
+    );
+  
+    box-shadow:
+      var(--competition-shadow),
+      inset 0 1px 0 rgb(255 255 255 / 3%);
   }
   
   .competitions-page .competition-tab {
+    position: relative;
+  
     display: flex;
     align-items: center;
     justify-content: center;
   
     min-width: 0;
-    min-height: 42px;
-    padding: 9px 8px;
+    min-height: 43px;
+    padding: 10px 8px;
   
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: 11px;
   
     background: transparent;
     color: var(--competition-muted);
   
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 650;
     line-height: 1.35;
     text-align: center;
   
     cursor: pointer;
   
     transition:
-      background-color 150ms ease,
-      color 150ms ease,
-      border-color 150ms ease;
+      transform var(--competition-transition),
+      background var(--competition-transition),
+      color var(--competition-transition),
+      border-color var(--competition-transition),
+      box-shadow var(--competition-transition);
   }
   
   .competitions-page .competition-tab:hover {
-    background: var(--competition-surface-soft);
-    color: var(--competition-blue);
+    border-color: rgb(177 163 255 / 12%);
+    background: rgb(255 255 255 / 4%);
+    color: #e8e2ff;
+    transform: translateY(-1px);
+  }
+  
+  .competitions-page .competition-tab:active {
+    transform: scale(0.97);
   }
   
   .competitions-page .competition-tab.is-active {
-    border-color: var(--competition-blue);
-    background: var(--competition-blue);
+    border-color: rgb(182 161 255 / 36%);
+  
+    background: linear-gradient(
+      135deg,
+      #8065ef 0%,
+      #6552d9 48%,
+      #4b58cb 100%
+    );
+  
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 750;
+  
+    box-shadow:
+      0 5px 16px rgb(103 79 224 / 24%),
+      inset 0 1px 0 rgb(255 255 255 / 19%);
+  }
+  
+  .competitions-page .competition-tab.is-active::after {
+    content: "";
+    position: absolute;
+    right: 25%;
+    bottom: 3px;
+    left: 25%;
+  
+    height: 2px;
+    border-radius: 99px;
+  
+    background: rgb(255 255 255 / 70%);
+    box-shadow: 0 0 8px rgb(255 255 255 / 30%);
   }
   
   /* =========================================================
@@ -66,40 +110,93 @@
      ========================================================= */
   
   .competitions-page .competition-primary-button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
   
-    min-height: 42px;
-    padding: 10px 17px;
+    min-height: 43px;
+    padding: 11px 18px;
   
-    border: 1px solid var(--competition-red);
-    border-radius: 4px;
+    border: 1px solid rgb(189 169 255 / 35%);
+    border-radius: 12px;
   
-    background: var(--competition-red);
+    background: linear-gradient(
+      135deg,
+      #9275ff 0%,
+      #755ce9 48%,
+      #5669e8 100%
+    );
+  
     color: #ffffff;
   
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 750;
     line-height: 1.4;
     text-align: center;
+  
+    box-shadow:
+      0 6px 18px rgb(111 83 231 / 24%),
+      inset 0 1px 0 rgb(255 255 255 / 22%);
   
     cursor: pointer;
   
     transition:
-      background-color 150ms ease,
-      border-color 150ms ease;
+      transform var(--competition-transition),
+      box-shadow var(--competition-transition),
+      filter var(--competition-transition);
+  }
+  
+  .competitions-page .competition-primary-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+  
+    background: linear-gradient(
+      110deg,
+      transparent 20%,
+      rgb(255 255 255 / 15%) 50%,
+      transparent 80%
+    );
+  
+    opacity: 0;
+    transform: translateX(-35%);
+  
+    transition:
+      opacity var(--competition-transition),
+      transform 350ms ease;
   }
   
   .competitions-page .competition-primary-button:hover {
-    border-color: var(--competition-red-dark);
-    background: var(--competition-red-dark);
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  
+    box-shadow:
+      0 10px 24px rgb(111 83 231 / 30%),
+      0 0 18px rgb(132 103 255 / 12%),
+      inset 0 1px 0 rgb(255 255 255 / 22%);
+  }
+  
+  .competitions-page .competition-primary-button:hover::before {
+    opacity: 1;
+    transform: translateX(35%);
+  }
+  
+  .competitions-page .competition-primary-button:active {
+    transform: translateY(0) scale(0.97);
   }
   
   .competitions-page .competition-primary-button:disabled {
     cursor: not-allowed;
-    opacity: 0.55;
+    opacity: 0.5;
+    filter: grayscale(0.35);
+    transform: none;
+    box-shadow: none;
   }
   
   /* =========================================================
@@ -111,36 +208,42 @@
     align-items: center;
     justify-content: center;
   
-    flex: 0 0 34px;
-    width: 34px;
-    min-height: 34px;
+    flex: 0 0 36px;
+    width: 36px;
+    min-height: 36px;
     padding: 5px;
   
-    border: 1px solid var(--competition-border-strong);
-    border-radius: 4px;
+    border: 1px solid var(--competition-border);
+    border-radius: 11px;
   
-    background: #ffffff;
-    color: var(--competition-muted);
+    background: rgb(255 255 255 / 3%);
+    color: var(--competition-muted-strong);
   
-    font-size: 22px;
+    font-size: 21px;
     line-height: 1;
   
     cursor: pointer;
   
     transition:
-      border-color 150ms ease,
-      background-color 150ms ease,
-      color 150ms ease;
+      transform var(--competition-transition),
+      border-color var(--competition-transition),
+      background var(--competition-transition),
+      color var(--competition-transition);
   }
   
   .competitions-page .competition-delete-button:hover {
-    border-color: #e7a0a8;
+    border-color: rgb(255 111 145 / 40%);
     background: var(--competition-red-light);
-    color: var(--competition-red-dark);
+    color: #ff9ab1;
+    transform: translateY(-1px);
+  }
+  
+  .competitions-page .competition-delete-button:active {
+    transform: scale(0.94);
   }
   
   /* =========================================================
-     ACCESSIBILITÉ — FOCUS CLAVIER
+     ACCESSIBILITÉ
      ========================================================= */
   
   .competitions-page :where(
@@ -149,6 +252,29 @@
     .competition-delete-button,
     .competition-primary-button
   ):focus-visible {
-    outline: 3px solid rgb(0 84 155 / 30%);
+    outline: 2px solid #b9a4ff;
     outline-offset: 3px;
   }
+  
+  @media (max-width: 680px) {
+    .competitions-page .competition-tabs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px;
+      padding: 5px;
+    }
+  
+    .competitions-page .competition-tab {
+      min-height: 42px;
+      padding: 9px 5px;
+      font-size: 11px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .competitions-page .competition-tab,
+    .competitions-page .competition-primary-button,
+    .competitions-page .competition-delete-button {
+      transition: none;
+    }
+  }
+  

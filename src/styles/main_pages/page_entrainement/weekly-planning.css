@@ -1,73 +1,214 @@
+
 /* =========================================================
-   EPSILON — ENTRAÎNEMENT
-   Planning hebdomadaire
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Planning hebdomadaire
    ========================================================= */
 
    .training-week-actions {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
   }
   
   .training-week-days {
     display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 8px;
+    gap: 9px;
   }
   
+  /* ---------- Bouton d'un jour ---------- */
+  
   .training-day-button {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 9px;
   
     min-width: 0;
-    padding: 12px 4px;
+    min-height: 116px;
+    padding: 14px 5px;
   
     color: var(--color-text);
-    background: var(--color-surface-alt);
+    background:
+      linear-gradient(
+        155deg,
+        rgb(255 255 255 / 2.5%),
+        transparent 65%
+      ),
+      var(--color-surface-alt);
+  
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
+    border-radius: var(--radius-panel, 17px);
   
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   
     transition:
-      background 150ms ease,
-      border-color 150ms ease;
+      background var(--transition-base, 220ms ease),
+      border-color var(--transition-base, 220ms ease),
+      box-shadow var(--transition-base, 220ms ease),
+      transform var(--transition-base, 220ms ease);
   }
   
   .training-day-button:hover {
-    border-color: var(--color-primary);
+    background: var(--color-surface-raised);
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
   }
+  
+  .training-day-button:active {
+    transform: scale(0.98);
+  }
+  
+  /* ---------- Jour actuel ---------- */
   
   .training-day-button.is-today {
-    border-color: var(--color-primary);
+    border-color: rgb(101 216 255 / 42%);
   }
   
-  .training-day-button.is-selected {
-    color: var(--color-primary);
-    background: var(--color-primary-light);
-    border-color: var(--color-primary);
-    box-shadow: inset 0 -3px 0 var(--color-accent);
+  .training-day-button.is-today .training-day-number {
+    color: var(--color-accent);
   }
+  
+  /* ---------- Jour sélectionné ---------- */
+  
+  .training-day-button.is-selected {
+    color: var(--color-text);
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgb(170 145 255 / 17%),
+        transparent 70%
+      ),
+      var(--color-primary-light);
+  
+    border-color: var(--color-primary);
+  
+    box-shadow:
+      inset 0 -3px 0 var(--color-accent),
+      0 0 20px rgb(170 145 255 / 8%);
+  }
+  
+  .training-day-button.is-selected .training-day-name {
+    color: var(--color-primary);
+  }
+  
+  .training-day-button.is-selected .training-day-number {
+    color: #ffffff;
+  }
+  
+  /* ---------- Typographie du calendrier ---------- */
   
   .training-day-name {
     color: var(--color-muted);
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
   }
   
   .training-day-number {
-    font-size: 21px;
-    font-weight: 700;
+    color: var(--color-text);
+    font-size: clamp(19px, 2vw, 23px);
+    font-weight: 800;
+    line-height: 1;
     font-variant-numeric: tabular-nums;
+    transition: color var(--transition-fast, 160ms ease);
   }
   
+  /* ---------- Indicateurs de séances ---------- */
+  
   .training-day-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  
+    width: 100%;
     min-height: 14px;
   
     color: var(--color-muted);
     font-size: 9px;
+    font-weight: 600;
     text-align: center;
+    overflow-wrap: anywhere;
   }
+  
+  /* ---------- Clavier ---------- */
+  
+  .training-day-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+  
+  /* ---------- Tablettes ---------- */
+  
+  @media (max-width: 760px) {
+    .training-week-days {
+      gap: 6px;
+    }
+  
+    .training-day-button {
+      min-height: 100px;
+      padding: 12px 3px;
+      gap: 8px;
+      border-radius: 13px;
+    }
+  
+    .training-day-name {
+      font-size: 9px;
+    }
+  
+    .training-day-indicator {
+      font-size: 8px;
+    }
+  }
+  
+  /* ---------- Mobiles ---------- */
+  
+  @media (max-width: 480px) {
+    .training-week-actions {
+      width: 100%;
+    }
+  
+    .training-week-days {
+      gap: 5px;
+    }
+  
+    .training-day-button {
+      min-height: 84px;
+      padding: 10px 2px;
+      gap: 7px;
+      border-radius: 11px;
+    }
+  
+    .training-day-name {
+      font-size: 8px;
+      letter-spacing: 0.02em;
+    }
+  
+    .training-day-number {
+      font-size: 17px;
+    }
+  
+    .training-day-indicator {
+      min-height: 12px;
+      font-size: 7px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-day-button,
+    .training-day-number {
+      transition: none;
+    }
+  
+    .training-day-button:hover,
+    .training-day-button:active {
+      transform: none;
+    }
+  }
+  

@@ -1,6 +1,7 @@
+
 /* =========================================================
-   EPSILON — ENTRAÎNEMENT
-   Indicateurs de volume
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Indicateurs de volume
    ========================================================= */
 
    .training-metrics-grid {
@@ -11,32 +12,66 @@
     margin-bottom: 24px;
   }
   
-  .training-metric-card {
-    min-width: 0;
-    padding: 18px;
+  /* ---------- Carte statistique ---------- */
   
-    background: var(--color-surface);
+  .training-metric-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 19px;
+  
+    background:
+      radial-gradient(
+        ellipse at top right,
+        rgb(170 145 255 / 8%),
+        transparent 60%
+      ),
+      var(--color-surface);
+  
     border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-primary);
+    border-top: 2px solid var(--color-primary);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
+  
+    transition:
+      transform var(--transition-base, 220ms ease),
+      border-color var(--transition-base, 220ms ease),
+      box-shadow var(--transition-base, 220ms ease);
   }
   
   .training-metric-card:nth-child(even) {
     border-top-color: var(--color-accent);
+  
+    background:
+      radial-gradient(
+        ellipse at top right,
+        rgb(101 216 255 / 7%),
+        transparent 60%
+      ),
+      var(--color-surface);
   }
+  
+  .training-metric-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  /* ---------- Libellé ---------- */
   
   .training-metric-label {
     display: block;
-  
     min-height: 30px;
   
-    color: var(--color-muted);
+    color: var(--color-muted-strong);
     font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.045em;
-    line-height: 1.5;
+    font-weight: 750;
+    letter-spacing: 0.065em;
+    line-height: 1.6;
+    text-transform: uppercase;
   }
+  
+  /* ---------- Valeur ---------- */
   
   .training-metric-number {
     display: flex;
@@ -44,15 +79,21 @@
     align-items: baseline;
     gap: 6px;
   
-    margin: 10px 0 7px;
+    margin: 12px 0 8px;
   }
   
   .training-metric-number strong {
     color: var(--color-primary);
     font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
+    line-height: 1.2;
     overflow-wrap: anywhere;
+  }
+  
+  .training-metric-card:nth-child(even) .training-metric-number strong {
+    color: var(--color-accent);
   }
   
   .training-metric-number > span {
@@ -60,10 +101,63 @@
     font-size: 11px;
   }
   
+  /* ---------- Description ---------- */
+  
   .training-metric-card p {
     margin: 0;
   
     color: var(--color-muted);
     font-size: 10px;
-    line-height: 1.5;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
   }
+  
+  /* ---------- Mobile ---------- */
+  
+  @media (max-width: 900px) {
+    .training-metrics-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .training-metrics-grid {
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+  
+    .training-metric-card {
+      padding: 14px;
+      border-radius: 15px;
+    }
+  
+    .training-metric-label {
+      min-height: 0;
+      font-size: 9px;
+    }
+  
+    .training-metric-number {
+      gap: 4px;
+      margin: 10px 0 7px;
+    }
+  
+    .training-metric-number strong {
+      font-size: clamp(20px, 6vw, 27px);
+    }
+  
+    .training-metric-card p {
+      font-size: 10px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-metric-card {
+      transition: none;
+    }
+  
+    .training-metric-card:hover {
+      transform: none;
+    }
+  }
+  

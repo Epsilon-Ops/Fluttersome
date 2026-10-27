@@ -1,74 +1,142 @@
-
 .strength-exercise-card {
-    display: grid;
-    gap: 20px;
-    padding: 16px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-card);
-    background: var(--color-surface);
-  }
-  
-  .strength-exercise-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  .strength-exercise-heading h4 {
-    margin: 5px 0 0;
-    color: var(--color-text);
-    font-size: 16px;
-  }
-  
-  .strength-sets-section {
-    display: grid;
-    gap: 12px;
-  }
-  
-  .strength-set-card {
-    display: grid;
-    gap: 14px;
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  padding: 17px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.14));
+  border-radius: var(--radius-card, 16px);
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.strength-exercise-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.strength-exercise-heading h4 {
+  margin: 5px 0 0;
+  color: var(--color-text, #f4f4fb);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.strength-sets-section {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.strength-set-card {
+  display: grid;
+  gap: 15px;
+  min-width: 0;
+  padding: 15px;
+
+  border: 1px solid var(--color-border, rgba(167, 139, 250, 0.13));
+  border-radius: var(--radius-control, 12px);
+
+  background: var(--color-surface-alt, #171725);
+}
+
+.strength-set-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.strength-set-heading > strong {
+  color: var(--color-text, #f4f4fb);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.strength-set-completed {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-muted, #a1a1b5);
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.strength-set-completed input {
+  accent-color: #a78bfa;
+}
+
+.strength-set-remove {
+  margin-left: auto;
+  padding: 5px 0;
+
+  border: 0;
+  background: transparent;
+  color: #fda4af;
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: color 160ms ease;
+}
+
+.strength-set-remove:hover {
+  color: #fecdd3;
+  text-decoration: underline;
+}
+
+.strength-set-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.strength-set-remove:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .strength-exercise-card {
+    gap: 17px;
     padding: 14px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-control);
-    background: var(--color-surface-alt);
   }
-  
-  .strength-set-heading {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+
+  .strength-set-card {
     gap: 12px;
+    padding: 12px;
   }
-  
-  .strength-set-heading > strong {
-    color: var(--color-text);
-  }
-  
-  .strength-set-completed {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--color-muted);
-    font-size: 12px;
-  }
-  
-  .strength-set-remove {
-    margin-left: auto;
-    padding: 4px 0;
-    border: 0;
-    background: transparent;
-    color: #b42318;
-    font: inherit;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  
+
   .strength-set-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
-  
+}
+
+@media (max-width: 380px) {
+  .strength-set-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .strength-set-heading {
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strength-set-remove {
+    transition: none;
+  }
+}

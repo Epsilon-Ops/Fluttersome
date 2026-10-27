@@ -1,17 +1,76 @@
+
 /* =========================================================
-   EPSILON — THÈME BLEU CLAIR
-   Variables globales
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Variables du thème
    ========================================================= */
 
    :root {
-    --color-primary: #4b91d1;
-    --color-primary-hover: #347bbd;
-    --color-primary-light: #eaf4ff;
+    color-scheme: dark;
   
-    --color-accent: #76b7ee;
-    --color-accent-light: #f0f8ff;
+    /* Couleurs principales */
+    --color-primary: #aa91ff;
+    --color-primary-hover: #c0afff;
+    --color-primary-light: rgb(170 145 255 / 13%);
   
-    --color-border: #d5e5f4;
-    --color-surface: #ffffff;
-    --color-surface-alt: #f5faff;
+    --color-accent: #65d8ff;
+    --color-accent-light: rgb(101 216 255 / 12%);
+  
+    /* États */
+    --color-success: #52e3ad;
+    --color-success-light: rgb(82 227 173 / 12%);
+  
+    --color-warning: #ffc078;
+    --color-warning-light: rgb(255 192 120 / 12%);
+  
+    --color-danger: #ff6f91;
+    --color-danger-light: rgb(255 111 145 / 12%);
+  
+    /* Texte */
+    --color-text: #f3f1ff;
+    --color-muted: #a09db9;
+    --color-muted-strong: #c1bdd6;
+  
+    /* Surfaces */
+    --color-background: #0b0c14;
+    --color-surface: #151622;
+    --color-surface-alt: #1b1c2b;
+    --color-surface-raised: #202136;
+    --color-surface-glass: rgb(20 21 34 / 88%);
+  
+    /* Bordures */
+    --color-border: rgb(177 163 255 / 13%);
+    --color-border-strong: rgb(177 163 255 / 25%);
+  
+    /* Ombres et halos */
+    --shadow-card:
+      0 12px 32px rgb(0 0 0 / 18%);
+  
+    --shadow-card-hover:
+      0 18px 38px rgb(0 0 0 / 26%),
+      0 0 22px rgb(133 101 255 / 8%);
+  
+    --shadow-glow:
+      0 0 22px rgb(142 111 255 / 12%);
+  
+    --shadow-primary:
+      0 8px 24px rgb(133 101 255 / 20%);
+  
+    /* Rayons */
+    --radius-card: 21px;
+    --radius-panel: 17px;
+    --radius-control: 12px;
+    --radius-pill: 999px;
+  
+    /* Espacements */
+    --spacing-xs: 6px;
+    --spacing-sm: 10px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+  
+    /* Transitions */
+    --transition-fast: 160ms ease;
+    --transition-base: 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    --transition-slow: 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
+  

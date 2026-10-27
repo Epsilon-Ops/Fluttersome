@@ -1,0 +1,235 @@
+
+/* =========================================================
+   BLACK DIAMOND PREMIUM++ — COMPETITIONS ANIMATIONS
+   File: src/styles/main_pages/page_competitions/animations.css
+   ========================================================= */
+
+/* ---------- Keyframes ---------- */
+
+@keyframes competition-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes competition-fade-in-soft {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes competition-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes competition-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 rgb(142 111 255 / 0%),
+        0 12px 32px rgb(0 0 0 / 18%);
+    }
+  
+    50% {
+      box-shadow:
+        0 0 22px rgb(142 111 255 / 9%),
+        0 12px 32px rgb(0 0 0 / 18%);
+    }
+  }
+  
+  @keyframes competition-shimmer {
+    from {
+      background-position: 180% 0;
+    }
+  
+    to {
+      background-position: -180% 0;
+    }
+  }
+  
+  @keyframes competition-dot-pulse {
+    0%,
+    100% {
+      opacity: 0.65;
+      transform: scale(0.92);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+  
+  /* ---------- Entrée de la page ---------- */
+  
+  .competitions-page {
+    animation: competition-fade-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1)
+      both;
+  }
+  
+  .competitions-page .welcome-section {
+    animation: competition-fade-in 500ms 40ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  
+  .competitions-page .section-heading {
+    animation: competition-fade-in 450ms 80ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  
+  /* ---------- Panneaux et cartes ---------- */
+  
+  .competitions-page .panel {
+    animation: competition-scale-in 420ms
+      cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease;
+  }
+  
+  .competitions-page .panel:hover {
+    border-color: var(--competition-border-strong);
+  }
+  
+  /* ---------- Cartes de statistiques ---------- */
+  
+  .competitions-page .competition-metric,
+  .competitions-page .metric-card,
+  .competitions-page .stat-card {
+    transition:
+      transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+    transform-origin: center;
+  }
+  
+  .competitions-page .competition-metric:hover,
+  .competitions-page .metric-card:hover,
+  .competitions-page .stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--competition-border-strong);
+  }
+  
+  /* ---------- Boutons ---------- */
+  
+  .competitions-page button,
+  .competitions-page .competition-button,
+  .competitions-page .btn {
+    transition:
+      transform 180ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      color 180ms ease;
+  }
+  
+  .competitions-page button:active,
+  .competitions-page .competition-button:active,
+  .competitions-page .btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* ---------- Onglets ---------- */
+  
+  .competitions-page .competition-tab,
+  .competitions-page .tab-button,
+  .competitions-page [role="tab"] {
+    transition:
+      color 180ms ease,
+      background-color 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+  
+  /* ---------- Champs de formulaire ---------- */
+  
+  .competitions-page input,
+  .competitions-page select,
+  .competitions-page textarea {
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+  }
+  
+  .competitions-page input:focus,
+  .competitions-page select:focus,
+  .competitions-page textarea:focus {
+    outline: none;
+    border-color: var(--competition-violet);
+    box-shadow: 0 0 0 3px rgb(170 145 255 / 12%);
+  }
+  
+  /* ---------- Historique et listes ---------- */
+  
+  .competitions-page .competition-history-item,
+  .competitions-page .history-item {
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+  
+  .competitions-page .competition-history-item:hover,
+  .competitions-page .history-item:hover {
+    border-color: var(--competition-border-strong);
+  }
+  
+  /* ---------- Graphique ---------- */
+  
+  .competitions-page .evolution-chart {
+    animation: competition-fade-in-soft 500ms ease both;
+  }
+  
+  .competitions-page .evolution-chart svg path {
+    transition: opacity 220ms ease;
+  }
+  
+  .competitions-page .evolution-chart svg circle {
+    transition:
+      r 180ms ease,
+      opacity 180ms ease;
+  }
+  
+  /* ---------- Focus clavier ---------- */
+  
+  .competitions-page button:focus-visible,
+  .competitions-page a:focus-visible,
+  .competitions-page [role="tab"]:focus-visible {
+    outline: 2px solid var(--competition-violet);
+    outline-offset: 3px;
+  }
+  
+  /* ---------- Accessibilité ---------- */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .competitions-page,
+    .competitions-page *,
+    .competitions-page *::before,
+    .competitions-page *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  

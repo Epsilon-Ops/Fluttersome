@@ -1,18 +1,22 @@
+
 /* =========================================================
-   EPSILON — ENTRAÎNEMENT
-   Formulaire de planification
+   EPSILON — BLACK DIAMOND PREMIUM++
+   ENTRAÎNEMENT — Formulaire de planification
    ========================================================= */
 
    .training-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 17px;
+    min-width: 0;
   }
+  
+  /* ---------- Champs ---------- */
   
   .training-field {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
   
     min-width: 0;
   }
@@ -24,7 +28,8 @@
   .training-field label {
     color: var(--color-text);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 750;
+    line-height: 1.5;
   }
   
   .training-field input,
@@ -34,11 +39,70 @@
   
     width: 100%;
     min-width: 0;
+    max-width: 100%;
+  
+    padding: 11px 12px;
+  
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+  
+    font: inherit;
+    font-size: 13px;
+  
+    transition:
+      border-color var(--transition-fast, 160ms ease),
+      box-shadow var(--transition-fast, 160ms ease),
+      background-color var(--transition-fast, 160ms ease);
+  }
+  
+  .training-field input::placeholder,
+  .training-field textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 0.8;
+  }
+  
+  .training-field input:hover,
+  .training-field select:hover,
+  .training-field textarea:hover {
+    border-color: var(--color-border-strong);
+  }
+  
+  .training-field input:focus,
+  .training-field select:focus,
+  .training-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgb(170 145 255 / 12%);
   }
   
   .training-field textarea {
+    min-height: 96px;
     resize: vertical;
+    line-height: 1.6;
   }
+  
+  .training-field select {
+    color-scheme: dark;
+  }
+  
+  .training-field select option {
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+  
+  .training-field input[type="date"],
+  .training-field input[type="time"] {
+    color-scheme: dark;
+  }
+  
+  .training-field input[type="checkbox"],
+  .training-field input[type="radio"] {
+    accent-color: var(--color-primary);
+  }
+  
+  /* ---------- Aide contextuelle ---------- */
   
   .training-field-help {
     color: var(--color-muted);
@@ -46,30 +110,101 @@
     line-height: 1.6;
   }
   
-  /* Erreur de validation */
+  /* ---------- Erreur de validation ---------- */
   
   .training-error {
-    margin: 14px 0 0;
-    padding: 10px 12px;
+    display: block;
+  
+    margin: 16px 0 0;
+    padding: 12px 14px;
   
     color: var(--color-danger);
-    background: var(--color-accent-light);
-    border: 1px solid var(--color-accent);
+    background: var(--color-danger-light);
+    border: 1px solid rgb(255 111 145 / 27%);
     border-radius: var(--radius-control);
   
     font-size: 12px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
   }
   
-  /* Actions du formulaire */
+  /* ---------- Actions du formulaire ---------- */
   
   .training-form-actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 8px;
+    align-items: center;
+    gap: 9px;
   
-    margin-top: 20px;
-    padding-top: 16px;
+    margin-top: 22px;
+    padding-top: 17px;
   
     border-top: 1px solid var(--color-border);
   }
+  
+  .training-form-actions button {
+    transition:
+      transform var(--transition-fast, 160ms ease),
+      box-shadow var(--transition-base, 220ms ease),
+      background-color var(--transition-base, 220ms ease),
+      border-color var(--transition-base, 220ms ease);
+  }
+  
+  .training-form-actions button:active {
+    transform: scale(0.98);
+  }
+  
+  /* ---------- Adaptation tablette ---------- */
+  
+  @media (max-width: 760px) {
+    .training-form-grid {
+      gap: 14px;
+    }
+  }
+  
+  /* ---------- Adaptation mobile ---------- */
+  
+  @media (max-width: 600px) {
+    .training-form-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 15px;
+    }
+  
+    .training-field-full {
+      grid-column: auto;
+    }
+  
+    .training-field input,
+    .training-field select,
+    .training-field textarea {
+      font-size: 16px;
+    }
+  
+    .training-field textarea {
+      min-height: 88px;
+    }
+  
+    .training-form-actions {
+      justify-content: stretch;
+      gap: 8px;
+    }
+  
+    .training-form-actions button {
+      flex: 1 1 auto;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-field input,
+    .training-field select,
+    .training-field textarea,
+    .training-form-actions button {
+      transition: none;
+    }
+  
+    .training-form-actions button:active {
+      transform: none;
+    }
+  }
+  

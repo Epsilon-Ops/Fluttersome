@@ -1,36 +1,55 @@
 /* =========================================================
    EPSILON — ENTRAÎNEMENT
    Récapitulatif des blocs et courses
+   Black Diamond Premium++
    ========================================================= */
 
    .training-session-block-summary {
-    margin-top: 14px;
-    padding: 12px;
+    margin-top: 16px;
+    padding: 14px;
   
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    background: var(--color-surface-alt);
+    background:
+      linear-gradient(
+        135deg,
+        rgb(101 216 255 / 4%),
+        transparent 62%
+      ),
+      var(--color-surface-alt);
   }
   
   .training-session-block-summary h4 {
-    margin: 0 0 10px;
+    margin: 0 0 12px;
   
     color: var(--color-primary);
     font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.025em;
   }
   
   .training-session-courses {
     display: grid;
-    gap: 8px;
+    gap: 9px;
   }
   
   .training-session-course {
     min-width: 0;
-    padding: 10px;
+    padding: 12px;
   
     border: 1px solid var(--color-border);
     border-radius: var(--radius-control);
     background: var(--color-surface);
+  
+    transition:
+      border-color var(--transition-fast),
+      background var(--transition-fast),
+      transform var(--transition-fast);
+  }
+  
+  .training-session-course:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-surface-raised);
   }
   
   .training-session-course-main {
@@ -38,33 +57,63 @@
     flex-wrap: wrap;
     align-items: baseline;
     gap: 8px;
+    min-width: 0;
+  
+    color: var(--color-text);
+    font-size: 13px;
+    line-height: 1.5;
   }
   
   .training-session-course-main strong {
     color: var(--color-primary);
+    font-weight: 700;
+    overflow-wrap: anywhere;
   }
   
   .training-session-course-details {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px 12px;
+    gap: 6px 12px;
   
-    margin-top: 6px;
+    margin-top: 7px;
   
     color: var(--color-muted);
     font-size: 12px;
+    line-height: 1.6;
   }
   
   .training-session-course-details span {
+    min-width: 0;
     overflow-wrap: anywhere;
   }
   
   @media (max-width: 600px) {
     .training-session-block-summary {
-      padding: 9px;
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: var(--radius-panel);
+    }
+  
+    .training-session-block-summary h4 {
+      margin-bottom: 10px;
+    }
+  
+    .training-session-courses {
+      gap: 8px;
     }
   
     .training-session-course {
-      padding: 8px;
+      padding: 9px;
+    }
+  
+    .training-session-course-details {
+      gap: 5px 9px;
+      font-size: 11px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .training-session-course {
+      transition: none;
     }
   }

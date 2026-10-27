@@ -1,6 +1,7 @@
+
 /* =========================================================
-   EPSILON — COMPÉTITIONS
-   Barre d'outils et champs
+   EPSILON — PREMIUM++
+   Barre d'outils, filtres et champs
    ========================================================= */
 
 /* =========================================================
@@ -15,12 +16,20 @@
     gap: var(--space-4);
   
     min-width: 0;
-    padding: var(--space-4);
+    padding: 17px;
   
     border: 1px solid var(--competition-border);
-    border-radius: 5px;
+    border-radius: var(--competition-radius-lg);
   
-    background: #ffffff;
+    background: linear-gradient(
+      135deg,
+      rgb(27 28 44 / 94%),
+      rgb(18 19 31 / 98%)
+    );
+  
+    box-shadow:
+      var(--competition-shadow),
+      inset 0 1px 0 rgb(255 255 255 / 3%);
   }
   
   .competitions-page .competition-toolbar .competition-field {
@@ -32,6 +41,7 @@
     flex: 1 1 240px;
     margin: 0 0 3px;
   
+    color: var(--competition-muted);
     text-align: right;
   }
   
@@ -51,7 +61,7 @@
     display: block;
     margin: 0;
   
-    color: #45566a;
+    color: var(--competition-muted-strong);
     font-size: 12px;
     font-weight: 650;
     line-height: 1.45;
@@ -65,52 +75,77 @@
     width: 100%;
     min-width: 0;
     min-height: var(--competition-control-height);
-    padding: 9px 11px;
+    padding: 10px 12px;
   
     border: 1px solid var(--competition-border-strong);
-    border-radius: var(--radius-control, 5px);
+    border-radius: 11px;
   
-    background: #ffffff;
+    background: linear-gradient(
+      145deg,
+      #191a2a,
+      #141521
+    );
+  
     color: var(--competition-text);
   
     font-size: 13px;
     line-height: 1.4;
   
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 12%);
+  
     transition:
-      border-color 150ms ease,
-      box-shadow 150ms ease;
+      border-color var(--competition-transition),
+      background var(--competition-transition),
+      box-shadow var(--competition-transition);
   }
   
   .competitions-page .competition-field select {
     cursor: pointer;
   }
   
+  .competitions-page .competition-field select option {
+    background: #191a2a;
+    color: #f3f1ff;
+  }
+  
   .competitions-page .competition-field textarea {
-    min-height: 82px;
+    min-height: 88px;
     resize: vertical;
   }
   
   .competitions-page .competition-field input:hover,
   .competitions-page .competition-field select:hover,
   .competitions-page .competition-field textarea:hover {
-    border-color: #9cabbc;
+    border-color: rgb(177 163 255 / 38%);
+    background-color: #1c1d30;
   }
   
   .competitions-page .competition-field input:focus-visible,
   .competitions-page .competition-field select:focus-visible,
   .competitions-page .competition-field textarea:focus-visible {
-    border-color: var(--competition-blue);
+    border-color: var(--competition-violet);
     outline: none;
-    box-shadow: 0 0 0 3px rgb(23 63 115 / 12%);
+  
+    box-shadow:
+      0 0 0 3px rgb(151 117 255 / 13%),
+      0 0 16px rgb(151 117 255 / 7%);
   }
   
   .competitions-page .competition-field input::placeholder,
   .competitions-page .competition-field textarea::placeholder {
-    color: #8995a3;
+    color: #77758f;
     opacity: 1;
   }
   
+  /* Champs de date et de temps */
+  
+  .competitions-page .competition-field input[type="date"],
+  .competitions-page .competition-field input[type="time"] {
+    color-scheme: dark;
+  }
+  
   /* Curseur du ressenti */
+  
   .competitions-page .competition-field input[type="range"] {
     width: 100%;
     min-height: 24px;
@@ -121,14 +156,46 @@
     border-radius: 0;
     background: transparent;
   
-    accent-color: var(--competition-red);
+    accent-color: var(--competition-violet);
     box-shadow: none;
     cursor: pointer;
   }
   
-  /* Aides des champs */
+  .competitions-page .competition-field input[type="range"]:focus-visible {
+    outline: 2px solid var(--competition-violet);
+    outline-offset: 4px;
+    box-shadow: none;
+  }
+  
+  /* Aides et descriptions */
+  
   .competitions-page .competition-field .competition-hint {
     margin: 0;
+  
+    color: var(--competition-muted);
     font-size: 11px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
+  
+  /* =========================================================
+     RESPONSIVE
+     ========================================================= */
+  
+  @media (max-width: 680px) {
+    .competitions-page .competition-toolbar {
+      align-items: stretch;
+      padding: 14px;
+      gap: 14px;
+    }
+  
+    .competitions-page .competition-toolbar .competition-field {
+      flex: 1 1 100%;
+      width: 100% !important;
+    }
+  
+    .competitions-page .competition-toolbar .competition-hint {
+      flex-basis: 100%;
+      text-align: left;
+    }
+  }
+  

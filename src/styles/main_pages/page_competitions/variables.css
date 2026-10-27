@@ -1,25 +1,59 @@
+
 /* =========================================================
-   EPSILON — COMPÉTITIONS
-   Variables du design system
+   EPSILON — COMPÉTITIONS PREMIUM++
+   Black Diamond Design System
    ========================================================= */
 
    .competitions-page {
-    --competition-blue: #173f73;
-    --competition-blue-dark: #102f57;
-    --competition-blue-light: #edf4fb;
+    color-scheme: dark;
   
-    --competition-red: #d93446;
-    --competition-red-dark: #b92537;
-    --competition-red-light: #fff1f2;
+    /* Accents principaux */
+    --competition-blue: #8daaff;
+    --competition-blue-dark: #647ff0;
+    --competition-blue-light: rgb(105 129 255 / 13%);
   
-    --competition-text: #253448;
-    --competition-muted: #6b7789;
-    --competition-border: #dce3eb;
-    --competition-border-strong: #cbd5df;
-    --competition-surface: #ffffff;
-    --competition-surface-soft: #f5f7fa;
+    --competition-red: #ff6f91;
+    --competition-red-dark: #e94e78;
+    --competition-red-light: rgb(255 91 133 / 12%);
   
-    /* Échelle commune des espacements */
+    --competition-violet: #aa91ff;
+    --competition-violet-dark: #7959ed;
+    --competition-violet-light: rgb(151 117 255 / 13%);
+  
+    --competition-cyan: #65d8ff;
+    --competition-green: #52e3ad;
+    --competition-amber: #ffc078;
+  
+    /* Texte */
+    --competition-text: #f3f1ff;
+    --competition-muted: #a09db9;
+    --competition-muted-strong: #c1bdd6;
+  
+    /* Surfaces */
+    --competition-background: #0b0c14;
+    --competition-surface: #151622;
+    --competition-surface-soft: #1b1c2b;
+    --competition-surface-raised: #202136;
+  
+    /* Bordures */
+    --competition-border: rgb(177 163 255 / 13%);
+    --competition-border-strong: rgb(177 163 255 / 25%);
+  
+    /* Effets */
+    --competition-shadow:
+      0 12px 32px rgb(0 0 0 / 18%);
+  
+    --competition-shadow-hover:
+      0 18px 38px rgb(0 0 0 / 26%),
+      0 0 22px rgb(133 101 255 / 8%);
+  
+    --competition-glow:
+      0 0 22px rgb(142 111 255 / 12%);
+  
+    --competition-glass:
+      rgb(20 21 34 / 88%);
+  
+    /* Espacements */
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
@@ -28,8 +62,22 @@
     --space-6: 24px;
     --space-7: 32px;
   
-    /* Dimensions des composants */
+    /* Dimensions */
     --competition-panel-padding: 20px;
     --competition-section-gap: 24px;
-    --competition-control-height: 40px;
+    --competition-control-height: 42px;
+  
+    /* Arrondis */
+    --competition-radius-sm: 10px;
+    --competition-radius-md: 15px;
+    --competition-radius-lg: 21px;
+    --competition-radius-pill: 999px;
+  
+    /* Animations */
+    --competition-ease:
+      cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+    --competition-transition:
+      220ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
+  

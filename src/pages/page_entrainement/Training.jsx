@@ -426,7 +426,7 @@ export default function Training() {
               {plannedSessions}
             </span>
             <span className="training-summary-label">
-              Séances planifiées
+            ㅤSéances planifiées
             </span>
           </div>
 
@@ -435,7 +435,7 @@ export default function Training() {
               {completedSessions}
             </span>
             <span className="training-summary-label">
-              Séances réalisées
+            ㅤSéances réalisées
             </span>
           </div>
 
@@ -448,7 +448,7 @@ export default function Training() {
               }
             </span>
             <span className="training-summary-label">
-              Séances annulées
+            ㅤSéances annulées
             </span>
           </div>
         </div>
