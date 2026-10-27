@@ -2,6 +2,17 @@
 import { AppIcon } from '../../components/icons/icon-utils/index'
 import { getTaskColorPalette } from '../../components/icons/icon-utils/icon-colors'
 import TasksSubtasks from './TasksSubtasks'
+import { getCategoryLabel } from '../../utils/taskHelpers'
+
+// Couleur d'icône lisible : sombre sur fond clair, blanche sur fond foncé.
+function getReadableInk(hex = '#000000') {
+  const value = hex.replace('#', '')
+  const r = parseInt(value.slice(0, 2), 16) / 255
+  const g = parseInt(value.slice(2, 4), 16) / 255
+  const b = parseInt(value.slice(4, 6), 16) / 255
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+  return luminance > 0.6 ? '#1A1400' : '#FFFFFF'
+}
 
 export default function TasksCard({
   task,
@@ -30,6 +41,7 @@ export default function TasksCard({
       style={{
         '--task-primary': palette.primary,
         '--task-accent': palette.accent,
+        '--task-ink': getReadableInk(palette.primary),
       }}
     >
       <label
@@ -49,7 +61,7 @@ export default function TasksCard({
       </label>
 
       <div className="task-card-icon">
-        <AppIcon name={task.icon || 'check'} size={25} />
+        <AppIcon name={task.icon || 'check'} size={36} />
       </div>
 
       <div className="task-card-main">
@@ -61,6 +73,12 @@ export default function TasksCard({
         >
           <span className="task-card-title">{task.title}</span>
         </button>
+
+        {task.category && (
+          <span className="task-card-category">
+            {getCategoryLabel(task.category)}
+          </span>
+        )}
 
         <TasksSubtasks
           task={task}
