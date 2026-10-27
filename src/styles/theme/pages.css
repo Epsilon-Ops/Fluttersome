@@ -1,0 +1,144 @@
+/* =========================================================
+   PAGES — accents, bannières d'en-tête et détails par page
+   ========================================================= */
+
+/* ---------- Bannières d'en-tête : grosses cartes à accent ---------- */
+.app-shell :is(
+  .mood-header,
+  .strength-header,
+  .tasks-header,
+  .nutrition-header,
+  .food-diary-header,
+  .hydration-header
+) {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 22px;
+  padding: 28px 30px;
+  border: 2px solid var(--color-border);
+  border-bottom-width: 8px;
+  border-radius: 32px;
+  background:
+    radial-gradient(ellipse 60% 140% at 100% 0%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 62%),
+    radial-gradient(ellipse 50% 120% at 0% 120%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%),
+    linear-gradient(135deg, #12152B 0%, #07080F 100%);
+  box-shadow: 0 10px 0 var(--depth-surface), 0 30px 60px -30px var(--accent-glow);
+  animation: duo-page-enter 0.8s var(--motion-wobble) both;
+}
+
+/* Pastille géante décorative dans l'en-tête */
+.app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header)::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  animation: duo-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.app-shell .page-heading,
+.app-shell .tasks-page-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.app-shell .page-description { color: var(--color-muted); font-weight: 700; }
+
+.app-shell .page-section {
+  animation: duo-page-enter 0.7s var(--motion-wobble) both;
+}
+
+/* ---------- Humeur : gros boutons d'émotion ---------- */
+.app-shell .mood-option {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 14px 10px;
+  border: 2px solid var(--color-border-strong);
+  border-bottom-width: 6px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #181C32, #0C0D18);
+  box-shadow: 0 4px 0 var(--depth-surface);
+  transition: transform 0.4s var(--motion-spring), border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.app-shell .mood-option:hover {
+  transform: translateY(-5px) scale(1.06, 0.94);
+  border-color: var(--accent);
+}
+
+.app-shell .mood-option:active { transform: translateY(4px) scale(0.92, 0.84); }
+
+.app-shell .mood-option.is-selected {
+  border-color: var(--accent-deep);
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 0 var(--accent-deep), 0 10px 26px -10px var(--accent-glow);
+  animation: duo-bounce 0.75s var(--motion-wobble);
+}
+
+.app-shell .mood-option__icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  animation: duo-float 3.6s ease-in-out infinite;
+}
+
+.app-shell .mood-option.is-selected .mood-option__icon {
+  background: rgb(255 255 255 / 28%);
+  color: var(--accent-ink);
+}
+
+.app-shell .mood-option__icon svg { filter: drop-shadow(0 3px 0 rgb(0 0 0 / 40%)); }
+.app-shell .mood-option__label { font-family: var(--font-display); font-weight: 900; font-size: 13px; }
+.app-shell .mood-option__score {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* ---------- Chiffres mis en valeur (chronos, records) ---------- */
+.app-shell .competition-time,
+.app-shell .performance-value,
+.app-shell .record-value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  background: var(--diamond-text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Titres de sections dans les pages : soulignement d'accent ---------- */
+.app-shell .section-heading h2,
+.app-shell .dashboard-home__section-heading h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.app-shell .section-heading h2::after,
+.app-shell .dashboard-home__section-heading h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 46px;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--accent);
+  box-shadow: 0 3px 0 var(--accent-deep);
+}
+
+/* ---------- Coach : ambiance orange « mentor » ---------- */
+.app-shell[data-page='coach'] .panel-heading h3,
+.app-shell[data-page='coach'] .section-heading h2 { color: var(--accent); }

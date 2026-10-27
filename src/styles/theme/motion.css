@@ -1,0 +1,126 @@
+/* =========================================================
+   MOUVEMENT — stretch & squash exagéré + passif permanent
+   ========================================================= */
+
+/* ---------- Entrée de page ---------- */
+@keyframes duo-page-enter {
+  0%   { opacity: 0; transform: translateY(30px) scale(0.93, 1.07); }
+  55%  { opacity: 1; transform: translateY(-8px) scale(1.03, 0.96); }
+  78%  { transform: translateY(3px) scale(0.99, 1.02); }
+  100% { transform: none; }
+}
+
+/* ---------- Pop d'apparition ---------- */
+@keyframes duo-pop-in {
+  0%   { opacity: 0; transform: scale(0.45, 1.6); }
+  45%  { opacity: 1; transform: scale(1.2, 0.8); }
+  70%  { transform: scale(0.92, 1.1); }
+  100% { transform: scale(1, 1); }
+}
+
+/* ---------- Saut écrasé (bouton validé, coche) ---------- */
+@keyframes duo-bounce {
+  0%   { transform: scale(1, 1) translateY(0); }
+  18%  { transform: scale(1.22, 0.74) translateY(0); }
+  40%  { transform: scale(0.8, 1.25) translateY(-16px); }
+  62%  { transform: scale(1.08, 0.94) translateY(0); }
+  80%  { transform: scale(0.97, 1.03) translateY(-2px); }
+  100% { transform: scale(1, 1) translateY(0); }
+}
+
+/* ---------- Étirement (icônes) ---------- */
+@keyframes duo-stretch {
+  0%   { transform: scale(1, 1); }
+  28%  { transform: scale(0.8, 1.24); }
+  50%  { transform: scale(1.18, 0.82); }
+  72%  { transform: scale(0.96, 1.07); }
+  100% { transform: scale(1, 1); }
+}
+
+/* ---------- Gelée (navigation) ---------- */
+@keyframes duo-jelly {
+  0%, 100% { transform: scale(1, 1); }
+  25%  { transform: scale(1.16, 0.84); }
+  50%  { transform: scale(0.9, 1.12); }
+  75%  { transform: scale(1.04, 0.97); }
+}
+
+/* ---------- PASSIF : flottement avec écrasement ---------- */
+@keyframes duo-float {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  20%  { transform: translateY(-2px) scale(1, 1); }
+  50%  { transform: translateY(-9px) scale(0.96, 1.05); }
+  80%  { transform: translateY(-1px) scale(1.02, 0.98); }
+}
+
+/* ---------- PASSIF : respiration du halo ---------- */
+@keyframes duo-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow), 0 4px 0 var(--accent-deep); }
+  50%      { box-shadow: 0 0 26px 6px var(--accent-glow), 0 4px 0 var(--accent-deep); }
+}
+
+/* ---------- PASSIF : balancement ludique (toutes les 6 s) ---------- */
+@keyframes duo-wiggle {
+  0%, 86%, 100% { transform: rotate(0deg) scale(1, 1); }
+  89% { transform: rotate(-10deg) scale(1.1, 0.9); }
+  92% { transform: rotate(9deg) scale(0.96, 1.06); }
+  95% { transform: rotate(-4deg) scale(1.03, 0.97); }
+}
+
+/* ---------- PASSIF : reflet qui traverse ---------- */
+@keyframes diamond-glint {
+  0%   { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  12%  { opacity: 1; }
+  40%, 100% { transform: translateX(260%) skewX(-18deg); opacity: 0; }
+}
+
+/* ---------- PASSIF : scintillement ---------- */
+@keyframes diamond-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.45) rotate(0deg); }
+  50%      { opacity: 1; transform: scale(1.18) rotate(45deg); }
+}
+
+/* ---------- PASSIF : dérive de l'aura ---------- */
+@keyframes aura-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(3%, -2%, 0) scale(1.07); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(1.02); }
+}
+
+/* ---------- PASSIF : point de statut qui pulse ---------- */
+@keyframes duo-status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(88 204 2 / 60%); transform: scale(1); }
+  50%      { box-shadow: 0 0 0 8px rgb(88 204 2 / 0%); transform: scale(1.18, 0.88); }
+}
+
+/* ---------- PASSIF : flamme qui vacille (streak) ---------- */
+@keyframes duo-flame {
+  0%, 100% { transform: scale(1, 1) rotate(-2deg); }
+  30%  { transform: scale(0.92, 1.12) rotate(3deg); }
+  60%  { transform: scale(1.06, 0.95) rotate(-3deg); }
+}
+
+/* ---------- PASSIF : brillance qui glisse sur les boutons ---------- */
+@keyframes duo-shine {
+  0%, 70%, 100% { transform: translateX(-120%); }
+  85%           { transform: translateX(120%); }
+}
+
+/* ---------- Secousse (succès, record) ---------- */
+@keyframes duo-shake {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-8deg) scale(1.1); }
+  40% { transform: rotate(7deg) scale(1.1); }
+  60% { transform: rotate(-5deg); }
+  80% { transform: rotate(3deg); }
+}
+
+/* ---------- Préférence « réduire les animations » ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,45 @@
+/* =========================================================
+   ACCENTS PAR PAGE
+   Un attribut data-page sur .app-shell (App.jsx) sélectionne
+   la couleur de la page. Couleurs choisies :
+   Dashboard bleu · Compétitions rouge · Entraînement cyan
+   Musculation violet · Humeur rose · Sommeil indigo
+   Nutrition vert · Tâches jaune · Coach orange
+   ========================================================= */
+
+.app-shell[data-page='dashboard'] {
+  --accent: var(--duo-blue); --accent-deep: var(--duo-blue-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='competitions'] {
+  --accent: var(--duo-red); --accent-deep: var(--duo-red-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='training'] {
+  --accent: var(--duo-cyan); --accent-deep: var(--duo-cyan-deep); --accent-ink: #00222B;
+}
+.app-shell[data-page='strength'] {
+  --accent: var(--duo-violet); --accent-deep: var(--duo-violet-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='mood'] {
+  --accent: var(--duo-rose); --accent-deep: var(--duo-rose-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='sleep'] {
+  --accent: var(--duo-indigo); --accent-deep: var(--duo-indigo-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='nutrition'] {
+  --accent: var(--duo-green); --accent-deep: var(--duo-green-deep); --accent-ink: #FFFFFF;
+}
+.app-shell[data-page='tasks'] {
+  --accent: var(--duo-yellow); --accent-deep: var(--duo-yellow-deep); --accent-ink: #2B1D00;
+}
+.app-shell[data-page='coach'] {
+  --accent: var(--duo-orange); --accent-deep: var(--duo-orange-deep); --accent-ink: #2B1600;
+}
+
+/* Dérivés communs à toutes les pages */
+.app-shell {
+  --accent-tint: color-mix(in srgb, var(--accent) 16%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 38%, transparent);
+  --color-primary: var(--accent);
+  --color-accent: var(--accent);
+  --depth-accent: var(--accent-deep);
+}

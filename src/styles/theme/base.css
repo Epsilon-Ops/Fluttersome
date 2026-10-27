@@ -1,0 +1,97 @@
+/* =========================================================
+   BASE — typographie, fond « aura diamant », défilement
+   ========================================================= */
+
+@property --aura-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  background: var(--diamond-text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 0 rgb(10 14 40 / 95%));
+}
+
+h2 { font-size: clamp(1.35rem, 2vw, 1.75rem); }
+h3 { font-size: 1.05rem; }
+
+small, .text-muted { color: var(--color-muted); font-weight: 700; }
+strong, b { font-weight: 900; }
+
+.mono, .performance-value, .mark-value, .record-value, .chrono, .time-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Aura de fond : deux halos + treillis de facettes ---------- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 45% 35% at 20% 10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(ellipse 40% 34% at 85% 6%, rgb(142 124 255 / 16%), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 115%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
+  animation: aura-drift 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  background:
+    repeating-linear-gradient(60deg, rgb(255 255 255 / 2%) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(-60deg, rgb(255 255 255 / 2%) 0 1px, transparent 1px 72px);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%);
+}
+
+html { scrollbar-color: var(--diamond-silver) transparent; scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  border: 3px solid var(--color-background);
+  border-radius: var(--radius-pill);
+  background: #2A3154;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+:where(button, input, select, textarea, a):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: not-allowed; opacity: 0.5; }

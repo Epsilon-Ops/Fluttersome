@@ -1,0 +1,293 @@
+/* =========================================================
+   LAYOUT — coque Duolingo, suit l'accent de la page
+   ========================================================= */
+
+/* ---------- Barre latérale ---------- */
+.app-shell .sidebar {
+  background: linear-gradient(180deg, #0C0E1A 0%, #05060B 100%);
+  border-right: 2px solid var(--color-border);
+  box-shadow: 12px 0 40px -20px rgb(0 0 0 / 85%);
+}
+
+.app-shell .sidebar-brand { transition: transform 0.4s var(--motion-spring); }
+.app-shell .sidebar-brand:hover { transform: scale(1.04, 0.96); }
+.app-shell .sidebar-brand:hover .brand-mark { animation: duo-jelly 0.9s ease; }
+
+/* Logo : diamant à épaisseur, flotte en permanence */
+.app-shell .brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-bottom: 5px solid #1899D6;
+  border-radius: 16px;
+  background: var(--diamond-gradient);
+  background-size: 200% 200%;
+  color: #04050A;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  box-shadow: 0 0 22px rgb(124 231 255 / 22%);
+  animation: duo-float 4.2s ease-in-out infinite;
+}
+
+.app-shell .brand-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg, transparent 35%, rgb(255 255 255 / 75%) 50%, transparent 65%);
+  background-size: 250% 100%;
+  mix-blend-mode: overlay;
+  animation: diamond-glint 3.4s ease-in-out infinite;
+}
+
+.app-shell .brand-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  background: var(--diamond-text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-shell .brand-caption {
+  color: var(--diamond-silver);
+  font-weight: 900;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+}
+
+.app-shell .sidebar-section-label {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-tint);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+/* Entrées de navigation : grosses cases Duolingo */
+.app-shell .nav-item {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 15px;
+  transition: transform 0.4s var(--motion-spring), background-color 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.app-shell .nav-item:hover {
+  background: rgb(255 255 255 / 5%);
+  color: #FFFFFF;
+  transform: translateX(6px) scale(1.03, 0.96);
+}
+
+.app-shell .nav-item:active { transform: scale(0.94, 0.86); }
+
+.app-shell .nav-item.active {
+  color: #FFFFFF;
+  background: color-mix(in srgb, var(--category-color) 20%, #0B0D18);
+  border-color: var(--category-color);
+  border-bottom-width: 5px;
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--category-color) 55%, #000);
+  transform: translateX(4px);
+}
+
+.app-shell .nav-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--category-color) 18%, transparent);
+  color: var(--category-color);
+  transition: transform 0.4s var(--motion-spring), background-color 0.2s;
+}
+
+.app-shell .nav-item.active .nav-icon {
+  background: var(--category-color);
+  color: #FFFFFF;
+  border-bottom: 3px solid color-mix(in srgb, var(--category-color) 55%, #000);
+  animation: duo-float 3.2s ease-in-out infinite;
+}
+
+.app-shell .nav-item:hover .nav-icon { transform: rotate(-8deg) scale(1.1, 0.92); }
+
+.app-shell .nav-active-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px #FFFFFF;
+  animation: duo-status-pulse 2.2s ease-in-out infinite;
+}
+
+.app-shell .sidebar-footer {
+  padding: 12px 14px;
+  border: 2px solid var(--color-border);
+  border-bottom-width: 5px;
+  border-radius: 18px;
+  background: #0B0D18;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--diamond-silver);
+}
+
+.app-shell .status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--duo-green);
+  animation: duo-status-pulse 2s ease-in-out infinite;
+}
+
+/* ---------- Barre supérieure ---------- */
+.app-shell .topbar {
+  background: var(--color-surface-glass);
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 6px 0 rgb(0 0 0 / 30%);
+  backdrop-filter: blur(18px) saturate(1.3);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3);
+}
+
+.app-shell .topbar-current {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.app-shell .topbar-divider { color: var(--color-border-strong); }
+
+.app-shell .sync-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border: 2px solid rgb(88 204 2 / 40%);
+  border-bottom-width: 4px;
+  border-radius: var(--radius-pill);
+  background: rgb(88 204 2 / 12%);
+  color: #C4F59B;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+/* Avatar : gros bouton Duolingo qui se balance */
+.app-shell .avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-bottom: 5px solid var(--accent-deep);
+  border-radius: 16px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 19px;
+  cursor: pointer;
+  transition: transform 0.4s var(--motion-spring);
+  animation: duo-wiggle 6s ease-in-out infinite;
+}
+
+.app-shell .avatar:hover { transform: scale(1.14, 0.88); }
+.app-shell .avatar:active { transform: scale(0.86, 0.8); }
+
+/* ---------- Pied de page ---------- */
+.app-shell .app-footer {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  border-top: 2px solid var(--color-border);
+}
+
+.app-shell .footer-separator {
+  display: inline-block;
+  color: var(--accent);
+  animation: diamond-twinkle 3s ease-in-out infinite;
+}
+
+/* ---------- Conteneur de page : entrée qui rebondit ---------- */
+.app-shell .page-container {
+  animation: duo-page-enter 0.75s var(--motion-wobble) both;
+}
+
+/* ---------- Navigation mobile ---------- */
+.app-shell .bottom-nav {
+  background: rgb(8 9 16 / 94%);
+  border-top: 2px solid var(--color-border);
+  box-shadow: 0 -10px 30px -10px rgb(0 0 0 / 85%);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+}
+
+.app-shell .bottom-nav-item {
+  transition: transform 0.4s var(--motion-spring), color 0.2s;
+}
+
+.app-shell .bottom-nav-item:active { transform: scale(0.84, 0.78); }
+
+.app-shell .bottom-nav-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 34px;
+  border-radius: 16px;
+  transition: background-color 0.25s, transform 0.4s var(--motion-spring);
+}
+
+/* Bulle Duolingo sous l'icône active */
+.app-shell .bottom-nav-item.active .bottom-nav-icon {
+  background: var(--category-color);
+  color: #FFFFFF;
+  border-bottom: 3px solid color-mix(in srgb, var(--category-color) 55%, #000);
+  animation: duo-bounce 0.8s var(--motion-wobble);
+}
+
+.app-shell .bottom-nav-item.active .bottom-nav-label {
+  color: var(--category-color);
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.app-shell .bottom-nav-label {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.app-shell .bottom-nav-menu {
+  border: 2px solid var(--color-border-strong);
+  border-bottom-width: 6px;
+  border-radius: 24px;
+  background: #0D0F1B;
+  box-shadow: 0 10px 0 var(--depth-surface), 0 30px 60px -10px rgb(0 0 0 / 85%);
+  animation: duo-pop-in 0.5s var(--motion-wobble) both;
+}
+
+.app-shell .bottom-nav-menu-item {
+  border-radius: 16px;
+  transition: transform 0.35s var(--motion-spring), background-color 0.2s;
+}
+
+.app-shell .bottom-nav-menu-item:hover { transform: translateX(5px) scale(1.03, 0.96); }
+.app-shell .bottom-nav-menu-item:active { transform: scale(0.93, 0.88); }

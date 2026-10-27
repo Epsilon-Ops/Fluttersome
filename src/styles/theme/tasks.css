@@ -1,0 +1,242 @@
+/* =========================================================
+   TÂCHES — cartes « leçon » Duolingo, icônes et couleurs
+   lisibles. --task-primary (fond de l'icône), --task-accent
+   (liseré), --task-ink (couleur de l'icône, calculée en JS).
+   ========================================================= */
+
+.app-shell .task-card {
+  --tile: var(--task-primary, var(--duo-yellow));
+  --tile-line: var(--task-accent, #FFFFFF);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px 16px 16px;
+  border: 2px solid var(--color-border);
+  border-bottom-width: 6px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 0% 50%, color-mix(in srgb, var(--tile) 22%, transparent), transparent 42%),
+    linear-gradient(180deg, #161A2E 0%, #0A0B14 100%);
+  box-shadow: 0 6px 0 var(--depth-surface);
+  transition: transform 0.45s var(--motion-spring), box-shadow 0.25s, border-color 0.25s;
+  animation: duo-pop-in 0.6s var(--motion-wobble) both;
+}
+
+.app-shell .task-card:hover {
+  border-color: var(--tile-line);
+  transform: translateY(-4px) scale(1.012, 0.988);
+  box-shadow: 0 10px 0 var(--depth-surface), 0 0 30px -10px var(--tile);
+}
+
+.app-shell .task-card:active { transform: translateY(3px) scale(0.985, 0.95); }
+
+/* ----- Case à cocher ronde géante ----- */
+.app-shell .task-card-checkbox {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.app-shell .task-card-checkbox input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.app-shell .task-card-checkbox > span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 3px solid var(--color-border-strong);
+  border-bottom-width: 5px;
+  border-radius: 50%;
+  background: #0A0B14;
+  transition: transform 0.35s var(--motion-spring), background-color 0.2s, border-color 0.2s;
+}
+
+.app-shell .task-card-checkbox:hover > span {
+  transform: scale(1.14, 0.88);
+  border-color: var(--duo-green);
+}
+
+.app-shell .task-card-checkbox:active > span { transform: scale(0.82, 0.72); }
+
+.app-shell .task-card-checkbox input:focus-visible + span {
+  outline: 3px solid var(--duo-green);
+  outline-offset: 3px;
+}
+
+.app-shell .task-card-checkbox input:checked + span {
+  background: var(--duo-green);
+  border-color: var(--duo-green-deep);
+  animation: duo-bounce 0.7s var(--motion-wobble);
+}
+
+.app-shell .task-card-checkbox input:checked + span::after {
+  content: '✓';
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 35%);
+}
+
+/* ----- Tuile d'icône : grosse, colorée, lisible ----- */
+.app-shell .task-card-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  border: 3px solid var(--tile-line);
+  border-bottom-width: 7px;
+  border-bottom-color: color-mix(in srgb, var(--tile) 55%, #000);
+  border-radius: 24px;
+  background: var(--tile);
+  color: var(--task-ink, #FFFFFF);
+  box-shadow: 0 0 22px -6px var(--tile);
+  animation: duo-float 4.2s ease-in-out infinite;
+  transition: transform 0.4s var(--motion-spring);
+}
+
+.app-shell .task-card-icon svg {
+  width: 36px;
+  height: 36px;
+  stroke-width: 2.4;
+  filter: drop-shadow(0 3px 0 rgb(0 0 0 / 40%));
+}
+
+.app-shell .task-card:hover .task-card-icon {
+  animation: duo-stretch 0.7s var(--motion-wobble);
+}
+
+/* ----- Corps de la carte ----- */
+.app-shell .task-card-main {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.app-shell .task-card-title-button {
+  justify-self: start;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.app-shell .task-card-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+}
+
+.app-shell .task-card-title-button:hover .task-card-title { color: var(--tile); }
+
+.app-shell .task-card-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--tile) 20%, transparent);
+  border: 2px solid color-mix(in srgb, var(--tile) 55%, transparent);
+  color: var(--tile-line);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ----- Actions ----- */
+.app-shell .task-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.app-shell .task-action-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--color-border-strong);
+  border-bottom-width: 4px;
+  border-radius: 14px;
+  background: #151929;
+  color: var(--color-text);
+  font-size: 18px;
+  box-shadow: none;
+}
+
+.app-shell .task-action-button:hover { transform: rotate(-8deg) scale(1.12); border-color: var(--tile); color: var(--tile-line); }
+.app-shell .task-action-button:active { transform: scale(0.8, 0.72); }
+
+.app-shell .task-action-button.delete:hover { border-color: var(--duo-red); color: #FFB4B4; }
+
+/* ----- Terminée : terne, barrée, tuile verte ----- */
+.app-shell .task-card.is-completed {
+  opacity: 0.72;
+  filter: saturate(0.4);
+}
+
+.app-shell .task-card.is-completed .task-card-title {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--duo-green);
+  color: var(--color-muted);
+}
+
+.app-shell .task-card.is-completed .task-card-icon {
+  animation: none;
+}
+
+/* ----- Liste et filtres ----- */
+.app-shell .tasks-list {
+  display: grid;
+  gap: 14px;
+}
+
+.app-shell .tasks-list-empty {
+  padding: 26px;
+  border: 2px dashed var(--color-border-strong);
+  border-radius: 24px;
+  text-align: center;
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+/* Responsive : sous 560 px, les actions passent sous le contenu */
+@media (max-width: 560px) {
+  .app-shell .task-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'check icon'
+      'main main'
+      'actions actions';
+    row-gap: 12px;
+  }
+  .app-shell .task-card-checkbox { grid-area: check; }
+  .app-shell .task-card-icon { grid-area: icon; width: 60px; height: 60px; flex-basis: 60px; }
+  .app-shell .task-card-main { grid-area: main; }
+  .app-shell .task-card-actions { grid-area: actions; justify-content: flex-end; }
+}

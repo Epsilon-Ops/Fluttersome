@@ -64,7 +64,7 @@ export default function App() {
   const PageComponent = pageComponents[activePage] ?? Dashboard
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-page={activePage}>
       <Sidebar
         activePage={activePage}
         onNavigate={setActivePage}

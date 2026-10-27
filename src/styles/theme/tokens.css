@@ -1,0 +1,106 @@
+/* =========================================================
+   EPSILON — THÈME v2 « BLACK DIAMOND × DUOLINGO »
+   tokens.css : palette, ombres solides, rayons, typographie
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ----- Typographie ----- */
+  --font-display: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* ----- Fond : noir diamant ----- */
+  --color-background: #05060B;
+  --color-surface: #0D0E18;
+  --color-surface-alt: #151729;
+  --color-surface-raised: #1D2033;
+  --color-surface-glass: rgb(13 14 24 / 84%);
+
+  /* ----- Palette Duolingo (couleur / ombre solide) ----- */
+  --duo-green: #58CC02;   --duo-green-deep: #58A700;
+  --duo-blue: #1CB0F6;    --duo-blue-deep: #1899D6;
+  --duo-red: #FF4B4B;     --duo-red-deep: #EA2B2B;
+  --duo-orange: #FF9600;  --duo-orange-deep: #CE7E00;
+  --duo-yellow: #FFC800;  --duo-yellow-deep: #E5A500;
+  --duo-purple: #CE82FF;  --duo-purple-deep: #A568CC;
+  --duo-cyan: #00D1F0;    --duo-cyan-deep: #00A3C2;
+  --duo-violet: #A46BFF;  --duo-violet-deep: #7F45E0;
+  --duo-rose: #FF6FB5;    --duo-rose-deep: #D9468F;
+  --duo-indigo: #7C6BFF;  --duo-indigo-deep: #5A4AD9;
+  --duo-silver: #E3EAFF;  --duo-silver-deep: #9AAAD0;
+
+  /* ----- Accent de page (redéfini par accents.css) ----- */
+  --accent: var(--duo-blue);
+  --accent-deep: var(--duo-blue-deep);
+  --accent-ink: #FFFFFF;
+  --accent-tint: rgb(28 176 246 / 15%);
+  --accent-glow: rgb(28 176 246 / 35%);
+
+  /* ----- Diamant ----- */
+  --diamond-ice: #EEFBFF;
+  --diamond-cyan: #7CE7FF;
+  --diamond-silver: #AEB8D8;
+  --diamond-gradient: linear-gradient(135deg, #F4FBFF 0%, #8FA3D6 22%, #1B2140 46%, #6FE3FF 68%, #F4FBFF 100%);
+  --diamond-text-gradient: linear-gradient(180deg, #FFFFFF 0%, #B6EEFF 60%, #7C8FD8 100%);
+
+  /* ----- Sémantique (liée à l'accent) ----- */
+  --color-primary: var(--accent);
+  --color-primary-hover: var(--accent);
+  --color-primary-light: var(--accent-tint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent);
+  --color-accent-light: var(--accent-tint);
+  --color-secondary: var(--duo-purple);
+  --color-secondary-light: rgb(206 130 255 / 14%);
+  --color-success: var(--duo-green);
+  --color-warning: var(--duo-yellow);
+  --color-danger: var(--duo-red);
+
+  /* ----- Texte & bordures ----- */
+  --color-text: #F7F8FF;
+  --color-muted: #A3A8C6;
+  --color-border: #222640;
+  --color-border-strong: #2E3456;
+
+  /* Compatibilité avec les anciennes feuilles */
+  --text-primary: var(--color-text);
+  --text-secondary: var(--color-muted);
+  --border-color: var(--color-border);
+  --card-bg: var(--color-surface);
+  --surface-secondary: var(--color-surface-alt);
+  --accent-color: var(--accent);
+
+  /* ----- Rayons : arrondis généreux, très Duolingo ----- */
+  --radius-card: 24px;
+  --radius-control: 16px;
+  --radius-pill: 999px;
+
+  /* ----- Épaisseur (ombre solide sous chaque élément) ----- */
+  --depth-surface: #020306;
+  --depth-accent: var(--accent-deep);
+  --depth-danger: var(--duo-red-deep);
+
+  --shadow-card:
+    0 6px 0 var(--depth-surface),
+    0 24px 44px -20px rgb(0 0 0 / 75%),
+    inset 0 2px 0 rgb(255 255 255 / 6%);
+
+  /* ----- Dimensions ----- */
+  --content-max-width: 1440px;
+  --sidebar-width: 264px;
+  --topbar-height: 68px;
+
+  /* ----- Mouvements ----- */
+  --motion-fast: 140ms;
+  --motion-normal: 260ms;
+  --motion-slow: 480ms;
+  --motion-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-wobble: cubic-bezier(0.5, 1.9, 0.4, 0.9);
+}
+
+html {
+  color-scheme: dark;
+}
