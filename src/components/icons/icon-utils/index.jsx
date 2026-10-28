@@ -131,8 +131,19 @@ import {
     info: InfoIcon,
   }
   
-  export function AppIcon({ name, size = 20, className = '' }) {
+  export function AppIcon({
+    name,
+    size = 20,
+    className = '',
+    strokeWidth,
+  }) {
     const Icon = iconMap[name] ?? DashboardIcon
   
-    return <Icon size={size} className={className} />
+    return (
+      <Icon
+        size={size}
+        className={className}
+        {...(strokeWidth != null ? { strokeWidth } : {})}
+      />
+    )
   }

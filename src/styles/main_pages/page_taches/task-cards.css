@@ -368,3 +368,6 @@
     }
   }
   
+  .task-card-icon svg {
+    stroke-width: 1.4;
+  }

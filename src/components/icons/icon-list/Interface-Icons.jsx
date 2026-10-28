@@ -1,4 +1,9 @@
-function Svg({ size = 20, className = '', children }) {
+function Svg({
+  size = 20,
+  className = '',
+  strokeWidth = 1.8,
+  children,
+}) {
   return (
     <svg
       width={size}
@@ -6,7 +11,7 @@ function Svg({ size = 20, className = '', children }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}

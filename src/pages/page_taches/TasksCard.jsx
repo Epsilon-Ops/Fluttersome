@@ -61,7 +61,11 @@ export default function TasksCard({
       </label>
 
       <div className="task-card-icon">
-        <AppIcon name={task.icon || 'check'} size={36} />
+      <AppIcon
+  name={task.icon || 'check'}
+  size={36}
+  strokeWidth={1.4}
+/>
       </div>
 
       <div className="task-card-main">

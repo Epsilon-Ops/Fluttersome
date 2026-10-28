@@ -218,7 +218,7 @@ export const ICON_SEARCHER = [
       },
 
       {
-        name: 'key',
+        name: 'key_i',
         category: 'maison',
         label: 'Clé',
         keywords: ['maison','home','acceuil','repos','navigation',
