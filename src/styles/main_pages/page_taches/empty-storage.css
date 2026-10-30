@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/empty-storage.css
+   ZONE    : Page Tâches
+   RÔLE    : Empty storage
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — ÉTATS VIDES ET SAUVEGARDE
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .tasks-empty */
    .tasks-empty {
     position: relative;
     display: flex;
@@ -25,6 +35,7 @@
     text-align: center;
   }
   
+  /* Cible : .tasks-empty::before */
   .tasks-empty::before {
     position: absolute;
     top: 0;
@@ -41,6 +52,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .tasks-empty-icon */
   .tasks-empty-icon {
     display: grid;
     width: 50px;
@@ -59,6 +71,7 @@
     font-weight: 800;
   }
   
+  /* Cible : .tasks-empty h3 */
   .tasks-empty h3 {
     margin: 0;
     color: var(--tasks-ink);
@@ -67,6 +80,7 @@
     letter-spacing: -0.015em;
   }
   
+  /* Cible : .tasks-empty p */
   .tasks-empty p {
     max-width: 410px;
     margin: 0;
@@ -75,6 +89,7 @@
     line-height: 1.7;
   }
   
+  /* Cible : .tasks-storage-note */
   .tasks-storage-note {
     display: flex;
     align-items: flex-start;
@@ -86,11 +101,13 @@
     line-height: 1.6;
   }
   
+  /* Cible : .tasks-storage-note p */
   .tasks-storage-note p {
     min-width: 0;
     margin: 0;
   }
   
+  /* Cible : .tasks-storage-dot */
   .tasks-storage-dot {
     width: 8px;
     height: 8px;
@@ -101,47 +118,58 @@
     box-shadow: 0 0 12px rgba(52, 211, 153, 0.28);
   }
   
+  /* Cible : .tasks-storage-note.error */
   .tasks-storage-note.error {
     color: #fda4af;
   }
   
+  /* Cible : .tasks-storage-note.error .tasks-storage-dot */
   .tasks-storage-note.error .tasks-storage-dot {
     background: var(--tasks-danger);
     box-shadow: 0 0 12px rgba(251, 113, 133, 0.25);
   }
   
+  /* Règles responsive — (hover: hover) */
   @media (hover: hover) {
+    /* Cible : .tasks-empty */
     .tasks-empty {
       transition:
         border-color 180ms ease,
         background 180ms ease;
     }
   
+    /* Cible : .tasks-empty:hover */
     .tasks-empty:hover {
       border-color: rgba(167, 139, 250, 0.4);
     }
   }
   
+  /* Règles responsive — (max-width: 520px) */
   @media (max-width: 520px) {
+    /* Cible : .tasks-empty */
     .tasks-empty {
       gap: 10px;
       padding: 27px 16px;
       border-radius: 14px;
     }
   
+    /* Cible : .tasks-empty-icon */
     .tasks-empty-icon {
       width: 46px;
       height: 46px;
       border-radius: 13px;
     }
   
+    /* Cible : .tasks-storage-note */
     .tasks-storage-note {
       padding-top: 12px;
       font-size: 0.76rem;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .tasks-empty */
     .tasks-empty {
       transition: none;
     }

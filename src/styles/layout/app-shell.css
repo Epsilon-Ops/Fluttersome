@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/layout/app-shell.css
+   ZONE    : Mise en page générale (coque de l’application)
+   RÔLE    : App shell
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* ==========================================
    FLUTTERSOME — APP SHELL
    ========================================== */
 
+   /* Cible : .app-shell */
    .app-shell {
     position: relative;
     display: flex;
@@ -13,6 +23,7 @@
     color: var(--color-text);
   }
   
+  /* Cible : .main-content */
   .main-content {
     display: flex;
     flex: 1;
@@ -23,6 +34,7 @@
     background: transparent;
   }
   
+  /* Cible : .page-container */
   .page-container {
     flex: 1;
     width: 100%;
@@ -35,6 +47,7 @@
   
   /* Avatar partagé */
   
+  /* Cible : .avatar */
   .avatar {
     display: grid;
     flex: 0 0 36px;
@@ -55,6 +68,7 @@
   
   /* Footer partagé */
   
+  /* Cible : .app-footer */
   .app-footer {
     display: flex;
     align-items: center;
@@ -68,6 +82,7 @@
     letter-spacing: 0.09em;
   }
   
+  /* Cible : .footer-separator */
   .footer-separator {
     padding: 0 5px;
     color: var(--color-accent);
@@ -75,11 +90,14 @@
   
   /* Tablettes */
   
+  /* Règles responsive — (max-width: 1150px) and (min-width: 769px) */
   @media (max-width: 1150px) and (min-width: 769px) {
+    /* Cible : .main-content */
     .main-content {
       margin-left: 220px;
     }
   
+    /* Cible : .page-container */
     .page-container {
       padding: 22px 18px;
     }
@@ -87,17 +105,21 @@
   
   /* Téléphones */
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .main-content */
     .main-content {
       min-height: 100vh;
       margin-left: 0;
       padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     }
   
+    /* Cible : .page-container */
     .page-container {
       padding: 18px 14px 28px;
     }
   
+    /* Cible : .app-footer */
     .app-footer {
       gap: 12px;
       padding: 16px 14px;
@@ -106,12 +128,15 @@
     }
   }
   
+  /* Règles responsive — (max-width: 380px) */
   @media (max-width: 380px) {
+    /* Cible : .page-container */
     .page-container {
       padding-right: 10px;
       padding-left: 10px;
     }
   
+    /* Cible : .app-footer */
     .app-footer {
       font-size: 8px;
     }

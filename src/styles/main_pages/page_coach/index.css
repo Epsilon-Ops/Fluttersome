@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/index.css
+   ZONE    : Page Coach
+   RÔLE    : Index
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 @import './variables.css';
 @import './layout.css';

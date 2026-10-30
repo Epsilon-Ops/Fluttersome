@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/variables.css
+   ZONE    : Page Coach
+   RÔLE    : Variables
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — BLACK DIAMOND PREMIUM++
    Design tokens
    ========================================================= */
 
+   /* Cible : :root */
    :root {
     --coach-bg: #090b14;
     --coach-surface: #121421;

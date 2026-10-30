@@ -1,0 +1,378 @@
+/* ============================================================
+   FICHIER : src/styles/theme/responsive.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* =========================================================
+   RESPONSIVE — points de rupture : 1100 · 768 · 600 · 380 px
+   S'applique par-dessus les feuilles existantes sans les réécrire.
+   ========================================================= */
+
+/* ---------- Socle : rien ne déborde horizontalement ---------- */
+/* Cible : .app-shell, .app-shell * */
+.app-shell,
+.app-shell * {
+  min-width: 0;
+}
+
+/* Cible : .app-shell img, .app-shell svg, .app-shell video */
+.app-shell img,
+.app-shell svg,
+.app-shell video {
+  max-width: 100%;
+}
+
+/* Cible : .app-shell .page-container */
+.app-shell .page-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Titres qui s'adaptent à la largeur */
+/* Cible : .app-shell h1 */
+.app-shell h1 { font-size: clamp(1.7rem, 6vw, 2.9rem); }
+/* Cible : .app-shell h2 */
+.app-shell h2 { font-size: clamp(1.2rem, 4.2vw, 1.75rem); }
+
+/* Cible : .app-shell .stat-card__value */
+.app-shell .stat-card__value { font-size: clamp(1.5rem, 6vw, 2.4rem); }
+
+/* ---------- Grilles fluides (indicateurs, mesures) ---------- */
+/* Cible : .app-shell .metrics-grid, .app-shell .dashboard-home__metrics, .app-shell [class*='-metrics-grid'], .app-shell [class*='-metric-grid'], .app-shell [class*='-stats-grid… */
+.app-shell .metrics-grid,
+.app-shell .dashboard-home__metrics,
+.app-shell [class*='-metrics-grid'],
+.app-shell [class*='-metric-grid'],
+.app-shell [class*='-stats-grid'],
+.app-shell [class*='-summary-grid'],
+.app-shell [class*='-summary-top'],
+.app-shell .mood-statistics__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+/* Formulaires : deux colonnes, puis une seule sur téléphone */
+/* Cible : .app-shell [class*='-form-grid'], .app-shell [class*='-form-row'] */
+.app-shell [class*='-form-grid'],
+.app-shell [class*='-form-row'] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* Cible : .app-shell [class*='-form-grid'] > *, .app-shell [class*='-form-row'] > *, .app-shell [class*='-field-full'] */
+.app-shell [class*='-form-grid'] > *,
+.app-shell [class*='-form-row'] > *,
+.app-shell [class*='-field-full'] {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Barres d'outils et onglets qui se replient ---------- */
+/* Cible : .app-shell .tasks-toolbar, .app-shell .competition-toolbar, .app-shell .mood-history__toolbar, .app-shell .mood-history__filters, .app-shell .tasks-filters */
+.app-shell .tasks-toolbar,
+.app-shell .competition-toolbar,
+.app-shell .mood-history__toolbar,
+.app-shell .mood-history__filters,
+.app-shell .tasks-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Cible : .app-shell .tasks-toolbar > *, .app-shell .competition-toolbar > *, .app-shell .mood-history__toolbar > * */
+.app-shell .tasks-toolbar > *,
+.app-shell .competition-toolbar > *,
+.app-shell .mood-history__toolbar > * {
+  flex: 1 1 180px;
+}
+
+/* ---------- Tablette (≤ 1100 px) ---------- */
+/* Règles responsive — (max-width: 1100px) */
+@media (max-width: 1100px) {
+  /* Cible : .app-shell .dashboard-welcome */
+  .app-shell .dashboard-welcome { padding: 26px 24px; }
+  /* Cible : .app-shell .page-container */
+  .app-shell .page-container { padding-inline: 20px; }
+}
+
+/* ---------- Téléphone et petite tablette (≤ 768 px) ---------- */
+/* Règles responsive — (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Barre supérieure compacte */
+  /* Cible : .app-shell .topbar */
+  .app-shell .topbar {
+    padding-top: env(safe-area-inset-top, 0px);
+    height: auto;
+    min-height: 58px;
+    gap: 8px;
+  }
+  /* Cible : .app-shell .topbar-context */
+  .app-shell .topbar-context { min-width: 0; overflow: hidden; }
+  /* Cible : .app-shell .topbar-context .eyebrow, .app-shell .topbar-divider */
+  .app-shell .topbar-context .eyebrow,
+  .app-shell .topbar-divider { display: none; }
+  /* Cible : .app-shell .topbar-current */
+  .app-shell .topbar-current { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* Cible : .app-shell .sync-status */
+  .app-shell .sync-status { font-size: 0; padding: 8px; gap: 0; }
+  /* Cible : .app-shell .sync-status .status-indicator */
+  .app-shell .sync-status .status-indicator { font-size: 0; }
+
+  /* Bannières d'en-tête plus compactes */
+  /* Cible : .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header, .food-diary-header, .hydration-header) */
+  .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header, .food-diary-header, .hydration-header) {
+    padding: 20px 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  /* Cible : .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header)::after */
+  .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header)::after {
+    width: 110px;
+    height: 110px;
+    top: -30px;
+    right: -26px;
+  }
+
+  /* Bannière d'accueil : empilée */
+  /* Cible : .app-shell .dashboard-welcome */
+  .app-shell .dashboard-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 20px;
+    border-radius: 12px;
+  }
+  /* Cible : .app-shell .dashboard-welcome__icon */
+  .app-shell .dashboard-welcome__icon { width: 60px; height: 60px; border-radius: 10px; }
+
+  /* Tabs : défilement horizontal au doigt */
+  /* Cible : .app-shell [class*='-tabs']:not([class*='-tabs-']) */
+  .app-shell [class*='-tabs']:not([class*='-tabs-']) {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  /* Cible : .app-shell [class*='-tabs']:not([class*='-tabs-'])::-webkit-scrollbar */
+  .app-shell [class*='-tabs']:not([class*='-tabs-'])::-webkit-scrollbar { display: none; }
+  /* Cible : .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) */
+  .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding-inline: 14px;
+  }
+
+  /* Tableaux : défilement horizontal dans leur bloc */
+  /* Cible : .app-shell table */
+  .app-shell table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  /* Cartes : espacement resserré */
+  /* Cible : .app-shell .panel-heading, .app-shell [class*='-panel-heading'] */
+  .app-shell .panel-heading,
+  .app-shell [class*='-panel-heading'] { padding: 14px 16px; }
+  /* Cible : .app-shell .panel-symbol */
+  .app-shell .panel-symbol { width: 36px; height: 36px; flex-basis: 36px; }
+
+  /* Navigation mobile : sûre sur les bords et lisible */
+  /* Cible : .app-shell .bottom-nav */
+  .app-shell .bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #0A0B14;
+  }
+  /* Cible : .app-shell .bottom-nav-item */
+  .app-shell .bottom-nav-item { min-width: 0; min-height: 56px; }
+  /* Cible : .app-shell .bottom-nav-label */
+  .app-shell .bottom-nav-label {
+    font-size: 10px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Modales : pleine largeur, défilement interne */
+  /* Cible : .app-shell [class*='-modal']:not([class*='-modal-']):not([class*='__']) */
+  .app-shell [class*='-modal']:not([class*='-modal-']):not([class*='__']) {
+    width: min(100vw - 20px, 620px);
+    max-height: 88dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Les effets de survol collants n'ont pas de sens au doigt */
+  /* Cible : .app-shell .stat-card--interactive:hover, .app-shell .task-card:hover, .app-shell .panel:hover, .app-shell .metric-card:hover, .app-shell .mood-option:hover */
+  .app-shell .stat-card--interactive:hover,
+  .app-shell .task-card:hover,
+  .app-shell .panel:hover,
+  .app-shell .metric-card:hover,
+  .app-shell .mood-option:hover {
+    transform: none;
+  }
+
+  /* Performances : pas de flou coûteux sur mobile */
+  /* Cible : .app-shell .topbar, .app-shell .sidebar */
+  .app-shell .topbar,
+  .app-shell .sidebar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ---------- Petit téléphone (≤ 600 px) ---------- */
+/* Règles responsive — (max-width: 600px) */
+@media (max-width: 600px) {
+  /* Cible : .app-shell .page-container */
+  .app-shell .page-container { padding: 16px 12px 28px; }
+
+  /* Grilles d'indicateurs : deux colonnes */
+  /* Cible : .app-shell .metrics-grid, .app-shell .dashboard-home__metrics, .app-shell [class*='-metrics-grid'], .app-shell [class*='-metric-grid'], .app-shell [class*='-stats-grid… */
+  .app-shell .metrics-grid,
+  .app-shell .dashboard-home__metrics,
+  .app-shell [class*='-metrics-grid'],
+  .app-shell [class*='-metric-grid'],
+  .app-shell [class*='-stats-grid'],
+  .app-shell [class*='-summary-grid'],
+  .app-shell .mood-statistics__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  /* Cible : .app-shell .stat-card, .app-shell .metric-card */
+  .app-shell .stat-card,
+  .app-shell .metric-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
+  /* Cible : .app-shell .stat-card__icon */
+  .app-shell .stat-card__icon { width: 42px; height: 42px; border-radius: 8px; }
+  /* Cible : .app-shell .stat-card__subtitle */
+  .app-shell .stat-card__subtitle { font-size: 12px; }
+
+  /* Formulaires : une colonne */
+  /* Cible : .app-shell [class*='-form-grid'], .app-shell [class*='-form-row'] */
+  .app-shell [class*='-form-grid'],
+  .app-shell [class*='-form-row'] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Boutons : pleine largeur dans les formulaires et barres d'action */
+  /* Cible : .app-shell [class*='-primary-button'], .app-shell [class*='-secondary-button'] */
+  .app-shell [class*='-primary-button'],
+  .app-shell [class*='-secondary-button'] {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Sélecteur d'humeur : trois colonnes */
+  /* Cible : .app-shell .mood-option */
+  .app-shell .mood-option { padding: 10px 6px; border-radius: 10px; }
+  /* Cible : .app-shell .mood-option__icon */
+  .app-shell .mood-option__icon { width: 44px; height: 44px; border-radius: 15px; }
+
+  /* Tâches : tuile d'icône plus petite */
+  /* Cible : .app-shell .task-card */
+  .app-shell .task-card { gap: 12px; padding: 14px; border-radius: 10px; }
+  /* Cible : .app-shell .task-card-title */
+  .app-shell .task-card-title { font-size: 16px; }
+  /* Cible : .app-shell .task-card-checkbox, .app-shell .task-card-checkbox > span */
+  .app-shell .task-card-checkbox,
+  .app-shell .task-card-checkbox > span { width: 40px; height: 40px; }
+
+  /* Cibles tactiles d'au moins 44 px */
+  /* Cible : .app-shell button, .app-shell [class*='-button'] */
+  .app-shell button,
+  .app-shell [class*='-button'] {
+    min-height: 44px;
+  }
+
+  /* Pied de page : tenir sur une ligne */
+  /* Cible : .app-shell .app-footer */
+  .app-shell .app-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    gap: 6px;
+  }
+}
+
+/* ---------- Très petit écran (≤ 380 px) ---------- */
+/* Règles responsive — (max-width: 380px) */
+@media (max-width: 380px) {
+  /* Cible : .app-shell .page-container */
+  .app-shell .page-container { padding-inline: 10px; }
+
+  /* Cible : .app-shell .metrics-grid, .app-shell .dashboard-home__metrics, .app-shell [class*='-metrics-grid'], .app-shell [class*='-metric-grid'], .app-shell [class*='-stats-grid… */
+  .app-shell .metrics-grid,
+  .app-shell .dashboard-home__metrics,
+  .app-shell [class*='-metrics-grid'],
+  .app-shell [class*='-metric-grid'],
+  .app-shell [class*='-stats-grid'],
+  .app-shell [class*='-summary-grid'],
+  .app-shell .mood-statistics__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Cible : .app-shell .mood-option */
+  .app-shell .mood-option { grid-template-columns: minmax(0, 1fr); }
+
+  /* Cible : .app-shell .task-card */
+  .app-shell .task-card {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'check icon'
+      'main main'
+      'actions actions';
+  }
+  /* Cible : .app-shell .task-card-checkbox */
+  .app-shell .task-card-checkbox { grid-area: check; }
+  /* Cible : .app-shell .task-card-icon */
+  .app-shell .task-card-icon { grid-area: icon; width: 56px; height: 56px; flex-basis: 56px; }
+  /* Cible : .app-shell .task-card-main */
+  .app-shell .task-card-main { grid-area: main; }
+  /* Cible : .app-shell .task-card-actions */
+  .app-shell .task-card-actions { grid-area: actions; justify-content: flex-end; }
+
+  /* Cible : .app-shell .dashboard-welcome h1 */
+  .app-shell .dashboard-welcome h1 { font-size: 1.6rem; }
+  /* Cible : .app-shell .bottom-nav-icon */
+  .app-shell .bottom-nav-icon { width: 46px; height: 30px; }
+}
+
+/* ---------- Écrans tactiles : cibles et survols ---------- */
+/* Règles responsive — (pointer: coarse) */
+@media (pointer: coarse) {
+  /* Cible : .app-shell .nav-item, .app-shell .bottom-nav-item, .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) */
+  .app-shell .nav-item,
+  .app-shell .bottom-nav-item,
+  .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) {
+    min-height: 44px;
+  }
+  /* Cible : .app-shell .task-action-button */
+  .app-shell .task-action-button { width: 44px; height: 44px; }
+}
+
+/* ---------- Mouvements réduits sur mobile (performance) ---------- */
+/* Règles responsive — (max-width: 768px) and (prefers-reduced-motion: no-preference) */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  /* Cible : .app-shell .page-container */
+  .app-shell .page-container { animation-duration: 0.5s; }
+  /* Cible : .app-shell .task-card */
+  .app-shell .task-card { animation-duration: 0.4s; }
+}

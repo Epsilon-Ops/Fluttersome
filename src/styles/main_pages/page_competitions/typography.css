@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/typography.css
+   ZONE    : Page Compétitions
+   RÔLE    : Typography
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
@@ -6,6 +15,7 @@
 
 /* Surtitres */
 
+/* Cible : .competitions-page .eyebrow */
 .competitions-page .eyebrow {
   display: block;
   margin: 0 0 var(--space-2);
@@ -20,6 +30,7 @@
 
 /* Titre principal de la bannière */
 
+/* Cible : .competitions-page .welcome-section h1 */
 .competitions-page .welcome-section h1 {
   margin: 0 0 var(--space-3);
 
@@ -34,6 +45,7 @@
 
 /* Titre de section */
 
+/* Cible : .competitions-page .section-heading h2 */
 .competitions-page .section-heading h2 {
   margin: 0;
 
@@ -48,6 +60,7 @@
 
 /* Titres des panneaux */
 
+/* Cible : .competitions-page .panel-heading h3 */
 .competitions-page .panel-heading h3 {
   margin: 0;
 
@@ -62,6 +75,7 @@
 
 /* Paragraphes descriptifs */
 
+/* Cible : .competitions-page .welcome-description */
 .competitions-page .welcome-description {
   max-width: 600px;
   margin: 0;
@@ -73,12 +87,14 @@
 
 /* Description sur la bannière */
 
+/* Cible : .competitions-page .welcome-section .welcome-description */
 .competitions-page .welcome-section .welcome-description {
   color: rgb(239 236 255 / 82%);
 }
 
 /* Textes secondaires */
 
+/* Cible : .competitions-page .competition-hint, .competitions-page .competition-toggle-hint, .competitions-page .competition-history-subtitle, .competitions-page .competition-me… */
 .competitions-page .competition-hint,
 .competitions-page .competition-toggle-hint,
 .competitions-page .competition-history-subtitle,
@@ -90,16 +106,19 @@
 
 /* Amélioration de la lisibilité des contenus */
 
+/* Cible : .competitions-page p */
 .competitions-page p {
   overflow-wrap: anywhere;
 }
 
+/* Cible : .competitions-page strong */
 .competitions-page strong {
   font-weight: 750;
 }
 
 /* Sélection du texte */
 
+/* Cible : .competitions-page ::selection */
 .competitions-page ::selection {
   background: rgb(151 117 255 / 30%);
   color: #fff;

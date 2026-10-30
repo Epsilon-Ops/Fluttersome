@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/dashboard/marks.css
+   ZONE    : Tableau de bord (accueil)
+   RÔLE    : Marks
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================
    PERFORMANCE PRINCIPALE
    ========================================= */
 
+   /* Cible : .performance-mark */
    .performance-mark {
     position: relative;
     display: grid;
@@ -14,23 +24,27 @@
     isolation: isolate;
   }
   
+  /* Cible : .mark-ring */
   .mark-ring {
     position: absolute;
     border: 1px solid var(--color-border);
     border-radius: 50%;
   }
   
+  /* Cible : .mark-ring-outer */
   .mark-ring-outer {
     inset: 0;
     border: 1px dashed #b9c9d9;
     animation: mark-rotate 60s linear infinite;
   }
   
+  /* Cible : .mark-ring-middle */
   .mark-ring-middle {
     inset: 14px;
     border-color: #d7e0e9;
   }
   
+  /* Cible : .mark-ring-inner */
   .mark-ring-inner {
     display: grid;
     width: 112px;
@@ -42,6 +56,7 @@
     box-shadow: inset 0 0 0 5px var(--color-primary-light);
   }
   
+  /* Cible : .mark-ring-inner span */
   .mark-ring-inner span {
     color: var(--color-primary);
     font-family: 'DM Mono', monospace;
@@ -51,6 +66,7 @@
     letter-spacing: -0.06em;
   }
   
+  /* Cible : .mark-caption */
   .mark-caption {
     position: absolute;
     bottom: -21px;
@@ -64,6 +80,7 @@
   
   /* Animation discrète */
   
+  /* Animation : mark-rotate */
   @keyframes mark-rotate {
     from {
       transform: rotate(0deg);
@@ -76,7 +93,9 @@
   
   /* Accessibilité */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mark-ring-outer */
     .mark-ring-outer {
       animation: none;
     }
@@ -84,7 +103,9 @@
   
   /* Petit écran */
   
+  /* Règles responsive — (max-width: 480px) */
   @media (max-width: 480px) {
+    /* Cible : .performance-mark */
     .performance-mark {
       flex-basis: 150px;
       width: 150px;
@@ -92,11 +113,13 @@
       margin: 0 auto 28px;
     }
   
+    /* Cible : .mark-ring-inner */
     .mark-ring-inner {
       width: 94px;
       height: 94px;
     }
   
+    /* Cible : .mark-ring-inner span */
     .mark-ring-inner span {
       font-size: 39px;
     }

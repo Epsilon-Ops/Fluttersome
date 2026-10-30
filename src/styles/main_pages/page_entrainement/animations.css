@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/animations.css
+   ZONE    : Page Entraînement
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    EPSILON — ENTRAÎNEMENT
    Animations — Black Diamond Premium++
@@ -7,6 +16,7 @@
    1. ANIMATIONS DE BASE
    ========================================================= */
 
+   /* Animation : training-fade-in */
    @keyframes training-fade-in {
     from {
       opacity: 0;
@@ -19,6 +29,7 @@
     }
   }
   
+  /* Animation : training-fade-up */
   @keyframes training-fade-up {
     from {
       opacity: 0;
@@ -31,6 +42,7 @@
     }
   }
   
+  /* Animation : training-scale-in */
   @keyframes training-scale-in {
     from {
       opacity: 0;
@@ -43,6 +55,7 @@
     }
   }
   
+  /* Animation : training-glow-pulse */
   @keyframes training-glow-pulse {
     0%,
     100% {
@@ -54,6 +67,7 @@
     }
   }
   
+  /* Animation : training-indicator-pulse */
   @keyframes training-indicator-pulse {
     0%,
     100% {
@@ -65,6 +79,7 @@
     }
   }
   
+  /* Animation : training-shimmer */
   @keyframes training-shimmer {
     from {
       background-position: 200% 0;
@@ -79,14 +94,17 @@
      2. APPARITION DE LA PAGE
      ========================================================= */
   
+  /* Cible : .training-page */
   .training-page {
     animation: training-fade-in 420ms ease-out both;
   }
   
+  /* Cible : .training-page .welcome-section */
   .training-page .welcome-section {
     animation: training-fade-up 480ms ease-out both;
   }
   
+  /* Cible : .training-page .training-week-panel, .training-page .training-panel */
   .training-page .training-week-panel,
   .training-page .training-panel {
     animation: training-fade-up 480ms ease-out both;
@@ -94,14 +112,17 @@
   
   /* Décalage subtil entre les principaux panneaux */
   
+  /* Cible : .training-page .training-week-panel */
   .training-page .training-week-panel {
     animation-delay: 40ms;
   }
   
+  /* Cible : .training-page .training-metrics-grid */
   .training-page .training-metrics-grid {
     animation: training-fade-up 500ms ease-out 80ms both;
   }
   
+  /* Cible : .training-page .training-session-list */
   .training-page .training-session-list {
     animation: training-fade-up 500ms ease-out 120ms both;
   }
@@ -110,6 +131,7 @@
      3. CARTES ET SURFACES
      ========================================================= */
   
+  /* Cible : .training-page .training-metric-card, .training-page .training-session-card, .training-page .training-course-card, .training-page .training-session-course */
   .training-page .training-metric-card,
   .training-page .training-session-card,
   .training-page .training-course-card,
@@ -121,6 +143,7 @@
       background-color var(--transition-base);
   }
   
+  /* Cible : .training-page .training-metric-card:hover, .training-page .training-session-card:hover, .training-page .training-course-card:hover */
   .training-page .training-metric-card:hover,
   .training-page .training-session-card:hover,
   .training-page .training-course-card:hover {
@@ -131,13 +154,16 @@
   /* Les déplacements restent subtils et uniquement sur les appareils
      capables de survol */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .training-page .training-metric-card:hover, .training-page .training-session-card:hover, .training-page .training-course-card:hover */
     .training-page .training-metric-card:hover,
     .training-page .training-session-card:hover,
     .training-page .training-course-card:hover {
       transform: translateY(-2px);
     }
   
+    /* Cible : .training-page .training-session-course:hover */
     .training-page .training-session-course:hover {
       transform: translateY(-1px);
     }
@@ -147,6 +173,7 @@
      4. PLANNING HEBDOMADAIRE
      ========================================================= */
   
+  /* Cible : .training-page .training-day-button */
   .training-page .training-day-button {
     transition:
       background-color var(--transition-base),
@@ -156,12 +183,15 @@
       transform var(--transition-fast);
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .training-page .training-day-button:hover */
     .training-page .training-day-button:hover {
       transform: translateY(-2px);
     }
   }
   
+  /* Cible : .training-page .training-day-button.is-selected */
   .training-page .training-day-button.is-selected {
     box-shadow: var(--shadow-glow);
   }
@@ -170,6 +200,7 @@
      5. BOUTONS ET COMMANDES
      ========================================================= */
   
+  /* Cible : .training-page .training-primary-button, .training-page .training-secondary-button, .training-page .training-today-button, .training-page .training-icon-button, .train… */
   .training-page .training-primary-button,
   .training-page .training-secondary-button,
   .training-page .training-today-button,
@@ -183,22 +214,27 @@
       transform var(--transition-fast);
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .training-page .training-primary-button:hover:not(:disabled), .training-page .training-secondary-button:hover:not(:disabled), .training-page .training-today-button:hov… */
     .training-page .training-primary-button:hover:not(:disabled),
     .training-page .training-secondary-button:hover:not(:disabled),
     .training-page .training-today-button:hover:not(:disabled) {
       transform: translateY(-1px);
     }
   
+    /* Cible : .training-page .training-icon-button:hover:not(:disabled) */
     .training-page .training-icon-button:hover:not(:disabled) {
       box-shadow: var(--shadow-glow);
     }
   }
   
+  /* Cible : .training-page button:active:not(:disabled) */
   .training-page button:active:not(:disabled) {
     transform: scale(0.98);
   }
   
+  /* Cible : .training-page button:disabled */
   .training-page button:disabled {
     cursor: not-allowed;
     animation: none;
@@ -208,10 +244,12 @@
      6. INDICATEURS ET ÉTATS ACTIFS
      ========================================================= */
   
+  /* Cible : .training-page .training-day-indicator */
   .training-page .training-day-indicator {
     animation: training-indicator-pulse 2.4s ease-in-out infinite;
   }
   
+  /* Cible : .training-page .training-status-planned, .training-page .training-status-completed, .training-page .training-status-cancelled */
   .training-page .training-status-planned,
   .training-page .training-status-completed,
   .training-page .training-status-cancelled {
@@ -225,14 +263,17 @@
      7. ÉTATS VIDES ET FORMULAIRES
      ========================================================= */
   
+  /* Cible : .training-page .training-empty-icon */
   .training-page .training-empty-icon {
     animation: training-scale-in 420ms ease-out both;
   }
   
+  /* Cible : .training-page .training-form-grid */
   .training-page .training-form-grid {
     animation: training-fade-up 300ms ease-out both;
   }
   
+  /* Cible : .training-page input, .training-page select, .training-page textarea */
   .training-page input,
   .training-page select,
   .training-page textarea {
@@ -246,7 +287,9 @@
      8. ACCESSIBILITÉ — MOUVEMENTS RÉDUITS
      ========================================================= */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-page, .training-page *, .training-page *::before, .training-page *::after */
     .training-page,
     .training-page *,
     .training-page *::before,
@@ -256,6 +299,7 @@
       scroll-behavior: auto !important;
     }
   
+    /* Cible : .training-page .training-metric-card:hover, .training-page .training-session-card:hover, .training-page .training-course-card:hover, .training-page .training-session-c… */
     .training-page .training-metric-card:hover,
     .training-page .training-session-card:hover,
     .training-page .training-course-card:hover,

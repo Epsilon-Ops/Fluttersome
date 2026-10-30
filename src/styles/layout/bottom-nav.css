@@ -1,13 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/layout/bottom-nav.css
+   ZONE    : Mise en page générale (coque de l’application)
+   RÔLE    : Bottom nav
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* ==========================================
    FLUTTERSOME — MOBILE NAVIGATION
    ========================================== */
 
+   /* Cible : .bottom-nav */
    .bottom-nav {
     display: none;
   }
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .bottom-nav */
     .bottom-nav {
       position: fixed;
       inset: auto 0 0;
@@ -30,6 +42,7 @@
       -webkit-backdrop-filter: blur(24px) saturate(150%);
     }
   
+    /* Cible : .bottom-nav-item */
     .bottom-nav-item {
       display: flex;
       flex: 1 1 0;
@@ -61,10 +74,12 @@
         transform var(--motion-fast) var(--motion-spring);
     }
   
+    /* Cible : .bottom-nav-item:active */
     .bottom-nav-item:active {
       transform: scale(0.93);
     }
   
+    /* Cible : .bottom-nav-item.active */
     .bottom-nav-item.active {
       border-color: rgb(185 154 255 / 17%);
       background:
@@ -78,12 +93,14 @@
       box-shadow: inset 0 1px 0 rgb(255 255 255 / 5%);
     }
   
+    /* Cible : .bottom-nav-item:focus-visible, .bottom-nav-menu-item:focus-visible */
     .bottom-nav-item:focus-visible,
     .bottom-nav-menu-item:focus-visible {
       outline: 2px solid var(--color-accent);
       outline-offset: -2px;
     }
   
+    /* Cible : .bottom-nav-icon */
     .bottom-nav-icon {
       display: flex;
       align-items: center;
@@ -93,12 +110,14 @@
       height: 24px;
     }
   
+    /* Cible : .bottom-nav-icon svg */
     .bottom-nav-icon svg {
       display: block;
       width: 20px;
       height: 20px;
     }
   
+    /* Cible : .bottom-nav-label */
     .bottom-nav-label {
       display: block;
       width: 100%;
@@ -108,6 +127,7 @@
       white-space: nowrap;
     }
   
+    /* Cible : .bottom-nav-more-wrap */
     .bottom-nav-more-wrap {
       position: relative;
       display: flex;
@@ -116,6 +136,7 @@
       min-width: 0;
     }
   
+    /* Cible : .bottom-nav-more */
     .bottom-nav-more {
       width: 100%;
       height: 100%;
@@ -123,6 +144,7 @@
   
     /* ARRIÈRE-PLAN DU MENU */
   
+    /* Cible : .bottom-nav-backdrop */
     .bottom-nav-backdrop {
       position: fixed;
       inset: 0;
@@ -138,6 +160,7 @@
   
     /* MENU PLUS */
   
+    /* Cible : .bottom-nav-menu */
     .bottom-nav-menu {
       position: absolute;
       right: 0;
@@ -171,15 +194,18 @@
       -webkit-overflow-scrolling: touch;
     }
   
+    /* Cible : .bottom-nav-menu::-webkit-scrollbar */
     .bottom-nav-menu::-webkit-scrollbar {
       width: 5px;
     }
   
+    /* Cible : .bottom-nav-menu::-webkit-scrollbar-thumb */
     .bottom-nav-menu::-webkit-scrollbar-thumb {
       border-radius: 99px;
       background: #49405F;
     }
   
+    /* Cible : .bottom-nav-menu-heading */
     .bottom-nav-menu-heading {
       padding: 11px 12px;
       color: #898BA5;
@@ -189,6 +215,7 @@
       letter-spacing: 0.12em;
     }
   
+    /* Cible : .bottom-nav-menu-item */
     .bottom-nav-menu-item {
       display: flex;
       align-items: center;
@@ -214,15 +241,18 @@
         border-color var(--motion-fast) ease;
     }
   
+    /* Cible : .bottom-nav-menu-item:hover */
     .bottom-nav-menu-item:hover {
       border-color: var(--color-border);
       background: rgb(255 255 255 / 4%);
     }
   
+    /* Cible : .bottom-nav-menu-item:active */
     .bottom-nav-menu-item:active {
       background: rgb(185 154 255 / 12%);
     }
   
+    /* Cible : .bottom-nav-menu-item.active */
     .bottom-nav-menu-item.active {
       border-color: rgb(185 154 255 / 18%);
       background: var(--color-primary-light);
@@ -230,6 +260,7 @@
       font-weight: 700;
     }
   
+    /* Cible : .bottom-nav-menu-icon */
     .bottom-nav-menu-icon {
       display: flex;
       align-items: center;
@@ -240,16 +271,19 @@
       color: var(--category-color, var(--color-primary));
     }
   
+    /* Cible : .bottom-nav-menu-icon svg */
     .bottom-nav-menu-icon svg {
       display: block;
       width: 19px;
       height: 19px;
     }
   
+    /* Cible : .bottom-nav-menu-item.active .bottom-nav-menu-icon */
     .bottom-nav-menu-item.active .bottom-nav-menu-icon {
       color: var(--color-accent);
     }
   
+    /* Cible : .bottom-nav-menu-check */
     .bottom-nav-menu-check {
       display: flex;
       align-items: center;
@@ -264,11 +298,13 @@
     }
   }
   
+  /* Animation : diamond-fade-in */
   @keyframes diamond-fade-in {
     from { opacity: 0; }
     to { opacity: 1; }
   }
   
+  /* Animation : diamond-menu-in */
   @keyframes diamond-menu-in {
     from {
       opacity: 0;
@@ -280,35 +316,43 @@
     }
   }
   
+  /* Règles responsive — (max-width: 380px) */
   @media (max-width: 380px) {
+    /* Cible : .bottom-nav */
     .bottom-nav {
       gap: 1px;
       padding-right: 3px;
       padding-left: 3px;
     }
   
+    /* Cible : .bottom-nav-item */
     .bottom-nav-item {
       padding-right: 1px;
       padding-left: 1px;
       font-size: 9px;
     }
   
+    /* Cible : .bottom-nav-menu */
     .bottom-nav-menu {
       width: min(270px, calc(100vw - 16px));
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .bottom-nav-item, .bottom-nav-menu-item */
     .bottom-nav-item,
     .bottom-nav-menu-item {
       transition: none;
     }
   
+    /* Cible : .bottom-nav-backdrop, .bottom-nav-menu */
     .bottom-nav-backdrop,
     .bottom-nav-menu {
       animation: none;
     }
   
+    /* Cible : .bottom-nav-item:active */
     .bottom-nav-item:active {
       transform: none;
     }

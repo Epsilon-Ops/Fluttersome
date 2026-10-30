@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/animations.css
+   ZONE    : Page Musculation
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================
    MUSCULATION — ANIMATIONS
    Black Diamond Premium++
    ========================================= */
 
 /* Apparition générale de la page */
+/* Animation : strength-fade-in */
 @keyframes strength-fade-in {
     from {
       opacity: 0;
@@ -17,6 +27,7 @@
   }
   
   /* Apparition légère des cartes */
+  /* Animation : strength-rise-in */
   @keyframes strength-rise-in {
     from {
       opacity: 0;
@@ -30,6 +41,7 @@
   }
   
   /* Pulsation lumineuse subtile */
+  /* Animation : strength-soft-glow */
   @keyframes strength-soft-glow {
     0%,
     100% {
@@ -42,42 +54,52 @@
   }
   
   /* Entrée des éléments */
+  /* Cible : .strength-page */
   .strength-page {
     animation: strength-fade-in 420ms ease-out both;
   }
   
+  /* Cible : .strength-metric-card */
   .strength-metric-card {
     animation: strength-rise-in 450ms ease-out both;
   }
   
+  /* Cible : .strength-metric-card:nth-child(1) */
   .strength-metric-card:nth-child(1) {
     animation-delay: 40ms;
   }
   
+  /* Cible : .strength-metric-card:nth-child(2) */
   .strength-metric-card:nth-child(2) {
     animation-delay: 80ms;
   }
   
+  /* Cible : .strength-metric-card:nth-child(3) */
   .strength-metric-card:nth-child(3) {
     animation-delay: 120ms;
   }
   
+  /* Cible : .strength-metric-card:nth-child(4) */
   .strength-metric-card:nth-child(4) {
     animation-delay: 160ms;
   }
   
   /* Apparition des blocs de séance */
+  /* Cible : .strength-block-card */
   .strength-block-card {
     animation: strength-rise-in 400ms ease-out both;
   }
   
   /* Ouverture des détails d'une séance */
+  /* Cible : .strength-session-details[open] .strength-session-preview */
   .strength-session-details[open] .strength-session-preview {
     animation: strength-fade-in 240ms ease-out both;
   }
   
   /* Accessibilité : respecter les préférences de mouvement */
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .strength-page, .strength-metric-card, .strength-block-card, .strength-session-details[open] .strength-session-preview */
     .strength-page,
     .strength-metric-card,
     .strength-block-card,

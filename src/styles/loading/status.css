@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/loading/status.css
+   ZONE    : Écrans de chargement
+   RÔLE    : Status
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .status-indicator, .system-dot, .section-tag-dot */
 .status-indicator,
 .system-dot,
 .section-tag-dot {
@@ -5,10 +15,12 @@
   box-shadow: none;
 }
 
+/* Cible : .system-dot-muted */
 .system-dot-muted {
   background: #aab5c4;
 }
 
+/* Cible : .sync-status */
 .sync-status {
     display: flex;
     align-items: center;
@@ -18,6 +30,7 @@
     letter-spacing: 0.08em;
   }
   
+  /* Cible : .sync-status .status-indicator */
   .sync-status .status-indicator {
     width: 6px;
     height: 6px;

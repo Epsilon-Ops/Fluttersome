@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/food-entries.css
+   ZONE    : Page Nutrition
+   RÔLE    : Food entries
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — ENTRÉES ALIMENTAIRES */
 
+/* Cible : .food-list-heading */
 .food-list-heading {
   display: flex;
   align-items: center;
@@ -11,17 +21,20 @@
   margin-bottom: 18px;
 }
 
+/* Cible : .food-list-heading h3 */
 .food-list-heading h3 {
   margin-bottom: 5px;
   color: var(--nutrition-text);
 }
 
+/* Cible : .food-list-heading .food-muted */
 .food-list-heading .food-muted {
   margin-bottom: 0;
 }
 
 /* Liste vide */
 
+/* Cible : .food-empty */
 .food-empty {
   padding: 28px 18px;
 
@@ -39,6 +52,7 @@
 
 /* Liste des repas */
 
+/* Cible : .food-entry-list */
 .food-entry-list {
   display: flex;
   flex-direction: column;
@@ -46,6 +60,7 @@
   min-width: 0;
 }
 
+/* Cible : .food-entry */
 .food-entry {
   display: flex;
   align-items: flex-start;
@@ -67,6 +82,7 @@
     background 180ms ease;
 }
 
+/* Cible : .food-entry-time */
 .food-entry-time {
   flex-shrink: 0;
   min-width: 55px;
@@ -77,11 +93,13 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Cible : .food-entry-content */
 .food-entry-content {
   flex: 1 1 auto;
   min-width: 0;
 }
 
+/* Cible : .food-meal-type */
 .food-meal-type {
   display: inline-block;
   max-width: 100%;
@@ -100,6 +118,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .food-entry-content h4 */
 .food-entry-content h4 {
   margin: 0 0 6px;
   color: var(--nutrition-text);
@@ -109,6 +128,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .food-entry-content p */
 .food-entry-content p {
   margin: 4px 0 0;
   color: var(--nutrition-muted);
@@ -117,6 +137,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .food-entry-content .food-entry-notes */
 .food-entry-content .food-entry-notes {
   margin-top: 11px;
   padding-top: 11px;
@@ -130,6 +151,7 @@
 
 /* Suppression d'un repas */
 
+/* Cible : .food-delete-button */
 .food-delete-button {
   flex-shrink: 0;
   min-height: 34px;
@@ -152,40 +174,50 @@
     color 180ms ease;
 }
 
+/* Cible : .food-delete-button:hover */
 .food-delete-button:hover {
   border-color: rgba(255, 146, 159, 0.45);
   background: rgba(255, 90, 110, 0.15);
   color: #ffb3bc;
 }
 
+/* Règles responsive — (hover: hover) and (pointer: fine) */
 @media (hover: hover) and (pointer: fine) {
+  /* Cible : .food-entry:hover */
   .food-entry:hover {
     border-color: var(--nutrition-border-strong);
     background: rgba(26, 29, 48, 0.96);
   }
 }
 
+/* Règles responsive — (max-width: 560px) */
 @media (max-width: 560px) {
+  /* Cible : .food-entry */
   .food-entry {
     flex-wrap: wrap;
     gap: 10px;
     padding: 14px;
   }
 
+  /* Cible : .food-entry-time */
   .food-entry-time {
     min-width: 0;
   }
 
+  /* Cible : .food-entry-content */
   .food-entry-content {
     flex-basis: calc(100% - 70px);
   }
 
+  /* Cible : .food-delete-button */
   .food-delete-button {
     margin-left: auto;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .food-entry, .food-delete-button */
   .food-entry,
   .food-delete-button {
     transition: none;

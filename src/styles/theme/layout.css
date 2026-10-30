@@ -1,19 +1,33 @@
+/* ============================================================
+   FICHIER : src/styles/theme/layout.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    LAYOUT — coque Duolingo, suit l'accent de la page
    ========================================================= */
 
 /* ---------- Barre latérale ---------- */
+/* Cible : .app-shell .sidebar */
 .app-shell .sidebar {
   background: linear-gradient(180deg, #0C0E1A 0%, #05060B 100%);
   border-right: 2px solid var(--color-border);
   box-shadow: 12px 0 40px -20px rgb(0 0 0 / 85%);
 }
 
+/* Cible : .app-shell .sidebar-brand */
 .app-shell .sidebar-brand { transition: transform 0.4s var(--motion-spring); }
+/* Cible : .app-shell .sidebar-brand:hover */
 .app-shell .sidebar-brand:hover { transform: scale(1.04, 0.96); }
+/* Cible : .app-shell .sidebar-brand:hover .brand-mark */
 .app-shell .sidebar-brand:hover .brand-mark { animation: duo-jelly 0.9s ease; }
 
 /* Logo : diamant à épaisseur, flotte en permanence */
+/* Cible : .app-shell .brand-mark */
 .app-shell .brand-mark {
   position: relative;
   display: grid;
@@ -21,8 +35,8 @@
   width: 46px;
   height: 46px;
   border: 0;
-  border-bottom: 5px solid #1899D6;
-  border-radius: 16px;
+  border-bottom: 2px solid #1899D6;
+  border-radius: 8px;
   background: var(--diamond-gradient);
   background-size: 200% 200%;
   color: #04050A;
@@ -33,6 +47,7 @@
   animation: duo-float 4.2s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .brand-mark::after */
 .app-shell .brand-mark::after {
   content: '';
   position: absolute;
@@ -44,6 +59,7 @@
   animation: diamond-glint 3.4s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .brand-name */
 .app-shell .brand-name {
   font-family: var(--font-display);
   font-weight: 900;
@@ -55,6 +71,7 @@
   color: transparent;
 }
 
+/* Cible : .app-shell .brand-caption */
 .app-shell .brand-caption {
   color: var(--diamond-silver);
   font-weight: 900;
@@ -62,6 +79,7 @@
   letter-spacing: 0.16em;
 }
 
+/* Cible : .app-shell .sidebar-section-label */
 .app-shell .sidebar-section-label {
   display: inline-block;
   padding: 4px 11px;
@@ -75,53 +93,61 @@
 }
 
 /* Entrées de navigation : grosses cases Duolingo */
+/* Cible : .app-shell .nav-item */
 .app-shell .nav-item {
   position: relative;
   border: 2px solid transparent;
-  border-radius: 18px;
+  border-radius: 10px;
   font-family: var(--font-display);
   font-weight: 900;
   font-size: 15px;
   transition: transform 0.4s var(--motion-spring), background-color 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
+/* Cible : .app-shell .nav-item:hover */
 .app-shell .nav-item:hover {
   background: rgb(255 255 255 / 5%);
   color: #FFFFFF;
   transform: translateX(6px) scale(1.03, 0.96);
 }
 
+/* Cible : .app-shell .nav-item:active */
 .app-shell .nav-item:active { transform: scale(0.94, 0.86); }
 
+/* Cible : .app-shell .nav-item.active */
 .app-shell .nav-item.active {
   color: #FFFFFF;
   background: color-mix(in srgb, var(--category-color) 20%, #0B0D18);
   border-color: var(--category-color);
-  border-bottom-width: 5px;
-  box-shadow: 0 4px 0 color-mix(in srgb, var(--category-color) 55%, #000);
+  border-bottom-width: 2px;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--category-color) 55%, #000);
   transform: translateX(4px);
 }
 
+/* Cible : .app-shell .nav-icon */
 .app-shell .nav-icon {
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
-  border-radius: 13px;
+  border-radius: 8px;
   background: color-mix(in srgb, var(--category-color) 18%, transparent);
   color: var(--category-color);
   transition: transform 0.4s var(--motion-spring), background-color 0.2s;
 }
 
+/* Cible : .app-shell .nav-item.active .nav-icon */
 .app-shell .nav-item.active .nav-icon {
   background: var(--category-color);
   color: #FFFFFF;
-  border-bottom: 3px solid color-mix(in srgb, var(--category-color) 55%, #000);
+  border-bottom: 2px solid color-mix(in srgb, var(--category-color) 55%, #000);
   animation: duo-float 3.2s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .nav-item:hover .nav-icon */
 .app-shell .nav-item:hover .nav-icon { transform: rotate(-8deg) scale(1.1, 0.92); }
 
+/* Cible : .app-shell .nav-active-dot */
 .app-shell .nav-active-dot {
   width: 10px;
   height: 10px;
@@ -131,11 +157,12 @@
   animation: duo-status-pulse 2.2s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .sidebar-footer */
 .app-shell .sidebar-footer {
   padding: 12px 14px;
   border: 2px solid var(--color-border);
-  border-bottom-width: 5px;
-  border-radius: 18px;
+  border-bottom-width: 2px;
+  border-radius: 10px;
   background: #0B0D18;
   font-family: var(--font-display);
   font-weight: 900;
@@ -144,6 +171,7 @@
   color: var(--diamond-silver);
 }
 
+/* Cible : .app-shell .status-indicator */
 .app-shell .status-indicator {
   display: inline-block;
   width: 10px;
@@ -154,14 +182,16 @@
 }
 
 /* ---------- Barre supérieure ---------- */
+/* Cible : .app-shell .topbar */
 .app-shell .topbar {
   background: var(--color-surface-glass);
   border-bottom: 2px solid var(--color-border);
-  box-shadow: 0 6px 0 rgb(0 0 0 / 30%);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 30%);
   backdrop-filter: blur(18px) saturate(1.3);
   -webkit-backdrop-filter: blur(18px) saturate(1.3);
 }
 
+/* Cible : .app-shell .topbar-current */
 .app-shell .topbar-current {
   font-family: var(--font-display);
   font-weight: 900;
@@ -169,15 +199,17 @@
   color: var(--color-text);
 }
 
+/* Cible : .app-shell .topbar-divider */
 .app-shell .topbar-divider { color: var(--color-border-strong); }
 
+/* Cible : .app-shell .sync-status */
 .app-shell .sync-status {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 13px;
   border: 2px solid rgb(88 204 2 / 40%);
-  border-bottom-width: 4px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-pill);
   background: rgb(88 204 2 / 12%);
   color: #C4F59B;
@@ -188,14 +220,15 @@
 }
 
 /* Avatar : gros bouton Duolingo qui se balance */
+/* Cible : .app-shell .avatar */
 .app-shell .avatar {
   display: grid;
   place-items: center;
   width: 46px;
   height: 46px;
   border: 0;
-  border-bottom: 5px solid var(--accent-deep);
-  border-radius: 16px;
+  border-bottom: 2px solid var(--accent-deep);
+  border-radius: 8px;
   background: var(--accent);
   color: var(--accent-ink);
   font-family: var(--font-display);
@@ -206,10 +239,13 @@
   animation: duo-wiggle 6s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .avatar:hover */
 .app-shell .avatar:hover { transform: scale(1.14, 0.88); }
+/* Cible : .app-shell .avatar:active */
 .app-shell .avatar:active { transform: scale(0.86, 0.8); }
 
 /* ---------- Pied de page ---------- */
+/* Cible : .app-shell .app-footer */
 .app-shell .app-footer {
   font-family: var(--font-display);
   font-weight: 900;
@@ -219,6 +255,7 @@
   border-top: 2px solid var(--color-border);
 }
 
+/* Cible : .app-shell .footer-separator */
 .app-shell .footer-separator {
   display: inline-block;
   color: var(--accent);
@@ -226,11 +263,13 @@
 }
 
 /* ---------- Conteneur de page : entrée qui rebondit ---------- */
+/* Cible : .app-shell .page-container */
 .app-shell .page-container {
   animation: duo-page-enter 0.75s var(--motion-wobble) both;
 }
 
 /* ---------- Navigation mobile ---------- */
+/* Cible : .app-shell .bottom-nav */
 .app-shell .bottom-nav {
   background: rgb(8 9 16 / 94%);
   border-top: 2px solid var(--color-border);
@@ -239,35 +278,41 @@
   -webkit-backdrop-filter: blur(16px) saturate(1.3);
 }
 
+/* Cible : .app-shell .bottom-nav-item */
 .app-shell .bottom-nav-item {
   transition: transform 0.4s var(--motion-spring), color 0.2s;
 }
 
+/* Cible : .app-shell .bottom-nav-item:active */
 .app-shell .bottom-nav-item:active { transform: scale(0.84, 0.78); }
 
+/* Cible : .app-shell .bottom-nav-icon */
 .app-shell .bottom-nav-icon {
   display: grid;
   place-items: center;
   width: 52px;
   height: 34px;
-  border-radius: 16px;
+  border-radius: 8px;
   transition: background-color 0.25s, transform 0.4s var(--motion-spring);
 }
 
 /* Bulle Duolingo sous l'icône active */
+/* Cible : .app-shell .bottom-nav-item.active .bottom-nav-icon */
 .app-shell .bottom-nav-item.active .bottom-nav-icon {
   background: var(--category-color);
   color: #FFFFFF;
-  border-bottom: 3px solid color-mix(in srgb, var(--category-color) 55%, #000);
+  border-bottom: 2px solid color-mix(in srgb, var(--category-color) 55%, #000);
   animation: duo-bounce 0.8s var(--motion-wobble);
 }
 
+/* Cible : .app-shell .bottom-nav-item.active .bottom-nav-label */
 .app-shell .bottom-nav-item.active .bottom-nav-label {
   color: var(--category-color);
   font-family: var(--font-display);
   font-weight: 900;
 }
 
+/* Cible : .app-shell .bottom-nav-label */
 .app-shell .bottom-nav-label {
   font-family: var(--font-display);
   font-weight: 900;
@@ -275,19 +320,23 @@
   letter-spacing: 0.02em;
 }
 
+/* Cible : .app-shell .bottom-nav-menu */
 .app-shell .bottom-nav-menu {
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 6px;
-  border-radius: 24px;
+  border-bottom-width: 2px;
+  border-radius: 12px;
   background: #0D0F1B;
-  box-shadow: 0 10px 0 var(--depth-surface), 0 30px 60px -10px rgb(0 0 0 / 85%);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 30px 60px -10px rgb(0 0 0 / 85%);
   animation: duo-pop-in 0.5s var(--motion-wobble) both;
 }
 
+/* Cible : .app-shell .bottom-nav-menu-item */
 .app-shell .bottom-nav-menu-item {
-  border-radius: 16px;
+  border-radius: 8px;
   transition: transform 0.35s var(--motion-spring), background-color 0.2s;
 }
 
+/* Cible : .app-shell .bottom-nav-menu-item:hover */
 .app-shell .bottom-nav-menu-item:hover { transform: translateX(5px) scale(1.03, 0.96); }
+/* Cible : .app-shell .bottom-nav-menu-item:active */
 .app-shell .bottom-nav-menu-item:active { transform: scale(0.93, 0.88); }

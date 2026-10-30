@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/sessions.css
+   ZONE    : Page Entraînement
+   RÔLE    : Sessions
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Liste des séances
    ========================================================= */
 
+   /* Cible : .training-session-list */
    .training-session-list {
     display: flex;
     flex-direction: column;
@@ -13,6 +23,7 @@
   
   /* ---------- Carte de séance ---------- */
   
+  /* Cible : .training-session-card */
   .training-session-card {
     display: flex;
     align-items: stretch;
@@ -39,6 +50,7 @@
       transform var(--transition-base, 220ms ease);
   }
   
+  /* Cible : .training-session-card:hover */
   .training-session-card:hover {
     border-color: var(--color-border-strong);
     box-shadow: 0 8px 22px rgb(0 0 0 / 12%);
@@ -46,6 +58,7 @@
   
   /* ---------- Barre latérale ---------- */
   
+  /* Cible : .training-session-marker */
   .training-session-marker {
     flex: 0 0 4px;
     align-self: stretch;
@@ -61,6 +74,7 @@
     box-shadow: 0 0 12px rgb(170 145 255 / 12%);
   }
   
+  /* Cible : .training-session-card:nth-child(even) .training-session-marker */
   .training-session-card:nth-child(even) .training-session-marker {
     background: linear-gradient(
       180deg,
@@ -73,11 +87,13 @@
   
   /* ---------- Contenu ---------- */
   
+  /* Cible : .training-session-content */
   .training-session-content {
     flex: 1 1 auto;
     min-width: 0;
   }
   
+  /* Cible : .training-session-type */
   .training-session-type {
     display: inline-block;
     color: var(--color-accent);
@@ -89,6 +105,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .training-session-content h3 */
   .training-session-content h3 {
     margin: 6px 0 8px;
   
@@ -101,6 +118,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .training-session-notes */
   .training-session-notes {
     margin: 0 0 12px;
   
@@ -114,6 +132,7 @@
   
   /* ---------- Statuts ---------- */
   
+  /* Cible : .training-status */
   .training-status {
     display: inline-flex;
     align-items: center;
@@ -132,18 +151,21 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .training-status-planned */
   .training-status-planned {
     color: var(--color-primary);
     background: var(--color-primary-light);
     border-color: rgb(170 145 255 / 18%);
   }
   
+  /* Cible : .training-status-completed */
   .training-status-completed {
     color: var(--color-success);
     background: var(--color-success-light);
     border-color: rgb(82 227 173 / 18%);
   }
   
+  /* Cible : .training-status-cancelled */
   .training-status-cancelled {
     color: var(--color-danger);
     background: var(--color-danger-light);
@@ -152,6 +174,7 @@
   
   /* ---------- Actions ---------- */
   
+  /* Cible : .training-session-actions */
   .training-session-actions {
     display: flex;
     flex-wrap: wrap;
@@ -163,18 +186,22 @@
     min-width: 0;
   }
   
+  /* Cible : .training-session-actions button */
   .training-session-actions button {
     max-width: 100%;
   }
   
   /* ---------- Adaptation tablette ---------- */
   
+  /* Règles responsive — (max-width: 760px) */
   @media (max-width: 760px) {
+    /* Cible : .training-session-card */
     .training-session-card {
       gap: 12px;
       padding: 15px;
     }
   
+    /* Cible : .training-session-actions */
     .training-session-actions {
       gap: 6px;
     }
@@ -182,7 +209,9 @@
   
   /* ---------- Adaptation mobile ---------- */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .training-session-card */
     .training-session-card {
       flex-wrap: wrap;
       gap: 12px;
@@ -190,19 +219,23 @@
       border-radius: 14px;
     }
   
+    /* Cible : .training-session-marker */
     .training-session-marker {
       flex-basis: 3px;
       min-height: 44px;
     }
   
+    /* Cible : .training-session-content */
     .training-session-content {
       flex: 1 1 calc(100% - 18px);
     }
   
+    /* Cible : .training-session-content h3 */
     .training-session-content h3 {
       font-size: 14px;
     }
   
+    /* Cible : .training-session-actions */
     .training-session-actions {
       width: 100%;
       padding-left: 15px;
@@ -210,7 +243,9 @@
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-session-card */
     .training-session-card {
       transition: none;
     }

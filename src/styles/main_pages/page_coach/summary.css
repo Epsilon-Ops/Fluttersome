@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/summary.css
+   ZONE    : Page Coach
+   RÔLE    : Summary
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Summary
    Black Diamond Premium++
    ========================================================= */
 
+   /* Cible : .coach-summary > p */
    .coach-summary > p {
     margin: 0;
     color: var(--coach-text-soft);
@@ -14,12 +24,14 @@
   
   /* Bloc des priorités */
   
+  /* Cible : .coach-summary__priorities */
   .coach-summary__priorities {
     margin-top: 24px;
     padding-top: 20px;
     border-top: 1px solid var(--coach-border);
   }
   
+  /* Cible : .coach-summary__priorities h3 */
   .coach-summary__priorities h3 {
     display: flex;
     align-items: center;
@@ -31,6 +43,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .coach-summary__priorities ul */
   .coach-summary__priorities ul {
     display: grid;
     gap: 11px;
@@ -39,6 +52,7 @@
     list-style: none;
   }
   
+  /* Cible : .coach-summary__priorities li */
   .coach-summary__priorities li {
     position: relative;
     min-width: 0;
@@ -56,6 +70,7 @@
       color var(--coach-transition);
   }
   
+  /* Cible : .coach-summary__priorities li::before */
   .coach-summary__priorities li::before {
     position: absolute;
     top: 19px;
@@ -68,6 +83,7 @@
     content: "";
   }
   
+  /* Cible : .coach-summary__priorities > p */
   .coach-summary__priorities > p {
     margin: 12px 0 0;
     color: var(--coach-muted);
@@ -75,7 +91,9 @@
     line-height: 1.7;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .coach-summary__priorities li:hover */
     .coach-summary__priorities li:hover {
       border-color: var(--coach-border-strong);
       background: rgba(139, 92, 246, 0.07);
@@ -83,17 +101,21 @@
     }
   }
   
+  /* Règles responsive — (max-width: 520px) */
   @media (max-width: 520px) {
+    /* Cible : .coach-summary__priorities */
     .coach-summary__priorities {
       margin-top: 20px;
       padding-top: 17px;
     }
   
+    /* Cible : .coach-summary__priorities li */
     .coach-summary__priorities li {
       padding: 11px 12px 11px 31px;
       font-size: 0.87rem;
     }
   
+    /* Cible : .coach-summary__priorities li::before */
     .coach-summary__priorities li::before {
       left: 12px;
     }

@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/cards.css
+   ZONE    : Page Nutrition
+   RÔLE    : Cards
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — CARTES PREMIUM */
 
+/* Cible : .nutrition-page .nutrition-card, .hydration-page .hydration-card */
 .nutrition-page .nutrition-card,
 .hydration-page .hydration-card {
   position: relative;
@@ -31,6 +41,7 @@
     transform 180ms ease;
 }
 
+/* Cible : .nutrition-page .nutrition-card h2, .hydration-page .hydration-card h2 */
 .nutrition-page .nutrition-card h2,
 .hydration-page .hydration-card h2 {
   margin: 0 0 10px;
@@ -42,11 +53,13 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .nutrition-page .nutrition-card h3, .hydration-page .hydration-card h3 */
 .nutrition-page .nutrition-card h3,
 .hydration-page .hydration-card h3 {
   color: var(--nutrition-text-soft);
 }
 
+/* Cible : .hydration-page .hydration-muted */
 .hydration-page .hydration-muted {
   margin-bottom: 0;
   color: var(--nutrition-muted);
@@ -54,12 +67,15 @@
   line-height: 1.7;
 }
 
+/* Cible : .nutrition-page .nutrition-card :where(p, label), .hydration-page .hydration-card :where(p, label) */
 .nutrition-page .nutrition-card :where(p, label),
 .hydration-page .hydration-card :where(p, label) {
   overflow-wrap: anywhere;
 }
 
+/* Règles responsive — (hover: hover) and (pointer: fine) */
 @media (hover: hover) and (pointer: fine) {
+  /* Cible : .nutrition-page .nutrition-card:hover, .hydration-page .hydration-card:hover */
   .nutrition-page .nutrition-card:hover,
   .hydration-page .hydration-card:hover {
     border-color: var(--nutrition-border-strong);
@@ -69,7 +85,9 @@
   }
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .nutrition-page .nutrition-card, .hydration-page .hydration-card */
   .nutrition-page .nutrition-card,
   .hydration-page .hydration-card {
     padding: 17px;

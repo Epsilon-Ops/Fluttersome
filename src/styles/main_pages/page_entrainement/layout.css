@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/layout.css
+   ZONE    : Page Entraînement
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Structure générale
    ========================================================= */
 
+   /* Cible : .training-page */
    .training-page {
     width: 100%;
     min-width: 0;
@@ -13,12 +23,14 @@
       cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
   
+  /* Cible : .training-page *, .training-page *::before, .training-page *::after */
   .training-page *,
   .training-page *::before,
   .training-page *::after {
     box-sizing: border-box;
   }
   
+  /* Cible : .training-page .welcome-section */
   .training-page .welcome-section {
     position: relative;
     overflow: hidden;
@@ -41,6 +53,7 @@
     box-shadow: var(--shadow-card);
   }
   
+  /* Cible : .training-page .welcome-section::after */
   .training-page .welcome-section::after {
     position: absolute;
     top: 0;
@@ -57,6 +70,7 @@
     opacity: 0.8;
   }
   
+  /* Cible : .training-page .welcome-description */
   .training-page .welcome-description {
     max-width: 680px;
     color: var(--color-muted-strong);
@@ -65,6 +79,7 @@
   
   /* ---------- Panneaux ---------- */
   
+  /* Cible : .training-week-panel, .training-panel */
   .training-week-panel,
   .training-panel {
     min-width: 0;
@@ -87,11 +102,13 @@
       background-color var(--transition-base);
   }
   
+  /* Cible : .training-week-panel:hover, .training-panel:hover */
   .training-week-panel:hover,
   .training-panel:hover {
     border-color: var(--color-border-strong);
   }
   
+  /* Cible : .training-page .training-week-panel:last-child, .training-page .training-panel:last-child */
   .training-page .training-week-panel:last-child,
   .training-page .training-panel:last-child {
     margin-bottom: 0;
@@ -99,6 +116,7 @@
   
   /* ---------- En-têtes partagés ---------- */
   
+  /* Cible : .training-week-heading, .training-section-heading, .training-panel-heading */
   .training-week-heading,
   .training-section-heading,
   .training-panel-heading {
@@ -109,10 +127,12 @@
     min-width: 0;
   }
   
+  /* Cible : .training-week-heading */
   .training-week-heading {
     margin-bottom: 20px;
   }
   
+  /* Cible : .training-week-heading h2, .training-section-heading h2, .training-panel-heading h2 */
   .training-week-heading h2,
   .training-section-heading h2,
   .training-panel-heading h2 {
@@ -124,20 +144,24 @@
     letter-spacing: -0.025em;
   }
   
+  /* Cible : .training-section-heading */
   .training-section-heading {
     margin: 28px 0 14px;
   }
   
+  /* Cible : .training-panel-heading */
   .training-panel-heading {
     margin-bottom: 18px;
   }
   
+  /* Cible : .training-panel-heading h2 */
   .training-panel-heading h2 {
     color: var(--color-primary);
   }
   
   /* ---------- Labels et textes secondaires ---------- */
   
+  /* Cible : .training-page .eyebrow */
   .training-page .eyebrow {
     color: var(--color-accent);
     font-size: 10px;
@@ -146,6 +170,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .training-page small, .training-page .muted */
   .training-page small,
   .training-page .muted {
     color: var(--color-muted);
@@ -153,6 +178,7 @@
   
   /* ---------- Badge de stockage local ---------- */
   
+  /* Cible : .training-local-badge */
   .training-local-badge {
     display: inline-flex;
     align-items: center;
@@ -167,6 +193,7 @@
     font-weight: 700;
   }
   
+  /* Cible : .training-local-badge > span */
   .training-local-badge > span {
     flex: 0 0 7px;
     width: 7px;
@@ -178,6 +205,7 @@
   
   /* ---------- États de focus ---------- */
   
+  /* Cible : .training-page button:focus-visible, .training-page a:focus-visible, .training-page input:focus-visible, .training-page select:focus-visible, .training-page textarea:f… */
   .training-page button:focus-visible,
   .training-page a:focus-visible,
   .training-page input:focus-visible,
@@ -189,6 +217,7 @@
   
   /* ---------- Animations ---------- */
   
+  /* Animation : training-fade-in */
   @keyframes training-fade-in {
     from {
       opacity: 0;
@@ -201,11 +230,14 @@
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-page */
     .training-page {
       animation: none;
     }
   
+    /* Cible : .training-page *, .training-page *::before, .training-page *::after */
     .training-page *,
     .training-page *::before,
     .training-page *::after {

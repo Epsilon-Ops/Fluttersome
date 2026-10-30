@@ -1,23 +1,36 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/statistics.css
+   ZONE    : Page Sommeil
+   RÔLE    : Statistics
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP STATISTICS
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .sleep-statistics-panel */
    .sleep-statistics-panel {
     display: grid;
     gap: 1rem;
     min-width: 0;
   }
   
+  /* Cible : .sleep-statistics-panel > .panel */
   .sleep-statistics-panel > .panel {
     padding: clamp(1rem, 3vw, 1.5rem);
   }
   
+  /* Cible : .sleep-statistics-panel .sleep-metric-grid */
   .sleep-statistics-panel .sleep-metric-grid {
     margin-top: 1rem;
   }
   
+  /* Cible : .sleep-statistics-panel p */
   .sleep-statistics-panel p {
     color: var(--sleep-muted);
     font-size: 0.9rem;
@@ -26,6 +39,7 @@
   
   /* Carte de préparation future */
   
+  /* Cible : .sleep-readiness-placeholder */
   .sleep-readiness-placeholder {
     display: flex;
     min-width: 0;
@@ -50,6 +64,7 @@
     box-shadow: var(--sleep-shadow-card);
   }
   
+  /* Cible : .sleep-readiness-placeholder h3 */
   .sleep-readiness-placeholder h3 {
     margin: 0.4rem 0;
     color: var(--sleep-text);
@@ -59,6 +74,7 @@
     line-height: 1.4;
   }
   
+  /* Cible : .sleep-readiness-placeholder p */
   .sleep-readiness-placeholder p {
     margin: 0;
     color: var(--sleep-muted);
@@ -66,6 +82,7 @@
     line-height: 1.75;
   }
   
+  /* Cible : .sleep-readiness-note */
   .sleep-readiness-note {
     display: flex;
     align-items: flex-start;
@@ -80,22 +97,27 @@
     line-height: 1.65;
   }
   
+  /* Cible : .sleep-coming-soon */
   .sleep-coming-soon {
     align-self: flex-start;
   }
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .sleep-statistics-panel */
     .sleep-statistics-panel {
       gap: 0.8rem;
     }
   
+    /* Cible : .sleep-readiness-placeholder */
     .sleep-readiness-placeholder {
       gap: 0.85rem;
       border-radius: var(--sleep-radius-md);
     }
   
+    /* Cible : .sleep-readiness-note */
     .sleep-readiness-note {
       padding: 0.8rem;
     }

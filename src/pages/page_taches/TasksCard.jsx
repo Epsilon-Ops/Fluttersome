@@ -16,6 +16,7 @@ function getReadableInk(hex = '#000000') {
 
 export default function TasksCard({
   task,
+  dragHandleProps,
   onToggleCompleted,
   onEdit,
   onDelete,
@@ -60,12 +61,13 @@ export default function TasksCard({
         <span />
       </label>
 
-      <div className="task-card-icon">
-      <AppIcon
-  name={task.icon || 'check'}
-  size={36}
-  strokeWidth={1.4}
-/>
+      {/* L'icône sert de poignée : on la glisse pour réordonner */}
+      <div className="task-card-icon sortable-handle" {...dragHandleProps}>
+        <AppIcon
+          name={task.icon || 'check'}
+          size={36}
+          strokeWidth={1.4}
+        />
       </div>
 
       <div className="task-card-main">

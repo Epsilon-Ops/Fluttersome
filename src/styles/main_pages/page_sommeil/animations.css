@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/animations.css
+   ZONE    : Page Sommeil
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP MOTION SYSTEM
@@ -5,6 +14,7 @@
    Animations légères et accessibles
    ===================================================== */
 
+   /* Cible : .sleep-page */
    .sleep-page {
     --sleep-motion-fast: 160ms ease;
     --sleep-motion-normal: 240ms ease;
@@ -13,6 +23,7 @@
   
   /* Apparition progressive du contenu */
   
+  /* Animation : sleep-content-enter */
   @keyframes sleep-content-enter {
     from {
       opacity: 0;
@@ -25,6 +36,7 @@
     }
   }
   
+  /* Cible : .sleep-page > .section-heading, .sleep-page > .sleep-tabs, .sleep-page > .sleep-error, .sleep-page > .sleep-primary-action, .sleep-page > .body-feeling-section */
   .sleep-page > .section-heading,
   .sleep-page > .sleep-tabs,
   .sleep-page > .sleep-error,
@@ -33,20 +45,24 @@
     animation: sleep-content-enter var(--sleep-motion-smooth) both;
   }
   
+  /* Cible : .sleep-page > .section-heading */
   .sleep-page > .section-heading {
     animation-delay: 20ms;
   }
   
+  /* Cible : .sleep-page > .sleep-tabs */
   .sleep-page > .sleep-tabs {
     animation-delay: 50ms;
   }
   
+  /* Cible : .sleep-page > .sleep-primary-action */
   .sleep-page > .sleep-primary-action {
     animation-delay: 70ms;
   }
   
   /* Indicateur du mode local */
   
+  /* Animation : sleep-status-glow */
   @keyframes sleep-status-glow {
     0%,
     100% {
@@ -60,12 +76,14 @@
     }
   }
   
+  /* Cible : .sleep-page .section-tag-dot */
   .sleep-page .section-tag-dot {
     animation: sleep-status-glow 3s ease-in-out infinite;
   }
   
   /* Interactions des boutons */
   
+  /* Cible : .sleep-page .sleep-primary-button */
   .sleep-page .sleep-primary-button {
     transition:
       transform var(--sleep-motion-fast),
@@ -74,21 +92,26 @@
       background var(--sleep-motion-normal);
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .sleep-page .sleep-primary-button:hover:not(:disabled) */
     .sleep-page .sleep-primary-button:hover:not(:disabled) {
       transform: translateY(-2px);
     }
   
+    /* Cible : .sleep-page .sleep-primary-button:active:not(:disabled) */
     .sleep-page .sleep-primary-button:active:not(:disabled) {
       transform: translateY(0);
     }
   }
   
+  /* Cible : .sleep-page .sleep-primary-button:focus-visible */
   .sleep-page .sleep-primary-button:focus-visible {
     outline: 2px solid #a78bfa;
     outline-offset: 4px;
   }
   
+  /* Cible : .sleep-page .sleep-primary-button:disabled */
   .sleep-page .sleep-primary-button:disabled {
     cursor: not-allowed;
     opacity: 0.55;
@@ -96,13 +119,16 @@
   
   /* Entrée et sortie visuelles des alertes */
   
+  /* Cible : .sleep-page .sleep-error */
   .sleep-page .sleep-error {
     animation: sleep-content-enter var(--sleep-motion-normal) both;
   }
   
   /* Accessibilité : animations désactivées si demandé */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .sleep-page *, .sleep-page *::before, .sleep-page *::after */
     .sleep-page *,
     .sleep-page *::before,
     .sleep-page *::after {

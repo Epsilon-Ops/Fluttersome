@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/empty-state.css
+   ZONE    : Page Entraînement
+   RÔLE    : Empty state
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    EPSILON — ENTRAÎNEMENT
    États vides et stockage
    Black Diamond Premium++
    ========================================================= */
 
+   /* Cible : .training-empty-state */
    .training-empty-state {
     display: flex;
     flex-direction: column;
@@ -14,6 +24,7 @@
     text-align: center;
   }
   
+  /* Cible : .training-empty-icon */
   .training-empty-icon {
     display: grid;
     place-items: center;
@@ -37,6 +48,7 @@
     box-shadow: var(--shadow-glow);
   }
   
+  /* Cible : .training-empty-state h3 */
   .training-empty-state h3 {
     margin: 0 0 9px;
   
@@ -46,6 +58,7 @@
     letter-spacing: -0.015em;
   }
   
+  /* Cible : .training-empty-state p */
   .training-empty-state p {
     max-width: 440px;
     margin: 0 0 20px;
@@ -55,6 +68,7 @@
     line-height: 1.8;
   }
   
+  /* Cible : .training-storage-note */
   .training-storage-note {
     margin: 16px 2px 0;
   
@@ -63,11 +77,14 @@
     line-height: 1.75;
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .training-empty-state */
     .training-empty-state {
       padding: 28px 14px;
     }
   
+    /* Cible : .training-empty-icon */
     .training-empty-icon {
       width: 44px;
       height: 44px;
@@ -76,21 +93,26 @@
       font-size: 22px;
     }
   
+    /* Cible : .training-empty-state h3 */
     .training-empty-state h3 {
       font-size: 15px;
     }
   
+    /* Cible : .training-empty-state p */
     .training-empty-state p {
       margin-bottom: 16px;
     }
   
+    /* Cible : .training-storage-note */
     .training-storage-note {
       margin-top: 12px;
       font-size: 10px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-empty-state *, .training-empty-icon */
     .training-empty-state *,
     .training-empty-icon {
       animation: none !important;

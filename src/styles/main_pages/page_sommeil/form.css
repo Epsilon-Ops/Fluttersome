@@ -1,15 +1,26 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/form.css
+   ZONE    : Page Sommeil
+   RÔLE    : Form
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP FORM
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .sleep-form-panel */
    .sleep-form-panel {
     min-width: 0;
     margin-bottom: 1rem;
     padding: clamp(1rem, 3vw, 1.5rem);
   }
   
+  /* Cible : .sleep-form */
   .sleep-form {
     display: flex;
     min-width: 0;
@@ -18,12 +29,14 @@
     margin-top: 1.25rem;
   }
   
+  /* Cible : .sleep-form-grid */
   .sleep-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
   
+  /* Cible : .sleep-field */
   .sleep-field {
     display: flex;
     min-width: 0;
@@ -31,6 +44,7 @@
     gap: 0.5rem;
   }
   
+  /* Cible : .sleep-field > span, .sleep-field > label */
   .sleep-field > span,
   .sleep-field > label {
     color: var(--sleep-text-soft);
@@ -39,6 +53,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .sleep-field input, .sleep-field select, .sleep-field textarea */
   .sleep-field input,
   .sleep-field select,
   .sleep-field textarea {
@@ -58,12 +73,14 @@
       box-shadow var(--sleep-motion-fast);
   }
   
+  /* Cible : .sleep-field input:hover, .sleep-field select:hover, .sleep-field textarea:hover */
   .sleep-field input:hover,
   .sleep-field select:hover,
   .sleep-field textarea:hover {
     border-color: var(--sleep-border-strong);
   }
   
+  /* Cible : .sleep-field input:focus, .sleep-field select:focus, .sleep-field textarea:focus */
   .sleep-field input:focus,
   .sleep-field select:focus,
   .sleep-field textarea:focus {
@@ -72,22 +89,26 @@
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.13);
   }
   
+  /* Cible : .sleep-field input::placeholder, .sleep-field textarea::placeholder */
   .sleep-field input::placeholder,
   .sleep-field textarea::placeholder {
     color: #8887a2;
     opacity: 1;
   }
   
+  /* Cible : .sleep-field select option */
   .sleep-field select option {
     background: var(--sleep-surface);
     color: var(--sleep-text);
   }
   
+  /* Cible : .sleep-field input[type="date"], .sleep-field input[type="time"] */
   .sleep-field input[type="date"],
   .sleep-field input[type="time"] {
     color-scheme: dark;
   }
   
+  /* Cible : .sleep-field input[type="range"] */
   .sleep-field input[type="range"] {
     min-height: auto;
     padding: 0.5rem 0;
@@ -99,6 +120,7 @@
     box-shadow: none;
   }
   
+  /* Cible : .sleep-field textarea */
   .sleep-field textarea {
     min-height: 100px;
     resize: vertical;
@@ -106,6 +128,7 @@
   
   /* Groupes de champs */
   
+  /* Cible : .sleep-fieldset */
   .sleep-fieldset {
     display: flex;
     min-width: 0;
@@ -118,6 +141,7 @@
     background: rgba(255, 255, 255, 0.012);
   }
   
+  /* Cible : .sleep-fieldset legend */
   .sleep-fieldset legend {
     padding: 0 0.4rem;
     color: var(--sleep-text);
@@ -127,6 +151,7 @@
   
   /* Cases à cocher */
   
+  /* Cible : .sleep-checkbox */
   .sleep-checkbox {
     display: flex;
     align-items: flex-start;
@@ -137,6 +162,7 @@
     cursor: pointer;
   }
   
+  /* Cible : .sleep-checkbox input[type="checkbox"] */
   .sleep-checkbox input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -148,6 +174,7 @@
   
   /* Actions du formulaire */
   
+  /* Cible : .sleep-form-actions */
   .sleep-form-actions {
     display: flex;
     flex-wrap: wrap;
@@ -157,34 +184,42 @@
     border-top: 1px solid var(--sleep-border);
   }
   
+  /* Cible : .sleep-form-actions button */
   .sleep-form-actions button {
     min-width: 120px;
   }
   
+  /* Cible : .sleep-form .sleep-error */
   .sleep-form .sleep-error {
     margin-bottom: 0;
   }
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .sleep-form-grid */
     .sleep-form-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
     }
   
+    /* Cible : .sleep-form-actions */
     .sleep-form-actions {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .sleep-form-actions button */
     .sleep-form-actions button {
       width: 100%;
       min-width: 0;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .sleep-field input, .sleep-field select, .sleep-field textarea */
     .sleep-field input,
     .sleep-field select,
     .sleep-field textarea {

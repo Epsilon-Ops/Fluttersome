@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/block-builder.css
+   ZONE    : Page Entraînement
+   RÔLE    : Block builder
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Constructeur de séances par blocs
    ========================================================= */
 
+   /* Cible : .training-block-card */
    .training-block-card {
     position: relative;
     min-width: 0;
@@ -30,12 +40,14 @@
       box-shadow var(--transition-base, 220ms ease);
   }
   
+  /* Cible : .training-block-card:hover */
   .training-block-card:hover {
     border-color: var(--color-border-strong);
   }
   
   /* ---------- En-tête du bloc ---------- */
   
+  /* Cible : .training-block-heading */
   .training-block-heading {
     display: flex;
     align-items: center;
@@ -49,6 +61,7 @@
     border-bottom: 1px solid var(--color-border);
   }
   
+  /* Cible : .training-block-heading h3 */
   .training-block-heading h3 {
     margin: 0;
     color: var(--color-primary);
@@ -60,6 +73,7 @@
   
   /* ---------- Actions du bloc ---------- */
   
+  /* Cible : .training-block-actions */
   .training-block-actions {
     display: flex;
     align-items: center;
@@ -67,6 +81,7 @@
     gap: 8px;
   }
   
+  /* Cible : .training-block-actions button */
   .training-block-actions button {
     transition:
       transform var(--transition-fast, 160ms ease),
@@ -75,20 +90,24 @@
       box-shadow var(--transition-base, 220ms ease);
   }
   
+  /* Cible : .training-block-actions button:hover */
   .training-block-actions button:hover {
     border-color: var(--color-border-strong);
   }
   
+  /* Cible : .training-block-actions button:active */
   .training-block-actions button:active {
     transform: scale(0.97);
   }
   
   /* ---------- Grille de formulaire ---------- */
   
+  /* Cible : .training-block-card .training-form-grid */
   .training-block-card .training-form-grid {
     margin-top: 0;
   }
   
+  /* Cible : .training-block-card .training-field-help */
   .training-block-card .training-field-help {
     display: block;
     margin-top: 6px;
@@ -100,6 +119,7 @@
   
   /* ---------- Champs ---------- */
   
+  /* Cible : .training-block-card input, .training-block-card select, .training-block-card textarea */
   .training-block-card input,
   .training-block-card select,
   .training-block-card textarea {
@@ -109,6 +129,7 @@
     min-width: 0;
   }
   
+  /* Cible : .training-block-card input, .training-block-card select, .training-block-card textarea */
   .training-block-card input,
   .training-block-card select,
   .training-block-card textarea {
@@ -117,6 +138,7 @@
     border-color: var(--color-border);
   }
   
+  /* Cible : .training-block-card input:focus, .training-block-card select:focus, .training-block-card textarea:focus */
   .training-block-card input:focus,
   .training-block-card select:focus,
   .training-block-card textarea:focus {
@@ -126,13 +148,16 @@
   
   /* ---------- Mobile ---------- */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .training-block-card */
     .training-block-card {
       padding: 14px;
       margin-bottom: 13px;
       border-radius: 14px;
     }
   
+    /* Cible : .training-block-heading */
     .training-block-heading {
       align-items: flex-start;
       gap: 10px;
@@ -140,25 +165,31 @@
       padding-bottom: 12px;
     }
   
+    /* Cible : .training-block-heading h3 */
     .training-block-heading h3 {
       font-size: 15px;
     }
   
+    /* Cible : .training-block-actions */
     .training-block-actions {
       width: 100%;
     }
   
+    /* Cible : .training-block-actions button */
     .training-block-actions button {
       max-width: 100%;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-block-card, .training-block-actions button */
     .training-block-card,
     .training-block-actions button {
       transition: none;
     }
   
+    /* Cible : .training-block-actions button:active */
     .training-block-actions button:active {
       transform: none;
     }

@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/session-list.css
+   ZONE    : Page Musculation
+   RÔLE    : Session list
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .strength-empty-state */
 .strength-empty-state {
   margin: 0;
   padding: 30px 16px;
@@ -11,12 +21,14 @@
   text-align: center;
 }
 
+/* Cible : .strength-session-list */
 .strength-session-list {
   display: grid;
   gap: 12px;
   min-width: 0;
 }
 
+/* Cible : .strength-session-card */
 .strength-session-card {
   position: relative;
   display: flex;
@@ -46,6 +58,7 @@
     box-shadow 180ms ease;
 }
 
+/* Cible : .strength-session-card strong */
 .strength-session-card strong {
   color: var(--color-text, #f4f4fb);
   font-size: 14px;
@@ -54,6 +67,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-session-card p */
 .strength-session-card p {
   margin: 5px 0 0;
   color: var(--color-muted, #a1a1b5);
@@ -62,6 +76,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-session-block-count */
 .strength-session-block-count {
   flex-shrink: 0;
   padding: 6px 9px;
@@ -74,7 +89,9 @@
   text-align: center;
 }
 
+/* Règles responsive — (hover: hover) */
 @media (hover: hover) {
+  /* Cible : .strength-session-card:hover */
   .strength-session-card:hover {
     border-color: rgba(167, 139, 250, 0.32);
     background:
@@ -91,12 +108,14 @@
   }
 }
 
+/* Cible : .training-primary-button, .training-secondary-button */
 .training-primary-button,
 .training-secondary-button {
   font: inherit;
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Cible : .training-secondary-button */
 .training-secondary-button {
   display: inline-flex;
   align-items: center;
@@ -123,21 +142,25 @@
     transform 180ms ease;
 }
 
+/* Cible : .training-secondary-button:hover */
 .training-secondary-button:hover {
   border-color: rgba(167, 139, 250, 0.48);
   background: rgba(139, 92, 246, 0.09);
   color: #ddd6fe;
 }
 
+/* Cible : .training-secondary-button:active */
 .training-secondary-button:active {
   transform: translateY(1px);
 }
 
+/* Cible : .training-secondary-button:focus-visible */
 .training-secondary-button:focus-visible {
   outline: 2px solid #a78bfa;
   outline-offset: 3px;
 }
 
+/* Cible : .eyebrow */
 .eyebrow {
   display: inline-block;
   color: var(--color-muted, #a1a1b5);
@@ -148,34 +171,42 @@
   text-transform: uppercase;
 }
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .strength-empty-state */
   .strength-empty-state {
     padding: 23px 12px;
     font-size: 12px;
   }
 
+  /* Cible : .strength-session-card */
   .strength-session-card {
     align-items: flex-start;
     gap: 10px;
     padding: 13px;
   }
 
+  /* Cible : .strength-session-card strong */
   .strength-session-card strong {
     font-size: 13px;
   }
 
+  /* Cible : .strength-session-block-count */
   .strength-session-block-count {
     max-width: 100px;
     font-size: 10px;
   }
 
+  /* Cible : .training-secondary-button */
   .training-secondary-button {
     min-height: 36px;
     padding: 8px 10px;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-session-card, .training-secondary-button */
   .strength-session-card,
   .training-secondary-button {
     transition: none;

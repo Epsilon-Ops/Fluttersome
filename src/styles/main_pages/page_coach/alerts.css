@@ -1,15 +1,26 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/alerts.css
+   ZONE    : Page Coach
+   RÔLE    : Alerts
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Alerts
    Black Diamond Premium++
    ========================================================= */
 
+   /* Cible : .coach-alerts__list */
    .coach-alerts__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
   
+  /* Cible : .coach-alert */
   .coach-alert {
     position: relative;
     min-width: 0;
@@ -27,6 +38,7 @@
       box-shadow var(--coach-transition);
   }
   
+  /* Cible : .coach-alert h3 */
   .coach-alert h3 {
     margin: 0 0 8px;
     color: var(--coach-text);
@@ -36,6 +48,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .coach-alert p */
   .coach-alert p {
     margin: 8px 0 0;
     color: var(--coach-muted);
@@ -44,10 +57,12 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .coach-alert--info */
   .coach-alert--info {
     border-left-color: var(--coach-info);
   }
   
+  /* Cible : .coach-alert--warning */
   .coach-alert--warning {
     border-left-color: var(--coach-warning);
     background:
@@ -55,6 +70,7 @@
       var(--coach-surface);
   }
   
+  /* Cible : .coach-alert--danger */
   .coach-alert--danger {
     border-left-color: var(--coach-danger);
     background:
@@ -62,13 +78,16 @@
       var(--coach-surface);
   }
   
+  /* Cible : .coach-alerts > p */
   .coach-alerts > p {
     margin-bottom: 0;
     color: var(--coach-muted);
     line-height: 1.7;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .coach-alert:hover */
     .coach-alert:hover {
       transform: translateY(-2px);
       border-top-color: var(--coach-border-strong);
@@ -78,18 +97,23 @@
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .coach-alerts__list */
     .coach-alerts__list {
       grid-template-columns: minmax(0, 1fr);
       gap: 12px;
     }
   
+    /* Cible : .coach-alert */
     .coach-alert {
       padding: 15px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .coach-alert */
     .coach-alert {
       transition: none;
     }

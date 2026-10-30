@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/cards.css
+   ZONE    : Page Sommeil
+   RÔLE    : Cards
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP OVERVIEW & METRICS
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .sleep-overview */
    .sleep-overview {
     display: grid;
     gap: 1rem;
@@ -12,6 +22,7 @@
   
   /* Carte principale */
   
+  /* Cible : .sleep-main-card */
   .sleep-main-card {
     min-width: 0;
     padding: clamp(1.1rem, 3vw, 1.6rem);
@@ -29,6 +40,7 @@
       var(--sleep-surface);
   }
   
+  /* Cible : .sleep-duration-display */
   .sleep-duration-display {
     margin: 1.25rem 0 0.5rem;
     color: var(--sleep-text);
@@ -41,12 +53,14 @@
     text-shadow: 0 0 32px rgba(139, 92, 246, 0.09);
   }
   
+  /* Cible : .sleep-main-card .welcome-description */
   .sleep-main-card .welcome-description {
     margin: 0.6rem 0 1.25rem;
   }
   
   /* Détails de la nuit */
   
+  /* Cible : .sleep-night-details */
   .sleep-night-details {
     display: flex;
     flex-wrap: wrap;
@@ -55,6 +69,7 @@
     border-top: 1px solid var(--sleep-border);
   }
   
+  /* Cible : .sleep-night-details span */
   .sleep-night-details span {
     display: inline-flex;
     align-items: center;
@@ -71,6 +86,7 @@
   
   /* Grille des métriques */
   
+  /* Cible : .sleep-metric-grid */
   .sleep-metric-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -78,6 +94,7 @@
     min-width: 0;
   }
   
+  /* Cible : .sleep-metric-card */
   .sleep-metric-card {
     display: flex;
     min-width: 0;
@@ -101,6 +118,7 @@
       transform var(--sleep-motion-normal);
   }
   
+  /* Cible : .sleep-metric-card strong */
   .sleep-metric-card strong {
     color: var(--sleep-text);
     font-size: clamp(1.6rem, 4vw, 2.25rem);
@@ -111,6 +129,7 @@
     font-variant-numeric: tabular-nums;
   }
   
+  /* Cible : .sleep-metric-card > span:last-child */
   .sleep-metric-card > span:last-child {
     color: var(--sleep-muted);
     font-size: 0.82rem;
@@ -120,16 +139,19 @@
   
   /* Objectif de sommeil */
   
+  /* Cible : .sleep-target-panel */
   .sleep-target-panel {
     min-width: 0;
     margin-top: 1rem;
     padding: clamp(1.1rem, 3vw, 1.5rem);
   }
   
+  /* Cible : .sleep-target-panel .welcome-description */
   .sleep-target-panel .welcome-description {
     margin: 0.75rem 0;
   }
   
+  /* Cible : .sleep-target-panel .sleep-field */
   .sleep-target-panel .sleep-field {
     display: flex;
     max-width: 280px;
@@ -138,6 +160,7 @@
     margin-top: 1rem;
   }
   
+  /* Cible : .sleep-target-panel .sleep-field > span */
   .sleep-target-panel .sleep-field > span {
     color: var(--sleep-text-soft);
     font-size: 0.85rem;
@@ -145,6 +168,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .sleep-target-panel input */
   .sleep-target-panel input {
     width: 100%;
     min-width: 0;
@@ -159,10 +183,12 @@
       box-shadow var(--sleep-motion-fast);
   }
   
+  /* Cible : .sleep-target-panel input:hover */
   .sleep-target-panel input:hover {
     border-color: var(--sleep-border-strong);
   }
   
+  /* Cible : .sleep-target-panel input:focus-visible */
   .sleep-target-panel input:focus-visible {
     border-color: var(--sleep-accent);
     outline: 2px solid var(--sleep-cyan);
@@ -170,6 +196,7 @@
     box-shadow: 0 0 18px rgba(139, 92, 246, 0.08);
   }
   
+  /* Cible : .sleep-target-summary */
   .sleep-target-summary {
     margin: 0.85rem 0 0;
     color: var(--sleep-muted);
@@ -177,13 +204,16 @@
     line-height: 1.6;
   }
   
+  /* Cible : .sleep-target-summary strong */
   .sleep-target-summary strong {
     color: var(--sleep-text);
   }
   
   /* Survol */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .sleep-metric-card:hover */
     .sleep-metric-card:hover {
       transform: translateY(-2px);
       border-color: var(--sleep-border-strong);
@@ -193,30 +223,38 @@
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .sleep-metric-grid */
     .sleep-metric-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 0.75rem;
     }
   
+    /* Cible : .sleep-metric-card */
     .sleep-metric-card {
       padding: 1rem;
     }
   
+    /* Cible : .sleep-night-details */
     .sleep-night-details {
       gap: 0.5rem;
     }
   
+    /* Cible : .sleep-target-panel .sleep-field */
     .sleep-target-panel .sleep-field {
       max-width: none;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .sleep-metric-card */
     .sleep-metric-card {
       transition: none;
     }
   
+    /* Cible : .sleep-metric-card:hover */
     .sleep-metric-card:hover {
       transform: none;
     }

@@ -1,14 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/history.css
+   ZONE    : Page Sommeil
+   RÔLE    : History
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP HISTORY
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .sleep-history-panel */
    .sleep-history-panel {
     min-width: 0;
     padding: clamp(1rem, 3vw, 1.5rem);
   }
   
+  /* Cible : .sleep-history-list */
   .sleep-history-list {
     display: flex;
     flex-direction: column;
@@ -17,6 +28,7 @@
     margin-top: 1.25rem;
   }
   
+  /* Cible : .sleep-history-item */
   .sleep-history-item {
     display: flex;
     align-items: center;
@@ -39,6 +51,7 @@
       box-shadow var(--sleep-motion-normal);
   }
   
+  /* Cible : .sleep-history-item:hover */
   .sleep-history-item:hover {
     border-color: var(--sleep-border-strong);
     background:
@@ -51,6 +64,7 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
   }
   
+  /* Cible : .sleep-history-main */
   .sleep-history-main {
     display: flex;
     min-width: 0;
@@ -59,6 +73,7 @@
     gap: 0.45rem;
   }
   
+  /* Cible : .sleep-history-main strong */
   .sleep-history-main strong {
     color: var(--sleep-text);
     font-size: 0.98rem;
@@ -67,6 +82,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .sleep-history-main > span */
   .sleep-history-main > span {
     color: var(--sleep-muted);
     font-size: 0.84rem;
@@ -76,6 +92,7 @@
   
   /* Actions de chaque entrée */
   
+  /* Cible : .sleep-history-actions */
   .sleep-history-actions {
     display: flex;
     flex: 0 0 auto;
@@ -84,6 +101,7 @@
     gap: 0.5rem;
   }
   
+  /* Cible : .sleep-history-actions button */
   .sleep-history-actions button {
     min-height: 38px;
     padding: 0.5rem 0.75rem;
@@ -99,17 +117,20 @@
       color var(--sleep-motion-fast);
   }
   
+  /* Cible : .sleep-history-actions button:hover:not(:disabled) */
   .sleep-history-actions button:hover:not(:disabled) {
     border-color: var(--sleep-border-strong);
     background: var(--sleep-surface-hover);
     color: var(--sleep-accent);
   }
   
+  /* Cible : .sleep-history-actions button[aria-label*="Supprimer"], .sleep-history-actions button[data-action="delete"] */
   .sleep-history-actions button[aria-label*="Supprimer"],
   .sleep-history-actions button[data-action="delete"] {
     color: var(--sleep-danger);
   }
   
+  /* Cible : .sleep-history-actions button[aria-label*="Supprimer"]:hover:not(:disabled), .sleep-history-actions button[data-action="delete"]:hover:not(:disabled) */
   .sleep-history-actions button[aria-label*="Supprimer"]:hover:not(:disabled),
   .sleep-history-actions button[data-action="delete"]:hover:not(:disabled) {
     border-color: rgba(255, 146, 159, 0.38);
@@ -119,6 +140,7 @@
   
   /* Historique vide */
   
+  /* Cible : .sleep-history-empty */
   .sleep-history-empty {
     padding: 2rem 1rem;
     border: 1px dashed var(--sleep-border);
@@ -131,11 +153,14 @@
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .sleep-history-panel */
     .sleep-history-panel {
       padding: 1rem;
     }
   
+    /* Cible : .sleep-history-item */
     .sleep-history-item {
       align-items: flex-start;
       flex-direction: column;
@@ -143,17 +168,21 @@
       padding: 0.9rem;
     }
   
+    /* Cible : .sleep-history-actions */
     .sleep-history-actions {
       justify-content: flex-start;
       width: 100%;
     }
   
+    /* Cible : .sleep-history-actions button */
     .sleep-history-actions button {
       flex: 1 1 auto;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .sleep-history-item, .sleep-history-actions button */
     .sleep-history-item,
     .sleep-history-actions button {
       transition: none;

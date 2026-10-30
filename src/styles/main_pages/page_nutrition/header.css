@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/header.css
+   ZONE    : Page Nutrition
+   RÔLE    : Header
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — EN-TÊTES BLACK DIAMOND */
 
+/* Cible : .nutrition-page > .nutrition-header, .hydration-page > .hydration-header */
 .nutrition-page > .nutrition-header,
 .hydration-page > .hydration-header {
   position: relative;
@@ -36,6 +46,7 @@
   box-shadow: var(--nutrition-shadow-card);
 }
 
+/* Cible : .nutrition-page > .nutrition-header::after, .hydration-page > .hydration-header::after */
 .nutrition-page > .nutrition-header::after,
 .hydration-page > .hydration-header::after {
   position: absolute;
@@ -55,6 +66,7 @@
   pointer-events: none;
 }
 
+/* Cible : .nutrition-page > .nutrition-header > div, .hydration-page > .hydration-header > div */
 .nutrition-page > .nutrition-header > div,
 .hydration-page > .hydration-header > div {
   position: relative;
@@ -64,6 +76,7 @@
   min-width: 0;
 }
 
+/* Cible : .nutrition-page > .nutrition-header .eyebrow, .hydration-page > .hydration-header .eyebrow */
 .nutrition-page > .nutrition-header .eyebrow,
 .hydration-page > .hydration-header .eyebrow {
   display: inline-flex;
@@ -81,6 +94,7 @@
   text-transform: uppercase;
 }
 
+/* Cible : .nutrition-page > .nutrition-header .eyebrow::before, .hydration-page > .hydration-header .eyebrow::before */
 .nutrition-page > .nutrition-header .eyebrow::before,
 .hydration-page > .hydration-header .eyebrow::before {
   width: 7px;
@@ -94,6 +108,7 @@
   content: "";
 }
 
+/* Cible : .nutrition-page > .nutrition-header h1, .hydration-page > .hydration-header h1 */
 .nutrition-page > .nutrition-header h1,
 .hydration-page > .hydration-header h1 {
   margin: 0 0 14px;
@@ -105,6 +120,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .nutrition-page > .nutrition-header p, .hydration-page > .hydration-header p */
 .nutrition-page > .nutrition-header p,
 .hydration-page > .hydration-header p {
   max-width: 58ch;
@@ -117,6 +133,7 @@
 
 /* En-tête du journal alimentaire */
 
+/* Cible : .nutrition-page .food-diary-header */
 .nutrition-page .food-diary-header {
   display: flex;
   align-items: flex-start;
@@ -126,6 +143,7 @@
   min-width: 0;
 }
 
+/* Cible : .nutrition-page .food-diary-header h2 */
 .nutrition-page .food-diary-header h2 {
   margin: 6px 0 10px;
   color: var(--nutrition-text);
@@ -135,6 +153,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .nutrition-page .food-diary-header p */
 .nutrition-page .food-diary-header p {
   max-width: 620px;
   margin: 0;
@@ -143,6 +162,7 @@
   line-height: 1.75;
 }
 
+/* Cible : .nutrition-page .food-date-field */
 .nutrition-page .food-date-field {
   display: flex;
   flex-direction: column;
@@ -153,7 +173,9 @@
   font-weight: 650;
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .nutrition-page > .nutrition-header, .hydration-page > .hydration-header */
   .nutrition-page > .nutrition-header,
   .hydration-page > .hydration-header {
     min-height: auto;
@@ -161,28 +183,34 @@
     border-radius: var(--nutrition-radius-lg);
   }
 
+  /* Cible : .nutrition-page > .nutrition-header h1, .hydration-page > .hydration-header h1 */
   .nutrition-page > .nutrition-header h1,
   .hydration-page > .hydration-header h1 {
     font-size: clamp(2rem, 9vw, 2.8rem);
   }
 
+  /* Cible : .nutrition-page > .nutrition-header .eyebrow, .hydration-page > .hydration-header .eyebrow */
   .nutrition-page > .nutrition-header .eyebrow,
   .hydration-page > .hydration-header .eyebrow {
     font-size: 0.63rem;
     letter-spacing: 0.1em;
   }
 
+  /* Cible : .nutrition-page .food-diary-header */
   .nutrition-page .food-diary-header {
     flex-direction: column;
     gap: 16px;
   }
 
+  /* Cible : .nutrition-page .food-date-field */
   .nutrition-page .food-date-field {
     width: 100%;
   }
 }
 
+/* Règles responsive — (max-width: 380px) */
 @media (max-width: 380px) {
+  /* Cible : .nutrition-page > .nutrition-header, .hydration-page > .hydration-header */
   .nutrition-page > .nutrition-header,
   .hydration-page > .hydration-header {
     padding: 20px 16px;

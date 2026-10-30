@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/evolution-chart.css
+   ZONE    : Page Compétitions
+   RÔLE    : Evolution chart
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    Graphique d'évolution des performances
    ========================================================= */
 
+   /* Cible : .competitions-page .evolution-chart */
    .competitions-page .evolution-chart {
     width: 100%;
     min-width: 0;
@@ -12,6 +22,7 @@
   
   /* Résumé du graphique */
   
+  /* Cible : .competitions-page .evolution-chart-summary */
   .competitions-page .evolution-chart-summary {
     display: flex;
     align-items: center;
@@ -28,6 +39,7 @@
   
   /* Zone du graphique */
   
+  /* Cible : .competitions-page .evolution-chart-scroll */
   .competitions-page .evolution-chart-scroll {
     width: 100%;
     min-width: 0;
@@ -54,6 +66,7 @@
       inset 0 1px 0 rgb(255 255 255 / 3%);
   }
   
+  /* Cible : .competitions-page .evolution-chart-scroll svg */
   .competitions-page .evolution-chart-scroll svg {
     display: block;
     width: 100%;
@@ -63,6 +76,7 @@
   
   /* Grille */
   
+  /* Cible : .competitions-page .evolution-grid-line */
   .competitions-page .evolution-grid-line {
     stroke: rgb(177 163 255 / 13%);
     stroke-width: 1;
@@ -71,6 +85,7 @@
   
   /* Labels des axes */
   
+  /* Cible : .competitions-page .evolution-axis-label */
   .competitions-page .evolution-axis-label {
     fill: #a09db9;
     font-size: 12px;
@@ -78,6 +93,7 @@
   
   /* Courbe principale */
   
+  /* Cible : .competitions-page .evolution-line */
   .competitions-page .evolution-line {
     stroke: #a991ff;
     stroke-width: 3;
@@ -89,6 +105,7 @@
   
   /* Points de mesure */
   
+  /* Cible : .competitions-page .evolution-point */
   .competitions-page .evolution-point {
     fill: #65d8ff;
     stroke: #171827;
@@ -103,6 +120,7 @@
   
   /* Légende / description */
   
+  /* Cible : .competitions-page .evolution-chart-caption */
   .competitions-page .evolution-chart-caption {
     margin: 13px 2px 0;
   
@@ -115,6 +133,7 @@
      ÉTAT VIDE DU GRAPHIQUE
      ========================================================= */
   
+  /* Cible : .competitions-page .evolution-empty */
   .competitions-page .evolution-empty {
     margin-top: 16px;
     padding: 28px 18px;
@@ -131,6 +150,7 @@
     text-align: center;
   }
   
+  /* Cible : .competitions-page .evolution-empty p */
   .competitions-page .evolution-empty p {
     margin: 0 0 8px;
   
@@ -140,6 +160,7 @@
     line-height: 1.55;
   }
   
+  /* Cible : .competitions-page .evolution-empty span */
   .competitions-page .evolution-empty span {
     color: var(--competition-muted);
     font-size: 12px;
@@ -150,22 +171,28 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .competitions-page .evolution-chart */
     .competitions-page .evolution-chart {
       margin-top: 15px;
     }
   
+    /* Cible : .competitions-page .evolution-chart-scroll */
     .competitions-page .evolution-chart-scroll {
       border-radius: 13px;
     }
   
+    /* Cible : .competitions-page .evolution-chart-summary */
     .competitions-page .evolution-chart-summary {
       align-items: flex-start;
       flex-direction: column;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page .evolution-point */
     .competitions-page .evolution-point {
       transition: none;
     }

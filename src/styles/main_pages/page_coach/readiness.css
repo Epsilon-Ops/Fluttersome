@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/readiness.css
+   ZONE    : Page Coach
+   RÔLE    : Readiness
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Readiness
@@ -6,6 +15,7 @@
 
 /* Score principal */
 
+/* Cible : .coach-readiness__result */
 .coach-readiness__result {
   display: flex;
   flex-direction: column;
@@ -14,6 +24,7 @@
   min-width: 0;
 }
 
+/* Cible : .coach-readiness__score */
 .coach-readiness__score {
   margin: 0;
   color: var(--coach-text) !important;
@@ -25,6 +36,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-readiness__score span */
 .coach-readiness__score span {
   margin-left: 5px;
   color: var(--coach-muted);
@@ -35,6 +47,7 @@
 
 /* Fiabilité du résultat */
 
+/* Cible : .coach-readiness__reliability */
 .coach-readiness__reliability {
   margin: 5px 0 0;
   color: var(--coach-muted);
@@ -44,6 +57,7 @@
 
 /* Données indisponibles */
 
+/* Cible : .coach-readiness__unavailable */
 .coach-readiness__unavailable {
   padding: 17px;
   border: 1px dashed var(--coach-border-strong);
@@ -51,6 +65,7 @@
   background: rgba(139, 92, 246, 0.045);
 }
 
+/* Cible : .coach-readiness__unavailable p:first-child */
 .coach-readiness__unavailable p:first-child {
   margin: 0 0 7px;
   color: var(--coach-text);
@@ -58,6 +73,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .coach-readiness__unavailable p:last-child */
 .coach-readiness__unavailable p:last-child {
   margin-bottom: 0;
   color: var(--coach-muted);
@@ -65,6 +81,7 @@
   line-height: 1.7;
 }
 
+/* Cible : .coach-readiness__explanation */
 .coach-readiness__explanation {
   margin-bottom: 0;
   color: var(--coach-muted);
@@ -75,17 +92,20 @@
 
 /* Décomposition des indicateurs */
 
+/* Cible : .coach-readiness-breakdown__list */
 .coach-readiness-breakdown__list {
   display: grid;
   gap: 22px;
 }
 
+/* Cible : .coach-readiness-breakdown__item */
 .coach-readiness-breakdown__item {
   display: grid;
   gap: 10px;
   min-width: 0;
 }
 
+/* Cible : .coach-readiness-breakdown__heading */
 .coach-readiness-breakdown__heading {
   display: flex;
   align-items: baseline;
@@ -96,6 +116,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .coach-readiness-breakdown__heading span */
 .coach-readiness-breakdown__heading span {
   min-width: 0;
   color: var(--coach-text-soft);
@@ -103,6 +124,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-readiness-breakdown__heading strong */
 .coach-readiness-breakdown__heading strong {
   flex-shrink: 0;
   color: var(--coach-cyan);
@@ -114,6 +136,7 @@
 
 /* Barre de progression */
 
+/* Cible : .coach-readiness-breakdown__track */
 .coach-readiness-breakdown__track {
   position: relative;
   height: 9px;
@@ -123,6 +146,7 @@
   background: rgba(173, 163, 230, 0.12);
 }
 
+/* Cible : .coach-readiness-breakdown__fill */
 .coach-readiness-breakdown__fill {
   width: var(--coach-progress, 0%);
   height: 100%;
@@ -138,6 +162,7 @@
 
 /* Note sous les indicateurs */
 
+/* Cible : .coach-readiness-breakdown__note */
 .coach-readiness-breakdown__note {
   margin: 20px 0 0;
   padding-top: 15px;
@@ -150,15 +175,19 @@
 
 /* Responsive */
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .coach-readiness__unavailable */
   .coach-readiness__unavailable {
     padding: 14px;
   }
 
+  /* Cible : .coach-readiness-breakdown__list */
   .coach-readiness-breakdown__list {
     gap: 19px;
   }
 
+  /* Cible : .coach-readiness-breakdown__heading */
   .coach-readiness-breakdown__heading {
     gap: 8px;
     font-size: 0.84rem;
@@ -167,7 +196,9 @@
 
 /* Respect des préférences d'accessibilité */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .coach-readiness-breakdown__fill */
   .coach-readiness-breakdown__fill {
     transition: none;
   }

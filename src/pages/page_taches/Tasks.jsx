@@ -15,12 +15,17 @@ import TasksToolbar from './TasksToolbar'
 import TasksList from './TasksList'
 import TasksFormModal from './TasksFormModal'
 import TasksStorageNote from './TasksStorageNote'
+import useTaskLayout from '../../hooks/useTaskLayout'
+import { TaskLayoutContext } from './TaskLayoutContext'
 
+// Par défaut on n'affiche que les tâches à faire (« À faire »).
+// Les tâches terminées apparaissent dans l'onglet « Terminées »
+// ou si l'on choisit « Tous » dans le filtre Statut.
 const INITIAL_FILTERS = {
   search: '',
   category: 'all',
   priority: 'all',
-  status: 'all',
+  status: 'active',
 }
 
 const TAB_TITLES = {
@@ -46,6 +51,7 @@ export default function Tasks() {
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [formOpen, setFormOpen] = useState(false)
   const [editingTask, setEditingTask] = useState(null)
+  const layoutApi = useTaskLayout()
 
   const todayLabel = new Intl.DateTimeFormat('fr-FR', {
     weekday: 'long',
@@ -92,7 +98,7 @@ export default function Tasks() {
     filters.search.trim() !== '',
     filters.category !== 'all',
     filters.priority !== 'all',
-    filters.status !== 'all',
+    filters.status !== 'active',
   ].filter(Boolean).length
 
   function updateFilter(field, value) {
@@ -140,12 +146,13 @@ export default function Tasks() {
         tab === 'completed'
           ? 'completed'
           : current.status === 'completed'
-            ? 'all'
+            ? 'active'
             : current.status,
     }))
   }
 
   return (
+    <TaskLayoutContext.Provider value={layoutApi}>
     <div className="dashboard tasks-page">
       <TasksHeader />
 
@@ -309,5 +316,6 @@ export default function Tasks() {
         onSave={handleSave}
       />
     </div>
+    </TaskLayoutContext.Provider>
   )
 }

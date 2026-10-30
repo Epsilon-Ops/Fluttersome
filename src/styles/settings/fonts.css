@@ -1,13 +1,24 @@
+/* ============================================================
+   FICHIER : src/styles/settings/fonts.css
+   ZONE    : Réglages globaux (variables, polices, animations)
+   RÔLE    : Fonts
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* Interface générale */
+/* Cible : body */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
 }
 
 /* Chronos, records et données chiffrées */
+/* Cible : .mono, .performance-value, .mark-value, .record-value, .chrono, .time-value */
 .mono,
 .performance-value,
 .mark-value,

@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/header.css
+   ZONE    : Page Musculation
+   RÔLE    : Header
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .strength-header */
 .strength-header {
   position: relative;
   isolation: isolate;
@@ -36,6 +46,7 @@
     box-shadow 220ms ease;
 }
 
+/* Cible : .strength-header::before */
 .strength-header::before {
   content: "";
   position: absolute;
@@ -56,6 +67,7 @@
   pointer-events: none;
 }
 
+/* Cible : .strength-header-main */
 .strength-header-main {
   display: flex;
   align-items: center;
@@ -64,6 +76,7 @@
   flex: 1 1 280px;
 }
 
+/* Cible : .strength-header-icon */
 .strength-header-icon {
   position: relative;
   display: grid;
@@ -92,6 +105,7 @@
   line-height: 1;
 }
 
+/* Cible : .strength-header h1 */
 .strength-header h1 {
   margin: 4px 0 8px;
   color: var(--color-text, #f4f4fb);
@@ -102,6 +116,7 @@
   text-wrap: balance;
 }
 
+/* Cible : .strength-header p */
 .strength-header p {
   max-width: 620px;
   margin: 0;
@@ -110,7 +125,9 @@
   line-height: 1.65;
 }
 
+/* Règles responsive — (hover: hover) */
 @media (hover: hover) {
+  /* Cible : .strength-header:hover */
   .strength-header:hover {
     border-color: rgba(167, 139, 250, 0.3);
     box-shadow:
@@ -120,24 +137,29 @@
   }
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .strength-header */
   .strength-header {
     gap: 18px;
     padding: 20px;
     border-radius: 16px;
   }
 
+  /* Cible : .strength-header::before */
   .strength-header::before {
     left: 20px;
     right: 20px;
   }
 
+  /* Cible : .strength-header-main */
   .strength-header-main {
     align-items: flex-start;
     gap: 13px;
     flex-basis: 100%;
   }
 
+  /* Cible : .strength-header-icon */
   .strength-header-icon {
     width: 48px;
     height: 48px;
@@ -145,17 +167,21 @@
     font-size: 23px;
   }
 
+  /* Cible : .strength-header h1 */
   .strength-header h1 {
     margin-top: 2px;
     font-size: clamp(21px, 6vw, 26px);
   }
 
+  /* Cible : .strength-header p */
   .strength-header p {
     font-size: 13px;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-header */
   .strength-header {
     transition: none;
   }

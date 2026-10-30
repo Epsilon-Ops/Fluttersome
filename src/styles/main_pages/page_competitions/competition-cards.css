@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/competition-cards.css
+   ZONE    : Page Compétitions
+   RÔLE    : Competition cards
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    Badges de type de performance
    ========================================================= */
 
+   /* Cible : .competitions-page .competition-type-badge */
    .competitions-page .competition-type-badge {
     display: inline-flex;
     align-items: center;
@@ -30,6 +40,7 @@
     white-space: nowrap;
   }
   
+  /* Cible : .competitions-page .competition-type-badge.training */
   .competitions-page .competition-type-badge.training {
     border-color: rgb(101 216 255 / 24%);
   

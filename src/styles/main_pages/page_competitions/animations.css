@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/animations.css
+   ZONE    : Page Compétitions
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    BLACK DIAMOND PREMIUM++ — COMPETITIONS ANIMATIONS
@@ -6,6 +15,7 @@
 
 /* ---------- Keyframes ---------- */
 
+/* Animation : competition-fade-in */
 @keyframes competition-fade-in {
     from {
       opacity: 0;
@@ -18,6 +28,7 @@
     }
   }
   
+  /* Animation : competition-fade-in-soft */
   @keyframes competition-fade-in-soft {
     from {
       opacity: 0;
@@ -28,6 +39,7 @@
     }
   }
   
+  /* Animation : competition-scale-in */
   @keyframes competition-scale-in {
     from {
       opacity: 0;
@@ -40,6 +52,7 @@
     }
   }
   
+  /* Animation : competition-glow */
   @keyframes competition-glow {
     0%,
     100% {
@@ -55,6 +68,7 @@
     }
   }
   
+  /* Animation : competition-shimmer */
   @keyframes competition-shimmer {
     from {
       background-position: 180% 0;
@@ -65,6 +79,7 @@
     }
   }
   
+  /* Animation : competition-dot-pulse */
   @keyframes competition-dot-pulse {
     0%,
     100% {
@@ -80,16 +95,19 @@
   
   /* ---------- Entrée de la page ---------- */
   
+  /* Cible : .competitions-page */
   .competitions-page {
     animation: competition-fade-in 420ms cubic-bezier(0.2, 0.8, 0.2, 1)
       both;
   }
   
+  /* Cible : .competitions-page .welcome-section */
   .competitions-page .welcome-section {
     animation: competition-fade-in 500ms 40ms
       cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
   
+  /* Cible : .competitions-page .section-heading */
   .competitions-page .section-heading {
     animation: competition-fade-in 450ms 80ms
       cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -97,6 +115,7 @@
   
   /* ---------- Panneaux et cartes ---------- */
   
+  /* Cible : .competitions-page .panel */
   .competitions-page .panel {
     animation: competition-scale-in 420ms
       cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -106,12 +125,14 @@
       background-color 220ms ease;
   }
   
+  /* Cible : .competitions-page .panel:hover */
   .competitions-page .panel:hover {
     border-color: var(--competition-border-strong);
   }
   
   /* ---------- Cartes de statistiques ---------- */
   
+  /* Cible : .competitions-page .competition-metric, .competitions-page .metric-card, .competitions-page .stat-card */
   .competitions-page .competition-metric,
   .competitions-page .metric-card,
   .competitions-page .stat-card {
@@ -122,6 +143,7 @@
     transform-origin: center;
   }
   
+  /* Cible : .competitions-page .competition-metric:hover, .competitions-page .metric-card:hover, .competitions-page .stat-card:hover */
   .competitions-page .competition-metric:hover,
   .competitions-page .metric-card:hover,
   .competitions-page .stat-card:hover {
@@ -131,6 +153,7 @@
   
   /* ---------- Boutons ---------- */
   
+  /* Cible : .competitions-page button, .competitions-page .competition-button, .competitions-page .btn */
   .competitions-page button,
   .competitions-page .competition-button,
   .competitions-page .btn {
@@ -142,6 +165,7 @@
       color 180ms ease;
   }
   
+  /* Cible : .competitions-page button:active, .competitions-page .competition-button:active, .competitions-page .btn:active */
   .competitions-page button:active,
   .competitions-page .competition-button:active,
   .competitions-page .btn:active {
@@ -150,6 +174,7 @@
   
   /* ---------- Onglets ---------- */
   
+  /* Cible : .competitions-page .competition-tab, .competitions-page .tab-button, .competitions-page [role="tab"] */
   .competitions-page .competition-tab,
   .competitions-page .tab-button,
   .competitions-page [role="tab"] {
@@ -162,6 +187,7 @@
   
   /* ---------- Champs de formulaire ---------- */
   
+  /* Cible : .competitions-page input, .competitions-page select, .competitions-page textarea */
   .competitions-page input,
   .competitions-page select,
   .competitions-page textarea {
@@ -171,6 +197,7 @@
       background-color 180ms ease;
   }
   
+  /* Cible : .competitions-page input:focus, .competitions-page select:focus, .competitions-page textarea:focus */
   .competitions-page input:focus,
   .competitions-page select:focus,
   .competitions-page textarea:focus {
@@ -181,6 +208,7 @@
   
   /* ---------- Historique et listes ---------- */
   
+  /* Cible : .competitions-page .competition-history-item, .competitions-page .history-item */
   .competitions-page .competition-history-item,
   .competitions-page .history-item {
     transition:
@@ -189,6 +217,7 @@
       transform 180ms ease;
   }
   
+  /* Cible : .competitions-page .competition-history-item:hover, .competitions-page .history-item:hover */
   .competitions-page .competition-history-item:hover,
   .competitions-page .history-item:hover {
     border-color: var(--competition-border-strong);
@@ -196,14 +225,17 @@
   
   /* ---------- Graphique ---------- */
   
+  /* Cible : .competitions-page .evolution-chart */
   .competitions-page .evolution-chart {
     animation: competition-fade-in-soft 500ms ease both;
   }
   
+  /* Cible : .competitions-page .evolution-chart svg path */
   .competitions-page .evolution-chart svg path {
     transition: opacity 220ms ease;
   }
   
+  /* Cible : .competitions-page .evolution-chart svg circle */
   .competitions-page .evolution-chart svg circle {
     transition:
       r 180ms ease,
@@ -212,6 +244,7 @@
   
   /* ---------- Focus clavier ---------- */
   
+  /* Cible : .competitions-page button:focus-visible, .competitions-page a:focus-visible, .competitions-page [role="tab"]:focus-visible */
   .competitions-page button:focus-visible,
   .competitions-page a:focus-visible,
   .competitions-page [role="tab"]:focus-visible {
@@ -221,7 +254,9 @@
   
   /* ---------- Accessibilité ---------- */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page, .competitions-page *, .competitions-page *::before, .competitions-page *::after */
     .competitions-page,
     .competitions-page *,
     .competitions-page *::before,

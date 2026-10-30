@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/variables.css
+   ZONE    : Page Tâches
+   RÔLE    : Variables
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — VARIABLES ET THÈME
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .tasks-page */
    .tasks-page {
     color-scheme: dark;
   
@@ -55,6 +65,7 @@
     --task-accent: #ffffff;
   }
   
+  /* Cible : .tasks-page *, .tasks-page *::before, .tasks-page *::after, .tasks-modal *, .tasks-modal *::before, .tasks-modal *::after */
   .tasks-page *,
   .tasks-page *::before,
   .tasks-page *::after,

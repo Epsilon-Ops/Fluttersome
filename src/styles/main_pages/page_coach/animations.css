@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/animations.css
+   ZONE    : Page Coach
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Animations
@@ -6,6 +15,7 @@
 
 /* Apparition progressive */
 
+/* Animation : coach-fade-up */
 @keyframes coach-fade-up {
     from {
       opacity: 0;
@@ -18,6 +28,7 @@
     }
   }
   
+  /* Animation : coach-fade-in */
   @keyframes coach-fade-in {
     from {
       opacity: 0;
@@ -30,6 +41,7 @@
   
   /* Halo violet discret */
   
+  /* Animation : coach-diamond-glow */
   @keyframes coach-diamond-glow {
     0%,
     100% {
@@ -47,42 +59,51 @@
   
   /* En-tête et sections */
   
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     animation: coach-fade-up 480ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   
+  /* Cible : .coach-dashboard > * */
   .coach-dashboard > * {
     animation: coach-fade-up 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
   
   /* Décalages subtils pour les premiers panneaux */
   
+  /* Cible : .coach-dashboard > :nth-child(1) */
   .coach-dashboard > :nth-child(1) {
     animation-delay: 40ms;
   }
   
+  /* Cible : .coach-dashboard > :nth-child(2) */
   .coach-dashboard > :nth-child(2) {
     animation-delay: 80ms;
   }
   
+  /* Cible : .coach-dashboard > :nth-child(3) */
   .coach-dashboard > :nth-child(3) {
     animation-delay: 120ms;
   }
   
+  /* Cible : .coach-dashboard > :nth-child(4) */
   .coach-dashboard > :nth-child(4) {
     animation-delay: 160ms;
   }
   
+  /* Cible : .coach-dashboard > :nth-child(5) */
   .coach-dashboard > :nth-child(5) {
     animation-delay: 200ms;
   }
   
+  /* Cible : .coach-dashboard > :nth-child(n + 6) */
   .coach-dashboard > :nth-child(n + 6) {
     animation-delay: 220ms;
   }
   
   /* Panneaux : transitions douces */
   
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     transition:
       border-color 200ms ease,
@@ -91,7 +112,9 @@
       transform 200ms ease;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .coach-dashboard .panel:hover */
     .coach-dashboard .panel:hover {
       transform: translateY(-2px);
     }
@@ -99,6 +122,7 @@
   
   /* Boutons de questions du coach */
   
+  /* Cible : .coach-chat__question */
   .coach-chat__question {
     transition:
       border-color 180ms ease,
@@ -108,24 +132,29 @@
       transform 180ms ease;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .coach-chat__question:hover */
     .coach-chat__question:hover {
       box-shadow: 0 0 18px rgba(139, 92, 246, 0.08);
     }
   }
   
+  /* Cible : .coach-chat__question:active */
   .coach-chat__question:active {
     transform: translateY(1px);
   }
   
   /* Barres de progression */
   
+  /* Cible : .coach-readiness-breakdown__fill */
   .coach-readiness-breakdown__fill {
     transition: width 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
   
   /* Cartes d'alerte et de décision */
   
+  /* Cible : .coach-alert, .coach-performance-analysis__item, .coach-progression-trends__periods article, .coach-decision-option */
   .coach-alert,
   .coach-performance-analysis__item,
   .coach-progression-trends__periods article,
@@ -139,7 +168,9 @@
   
   /* Accessibilité : respecter la réduction des animations */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .page-section:has(.coach-dashboard) > .page-heading, .coach-dashboard > *, .coach-dashboard .panel, .coach-chat__question, .coach-readiness-breakdown__fill, .coach-ale… */
     .page-section:has(.coach-dashboard) > .page-heading,
     .coach-dashboard > *,
     .coach-dashboard .panel,

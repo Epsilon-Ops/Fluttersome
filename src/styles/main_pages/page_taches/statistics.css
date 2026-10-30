@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/statistics.css
+   ZONE    : Page Tâches
+   RÔLE    : Statistics
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — STATISTIQUES
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .tasks-stats-panel */
    .tasks-stats-panel {
     margin-bottom: 16px;
     overflow: hidden;
@@ -19,6 +29,7 @@
     box-shadow: var(--tasks-shadow);
   }
   
+  /* Cible : .tasks-collapsible-heading */
   .tasks-collapsible-heading {
     display: flex;
     width: 100%;
@@ -34,16 +45,19 @@
     transition: background 180ms ease;
   }
   
+  /* Cible : .tasks-collapsible-heading:hover */
   .tasks-collapsible-heading:hover {
     background: rgba(167, 139, 250, 0.055);
   }
   
+  /* Cible : .tasks-collapsible-heading:focus-visible */
   .tasks-collapsible-heading:focus-visible {
     position: relative;
     outline: 2px solid var(--tasks-red);
     outline-offset: -3px;
   }
   
+  /* Cible : .tasks-collapsible-title */
   .tasks-collapsible-title {
     display: flex;
     flex-direction: column;
@@ -51,12 +65,14 @@
     min-width: 0;
   }
   
+  /* Cible : .tasks-collapsible-name */
   .tasks-collapsible-name {
     color: var(--tasks-ink);
     font-size: 0.94rem;
     font-weight: 700;
   }
   
+  /* Cible : .tasks-collapsible-actions */
   .tasks-collapsible-actions {
     display: flex;
     align-items: center;
@@ -64,6 +80,7 @@
     flex-shrink: 0;
   }
   
+  /* Cible : .tasks-chevron */
   .tasks-chevron {
     display: inline-grid;
     width: 30px;
@@ -81,6 +98,7 @@
       color 180ms ease;
   }
   
+  /* Cible : .tasks-collapsible-heading:hover .tasks-chevron */
   .tasks-collapsible-heading:hover .tasks-chevron {
     border-color: var(--tasks-border-strong);
     background: var(--tasks-surface-hover);
@@ -88,6 +106,7 @@
   }
   
   /* Grille de statistiques */
+  /* Cible : .tasks-stats-grid */
   .tasks-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -95,6 +114,7 @@
     padding: 0 16px 16px;
   }
   
+  /* Cible : .tasks-stats-grid .tasks-stat-card */
   .tasks-stats-grid .tasks-stat-card {
     position: relative;
     display: flex;
@@ -113,6 +133,7 @@
       transform 180ms ease;
   }
   
+  /* Cible : .tasks-stats-grid .tasks-stat-card::before */
   .tasks-stats-grid .tasks-stat-card::before {
     position: absolute;
     inset: 0 auto 0 0;
@@ -122,10 +143,12 @@
     content: "";
   }
   
+  /* Cible : .tasks-stats-grid .tasks-stat-card.overdue::before */
   .tasks-stats-grid .tasks-stat-card.overdue::before {
     background: var(--tasks-danger);
   }
   
+  /* Cible : .tasks-stat-icon */
   .tasks-stat-icon {
     display: grid;
     width: 36px;
@@ -139,12 +162,14 @@
     font-weight: 800;
   }
   
+  /* Cible : .tasks-stat-card.overdue .tasks-stat-icon */
   .tasks-stat-card.overdue .tasks-stat-icon {
     border-color: rgba(251, 113, 133, 0.18);
     background: rgba(251, 113, 133, 0.11);
     color: var(--tasks-danger);
   }
   
+  /* Cible : .tasks-stat-label */
   .tasks-stat-label {
     display: block;
     color: var(--tasks-muted);
@@ -153,6 +178,7 @@
     line-height: 1.45;
   }
   
+  /* Cible : .tasks-stats-grid .tasks-stat-card strong */
   .tasks-stats-grid .tasks-stat-card strong {
     display: block;
     margin-top: 3px;
@@ -164,26 +190,32 @@
     line-height: 1.1;
   }
   
+  /* Cible : .tasks-stats-grid .tasks-stat-card.overdue strong */
   .tasks-stats-grid .tasks-stat-card.overdue strong {
     color: var(--tasks-danger);
   }
   
   /* Sections repliables dans les listes */
+  /* Cible : .tasks-section .tasks-collapsible-heading */
   .tasks-section .tasks-collapsible-heading {
     border: 1px solid var(--tasks-border);
     border-radius: var(--tasks-radius-md);
     background: var(--tasks-surface);
   }
   
+  /* Cible : .tasks-section.overdue .tasks-collapsible-heading */
   .tasks-section.overdue .tasks-collapsible-heading {
     border-color: rgba(251, 113, 133, 0.24);
   }
   
+  /* Cible : .tasks-collapsible-content */
   .tasks-collapsible-content {
     padding-top: 12px;
   }
   
+  /* Règles responsive — (hover: hover) */
   @media (hover: hover) {
+    /* Cible : .tasks-stats-grid .tasks-stat-card:hover */
     .tasks-stats-grid .tasks-stat-card:hover {
       border-color: var(--tasks-border-strong);
       background: var(--tasks-surface-hover);
@@ -191,39 +223,49 @@
     }
   }
   
+  /* Règles responsive — (max-width: 800px) */
   @media (max-width: 800px) {
+    /* Cible : .tasks-stats-grid */
     .tasks-stats-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   
+  /* Règles responsive — (max-width: 480px) */
   @media (max-width: 480px) {
+    /* Cible : .tasks-stats-grid */
     .tasks-stats-grid {
       gap: 8px;
       padding: 0 12px 12px;
     }
   
+    /* Cible : .tasks-stats-grid .tasks-stat-card */
     .tasks-stats-grid .tasks-stat-card {
       gap: 8px;
       padding: 11px;
     }
   
+    /* Cible : .tasks-stat-icon */
     .tasks-stat-icon {
       width: 32px;
       height: 32px;
       border-radius: 9px;
     }
   
+    /* Cible : .tasks-stats-grid .tasks-stat-card strong */
     .tasks-stats-grid .tasks-stat-card strong {
       font-size: 1.35rem;
     }
   
+    /* Cible : .tasks-collapsible-heading */
     .tasks-collapsible-heading {
       padding: 13px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .tasks-collapsible-heading, .tasks-chevron, .tasks-stats-grid .tasks-stat-card */
     .tasks-collapsible-heading,
     .tasks-chevron,
     .tasks-stats-grid .tasks-stat-card {

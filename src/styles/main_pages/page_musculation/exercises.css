@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/exercises.css
+   ZONE    : Page Musculation
+   RÔLE    : Exercises
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .strength-exercise-card */
 .strength-exercise-card {
   display: grid;
   gap: 20px;
@@ -10,6 +20,7 @@
   background: rgba(255, 255, 255, 0.018);
 }
 
+/* Cible : .strength-exercise-heading */
 .strength-exercise-heading {
   display: flex;
   align-items: center;
@@ -19,6 +30,7 @@
   min-width: 0;
 }
 
+/* Cible : .strength-exercise-heading h4 */
 .strength-exercise-heading h4 {
   margin: 5px 0 0;
   color: var(--color-text, #f4f4fb);
@@ -28,12 +40,14 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-sets-section */
 .strength-sets-section {
   display: grid;
   gap: 12px;
   min-width: 0;
 }
 
+/* Cible : .strength-set-card */
 .strength-set-card {
   display: grid;
   gap: 15px;
@@ -46,6 +60,7 @@
   background: var(--color-surface-alt, #171725);
 }
 
+/* Cible : .strength-set-heading */
 .strength-set-heading {
   display: flex;
   align-items: center;
@@ -54,12 +69,14 @@
   min-width: 0;
 }
 
+/* Cible : .strength-set-heading > strong */
 .strength-set-heading > strong {
   color: var(--color-text, #f4f4fb);
   font-size: 13px;
   font-weight: 700;
 }
 
+/* Cible : .strength-set-completed */
 .strength-set-completed {
   display: inline-flex;
   align-items: center;
@@ -70,10 +87,12 @@
   cursor: pointer;
 }
 
+/* Cible : .strength-set-completed input */
 .strength-set-completed input {
   accent-color: #a78bfa;
 }
 
+/* Cible : .strength-set-remove */
 .strength-set-remove {
   margin-left: auto;
   padding: 5px 0;
@@ -90,11 +109,13 @@
   transition: color 160ms ease;
 }
 
+/* Cible : .strength-set-remove:hover */
 .strength-set-remove:hover {
   color: #fecdd3;
   text-decoration: underline;
 }
 
+/* Cible : .strength-set-grid */
 .strength-set-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -102,40 +123,50 @@
   min-width: 0;
 }
 
+/* Cible : .strength-set-remove:focus-visible */
 .strength-set-remove:focus-visible {
   outline: 2px solid #a78bfa;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
+/* Règles responsive — (max-width: 640px) */
 @media (max-width: 640px) {
+  /* Cible : .strength-exercise-card */
   .strength-exercise-card {
     gap: 17px;
     padding: 14px;
   }
 
+  /* Cible : .strength-set-card */
   .strength-set-card {
     gap: 12px;
     padding: 12px;
   }
 
+  /* Cible : .strength-set-grid */
   .strength-set-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 }
 
+/* Règles responsive — (max-width: 380px) */
 @media (max-width: 380px) {
+  /* Cible : .strength-set-grid */
   .strength-set-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .strength-set-heading */
   .strength-set-heading {
     gap: 8px;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-set-remove */
   .strength-set-remove {
     transition: none;
   }

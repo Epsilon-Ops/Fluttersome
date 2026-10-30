@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/theme/components.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Components
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    COMPOSANTS — système Duolingo
    Chaque élément cliquable a une épaisseur (border-bottom
@@ -5,6 +14,7 @@
    ========================================================= */
 
 /* ---------- BOUTONS ---------- */
+/* Cible : .app-shell [class*='-primary-button'], .app-shell [class*='-secondary-button'], .app-shell [class*='-danger-button'], .app-shell [class*='-icon-button'], .app-shell [c… */
 .app-shell [class*='-primary-button'],
 .app-shell [class*='-secondary-button'],
 .app-shell [class*='-danger-button'],
@@ -28,6 +38,7 @@
 }
 
 /* Brillance qui glisse sur le bouton principal (passif) */
+/* Cible : .app-shell [class*='-primary-button']::after */
 .app-shell [class*='-primary-button']::after {
   content: '';
   position: absolute;
@@ -41,22 +52,25 @@
 }
 
 /* Principal : couleur d'accent, grosse épaisseur */
+/* Cible : .app-shell [class*='-primary-button'] */
 .app-shell [class*='-primary-button'] {
-  min-height: 50px;
+  min-height: 42px;
   padding: 13px 24px;
   border: 0;
-  border-radius: 18px;
+  border-radius: 10px;
   background: var(--accent);
   color: var(--accent-ink);
   font-size: 15px;
-  box-shadow: 0 6px 0 var(--accent-deep), 0 14px 28px -12px var(--accent-glow);
+  box-shadow: 0 2px 0 var(--accent-deep), 0 14px 28px -12px var(--accent-glow);
 }
 
+/* Cible : .app-shell [class*='-primary-button']:hover:not(:disabled) */
 .app-shell [class*='-primary-button']:hover:not(:disabled) {
   filter: brightness(1.08);
   transform: translateY(-2px) scale(1.03, 0.97);
 }
 
+/* Cible : .app-shell [class*='-primary-button']:active:not(:disabled) */
 .app-shell [class*='-primary-button']:active:not(:disabled) {
   transform: translateY(6px) scale(1.06, 0.88);
   box-shadow: 0 0 0 var(--accent-deep), 0 2px 8px -4px var(--accent-glow);
@@ -64,51 +78,58 @@
 }
 
 /* Secondaire : surface sombre à liseré de l'accent */
+/* Cible : .app-shell [class*='-secondary-button'] */
 .app-shell [class*='-secondary-button'] {
-  min-height: 46px;
+  min-height: 40px;
   padding: 11px 20px;
   border: 2px solid var(--color-border-strong);
-  border-radius: 18px;
+  border-radius: 10px;
   background: linear-gradient(180deg, #1D2138, #12142A);
   color: var(--diamond-ice);
   font-size: 13.5px;
-  box-shadow: 0 5px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
 }
 
+/* Cible : .app-shell [class*='-secondary-button']:hover:not(:disabled) */
 .app-shell [class*='-secondary-button']:hover:not(:disabled) {
   border-color: var(--accent);
   color: #FFFFFF;
   transform: translateY(-2px) scale(1.03, 0.97);
-  box-shadow: 0 7px 0 var(--depth-surface), 0 0 0 4px var(--accent-tint);
+  box-shadow: 0 2px 0 var(--depth-surface), 0 0 0 4px var(--accent-tint);
 }
 
+/* Cible : .app-shell [class*='-secondary-button']:active:not(:disabled) */
 .app-shell [class*='-secondary-button']:active:not(:disabled) {
   transform: translateY(5px) scale(1.05, 0.9);
   box-shadow: 0 0 0 var(--depth-surface);
 }
 
 /* Danger : rouge Duolingo */
+/* Cible : .app-shell [class*='-danger-button'] */
 .app-shell [class*='-danger-button'] {
-  min-height: 46px;
+  min-height: 40px;
   padding: 11px 20px;
   border: 0;
-  border-radius: 18px;
+  border-radius: 10px;
   background: var(--duo-red);
   color: #FFFFFF;
   font-size: 13.5px;
-  box-shadow: 0 6px 0 var(--duo-red-deep);
+  box-shadow: 0 2px 0 var(--duo-red-deep);
 }
 
+/* Cible : .app-shell [class*='-danger-button']:hover:not(:disabled) */
 .app-shell [class*='-danger-button']:hover:not(:disabled) {
   transform: translateY(-2px) scale(1.03, 0.97);
 }
 
+/* Cible : .app-shell [class*='-danger-button']:active:not(:disabled) */
 .app-shell [class*='-danger-button']:active:not(:disabled) {
   transform: translateY(6px) scale(1.06, 0.88);
   box-shadow: 0 0 0 var(--duo-red-deep);
 }
 
 /* Texte : lien coloré qui s'étire au survol */
+/* Cible : .app-shell [class*='-text-button'], .app-shell [class*='-reset-filters'] */
 .app-shell [class*='-text-button'],
 .app-shell [class*='-reset-filters'] {
   border: 0;
@@ -117,44 +138,50 @@
   font-size: 12.5px;
 }
 
+/* Cible : .app-shell [class*='-text-button']:hover:not(:disabled), .app-shell [class*='-reset-filters']:hover:not(:disabled) */
 .app-shell [class*='-text-button']:hover:not(:disabled),
 .app-shell [class*='-reset-filters']:hover:not(:disabled) {
   transform: scale(1.1, 0.9);
   color: var(--accent-ink) !important;
   background: var(--accent);
-  border-radius: 12px;
+  border-radius: 8px;
   padding-inline: 8px;
 }
 
 /* Icône : pastille ronde à épaisseur */
+/* Cible : .app-shell [class*='-icon-button'] */
 .app-shell [class*='-icon-button'] {
   width: 44px;
   height: 44px;
   border: 2px solid var(--color-border-strong);
-  border-radius: 14px;
+  border-radius: 8px;
   background: linear-gradient(180deg, #1D2138, #12142A);
-  box-shadow: 0 4px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
 }
 
+/* Cible : .app-shell [class*='-icon-button']:hover:not(:disabled) */
 .app-shell [class*='-icon-button']:hover:not(:disabled) {
   transform: translateY(-2px) rotate(-6deg) scale(1.1);
   border-color: var(--accent);
 }
 
+/* Cible : .app-shell [class*='-icon-button']:active:not(:disabled) */
 .app-shell [class*='-icon-button']:active:not(:disabled) {
   transform: translateY(4px) scale(0.85, 0.78);
   box-shadow: 0 0 0 var(--depth-surface);
 }
 
+/* Cible : .app-shell button:disabled */
 .app-shell button:disabled { filter: grayscale(0.6); box-shadow: none; }
 
 /* ---------- CHAMPS : enfoncés, lueur au focus ---------- */
+/* Cible : .app-shell input:not([type='checkbox']):not([type='radio']):not([type='range']), .app-shell select, .app-shell textarea */
 .app-shell input:not([type='checkbox']):not([type='radio']):not([type='range']),
 .app-shell select,
 .app-shell textarea {
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 4px;
-  border-radius: 16px;
+  border-bottom-width: 2px;
+  border-radius: 8px;
   background: #080911;
   color: var(--color-text);
   font-weight: 800;
@@ -162,6 +189,7 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.3s var(--motion-spring);
 }
 
+/* Cible : .app-shell input:not([type='checkbox']):not([type='radio']):not([type='range']):focus, .app-shell select:focus, .app-shell textarea:focus */
 .app-shell input:not([type='checkbox']):not([type='radio']):not([type='range']):focus,
 .app-shell select:focus,
 .app-shell textarea:focus {
@@ -171,14 +199,17 @@
   transform: scale(1.01, 0.98);
 }
 
+/* Cible : .app-shell input::placeholder, .app-shell textarea::placeholder */
 .app-shell input::placeholder,
 .app-shell textarea::placeholder { color: #5B6188; font-weight: 700; }
+/* Cible : .app-shell label */
 .app-shell label { font-weight: 800; }
 
 /* ---------- ONGLETS : capsules Duolingo ---------- */
+/* Cible : .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) */
 .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']) {
   border: 2px solid transparent;
-  border-radius: 16px;
+  border-radius: 8px;
   background: transparent;
   color: var(--color-muted);
   font-family: var(--font-display);
@@ -188,35 +219,40 @@
   transition: transform 0.34s var(--motion-spring), background-color 0.2s, color 0.2s, box-shadow 0.15s;
 }
 
+/* Cible : .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']):hover */
 .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']):hover {
   color: var(--color-text);
   transform: translateY(-2px) scale(1.04, 0.96);
 }
 
+/* Cible : .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']):active */
 .app-shell [class*='-tab']:not([class*='-tabs']):not([class*='-tab-']):active {
   transform: scale(0.92, 0.86);
 }
 
+/* Cible : .app-shell [class*='-tab'][aria-selected='true'], .app-shell [class*='-tab'].active, .app-shell [class*='-tab'].is-active */
 .app-shell [class*='-tab'][aria-selected='true'],
 .app-shell [class*='-tab'].active,
 .app-shell [class*='-tab'].is-active {
   border-color: var(--accent-deep);
   background: var(--accent);
   color: var(--accent-ink);
-  box-shadow: 0 4px 0 var(--accent-deep);
+  box-shadow: 0 2px 0 var(--accent-deep);
   animation: duo-bounce 0.7s var(--motion-wobble);
 }
 
 /* Piste d'onglets */
+/* Cible : .app-shell [class*='-tabs']:not([class*='-tabs-']) */
 .app-shell [class*='-tabs']:not([class*='-tabs-']) {
   padding: 6px;
   border: 2px solid var(--color-border);
-  border-radius: 22px;
+  border-radius: 10px;
   background: #07080F;
   box-shadow: inset 0 3px 0 rgb(0 0 0 / 60%);
 }
 
 /* ---------- PASTILLES : stickers ---------- */
+/* Cible : .app-shell .status-pill, .app-shell [class*='-badge'], .app-shell [class*='-type-badge'], .app-shell .section-tag */
 .app-shell .status-pill,
 .app-shell [class*='-badge'],
 .app-shell [class*='-type-badge'],
@@ -226,7 +262,7 @@
   gap: 6px;
   padding: 5px 12px;
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 4px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-pill);
   background: #161A2E;
   color: var(--diamond-ice);
@@ -238,15 +274,19 @@
   animation: duo-pop-in 0.6s var(--motion-wobble) both;
 }
 
+/* Cible : .app-shell .status-pill:hover, .app-shell [class*='-badge']:hover */
 .app-shell .status-pill:hover,
 .app-shell [class*='-badge']:hover { animation: duo-stretch 0.6s ease; }
 
+/* Cible : .app-shell .status-pill.success, .app-shell .status-pill--success */
 .app-shell .status-pill.success,
 .app-shell .status-pill--success { background: rgb(88 204 2 / 20%); border-color: var(--duo-green-deep); color: #C4F59B; }
+/* Cible : .app-shell .status-pill.danger, .app-shell .status-pill--danger */
 .app-shell .status-pill.danger,
 .app-shell .status-pill--danger { background: rgb(255 75 75 / 18%); border-color: var(--duo-red-deep); color: #FFC2C2; }
 
 /* ---------- ICÔNES : ombre solide (rendu sticker) ---------- */
+/* Cible : .app-shell .nav-icon svg, .app-shell .bottom-nav-icon svg, .app-shell .bottom-nav-menu-icon svg, .app-shell .stat-card__icon svg, .app-shell .metric-icon svg, .app-she… */
 .app-shell .nav-icon svg,
 .app-shell .bottom-nav-icon svg,
 .app-shell .bottom-nav-menu-icon svg,
@@ -261,6 +301,7 @@
   overflow: visible;
 }
 
+/* Cible : .app-shell .stat-card:hover .stat-card__icon svg, .app-shell .metric-card:hover .metric-icon svg, .app-shell .nav-item:hover .nav-icon svg, .app-shell .bottom-nav-item… */
 .app-shell .stat-card:hover .stat-card__icon svg,
 .app-shell .metric-card:hover .metric-icon svg,
 .app-shell .nav-item:hover .nav-icon svg,
@@ -269,19 +310,21 @@
 }
 
 /* ---------- PANNEAUX : cartes Duolingo à épaisseur ---------- */
+/* Cible : .app-shell .panel, .app-shell [class*='-panel']:not([class*='-panel-']):not([class*='__']) */
 .app-shell .panel,
 .app-shell [class*='-panel']:not([class*='-panel-']):not([class*='__']) {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border: 2px solid var(--color-border);
-  border-bottom-width: 6px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-card);
   background: linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-surface) 100%);
   box-shadow: var(--shadow-card);
   transition: transform 0.45s var(--motion-spring), border-color 0.25s ease;
 }
 
+/* Cible : .app-shell .panel:hover, .app-shell [class*='-panel']:not([class*='-panel-']):not([class*='__']):hover */
 .app-shell .panel:hover,
 .app-shell [class*='-panel']:not([class*='-panel-']):not([class*='__']):hover {
   transform: translateY(-3px) scale(1.005, 0.995);
@@ -289,6 +332,7 @@
 }
 
 /* Reflet diamant qui traverse (passif) */
+/* Cible : .app-shell .panel::after, .app-shell .stat-card::after, .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.task-card)::after, .app-shell [class… */
 .app-shell .panel::after,
 .app-shell .stat-card::after,
 .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.task-card)::after,
@@ -306,6 +350,7 @@
   animation-delay: var(--glint-delay, 0s);
 }
 
+/* Cible : .app-shell .panel-heading, .app-shell [class*='-panel-heading'], .app-shell [class*='-panel-header'] */
 .app-shell .panel-heading,
 .app-shell [class*='-panel-heading'],
 .app-shell [class*='-panel-header'] {
@@ -314,6 +359,7 @@
   background: linear-gradient(180deg, rgb(255 255 255 / 3%), transparent);
 }
 
+/* Cible : .app-shell .panel-heading h3, .app-shell .status-panel h3, .app-shell [class*='-panel-heading'] h3, .app-shell [class*='-panel-header'] h3 */
 .app-shell .panel-heading h3,
 .app-shell .status-panel h3,
 .app-shell [class*='-panel-heading'] h3,
@@ -327,6 +373,7 @@
 }
 
 /* Symbole de panneau : grosse pastille de l'accent */
+/* Cible : .app-shell .panel-symbol */
 .app-shell .panel-symbol {
   display: grid;
   place-items: center;
@@ -334,32 +381,35 @@
   height: 42px;
   flex: 0 0 42px;
   border: 0;
-  border-bottom: 4px solid var(--accent-deep);
-  border-radius: 14px;
+  border-bottom: 2px solid var(--accent-deep);
+  border-radius: 8px;
   background: var(--accent);
   color: var(--accent-ink);
   animation: duo-float 4s ease-in-out infinite;
 }
 
 /* ---------- INDICATEURS : stat cards ---------- */
+/* Cible : .app-shell .stat-card, .app-shell .dashboard-home .stat-card */
 .app-shell .stat-card,
 .app-shell .dashboard-home .stat-card {
   position: relative;
   border: 2px solid var(--color-border);
-  border-bottom-width: 6px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-card);
   background: radial-gradient(circle at 100% 0%, var(--stat-accent, var(--accent)) 0%, transparent 46%), linear-gradient(160deg, #181C32 0%, #0A0B15 80%);
-  box-shadow: 0 6px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
   transition: transform 0.45s var(--motion-spring), box-shadow 0.25s, border-color 0.25s;
 }
 
+/* Cible : .app-shell .stat-card--interactive:hover, .app-shell .dashboard-home .stat-card--interactive:hover */
 .app-shell .stat-card--interactive:hover,
 .app-shell .dashboard-home .stat-card--interactive:hover {
   border-color: var(--stat-accent, var(--accent));
   transform: translateY(-6px) scale(1.03, 0.96);
-  box-shadow: 0 12px 0 var(--depth-surface), 0 0 34px -8px var(--stat-accent, var(--accent));
+  box-shadow: 0 3px 0 var(--depth-surface), 0 0 34px -8px var(--stat-accent, var(--accent));
 }
 
+/* Cible : .app-shell .stat-card--interactive:active, .app-shell .dashboard-home .stat-card--interactive:active */
 .app-shell .stat-card--interactive:active,
 .app-shell .dashboard-home .stat-card--interactive:active {
   transform: translateY(6px) scale(1.04, 0.88);
@@ -367,6 +417,7 @@
   transition-duration: 0.06s;
 }
 
+/* Cible : .app-shell .stat-card__title */
 .app-shell .stat-card__title {
   font-family: var(--font-display);
   font-weight: 900;
@@ -376,19 +427,21 @@
   color: var(--color-muted);
 }
 
+/* Cible : .app-shell .stat-card__icon */
 .app-shell .stat-card__icon {
   display: grid;
   place-items: center;
   width: 52px;
   height: 52px;
-  border-radius: 18px;
+  border-radius: 10px;
   border: 0;
-  border-bottom: 5px solid color-mix(in srgb, var(--stat-accent, var(--accent)) 60%, #000);
+  border-bottom: 2px solid color-mix(in srgb, var(--stat-accent, var(--accent)) 60%, #000);
   background: var(--stat-accent, var(--accent));
   color: #FFFFFF;
   animation: duo-float 3.8s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .stat-card__value */
 .app-shell .stat-card__value {
   font-family: var(--font-display);
   font-weight: 900;
@@ -397,66 +450,75 @@
   line-height: 1.05;
 }
 
+/* Cible : .app-shell .stat-card__subtitle */
 .app-shell .stat-card__subtitle { font-weight: 700; color: var(--color-muted); }
 
 /* ---------- CARTES GÉNÉRIQUES ---------- */
+/* Cible : .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card) */
 .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card) {
   position: relative;
   overflow: hidden;
   border: 2px solid var(--color-border);
-  border-bottom-width: 5px;
-  border-radius: 22px;
+  border-bottom-width: 2px;
+  border-radius: 10px;
   background: linear-gradient(180deg, #161A2E 0%, #0A0B14 100%);
-  box-shadow: 0 5px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
   transition: transform 0.45s var(--motion-spring), box-shadow 0.25s, border-color 0.25s;
 }
 
+/* Cible : .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card):hover */
 .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card):hover {
   border-color: var(--color-border-strong);
   transform: translateY(-4px) scale(1.012, 0.988);
-  box-shadow: 0 9px 0 var(--depth-surface), 0 0 26px -12px var(--accent-glow);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 0 26px -12px var(--accent-glow);
 }
 
+/* Cible : .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card):active */
 .app-shell [class*='-card']:not([class*='-card-']):not([class*='__']):not(.stat-card):not(.metric-card):not(.task-card):active {
   transform: translateY(4px) scale(0.98, 0.92);
   box-shadow: 0 1px 0 var(--depth-surface);
 }
 
 /* ---------- CARTES DE MESURE ---------- */
+/* Cible : .app-shell .metric-card */
 .app-shell .metric-card {
   border: 2px solid var(--color-border);
-  border-bottom-width: 6px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-card);
   background: linear-gradient(170deg, #181C32 0%, #0A0B14 80%);
-  box-shadow: 0 6px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
   transition: transform 0.45s var(--motion-spring), box-shadow 0.25s;
 }
 
+/* Cible : .app-shell .metric-card:hover */
 .app-shell .metric-card:hover {
   transform: translateY(-5px) scale(1.03, 0.96);
-  box-shadow: 0 11px 0 var(--depth-surface), 0 0 30px -10px var(--accent-glow);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 0 30px -10px var(--accent-glow);
 }
 
+/* Cible : .app-shell .metric-card.is-record */
 .app-shell .metric-card.is-record {
   border-color: var(--duo-yellow);
-  box-shadow: 0 6px 0 var(--duo-yellow-deep), 0 0 34px -8px rgb(255 200 0 / 45%);
+  box-shadow: 0 2px 0 var(--duo-yellow-deep), 0 0 34px -8px rgb(255 200 0 / 45%);
   animation: duo-breathe 3s ease-in-out infinite;
 }
 
 /* ---------- ACCUEIL : grande bannière ---------- */
+/* Cible : .app-shell .dashboard-welcome */
 .app-shell .dashboard-welcome {
   position: relative;
   overflow: hidden;
-  padding: 32px 34px;
+  padding: 24px 26px;
   border: 2px solid #22295A;
-  border-bottom-width: 8px;
-  border-radius: 32px;
+  border-bottom-width: 2px;
+  border-radius: 14px;
   background:
     radial-gradient(ellipse 70% 120% at 100% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 60%),
     linear-gradient(135deg, #14183D 0%, #07080F 60%, #171030 100%);
-  box-shadow: 0 10px 0 var(--depth-surface), 0 30px 60px -28px var(--accent-glow);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 30px 60px -28px var(--accent-glow);
 }
 
+/* Cible : .app-shell .dashboard-welcome__icon */
 .app-shell .dashboard-welcome__icon {
   display: grid;
   place-items: center;
@@ -465,13 +527,14 @@
   height: 80px;
   flex: 0 0 auto;
   border: 0;
-  border-bottom: 6px solid var(--accent-deep);
-  border-radius: 26px;
+  border-bottom: 2px solid var(--accent-deep);
+  border-radius: 12px;
   background: var(--accent);
   color: var(--accent-ink);
   animation: duo-float 4.5s ease-in-out infinite, duo-wiggle 7s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .dashboard-welcome__icon::before, .app-shell .dashboard-welcome__icon::after */
 .app-shell .dashboard-welcome__icon::before,
 .app-shell .dashboard-welcome__icon::after {
   content: '✦';
@@ -481,18 +544,23 @@
   font-size: 13px;
   animation: diamond-twinkle 2.8s ease-in-out infinite;
 }
+/* Cible : .app-shell .dashboard-welcome__icon::before */
 .app-shell .dashboard-welcome__icon::before { top: 6px; right: 8px; }
+/* Cible : .app-shell .dashboard-welcome__icon::after */
 .app-shell .dashboard-welcome__icon::after { bottom: 8px; left: 6px; font-size: 9px; animation-delay: 1.4s; }
 
+/* Cible : .app-shell .dashboard-home__section-heading h2, .app-shell .section-heading h2 */
 .app-shell .dashboard-home__section-heading h2,
 .app-shell .section-heading h2 {
   font-family: var(--font-display);
   font-weight: 900;
 }
 
+/* Cible : .app-shell .dashboard-home__section-heading p */
 .app-shell .dashboard-home__section-heading p { font-weight: 800; color: var(--color-muted); }
 
 /* ---------- EYEBROW : capsule Duolingo ---------- */
+/* Cible : .app-shell .eyebrow */
 .app-shell .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -508,6 +576,7 @@
   text-transform: uppercase;
 }
 
+/* Cible : .app-shell .eyebrow::before */
 .app-shell .eyebrow::before {
   content: '';
   width: 7px;
@@ -519,8 +588,10 @@
 }
 
 /* ---------- ÉTATS VIDES ---------- */
+/* Cible : .app-shell .empty-page */
 .app-shell .empty-page { text-align: center; }
 
+/* Cible : .app-shell .empty-page-icon */
 .app-shell .empty-page-icon {
   display: grid;
   place-items: center;
@@ -528,20 +599,21 @@
   height: 92px;
   margin: 0 auto 20px;
   border: 0;
-  border-bottom: 6px solid var(--accent-deep);
-  border-radius: 30px;
+  border-bottom: 2px solid var(--accent-deep);
+  border-radius: 14px;
   background: var(--accent);
   color: var(--accent-ink);
   animation: duo-float 4s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .coming-soon */
 .app-shell .coming-soon {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
   border: 2px solid var(--duo-yellow-deep);
-  border-bottom-width: 4px;
+  border-bottom-width: 2px;
   border-radius: var(--radius-pill);
   background: rgb(255 200 0 / 12%);
   color: var(--duo-yellow);
@@ -552,6 +624,7 @@
   text-transform: uppercase;
 }
 
+/* Cible : .app-shell .coming-soon-dot */
 .app-shell .coming-soon-dot {
   width: 9px;
   height: 9px;
@@ -561,7 +634,9 @@
 }
 
 /* ---------- TABLEAUX ---------- */
+/* Cible : .app-shell table */
 .app-shell table { border-collapse: separate; border-spacing: 0; }
+/* Cible : .app-shell th */
 .app-shell th {
   font-family: var(--font-display);
   font-weight: 900;
@@ -570,19 +645,23 @@
   text-transform: uppercase;
   color: var(--diamond-silver);
 }
+/* Cible : .app-shell tbody tr */
 .app-shell tbody tr { transition: transform 0.3s var(--motion-spring), background-color 0.2s; }
+/* Cible : .app-shell tbody tr:hover */
 .app-shell tbody tr:hover { transform: scale(1.005, 0.985); }
 
 /* ---------- MODALES ---------- */
+/* Cible : .app-shell [class*='-modal']:not([class*='-modal-']):not([class*='__']) */
 .app-shell [class*='-modal']:not([class*='-modal-']):not([class*='__']) {
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 8px;
-  border-radius: 28px;
+  border-bottom-width: 2px;
+  border-radius: 14px;
   background: linear-gradient(180deg, #171B2F, #0B0C16);
-  box-shadow: 0 14px 0 var(--depth-surface), 0 40px 80px -20px rgb(0 0 0 / 80%);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 40px 80px -20px rgb(0 0 0 / 80%);
   animation: duo-pop-in 0.55s var(--motion-wobble) both;
 }
 
+/* Cible : [class*='-modal-backdrop'], [class*='-backdrop'] */
 [class*='-modal-backdrop'],
 [class*='-backdrop'] {
   backdrop-filter: blur(8px);
@@ -590,4 +669,5 @@
 }
 
 /* ---------- Petits textes ---------- */
+/* Cible : .app-shell small, .app-shell .text-muted */
 .app-shell small, .app-shell .text-muted { font-weight: 800; }

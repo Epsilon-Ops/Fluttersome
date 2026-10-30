@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/courses.css
+   ZONE    : Page Entraînement
+   RÔLE    : Courses
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    EPSILON — ENTRAÎNEMENT
    Courses individuelles — Black Diamond Premium++
    ========================================================= */
 
+   /* Cible : .training-course-card */
    .training-course-card {
     min-width: 0;
     margin: 14px 0;
@@ -26,11 +36,13 @@
       background var(--transition-base);
   }
   
+  /* Cible : .training-course-card:hover */
   .training-course-card:hover {
     border-color: var(--color-border-strong);
     box-shadow: var(--shadow-card-hover);
   }
   
+  /* Cible : .training-course-heading */
   .training-course-heading {
     display: flex;
     align-items: center;
@@ -41,6 +53,7 @@
     margin-bottom: 16px;
   }
   
+  /* Cible : .training-course-heading h4 */
   .training-course-heading h4 {
     margin: 0;
   
@@ -50,10 +63,12 @@
     letter-spacing: 0.02em;
   }
   
+  /* Cible : .training-course-card .training-form-grid */
   .training-course-card .training-form-grid {
     margin-top: 0;
   }
   
+  /* Cible : .training-course-card input, .training-course-card select, .training-course-card textarea */
   .training-course-card input,
   .training-course-card select,
   .training-course-card textarea {
@@ -64,6 +79,7 @@
     min-width: 0;
   }
   
+  /* Cible : .training-course-card input, .training-course-card select, .training-course-card textarea */
   .training-course-card input,
   .training-course-card select,
   .training-course-card textarea {
@@ -71,12 +87,14 @@
     background-color: var(--color-surface-alt);
   }
   
+  /* Cible : .training-course-card input:hover, .training-course-card select:hover, .training-course-card textarea:hover */
   .training-course-card input:hover,
   .training-course-card select:hover,
   .training-course-card textarea:hover {
     border-color: var(--color-border-strong);
   }
   
+  /* Cible : .training-course-card input:focus-visible, .training-course-card select:focus-visible, .training-course-card textarea:focus-visible */
   .training-course-card input:focus-visible,
   .training-course-card select:focus-visible,
   .training-course-card textarea:focus-visible {
@@ -84,20 +102,25 @@
     outline-offset: 2px;
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .training-course-card */
     .training-course-card {
       margin: 10px 0;
       padding: 12px;
       border-radius: var(--radius-panel);
     }
   
+    /* Cible : .training-course-heading */
     .training-course-heading {
       gap: 8px;
       margin-bottom: 12px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-course-card */
     .training-course-card {
       transition: none;
     }

@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/toolbar-filters.css
+   ZONE    : Page Tâches
+   RÔLE    : Toolbar filters
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — RECHERCHE ET FILTRES
@@ -5,6 +14,7 @@
    ===================================================== */
 
 /* Barre de recherche et filtres */
+/* Cible : .tasks-toolbar */
 .tasks-toolbar {
   display: flex;
   flex-direction: column;
@@ -16,6 +26,7 @@
   background: var(--tasks-surface);
 }
 
+/* Cible : .tasks-toolbar-top */
 .tasks-toolbar-top {
   display: flex;
   align-items: center;
@@ -23,11 +34,13 @@
   min-width: 0;
 }
 
+/* Cible : .tasks-toolbar > .tasks-search */
 .tasks-toolbar > .tasks-search {
   box-sizing: border-box;
   width: 100%;
 }
 
+/* Cible : .tasks-search */
 .tasks-search {
   display: flex;
   align-items: center;
@@ -46,12 +59,14 @@
     background 180ms ease;
 }
 
+/* Cible : .tasks-search > span */
 .tasks-search > span {
   flex-shrink: 0;
   color: var(--tasks-accent);
   font-size: 1.25rem;
 }
 
+/* Cible : .tasks-search input */
 .tasks-search input {
   width: 100%;
   min-width: 0;
@@ -65,11 +80,13 @@
   font-size: 0.9rem;
 }
 
+/* Cible : .tasks-search input::placeholder */
 .tasks-search input::placeholder {
   color: #77768e;
   opacity: 1;
 }
 
+/* Cible : .tasks-search:focus-within */
 .tasks-search:focus-within {
   border-color: var(--tasks-accent);
   background: #10101b;
@@ -77,6 +94,7 @@
 }
 
 /* Filtres individuels */
+/* Cible : .tasks-filters */
 .tasks-filters {
   display: flex;
   flex-wrap: wrap;
@@ -85,6 +103,7 @@
   min-width: 0;
 }
 
+/* Cible : .tasks-filter */
 .tasks-filter {
   display: flex;
   flex-direction: column;
@@ -93,12 +112,14 @@
   flex: 1;
 }
 
+/* Cible : .tasks-filter > span */
 .tasks-filter > span {
   color: var(--tasks-text-soft);
   font-size: 0.75rem;
   font-weight: 700;
 }
 
+/* Cible : .tasks-filter select, .tasks-form-field input, .tasks-form-field select, .tasks-form-field textarea, .tasks-add-subtask input */
 .tasks-filter select,
 .tasks-form-field input,
 .tasks-form-field select,
@@ -121,6 +142,7 @@
     background 160ms ease;
 }
 
+/* Cible : .tasks-filter select, .tasks-form-field input, .tasks-form-field select, .tasks-add-subtask input */
 .tasks-filter select,
 .tasks-form-field input,
 .tasks-form-field select,
@@ -128,12 +150,14 @@
   min-height: 42px;
 }
 
+/* Cible : .tasks-form-field textarea */
 .tasks-form-field textarea {
   min-height: 100px;
   line-height: 1.5;
   resize: vertical;
 }
 
+/* Cible : .tasks-filter select:hover, .tasks-form-field input:hover, .tasks-form-field select:hover, .tasks-form-field textarea:hover, .tasks-add-subtask input:hover */
 .tasks-filter select:hover,
 .tasks-form-field input:hover,
 .tasks-form-field select:hover,
@@ -142,6 +166,7 @@
   border-color: var(--tasks-border-strong);
 }
 
+/* Cible : .tasks-filter select:focus-visible, .tasks-form-field input:focus-visible, .tasks-form-field select:focus-visible, .tasks-form-field textarea:focus-visible, .tasks-add… */
 .tasks-filter select:focus-visible,
 .tasks-form-field input:focus-visible,
 .tasks-form-field select:focus-visible,
@@ -152,6 +177,7 @@
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.14);
 }
 
+/* Cible : .tasks-form-field input::placeholder, .tasks-form-field textarea::placeholder, .tasks-add-subtask input::placeholder */
 .tasks-form-field input::placeholder,
 .tasks-form-field textarea::placeholder,
 .tasks-add-subtask input::placeholder {
@@ -160,6 +186,7 @@
 }
 
 /* Réinitialisation des filtres */
+/* Cible : .tasks-reset-filters */
 .tasks-reset-filters {
   display: inline-flex;
   align-items: center;
@@ -181,18 +208,21 @@
     color 160ms ease;
 }
 
+/* Cible : .tasks-reset-filters:hover */
 .tasks-reset-filters:hover {
   border-color: rgba(167, 139, 250, 0.17);
   background: rgba(167, 139, 250, 0.08);
   color: #e1d7ff;
 }
 
+/* Cible : .tasks-reset-filters:focus-visible */
 .tasks-reset-filters:focus-visible {
   outline: 2px solid var(--tasks-red);
   outline-offset: 3px;
 }
 
 /* Panneau de filtres repliable */
+/* Cible : .tasks-filter-panel */
 .tasks-filter-panel {
   margin: 0 0 6px;
   overflow: hidden;
@@ -202,6 +232,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
+/* Cible : .tasks-filter-summary */
 .tasks-filter-summary {
   display: flex;
   align-items: center;
@@ -215,14 +246,17 @@
   transition: background 160ms ease;
 }
 
+/* Cible : .tasks-filter-summary::-webkit-details-marker */
 .tasks-filter-summary::-webkit-details-marker {
   display: none;
 }
 
+/* Cible : .tasks-filter-summary::marker */
 .tasks-filter-summary::marker {
   content: "";
 }
 
+/* Cible : .tasks-filter-summary-label, .tasks-filter-summary-action */
 .tasks-filter-summary-label,
 .tasks-filter-summary-action {
   display: inline-flex;
@@ -230,6 +264,7 @@
   gap: 9px;
 }
 
+/* Cible : .tasks-filter-summary-label */
 .tasks-filter-summary-label {
   min-width: 0;
   color: var(--tasks-ink);
@@ -237,10 +272,12 @@
   font-weight: 700;
 }
 
+/* Cible : .tasks-filter-summary-label > span:first-child */
 .tasks-filter-summary-label > span:first-child {
   color: var(--tasks-accent);
 }
 
+/* Cible : .tasks-filter-summary-action */
 .tasks-filter-summary-action {
   flex-shrink: 0;
   color: var(--tasks-muted);
@@ -248,6 +285,7 @@
   white-space: nowrap;
 }
 
+/* Cible : .tasks-filter-summary-action span */
 .tasks-filter-summary-action span {
   display: inline-grid;
   width: 23px;
@@ -261,15 +299,18 @@
   line-height: 1;
 }
 
+/* Cible : .tasks-filter-summary:hover */
 .tasks-filter-summary:hover {
   background: rgba(167, 139, 250, 0.045);
 }
 
+/* Cible : .tasks-filter-summary:focus-visible */
 .tasks-filter-summary:focus-visible {
   outline: 2px solid var(--tasks-red);
   outline-offset: -3px;
 }
 
+/* Cible : .tasks-filter-count */
 .tasks-filter-count {
   display: inline-grid;
   min-width: 22px;
@@ -285,11 +326,13 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Cible : .tasks-filter-content */
 .tasks-filter-content {
   padding: 0 16px 16px;
   border-top: 1px solid var(--tasks-border);
 }
 
+/* Cible : .tasks-filter-content .tasks-toolbar */
 .tasks-filter-content .tasks-toolbar {
   padding: 14px 0 0;
   border: 0;
@@ -299,6 +342,7 @@
 }
 
 /* Barre de filtres avancés */
+/* Cible : .tasks-toolbar-advanced */
 .tasks-toolbar-advanced {
   overflow: hidden;
   border: 1px solid var(--tasks-border);
@@ -306,6 +350,7 @@
   background: var(--tasks-surface);
 }
 
+/* Cible : .tasks-toolbar-summary */
 .tasks-toolbar-summary {
   display: flex;
   align-items: center;
@@ -319,20 +364,24 @@
   font-weight: 700;
 }
 
+/* Cible : .tasks-toolbar-summary::-webkit-details-marker */
 .tasks-toolbar-summary::-webkit-details-marker {
   display: none;
 }
 
+/* Cible : .tasks-toolbar-summary::marker */
 .tasks-toolbar-summary::marker {
   content: "";
 }
 
+/* Cible : .tasks-toolbar-summary > span:first-child */
 .tasks-toolbar-summary > span:first-child {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Cible : .tasks-toolbar-summary-action */
 .tasks-toolbar-summary-action {
   color: var(--tasks-muted);
   font-size: 0.75rem;
@@ -340,11 +389,13 @@
   white-space: nowrap;
 }
 
+/* Cible : .tasks-toolbar-summary:focus-visible */
 .tasks-toolbar-summary:focus-visible {
   outline: 2px solid var(--tasks-red);
   outline-offset: -3px;
 }
 
+/* Cible : .tasks-toolbar-advanced .tasks-filters */
 .tasks-toolbar-advanced .tasks-filters {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -353,67 +404,84 @@
   border-top: 1px solid var(--tasks-border);
 }
 
+/* Cible : .tasks-toolbar-advanced .tasks-reset-filters */
 .tasks-toolbar-advanced .tasks-reset-filters {
   justify-self: start;
   align-self: end;
 }
 
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .tasks-toolbar-advanced .tasks-filters */
   .tasks-toolbar-advanced .tasks-filters {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .tasks-toolbar */
   .tasks-toolbar {
     padding: 12px;
   }
 
+  /* Cible : .tasks-toolbar-top */
   .tasks-toolbar-top {
     align-items: stretch;
     flex-direction: column;
   }
 
+  /* Cible : .tasks-filters */
   .tasks-filters {
     gap: 10px;
   }
 
+  /* Cible : .tasks-filter */
   .tasks-filter {
     min-width: 0;
     flex-basis: calc(50% - 10px);
   }
 
+  /* Cible : .tasks-filter-content */
   .tasks-filter-content {
     padding: 0 12px 12px;
   }
 
+  /* Cible : .tasks-filter-summary */
   .tasks-filter-summary {
     gap: 8px;
     padding: 12px;
   }
 
+  /* Cible : .tasks-filter-summary-label */
   .tasks-filter-summary-label {
     gap: 7px;
     font-size: 0.82rem;
   }
 
+  /* Cible : .tasks-toolbar-advanced .tasks-filters */
   .tasks-toolbar-advanced .tasks-filters {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
+/* Règles responsive — (max-width: 360px) */
 @media (max-width: 360px) {
+  /* Cible : .tasks-filter */
   .tasks-filter {
     flex-basis: 100%;
   }
 
+  /* Cible : .tasks-filter-summary-action */
   .tasks-filter-summary-action {
     gap: 5px;
     font-size: 0.7rem;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .tasks-search, .tasks-filter select, .tasks-form-field input, .tasks-form-field select, .tasks-form-field textarea, .tasks-add-subtask input, .tasks-reset-filters, .ta… */
   .tasks-search,
   .tasks-filter select,
   .tasks-form-field input,

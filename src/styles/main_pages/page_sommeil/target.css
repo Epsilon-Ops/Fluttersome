@@ -1,14 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/target.css
+   ZONE    : Page Sommeil
+   RÔLE    : Target
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP TARGET
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .sleep-target-panel */
    .sleep-target-panel {
     min-width: 0;
     margin-top: 1rem;
   }
   
+  /* Cible : .sleep-target-panel .sleep-field */
   .sleep-target-panel .sleep-field {
     display: flex;
     max-width: 280px;
@@ -17,6 +28,7 @@
     margin-top: 1rem;
   }
   
+  /* Cible : .sleep-target-panel .sleep-field > span */
   .sleep-target-panel .sleep-field > span {
     color: var(--sleep-text-soft);
     font-size: 0.85rem;
@@ -24,6 +36,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .sleep-target-panel input */
   .sleep-target-panel input {
     box-sizing: border-box;
     width: 100%;
@@ -41,10 +54,12 @@
       box-shadow var(--sleep-motion-fast);
   }
   
+  /* Cible : .sleep-target-panel input:hover */
   .sleep-target-panel input:hover {
     border-color: var(--sleep-border-strong);
   }
   
+  /* Cible : .sleep-target-panel input:focus-visible */
   .sleep-target-panel input:focus-visible {
     border-color: var(--sleep-accent);
     outline: 2px solid var(--sleep-cyan);
@@ -52,6 +67,7 @@
     box-shadow: 0 0 16px rgba(139, 92, 246, 0.08);
   }
   
+  /* Cible : .sleep-target-summary */
   .sleep-target-summary {
     margin: 0.85rem 0 0;
     color: var(--sleep-muted);
@@ -60,18 +76,23 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .sleep-target-summary strong */
   .sleep-target-summary strong {
     color: var(--sleep-text);
     font-weight: 750;
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .sleep-target-panel .sleep-field */
     .sleep-target-panel .sleep-field {
       max-width: none;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .sleep-target-panel input */
     .sleep-target-panel input {
       transition: none;
     }
@@ -82,10 +103,12 @@
    SLEEP OVERVIEW — OBJECTIF QUOTIDIEN
    ===================================================== */
 
+   /* Cible : .sleep-page .sleep-target-panel .panel-heading */
    .sleep-page .sleep-target-panel .panel-heading {
     margin-bottom: 0.75rem;
   }
   
+  /* Cible : .sleep-page .sleep-target-panel .welcome-description */
   .sleep-page .sleep-target-panel .welcome-description {
     max-width: 58ch;
     margin: 0.5rem 0 1rem;
@@ -94,11 +117,13 @@
     line-height: 1.7;
   }
   
+  /* Cible : .sleep-page .sleep-target-panel .sleep-target-summary */
   .sleep-page .sleep-target-panel .sleep-target-summary {
     padding-top: 0.75rem;
     border-top: 1px solid var(--sleep-border);
   }
   
+  /* Cible : .sleep-page .sleep-target-panel .sleep-target-summary strong */
   .sleep-page .sleep-target-panel .sleep-target-summary strong {
     color: var(--sleep-cyan);
     font-weight: 800;

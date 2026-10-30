@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/buttons-tabs.css
+   ZONE    : Page Tâches
+   RÔLE    : Buttons tabs
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — BOUTONS ET ONGLETS
@@ -5,6 +14,7 @@
    ===================================================== */
 
 /* Boutons principaux et secondaires */
+/* Cible : .tasks-primary-button, .tasks-secondary-button */
 .tasks-primary-button,
 .tasks-secondary-button {
   display: inline-flex;
@@ -30,6 +40,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Cible : .tasks-primary-button */
 .tasks-primary-button {
   border-color: rgba(196, 181, 253, 0.32);
   background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
@@ -39,6 +50,7 @@
   color: #fff;
 }
 
+/* Cible : .tasks-primary-button:hover */
 .tasks-primary-button:hover {
   border-color: rgba(221, 214, 254, 0.55);
   background: linear-gradient(135deg, #b6a0ff 0%, #9870ff 100%);
@@ -47,23 +59,27 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* Cible : .tasks-secondary-button */
 .tasks-secondary-button {
   border-color: var(--tasks-border-strong);
   background: var(--tasks-surface-raised);
   color: var(--tasks-text-soft);
 }
 
+/* Cible : .tasks-secondary-button:hover */
 .tasks-secondary-button:hover {
   border-color: rgba(167, 139, 250, 0.42);
   background: var(--tasks-surface-hover);
   color: var(--tasks-ink);
 }
 
+/* Cible : .tasks-primary-button:active, .tasks-secondary-button:active */
 .tasks-primary-button:active,
 .tasks-secondary-button:active {
   transform: translateY(1px);
 }
 
+/* Cible : .tasks-primary-button:focus-visible, .tasks-secondary-button:focus-visible, .tasks-tab:focus-visible */
 .tasks-primary-button:focus-visible,
 .tasks-secondary-button:focus-visible,
 .tasks-tab:focus-visible {
@@ -71,6 +87,7 @@
   outline-offset: 3px;
 }
 
+/* Cible : .tasks-primary-button:disabled, .tasks-secondary-button:disabled */
 .tasks-primary-button:disabled,
 .tasks-secondary-button:disabled {
   opacity: 0.5;
@@ -80,6 +97,7 @@
 }
 
 /* Navigation par onglets */
+/* Cible : .tasks-tabs */
 .tasks-tabs {
   display: flex;
   gap: 5px;
@@ -93,6 +111,7 @@
   scrollbar-width: thin;
 }
 
+/* Cible : .tasks-tab */
 .tasks-tab {
   position: relative;
   display: inline-flex;
@@ -118,11 +137,13 @@
     box-shadow 180ms ease;
 }
 
+/* Cible : .tasks-tab:hover */
 .tasks-tab:hover {
   background: rgba(167, 139, 250, 0.07);
   color: var(--tasks-ink);
 }
 
+/* Cible : .tasks-tab.active */
 .tasks-tab.active {
   border-color: rgba(167, 139, 250, 0.2);
   background: linear-gradient(
@@ -136,6 +157,7 @@
 }
 
 /* Compteurs */
+/* Cible : .tasks-tab-count, .tasks-count */
 .tasks-tab-count,
 .tasks-count {
   display: inline-grid;
@@ -153,30 +175,36 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Cible : .tasks-tab.active .tasks-tab-count */
 .tasks-tab.active .tasks-tab-count {
   border-color: rgba(167, 139, 250, 0.24);
   background: rgba(167, 139, 250, 0.2);
   color: #eee8ff;
 }
 
+/* Cible : .tasks-count.danger */
 .tasks-count.danger {
   border-color: rgba(34, 211, 238, 0.18);
   background: var(--tasks-red-light);
   color: var(--tasks-red);
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .tasks-primary-button, .tasks-secondary-button */
   .tasks-primary-button,
   .tasks-secondary-button {
     min-height: 44px;
   }
 
+  /* Cible : .tasks-tabs */
   .tasks-tabs {
     gap: 3px;
     padding: 4px;
     border-radius: 12px;
   }
 
+  /* Cible : .tasks-tab */
   .tasks-tab {
     min-height: 38px;
     padding: 9px 11px;
@@ -184,7 +212,9 @@
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .tasks-primary-button, .tasks-secondary-button, .tasks-tab */
   .tasks-primary-button,
   .tasks-secondary-button,
   .tasks-tab {

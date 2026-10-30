@@ -20,14 +20,14 @@ export default function TasksToolbar({
   const activeFilterCount = [
     category !== 'all',
     priority !== 'all',
-    status !== 'all',
+    status !== 'active',
   ].filter(Boolean).length
 
   function resetFilters() {
     onSearchChange('')
     onCategoryChange('all')
     onPriorityChange('all')
-    onStatusChange('all')
+    onStatusChange('active')
   }
 
   return (

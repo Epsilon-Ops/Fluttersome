@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/theme/tokens.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Tokens
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    EPSILON — THÈME v2 « BLACK DIAMOND × DUOLINGO »
    tokens.css : palette, ombres solides, rayons, typographie
@@ -5,6 +14,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
 
+/* Cible : :root */
 :root {
   /* ----- Typographie ----- */
   --font-display: 'Nunito', 'Segoe UI', system-ui, sans-serif;
@@ -73,9 +83,9 @@
   --accent-color: var(--accent);
 
   /* ----- Rayons : arrondis généreux, très Duolingo ----- */
-  --radius-card: 24px;
-  --radius-control: 16px;
-  --radius-pill: 999px;
+  --radius-card: 12px;
+  --radius-control: 8px;
+  --radius-pill: 10px;
 
   /* ----- Épaisseur (ombre solide sous chaque élément) ----- */
   --depth-surface: #020306;
@@ -83,7 +93,7 @@
   --depth-danger: var(--duo-red-deep);
 
   --shadow-card:
-    0 6px 0 var(--depth-surface),
+    0 2px 0 var(--depth-surface),
     0 24px 44px -20px rgb(0 0 0 / 75%),
     inset 0 2px 0 rgb(255 255 255 / 6%);
 
@@ -101,6 +111,7 @@
   --motion-wobble: cubic-bezier(0.5, 1.9, 0.4, 0.9);
 }
 
+/* Cible : html */
 html {
   color-scheme: dark;
 }

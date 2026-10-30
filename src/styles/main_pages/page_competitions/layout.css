@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/layout.css
+   ZONE    : Page Compétitions
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — COMPÉTITIONS PREMIUM++
    Layout / Glass Panels / Diamond Surfaces
    ========================================================= */
 
+   /* Cible : .competitions-page */
    .competitions-page {
     position: relative;
   
@@ -19,16 +29,19 @@
     isolation: isolate;
   }
   
+  /* Cible : .competitions-page *, .competitions-page *::before, .competitions-page *::after */
   .competitions-page *,
   .competitions-page *::before,
   .competitions-page *::after {
     box-sizing: border-box;
   }
   
+  /* Cible : .competitions-page :where(h1, h2, h3, h4, p) */
   .competitions-page :where(h1, h2, h3, h4, p) {
     margin-top: 0;
   }
   
+  /* Cible : .competitions-page :where( button, input, select, textarea ) */
   .competitions-page :where(
     button,
     input,
@@ -38,6 +51,7 @@
     font-family: inherit;
   }
   
+  /* Cible : .competitions-page :where( .welcome-section, .section-heading, .competition-toolbar, .competition-tabs, .competition-form-panel, .panel, .metrics-grid, .competition-hi… */
   .competitions-page :where(
     .welcome-section,
     .section-heading,
@@ -55,6 +69,7 @@
      BANNIÈRE
      ========================================================= */
   
+  /* Cible : .competitions-page .welcome-section */
   .competitions-page .welcome-section {
     position: relative;
     isolation: isolate;
@@ -94,6 +109,7 @@
       inset 0 1px 0 rgb(255 255 255 / 5%);
   }
   
+  /* Cible : .competitions-page .welcome-section::before */
   .competitions-page .welcome-section::before {
     content: "";
     position: absolute;
@@ -109,6 +125,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .competitions-page .welcome-section::after */
   .competitions-page .welcome-section::after {
     content: "";
     position: absolute;
@@ -128,10 +145,12 @@
     pointer-events: none;
   }
   
+  /* Cible : .competitions-page .welcome-section > div */
   .competitions-page .welcome-section > div {
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .welcome-section .eyebrow */
   .competitions-page .welcome-section .eyebrow {
     display: inline-block;
     margin-bottom: var(--space-3);
@@ -139,11 +158,13 @@
     color: #b9a8ff;
   }
   
+  /* Cible : .competitions-page .welcome-section h1 */
   .competitions-page .welcome-section h1 {
     color: #fbfaff;
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .competitions-page .welcome-section h1 span */
   .competitions-page .welcome-section h1 span {
     color: #c0adff;
   }
@@ -152,6 +173,7 @@
      EN-TÊTE DE SECTION
      ========================================================= */
   
+  /* Cible : .competitions-page .section-heading */
   .competitions-page .section-heading {
     display: flex;
     align-items: flex-end;
@@ -160,10 +182,12 @@
     gap: var(--space-3);
   }
   
+  /* Cible : .competitions-page .section-heading > div */
   .competitions-page .section-heading > div {
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .section-heading .eyebrow */
   .competitions-page .section-heading .eyebrow {
     display: block;
     margin-bottom: var(--space-2);
@@ -171,6 +195,7 @@
     color: #9c91d5;
   }
   
+  /* Cible : .competitions-page .section-heading h2 */
   .competitions-page .section-heading h2 {
     margin-bottom: 0;
   
@@ -179,6 +204,7 @@
     letter-spacing: -0.035em;
   }
   
+  /* Cible : .competitions-page .section-tag */
   .competitions-page .section-tag {
     display: inline-flex;
     align-items: center;
@@ -199,6 +225,7 @@
     letter-spacing: 0.08em;
   }
   
+  /* Cible : .competitions-page .section-tag-dot */
   .competitions-page .section-tag-dot {
     flex: 0 0 7px;
     width: 7px;
@@ -216,6 +243,7 @@
      PANNEAUX
      ========================================================= */
   
+  /* Cible : .competitions-page .panel, .competitions-page .competition-form-panel */
   .competitions-page .panel,
   .competitions-page .competition-form-panel {
     position: relative;
@@ -243,6 +271,7 @@
       box-shadow var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .panel-heading */
   .competitions-page .panel-heading {
     display: flex;
     align-items: center;
@@ -261,10 +290,12 @@
     );
   }
   
+  /* Cible : .competitions-page .panel-heading > div */
   .competitions-page .panel-heading > div {
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .panel-heading .eyebrow */
   .competitions-page .panel-heading .eyebrow {
     display: block;
     margin-bottom: var(--space-2);
@@ -272,6 +303,7 @@
     color: #9e92d8;
   }
   
+  /* Cible : .competitions-page .panel-heading h3 */
   .competitions-page .panel-heading h3 {
     margin-bottom: 0;
   
@@ -279,6 +311,7 @@
     font-weight: 750;
   }
   
+  /* Cible : .competitions-page .panel-symbol */
   .competitions-page .panel-symbol {
     display: inline-flex;
     align-items: center;
@@ -303,6 +336,7 @@
   
   /* Description commune des panneaux */
   
+  /* Cible : .competitions-page .welcome-description */
   .competitions-page .welcome-description {
     margin: 0;
     padding: 17px 21px 0;
@@ -316,6 +350,7 @@
      ERREURS ET ALERTES
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-error */
   .competitions-page .competition-error {
     padding: 14px 16px;
   
@@ -335,6 +370,7 @@
      FOCUS ACCESSIBLE
      ========================================================= */
   
+  /* Cible : .competitions-page :where( button, input, select, textarea, a ):focus-visible */
   .competitions-page :where(
     button,
     input,
@@ -350,33 +386,41 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .competitions-page */
     .competitions-page {
       gap: 21px;
     }
   
+    /* Cible : .competitions-page .welcome-section */
     .competitions-page .welcome-section {
       min-height: 155px;
       padding: 24px 20px;
       border-radius: 18px;
     }
   
+    /* Cible : .competitions-page .panel, .competitions-page .competition-form-panel */
     .competitions-page .panel,
     .competitions-page .competition-form-panel {
       border-radius: 17px;
     }
   
+    /* Cible : .competitions-page .panel-heading */
     .competitions-page .panel-heading {
       padding: 16px;
     }
   
+    /* Cible : .competitions-page .welcome-description */
     .competitions-page .welcome-description {
       padding-right: 16px;
       padding-left: 16px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page *, .competitions-page *::before, .competitions-page *::after */
     .competitions-page *,
     .competitions-page *::before,
     .competitions-page *::after {

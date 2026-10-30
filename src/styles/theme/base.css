@@ -1,13 +1,24 @@
+/* ============================================================
+   FICHIER : src/styles/theme/base.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Base
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    BASE — typographie, fond « aura diamant », défilement
    ========================================================= */
 
+/* Propriété animable : --aura-angle */
 @property --aura-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
 
+/* Cible : body */
 body {
   margin: 0;
   background: var(--color-background);
@@ -19,6 +30,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Cible : h1, h2, h3, h4 */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 900;
@@ -26,6 +38,7 @@ h1, h2, h3, h4 {
   color: var(--color-text);
 }
 
+/* Cible : h1 */
 h1 {
   font-size: clamp(2rem, 3.6vw, 2.9rem);
   line-height: 1.05;
@@ -34,21 +47,27 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 4px 0 rgb(10 14 40 / 95%));
+  filter: drop-shadow(0 2px 0 rgb(10 14 40 / 95%));
 }
 
+/* Cible : h2 */
 h2 { font-size: clamp(1.35rem, 2vw, 1.75rem); }
+/* Cible : h3 */
 h3 { font-size: 1.05rem; }
 
+/* Cible : small, .text-muted */
 small, .text-muted { color: var(--color-muted); font-weight: 700; }
+/* Cible : strong, b */
 strong, b { font-weight: 900; }
 
+/* Cible : .mono, .performance-value, .mark-value, .record-value, .chrono, .time-value */
 .mono, .performance-value, .mark-value, .record-value, .chrono, .time-value {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 
 /* ---------- Aura de fond : deux halos + treillis de facettes ---------- */
+/* Cible : body::before */
 body::before {
   content: '';
   position: fixed;
@@ -63,6 +82,7 @@ body::before {
   will-change: transform;
 }
 
+/* Cible : body::after */
 body::after {
   content: '';
   position: fixed;
@@ -77,21 +97,29 @@ body::after {
   mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%);
 }
 
+/* Cible : html */
 html { scrollbar-color: var(--diamond-silver) transparent; scroll-behavior: smooth; }
+/* Cible : ::-webkit-scrollbar */
 ::-webkit-scrollbar { width: 12px; height: 12px; }
+/* Cible : ::-webkit-scrollbar-track */
 ::-webkit-scrollbar-track { background: transparent; }
+/* Cible : ::-webkit-scrollbar-thumb */
 ::-webkit-scrollbar-thumb {
   border: 3px solid var(--color-background);
   border-radius: var(--radius-pill);
   background: #2A3154;
 }
+/* Cible : ::selection */
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
+/* Cible : :where(button, input, select, textarea, a):focus-visible */
 :where(button, input, select, textarea, a):focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
+/* Cible : button */
 button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+/* Cible : button:disabled */
 button:disabled { cursor: not-allowed; opacity: 0.5; }

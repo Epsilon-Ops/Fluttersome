@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/header.css
+   ZONE    : Page Sommeil
+   RÔLE    : Header
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP HEADER
    ===================================================== */
 
+   /* Cible : .sleep-page .welcome-section */
    .sleep-page .welcome-section {
     position: relative;
     isolation: isolate;
@@ -31,6 +41,7 @@
     box-shadow: var(--sleep-shadow-card);
   }
   
+  /* Cible : .sleep-page .welcome-section::after */
   .sleep-page .welcome-section::after {
     position: absolute;
     z-index: -1;
@@ -47,6 +58,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .sleep-page .welcome-section > div */
   .sleep-page .welcome-section > div {
     position: relative;
     z-index: 1;
@@ -54,6 +66,7 @@
     min-width: 0;
   }
   
+  /* Cible : .sleep-page .welcome-eyebrow */
   .sleep-page .welcome-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -66,6 +79,7 @@
     line-height: 1.6;
   }
   
+  /* Cible : .sleep-page .welcome-eyebrow::before */
   .sleep-page .welcome-eyebrow::before {
     width: 7px;
     height: 7px;
@@ -76,6 +90,7 @@
     content: "";
   }
   
+  /* Cible : .sleep-page .welcome-section h1 */
   .sleep-page .welcome-section h1 {
     margin: 0;
     color: var(--sleep-text);
@@ -86,6 +101,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .sleep-page .welcome-section h1 span */
   .sleep-page .welcome-section h1 span {
     color: var(--sleep-accent);
     background: linear-gradient(
@@ -99,6 +115,7 @@
     -webkit-text-fill-color: transparent;
   }
   
+  /* Cible : .sleep-page .welcome-section .welcome-description */
   .sleep-page .welcome-section .welcome-description {
     max-width: 56ch;
     margin: 1rem 0 0;
@@ -108,34 +125,42 @@
     overflow-wrap: anywhere;
   }
   
+  /* Règles responsive — (max-width: 700px) */
   @media (max-width: 700px) {
+    /* Cible : .sleep-page .welcome-section */
     .sleep-page .welcome-section {
       margin-bottom: 1.25rem;
       padding: 1.4rem;
       border-radius: var(--sleep-radius-lg);
     }
   
+    /* Cible : .sleep-page .welcome-section h1 */
     .sleep-page .welcome-section h1 {
       font-size: clamp(2rem, 8vw, 3rem);
     }
   
+    /* Cible : .sleep-page .welcome-section .welcome-description */
     .sleep-page .welcome-section .welcome-description {
       margin-top: 0.8rem;
     }
   }
   
+  /* Règles responsive — (max-width: 400px) */
   @media (max-width: 400px) {
+    /* Cible : .sleep-page .welcome-section */
     .sleep-page .welcome-section {
       padding: 1.1rem;
       border-radius: var(--sleep-radius-md);
     }
   
+    /* Cible : .sleep-page .welcome-eyebrow */
     .sleep-page .welcome-eyebrow {
       font-size: 0.63rem;
       letter-spacing: 0.1em;
       background: none;
     }
   
+    /* Cible : .sleep-page .welcome-section h1 */
     .sleep-page .welcome-section h1 {
       font-size: 2rem;
     }

@@ -1,8 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/session-details.css
+   ZONE    : Page Musculation
+   RÔLE    : Session details
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .strength-session-details */
 .strength-session-details {
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-session-summary */
 .strength-session-summary {
   display: flex;
   align-items: center;
@@ -19,14 +30,17 @@
   border-radius: 8px;
 }
 
+/* Cible : .strength-session-summary::-webkit-details-marker */
 .strength-session-summary::-webkit-details-marker {
   display: none;
 }
 
+/* Cible : .strength-session-summary::marker */
 .strength-session-summary::marker {
   content: "";
 }
 
+/* Cible : .strength-session-summary::after */
 .strength-session-summary::after {
   content: "+";
   display: grid;
@@ -51,6 +65,7 @@
     border-color 180ms ease;
 }
 
+/* Cible : .strength-session-details[open] .strength-session-summary::after */
 .strength-session-details[open] .strength-session-summary::after {
   content: "−";
   border-color: rgba(34, 211, 238, 0.22);
@@ -58,12 +73,14 @@
   color: #67e8f9;
 }
 
+/* Cible : .strength-session-summary-main */
 .strength-session-summary-main {
   display: grid;
   gap: 7px;
   min-width: 0;
 }
 
+/* Cible : .strength-session-summary-main > strong */
 .strength-session-summary-main > strong {
   color: var(--color-text, #f4f4fb);
   font-size: 15px;
@@ -72,6 +89,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-session-meta */
 .strength-session-meta {
   margin: 0;
   color: var(--color-muted, #a1a1b5);
@@ -79,6 +97,7 @@
   line-height: 1.6;
 }
 
+/* Cible : .strength-status */
 .strength-status {
   display: inline-flex;
   align-items: center;
@@ -95,18 +114,21 @@
   white-space: nowrap;
 }
 
+/* Cible : .strength-status.is-completed */
 .strength-status.is-completed {
   border-color: rgba(52, 211, 153, 0.2);
   background: rgba(16, 185, 129, 0.1);
   color: #6ee7b7;
 }
 
+/* Cible : .strength-status.is-planned */
 .strength-status.is-planned {
   border-color: rgba(167, 139, 250, 0.22);
   background: rgba(139, 92, 246, 0.1);
   color: #c4b5fd;
 }
 
+/* Cible : .strength-session-preview */
 .strength-session-preview {
   display: grid;
   gap: 15px;
@@ -119,6 +141,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-session-preview > p, .strength-preview-notes p */
 .strength-session-preview > p,
 .strength-preview-notes p {
   margin: 0;
@@ -127,6 +150,7 @@
   line-height: 1.75;
 }
 
+/* Cible : .strength-preview-block */
 .strength-preview-block {
   display: grid;
   gap: 10px;
@@ -139,6 +163,7 @@
   background: rgba(255, 255, 255, 0.018);
 }
 
+/* Cible : .strength-preview-block h4 */
 .strength-preview-block h4 {
   margin: 0;
   color: var(--color-text, #f4f4fb);
@@ -147,6 +172,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .strength-preview-exercises, .strength-preview-sets */
 .strength-preview-exercises,
 .strength-preview-sets {
   display: grid;
@@ -156,15 +182,18 @@
   padding-left: 21px;
 }
 
+/* Cible : .strength-preview-exercises > li */
 .strength-preview-exercises > li {
   padding-left: 2px;
   color: var(--color-muted, #a1a1b5);
 }
 
+/* Cible : .strength-preview-exercises > li::marker */
 .strength-preview-exercises > li::marker {
   color: #a78bfa;
 }
 
+/* Cible : .strength-preview-exercises > li > strong */
 .strength-preview-exercises > li > strong {
   color: var(--color-text, #f4f4fb);
   font-size: 13px;
@@ -173,6 +202,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-preview-exercises > li > p */
 .strength-preview-exercises > li > p {
   margin: 4px 0 0;
   color: var(--color-muted, #a1a1b5);
@@ -180,11 +210,13 @@
   line-height: 1.6;
 }
 
+/* Cible : .strength-preview-sets */
 .strength-preview-sets {
   gap: 6px;
   margin-top: 9px;
 }
 
+/* Cible : .strength-preview-sets li */
 .strength-preview-sets li {
   display: flex;
   justify-content: space-between;
@@ -202,6 +234,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .strength-preview-notes */
 .strength-preview-notes {
   display: grid;
   gap: 7px;
@@ -213,52 +246,64 @@
   background: rgba(34, 211, 238, 0.035);
 }
 
+/* Cible : .strength-preview-notes p */
 .strength-preview-notes p {
   color: var(--color-muted, #b4b4c7);
 }
 
+/* Cible : .strength-session-summary:focus-visible */
 .strength-session-summary:focus-visible {
   outline: 2px solid #a78bfa;
   outline-offset: 3px;
 }
 
+/* Règles responsive — (hover: hover) */
 @media (hover: hover) {
+  /* Cible : .strength-session-summary:hover::after */
   .strength-session-summary:hover::after {
     border-color: rgba(167, 139, 250, 0.4);
     background: rgba(139, 92, 246, 0.13);
   }
 }
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .strength-session-summary */
   .strength-session-summary {
     gap: 9px;
   }
 
+  /* Cible : .strength-session-summary-main > strong */
   .strength-session-summary-main > strong {
     font-size: 14px;
   }
 
+  /* Cible : .strength-status */
   .strength-status {
     padding: 5px 8px;
     font-size: 9px;
   }
 
+  /* Cible : .strength-session-summary::after */
   .strength-session-summary::after {
     width: 27px;
     height: 27px;
     font-size: 18px;
   }
 
+  /* Cible : .strength-session-preview */
   .strength-session-preview {
     gap: 12px;
     margin-top: 14px;
     padding-top: 14px;
   }
 
+  /* Cible : .strength-preview-block */
   .strength-preview-block {
     padding: 12px;
   }
 
+  /* Cible : .strength-preview-sets li */
   .strength-preview-sets li {
     align-items: flex-start;
     flex-direction: column;
@@ -266,7 +311,9 @@
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-session-summary::after */
   .strength-session-summary::after {
     transition: none;
   }

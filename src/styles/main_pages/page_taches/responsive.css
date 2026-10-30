@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/responsive.css
+   ZONE    : Page Tâches
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — RESPONSIVE ET ACCESSIBILITÉ
@@ -6,6 +15,7 @@
 
 /* Contrôles et comportement de base */
 
+/* Cible : .tasks-page button, .tasks-page input, .tasks-page select, .tasks-page textarea, .tasks-modal button, .tasks-modal input, .tasks-modal select, .tasks-modal textarea */
 .tasks-page button,
 .tasks-page input,
 .tasks-page select,
@@ -17,27 +27,32 @@
   font: inherit;
 }
 
+/* Cible : .tasks-page button, .tasks-modal button */
 .tasks-page button,
 .tasks-modal button {
   cursor: pointer;
 }
 
+/* Cible : .tasks-page button:disabled, .tasks-modal button:disabled */
 .tasks-page button:disabled,
 .tasks-modal button:disabled {
   cursor: not-allowed;
 }
 
+/* Cible : .tasks-page :where(button, input, select, textarea, summary):focus-visible, .tasks-modal :where(button, input, select, textarea):focus-visible */
 .tasks-page :where(button, input, select, textarea, summary):focus-visible,
 .tasks-modal :where(button, input, select, textarea):focus-visible {
   outline: 2px solid #a78bfa;
   outline-offset: 3px;
 }
 
+/* Cible : .tasks-page :where(input, select, textarea), .tasks-modal :where(input, select, textarea) */
 .tasks-page :where(input, select, textarea),
 .tasks-modal :where(input, select, textarea) {
   max-width: 100%;
 }
 
+/* Cible : .tasks-page img, .tasks-modal img, .tasks-page svg, .tasks-modal svg */
 .tasks-page img,
 .tasks-modal img,
 .tasks-page svg,
@@ -47,20 +62,25 @@
 
 /* Tablettes */
 
+/* Règles responsive — (max-width: 800px) */
 @media (max-width: 800px) {
+  /* Cible : .tasks-stats-grid */
   .tasks-stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Cible : .tasks-filters */
   .tasks-filters {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Cible : .tasks-toolbar-top */
   .tasks-toolbar-top {
     flex-wrap: wrap;
   }
 
+  /* Cible : .tasks-section-heading */
   .tasks-section-heading {
     align-items: flex-start;
   }
@@ -68,39 +88,49 @@
 
 /* Écrans intermédiaires */
 
+/* Règles responsive — (max-width: 640px) */
 @media (max-width: 640px) {
+  /* Cible : .tasks-page */
   .tasks-page {
     gap: 20px;
   }
 
+  /* Cible : .tasks-stats-grid */
   .tasks-stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Cible : .tasks-collapsible-heading */
   .tasks-collapsible-heading {
     padding: 12px;
   }
 
+  /* Cible : .tasks-collapsible-content */
   .tasks-collapsible-content {
     padding-top: 8px;
   }
 
+  /* Cible : .tasks-toolbar-advanced .tasks-filters */
   .tasks-toolbar-advanced .tasks-filters {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .tasks-filter-panel */
   .tasks-filter-panel {
     max-width: 100%;
   }
 
+  /* Cible : .task-card */
   .task-card {
     min-width: 0;
   }
 
+  /* Cible : .task-card-content */
   .task-card-content {
     min-width: 0;
   }
 
+  /* Cible : .task-card-title */
   .task-card-title {
     overflow-wrap: anywhere;
   }
@@ -108,18 +138,22 @@
 
 /* Mobiles */
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .tasks-page */
   .tasks-page {
     gap: 19px;
     padding-bottom: 24px;
   }
 
+  /* Cible : .tasks-header */
   .tasks-header {
     align-items: flex-start;
     gap: 12px;
     padding: 20px 18px;
   }
 
+  /* Cible : .tasks-header-mark */
   .tasks-header-mark {
     width: 44px;
     height: 44px;
@@ -128,83 +162,101 @@
     font-size: 1.35rem;
   }
 
+  /* Cible : .tasks-header-content */
   .tasks-header-content {
     flex: 1;
   }
 
+  /* Cible : .tasks-header-content p */
   .tasks-header-content p {
     font-size: 0.82rem;
   }
 
+  /* Cible : .tasks-page-heading */
   .tasks-page-heading {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  /* Cible : .tasks-toolbar-top */
   .tasks-toolbar-top {
     align-items: stretch;
     flex-direction: column;
   }
 
+  /* Cible : .tasks-filters */
   .tasks-filters {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .tasks-stat-card */
   .tasks-stat-card {
     min-width: 0;
     padding: 12px;
   }
 
+  /* Cible : .tasks-stats-grid .tasks-stat-card */
   .tasks-stats-grid .tasks-stat-card {
     padding: 12px;
   }
 
+  /* Cible : .task-card */
   .task-card {
     gap: 10px;
     padding: 12px;
   }
 
+  /* Cible : .task-card-icon */
   .task-card-icon {
     width: 40px;
     height: 40px;
     flex-basis: 40px;
   }
 
+  /* Cible : .task-card-actions */
   .task-card-actions {
     gap: 2px;
   }
 
+  /* Cible : .task-action-button */
   .task-action-button {
     width: 29px;
     height: 32px;
   }
 
+  /* Cible : .task-card-meta */
   .task-card-meta {
     gap: 6px;
   }
 
+  /* Cible : .tasks-filter-panel */
   .tasks-filter-panel {
     margin: 12px 0 18px;
     border-radius: 12px;
   }
 
+  /* Cible : .tasks-filter-summary */
   .tasks-filter-summary {
     min-height: 48px;
     padding: 10px 12px;
   }
 
+  /* Cible : .tasks-filter-content */
   .tasks-filter-content {
     padding: 0 12px 12px;
   }
 
+  /* Cible : .tasks-icon-search-controls */
   .tasks-icon-search-controls {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .tasks-icon-results */
   .tasks-icon-results {
     max-height: 240px;
   }
 
+  /* Cible : .tasks-section-heading */
   .tasks-section-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -213,7 +265,9 @@
 
 /* Préférences de mouvement réduit */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .tasks-page *, .tasks-page *::before, .tasks-page *::after, .tasks-modal *, .tasks-modal *::before, .tasks-modal *::after */
   .tasks-page *,
   .tasks-page *::before,
   .tasks-page *::after,

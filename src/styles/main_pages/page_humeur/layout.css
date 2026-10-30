@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/layout.css
+   ZONE    : Page Humeur
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — STRUCTURE ET EN-TÊTE HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-page */
    .mood-page {
     width: 100%;
     max-width: 1200px;
@@ -14,12 +24,14 @@
     background: transparent;
   }
   
+  /* Cible : .mood-page *, .mood-page *::before, .mood-page *::after */
   .mood-page *,
   .mood-page *::before,
   .mood-page *::after {
     box-sizing: border-box;
   }
   
+  /* Cible : .mood-page button, .mood-page input, .mood-page textarea, .mood-page select */
   .mood-page button,
   .mood-page input,
   .mood-page textarea,
@@ -27,11 +39,13 @@
     font: inherit;
   }
   
+  /* Cible : .mood-page button */
   .mood-page button {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
   
+  /* Cible : .mood-page :where( button, input, textarea, select, a ):focus-visible */
   .mood-page :where(
     button,
     input,
@@ -43,10 +57,12 @@
     outline-offset: 3px;
   }
   
+  /* Cible : .mood-page :where(h1, h2, h3, h4, p) */
   .mood-page :where(h1, h2, h3, h4, p) {
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .mood-page button:disabled */
   .mood-page button:disabled {
     cursor: not-allowed;
     opacity: 0.55;
@@ -54,6 +70,7 @@
   
   /* En-tête principal */
   
+  /* Cible : .mood-header */
   .mood-header {
     position: relative;
     isolation: isolate;
@@ -77,6 +94,7 @@
     box-shadow: var(--mood-shadow-card);
   }
   
+  /* Cible : .mood-header::before */
   .mood-header::before {
     position: absolute;
     z-index: -1;
@@ -95,12 +113,14 @@
     pointer-events: none;
   }
   
+  /* Cible : .mood-header__content */
   .mood-header__content {
     position: relative;
     z-index: 1;
     max-width: 720px;
   }
   
+  /* Cible : .mood-header__eyebrow */
   .mood-header__eyebrow {
     margin: 0 0 10px;
     color: #c4b5fd;
@@ -111,6 +131,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .mood-header__title */
   .mood-header__title {
     margin: 0;
     color: #f7f5ff;
@@ -121,6 +142,7 @@
     text-wrap: balance;
   }
   
+  /* Cible : .mood-header__description */
   .mood-header__description {
     max-width: 620px;
     margin: 14px 0 0;
@@ -129,60 +151,75 @@
     line-height: 1.7;
   }
   
+  /* Cible : .mood-page__content */
   .mood-page__content {
     min-width: 0;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .mood-header */
     .mood-header {
       transition:
         border-color var(--mood-transition),
         box-shadow var(--mood-transition);
     }
   
+    /* Cible : .mood-header:hover */
     .mood-header:hover {
       border-color: var(--mood-color-border-strong);
       box-shadow: var(--mood-shadow-card), var(--mood-shadow-glow);
     }
   }
   
+  /* Règles responsive — (max-width: 760px) */
   @media (max-width: 760px) {
+    /* Cible : .mood-page */
     .mood-page {
       padding: 20px;
     }
   
+    /* Cible : .mood-header */
     .mood-header {
       padding: 25px;
     }
   }
   
+  /* Règles responsive — (max-width: 480px) */
   @media (max-width: 480px) {
+    /* Cible : .mood-page */
     .mood-page {
       padding: 14px;
     }
   
+    /* Cible : .mood-header */
     .mood-header {
       margin-bottom: 19px;
       padding: 21px 18px;
       border-radius: var(--mood-radius-md);
     }
   
+    /* Cible : .mood-header::before */
     .mood-header::before {
       right: 18px;
       left: 18px;
     }
   
+    /* Cible : .mood-header__title */
     .mood-header__title {
       font-size: clamp(1.65rem, 7vw, 2.1rem);
     }
   
+    /* Cible : .mood-header__description */
     .mood-header__description {
       margin-top: 10px;
       font-size: 0.9rem;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mood-header */
     .mood-header {
       transition: none;
     }

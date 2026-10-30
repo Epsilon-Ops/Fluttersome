@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/layout.css
+   ZONE    : Page Coach
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Layout
    ========================================================= */
 
+   /* Cible : .page-section:has(.coach-dashboard) */
    .page-section:has(.coach-dashboard) {
     display: flex;
     flex-direction: column;
@@ -13,6 +23,7 @@
   
   /* En-tête de page */
   
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     position: relative;
     display: flex;
@@ -39,10 +50,12 @@
     box-shadow: var(--coach-shadow);
   }
   
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading > div:first-child */
   .page-section:has(.coach-dashboard) > .page-heading > div:first-child {
     min-width: 0;
   }
   
+  /* Cible : .page-section:has(.coach-dashboard) .page-heading .eyebrow */
   .page-section:has(.coach-dashboard) .page-heading .eyebrow {
     display: inline-block;
     margin-bottom: 10px;
@@ -52,6 +65,7 @@
     letter-spacing: 0.14em;
   }
   
+  /* Cible : .page-section:has(.coach-dashboard) .page-heading h1 */
   .page-section:has(.coach-dashboard) .page-heading h1 {
     margin: 0;
     color: var(--coach-text);
@@ -62,6 +76,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .page-section:has(.coach-dashboard) .page-description */
   .page-section:has(.coach-dashboard) .page-description {
     max-width: 680px;
     margin: 12px 0 0;
@@ -72,6 +87,7 @@
   
   /* Icône du titre */
   
+  /* Cible : .page-section:has(.coach-dashboard) .metric-icon */
   .page-section:has(.coach-dashboard) .metric-icon {
     display: grid;
     flex: 0 0 58px;
@@ -87,6 +103,7 @@
   
   /* Grille principale */
   
+  /* Cible : .coach-dashboard */
   .coach-dashboard {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -95,12 +112,14 @@
     min-width: 0;
   }
   
+  /* Cible : .coach-dashboard > * */
   .coach-dashboard > * {
     min-width: 0;
   }
   
   /* Sections larges */
   
+  /* Cible : .coach-dashboard .coach-summary, .coach-dashboard .coach-alerts, .coach-dashboard .coach-chat, .coach-dashboard .coach-performance-analysis, .coach-dashboard .coach-pr… */
   .coach-dashboard .coach-summary,
   .coach-dashboard .coach-alerts,
   .coach-dashboard .coach-chat,
@@ -111,6 +130,7 @@
   
   /* Style partagé des panneaux */
   
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     min-width: 0;
     padding: clamp(18px, 3vw, 26px);
@@ -131,6 +151,7 @@
       transform var(--coach-transition);
   }
   
+  /* Cible : .coach-dashboard .panel-header */
   .coach-dashboard .panel-header {
     display: flex;
     align-items: flex-start;
@@ -140,10 +161,12 @@
     margin-bottom: 18px;
   }
   
+  /* Cible : .coach-dashboard .panel-header > * */
   .coach-dashboard .panel-header > * {
     min-width: 0;
   }
   
+  /* Cible : .coach-dashboard .panel-header h2 */
   .coach-dashboard .panel-header h2 {
     margin: 6px 0 0;
     color: var(--coach-text);
@@ -154,12 +177,14 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .coach-dashboard .panel p */
   .coach-dashboard .panel p {
     color: var(--coach-muted);
     line-height: 1.7;
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .coach-dashboard .eyebrow */
   .coach-dashboard .eyebrow {
     color: var(--coach-cyan);
     font-size: 0.72rem;
@@ -167,6 +192,7 @@
     letter-spacing: 0.1em;
   }
   
+  /* Cible : .coach-dashboard h3 */
   .coach-dashboard h3 {
     color: var(--coach-text-soft);
     font-size: 0.98rem;
@@ -177,6 +203,7 @@
   
   /* Pastilles de statut */
   
+  /* Cible : .coach-dashboard .status-pill */
   .coach-dashboard .status-pill {
     display: inline-flex;
     align-items: center;
@@ -196,15 +223,18 @@
   
   /* Contrôles et accessibilité */
   
+  /* Cible : .coach-dashboard button */
   .coach-dashboard button {
     font: inherit;
   }
   
+  /* Cible : .coach-dashboard button:disabled */
   .coach-dashboard button:disabled {
     cursor: not-allowed;
     opacity: 0.55;
   }
   
+  /* Cible : .coach-dashboard :where( button, input, select, textarea, a, [tabindex] ):focus-visible */
   .coach-dashboard :where(
     button,
     input,
@@ -217,6 +247,7 @@
     outline-offset: 3px;
   }
   
+  /* Cible : .coach-dashboard ::selection */
   .coach-dashboard ::selection {
     color: #fff;
     background: rgba(139, 92, 246, 0.35);
@@ -224,7 +255,9 @@
   
   /* Survol subtil sur les appareils compatibles */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .coach-dashboard .panel:hover */
     .coach-dashboard .panel:hover {
       border-color: var(--coach-border-strong);
       box-shadow: var(--coach-shadow), var(--coach-shadow-glow);
@@ -233,12 +266,15 @@
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 850px) */
   @media (max-width: 850px) {
+    /* Cible : .coach-dashboard */
     .coach-dashboard {
       grid-template-columns: minmax(0, 1fr);
       gap: 16px;
     }
   
+    /* Cible : .coach-dashboard .coach-summary, .coach-dashboard .coach-alerts, .coach-dashboard .coach-chat, .coach-dashboard .coach-performance-analysis, .coach-dashboard .coach-pr… */
     .coach-dashboard .coach-summary,
     .coach-dashboard .coach-alerts,
     .coach-dashboard .coach-chat,
@@ -248,11 +284,14 @@
     }
   }
   
+  /* Règles responsive — (max-width: 520px) */
   @media (max-width: 520px) {
+    /* Cible : .page-section:has(.coach-dashboard) */
     .page-section:has(.coach-dashboard) {
       gap: 16px;
     }
   
+    /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
     .page-section:has(.coach-dashboard) > .page-heading {
       align-items: flex-start;
       gap: 14px;
@@ -260,6 +299,7 @@
       border-radius: 18px;
     }
   
+    /* Cible : .page-section:has(.coach-dashboard) .metric-icon */
     .page-section:has(.coach-dashboard) .metric-icon {
       flex-basis: 44px;
       width: 44px;
@@ -267,15 +307,18 @@
       border-radius: 13px;
     }
   
+    /* Cible : .page-section:has(.coach-dashboard) .page-description */
     .page-section:has(.coach-dashboard) .page-description {
       font-size: 0.88rem;
     }
   
+    /* Cible : .coach-dashboard .panel */
     .coach-dashboard .panel {
       padding: 17px;
       border-radius: 14px;
     }
   
+    /* Cible : .coach-dashboard .panel-header */
     .coach-dashboard .panel-header {
       gap: 10px;
     }
@@ -283,7 +326,9 @@
   
   /* Réduction des animations selon les préférences système */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .coach-dashboard .panel */
     .coach-dashboard .panel {
       transition: none;
     }

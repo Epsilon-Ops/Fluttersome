@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/toolbar-filters.css
+   ZONE    : Page Compétitions
+   RÔLE    : Toolbar filters
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — PREMIUM++
@@ -8,6 +17,7 @@
    BARRE DE FILTRES
    ========================================================= */
 
+   /* Cible : .competitions-page .competition-toolbar */
    .competitions-page .competition-toolbar {
     display: flex;
     align-items: flex-end;
@@ -32,11 +42,13 @@
       inset 0 1px 0 rgb(255 255 255 / 3%);
   }
   
+  /* Cible : .competitions-page .competition-toolbar .competition-field */
   .competitions-page .competition-toolbar .competition-field {
     flex: 0 1 220px;
     width: min(100%, 220px) !important;
   }
   
+  /* Cible : .competitions-page .competition-toolbar .competition-hint */
   .competitions-page .competition-toolbar .competition-hint {
     flex: 1 1 240px;
     margin: 0 0 3px;
@@ -49,6 +61,7 @@
      CHAMPS DE FORMULAIRE
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-field */
   .competitions-page .competition-field {
     display: flex;
     flex-direction: column;
@@ -57,6 +70,7 @@
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .competition-field label */
   .competitions-page .competition-field label {
     display: block;
     margin: 0;
@@ -67,6 +81,7 @@
     line-height: 1.45;
   }
   
+  /* Cible : .competitions-page .competition-field input, .competitions-page .competition-field select, .competitions-page .competition-field textarea */
   .competitions-page .competition-field input,
   .competitions-page .competition-field select,
   .competitions-page .competition-field textarea {
@@ -99,20 +114,24 @@
       box-shadow var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-field select */
   .competitions-page .competition-field select {
     cursor: pointer;
   }
   
+  /* Cible : .competitions-page .competition-field select option */
   .competitions-page .competition-field select option {
     background: #191a2a;
     color: #f3f1ff;
   }
   
+  /* Cible : .competitions-page .competition-field textarea */
   .competitions-page .competition-field textarea {
     min-height: 88px;
     resize: vertical;
   }
   
+  /* Cible : .competitions-page .competition-field input:hover, .competitions-page .competition-field select:hover, .competitions-page .competition-field textarea:hover */
   .competitions-page .competition-field input:hover,
   .competitions-page .competition-field select:hover,
   .competitions-page .competition-field textarea:hover {
@@ -120,6 +139,7 @@
     background-color: #1c1d30;
   }
   
+  /* Cible : .competitions-page .competition-field input:focus-visible, .competitions-page .competition-field select:focus-visible, .competitions-page .competition-field textarea:f… */
   .competitions-page .competition-field input:focus-visible,
   .competitions-page .competition-field select:focus-visible,
   .competitions-page .competition-field textarea:focus-visible {
@@ -131,6 +151,7 @@
       0 0 16px rgb(151 117 255 / 7%);
   }
   
+  /* Cible : .competitions-page .competition-field input::placeholder, .competitions-page .competition-field textarea::placeholder */
   .competitions-page .competition-field input::placeholder,
   .competitions-page .competition-field textarea::placeholder {
     color: #77758f;
@@ -139,6 +160,7 @@
   
   /* Champs de date et de temps */
   
+  /* Cible : .competitions-page .competition-field input[type="date"], .competitions-page .competition-field input[type="time"] */
   .competitions-page .competition-field input[type="date"],
   .competitions-page .competition-field input[type="time"] {
     color-scheme: dark;
@@ -146,6 +168,7 @@
   
   /* Curseur du ressenti */
   
+  /* Cible : .competitions-page .competition-field input[type="range"] */
   .competitions-page .competition-field input[type="range"] {
     width: 100%;
     min-height: 24px;
@@ -161,6 +184,7 @@
     cursor: pointer;
   }
   
+  /* Cible : .competitions-page .competition-field input[type="range"]:focus-visible */
   .competitions-page .competition-field input[type="range"]:focus-visible {
     outline: 2px solid var(--competition-violet);
     outline-offset: 4px;
@@ -169,6 +193,7 @@
   
   /* Aides et descriptions */
   
+  /* Cible : .competitions-page .competition-field .competition-hint */
   .competitions-page .competition-field .competition-hint {
     margin: 0;
   
@@ -181,18 +206,22 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 680px) */
   @media (max-width: 680px) {
+    /* Cible : .competitions-page .competition-toolbar */
     .competitions-page .competition-toolbar {
       align-items: stretch;
       padding: 14px;
       gap: 14px;
     }
   
+    /* Cible : .competitions-page .competition-toolbar .competition-field */
     .competitions-page .competition-toolbar .competition-field {
       flex: 1 1 100%;
       width: 100% !important;
     }
   
+    /* Cible : .competitions-page .competition-toolbar .competition-hint */
     .competitions-page .competition-toolbar .competition-hint {
       flex-basis: 100%;
       text-align: left;

@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/responsive.css
+   ZONE    : Page Humeur
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — RESPONSIVE PAGE HUMEUR
@@ -6,15 +15,19 @@
 
 /* Tablettes et écrans intermédiaires */
 
+/* Règles responsive — (max-width: 900px) */
 @media (max-width: 900px) {
+  /* Cible : .mood-selector__categories */
   .mood-selector__categories {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .mood-category__list */
   .mood-category__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Cible : .mood-history-item */
   .mood-history-item {
     gap: 13px;
   }
@@ -22,39 +35,48 @@
 
 /* Mobiles */
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .mood-selector__categories */
   .mood-selector__categories {
     gap: 12px;
   }
 
+  /* Cible : .mood-category__list */
   .mood-category__list {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .mood-option */
   .mood-option {
     min-height: 52px;
   }
 
+  /* Cible : .mood-entry-form */
   .mood-entry-form {
     gap: 20px;
     margin-top: 18px;
   }
 
+  /* Cible : .mood-entry-form__datetime */
   .mood-entry-form__datetime {
     grid-template-columns: minmax(0, 1fr);
     gap: 18px;
   }
 
+  /* Cible : .mood-entry-form__actions */
   .mood-entry-form__actions {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 10px;
   }
 
+  /* Cible : .mood-entry-form__actions > button */
   .mood-entry-form__actions > button {
     width: 100%;
   }
 
+  /* Cible : .mood-history__toolbar, .mood-statistics__header */
   .mood-history__toolbar,
   .mood-statistics__header {
     flex-direction: column;
@@ -62,39 +84,47 @@
     gap: 14px;
   }
 
+  /* Cible : .mood-history__filters */
   .mood-history__filters {
     width: 100%;
   }
 
+  /* Cible : .mood-history-item */
   .mood-history-item {
     padding: 15px;
   }
 
+  /* Cible : .mood-history-item__header */
   .mood-history-item__header {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
   }
 
+  /* Cible : .mood-history-item__icon */
   .mood-history-item__icon {
     flex-basis: 42px;
     width: 42px;
     height: 42px;
   }
 
+  /* Cible : .mood-history-item__icon svg */
   .mood-history-item__icon svg {
     width: 30px;
     height: 30px;
   }
 
+  /* Cible : .mood-history-item__content */
   .mood-history-item__content {
     flex-basis: calc(100% - 54px);
   }
 
+  /* Cible : .mood-history-item__delete */
   .mood-history-item__delete {
     margin-left: auto;
   }
 
+  /* Cible : .mood-empty-state */
   .mood-empty-state {
     padding: 32px 18px;
   }
@@ -102,47 +132,57 @@
 
 /* Très petits écrans */
 
+/* Règles responsive — (max-width: 380px) */
 @media (max-width: 380px) {
+  /* Cible : .mood-page */
   .mood-page {
     padding: 10px;
   }
 
+  /* Cible : .mood-header */
   .mood-header {
     padding: 18px 15px;
   }
 
+  /* Cible : .mood-tabs */
   .mood-tabs {
     gap: 3px;
     padding: 4px;
   }
 
+  /* Cible : .mood-tabs__button */
   .mood-tabs__button {
     min-height: 40px;
     padding: 9px 10px;
     font-size: 0.8rem;
   }
 
+  /* Cible : .mood-section, .mood-category, .mood-entry-form */
   .mood-section,
   .mood-category,
   .mood-entry-form {
     padding: 14px;
   }
 
+  /* Cible : .mood-history-item */
   .mood-history-item {
     gap: 10px;
     padding: 12px;
   }
 
+  /* Cible : .mood-history-item__icon */
   .mood-history-item__icon {
     flex-basis: 36px;
     width: 36px;
     height: 36px;
   }
 
+  /* Cible : .mood-history-item__content */
   .mood-history-item__content {
     flex-basis: calc(100% - 46px);
   }
 
+  /* Cible : .mood-stat-card */
   .mood-stat-card {
     padding: 15px;
   }
@@ -150,7 +190,9 @@
 
 /* Accessibilité : réduire les animations */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .mood-page *, .mood-page *::before, .mood-page *::after */
   .mood-page *,
   .mood-page *::before,
   .mood-page *::after {

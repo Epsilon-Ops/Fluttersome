@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/panel-calendar.css
+   ZONE    : Page Musculation
+   RÔLE    : Panel calendar
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .strength-panel */
 .strength-panel {
   position: relative;
   min-width: 0;
@@ -19,6 +29,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
+/* Cible : .strength-panel-heading */
 .strength-panel-heading {
   display: flex;
   align-items: center;
@@ -28,6 +39,7 @@
   margin-bottom: 20px;
 }
 
+/* Cible : .strength-panel-heading h2 */
 .strength-panel-heading h2 {
   margin: 5px 0 0;
   color: var(--color-text, #f4f4fb);
@@ -37,6 +49,7 @@
   letter-spacing: -0.025em;
 }
 
+/* Cible : .strength-week-navigation */
 .strength-week-navigation {
   display: flex;
   flex-wrap: wrap;
@@ -44,6 +57,7 @@
   gap: 8px;
 }
 
+/* Cible : .strength-week-grid */
 .strength-week-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -51,6 +65,7 @@
   min-width: 0;
 }
 
+/* Cible : .strength-week-day */
 .strength-week-day {
   position: relative;
   display: flex;
@@ -80,15 +95,18 @@
     transform 180ms ease;
 }
 
+/* Cible : .strength-week-day:hover */
 .strength-week-day:hover {
   border-color: rgba(167, 139, 250, 0.48);
   background: rgba(139, 92, 246, 0.07);
 }
 
+/* Cible : .strength-week-day:active */
 .strength-week-day:active {
   transform: scale(0.98);
 }
 
+/* Cible : .strength-week-day.is-selected */
 .strength-week-day.is-selected {
   border-color: rgba(167, 139, 250, 0.75);
   background:
@@ -104,10 +122,12 @@
     0 5px 20px rgba(139, 92, 246, 0.07);
 }
 
+/* Cible : .strength-week-day.is-today .strength-week-day-number */
 .strength-week-day.is-today .strength-week-day-number {
   color: #c4b5fd;
 }
 
+/* Cible : .strength-week-day.is-today::after */
 .strength-week-day.is-today::after {
   content: "";
   position: absolute;
@@ -122,6 +142,7 @@
   box-shadow: 0 0 10px rgba(34, 211, 238, 0.45);
 }
 
+/* Cible : .strength-week-day-name, .strength-week-day-month */
 .strength-week-day-name,
 .strength-week-day-month {
   color: var(--color-muted, #a1a1b5);
@@ -131,6 +152,7 @@
   text-transform: uppercase;
 }
 
+/* Cible : .strength-week-day-number */
 .strength-week-day-number {
   color: var(--color-text, #f4f4fb);
   font-size: clamp(19px, 2.1vw, 23px);
@@ -139,6 +161,7 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Cible : .strength-week-day-count */
 .strength-week-day-count {
   max-width: 100%;
   color: var(--color-muted, #a1a1b5);
@@ -148,58 +171,71 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .strength-week-day.is-selected .strength-week-day-name, .strength-week-day.is-selected .strength-week-day-count */
 .strength-week-day.is-selected .strength-week-day-name,
 .strength-week-day.is-selected .strength-week-day-count {
   color: #d6ccf9;
 }
 
+/* Cible : .strength-week-day.is-selected .strength-week-day-number */
 .strength-week-day.is-selected .strength-week-day-number {
   color: #ffffff;
 }
 
+/* Règles responsive — (max-width: 760px) */
 @media (max-width: 760px) {
+  /* Cible : .strength-panel */
   .strength-panel {
     padding: 18px;
     border-radius: 17px;
   }
 
+  /* Cible : .strength-week-grid */
   .strength-week-grid {
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 6px;
   }
 
+  /* Cible : .strength-week-day */
   .strength-week-day {
     min-height: 100px;
     gap: 8px;
     padding: 11px 3px;
   }
 
+  /* Cible : .strength-week-day-name, .strength-week-day-month */
   .strength-week-day-name,
   .strength-week-day-month {
     font-size: 9px;
   }
 
+  /* Cible : .strength-week-day-count */
   .strength-week-day-count {
     font-size: 9px;
   }
 }
 
+/* Règles responsive — (max-width: 520px) */
 @media (max-width: 520px) {
+  /* Cible : .strength-panel */
   .strength-panel {
     padding: 15px;
     border-radius: 15px;
   }
 
+  /* Cible : .strength-panel-heading */
   .strength-panel-heading {
     align-items: flex-start;
     gap: 12px;
     margin-bottom: 16px;
   }
 
+  /* Cible : .strength-week-grid */
   .strength-week-grid {
     gap: 4px;
   }
 
+  /* Cible : .strength-week-day */
   .strength-week-day {
     min-height: 86px;
     gap: 7px;
@@ -207,20 +243,24 @@
     border-radius: 10px;
   }
 
+  /* Cible : .strength-week-day-name, .strength-week-day-month */
   .strength-week-day-name,
   .strength-week-day-month {
     font-size: 8px;
     letter-spacing: 0;
   }
 
+  /* Cible : .strength-week-day-number */
   .strength-week-day-number {
     font-size: 18px;
   }
 
+  /* Cible : .strength-week-day-count */
   .strength-week-day-count {
     font-size: 8px;
   }
 
+  /* Cible : .strength-week-day.is-today::after */
   .strength-week-day.is-today::after {
     top: 5px;
     right: 5px;
@@ -229,7 +269,9 @@
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-week-day */
   .strength-week-day {
     transition: none;
   }

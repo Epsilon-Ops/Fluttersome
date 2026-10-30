@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/hydration-actions.css
+   ZONE    : Page Nutrition
+   RÔLE    : Hydration actions
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — HYDRATATION : ACTIONS */
 
+/* Cible : .hydration-page .hydration-quick-actions */
 .hydration-page .hydration-quick-actions {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -8,6 +18,7 @@
   margin-top: 20px;
 }
 
+/* Cible : .hydration-page .hydration-quick-button */
 .hydration-page .hydration-quick-button {
   display: flex;
   flex-direction: column;
@@ -31,6 +42,7 @@
     transform 180ms ease;
 }
 
+/* Cible : .hydration-page .hydration-quick-button:hover */
 .hydration-page .hydration-quick-button:hover {
   border-color: var(--nutrition-border-strong);
   background: var(--nutrition-surface-hover);
@@ -38,15 +50,18 @@
   transform: translateY(-2px);
 }
 
+/* Cible : .hydration-page .hydration-quick-button:active */
 .hydration-page .hydration-quick-button:active {
   transform: scale(0.98);
 }
 
+/* Cible : .hydration-page .hydration-quick-button > span */
 .hydration-page .hydration-quick-button > span {
   font-size: 1.4rem;
   line-height: 1.2;
 }
 
+/* Cible : .hydration-page .hydration-quick-button strong */
 .hydration-page .hydration-quick-button strong {
   color: var(--nutrition-cyan);
   font-size: 1.2rem;
@@ -54,6 +69,7 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Cible : .hydration-page .hydration-quick-button small */
 .hydration-page .hydration-quick-button small {
   color: var(--nutrition-muted);
   font-size: 0.7rem;
@@ -62,6 +78,7 @@
 
 /* Formulaire personnalisé */
 
+/* Cible : .hydration-page .hydration-custom-form */
 .hydration-page .hydration-custom-form {
   display: flex;
   flex-direction: column;
@@ -70,6 +87,7 @@
   margin-top: 20px;
 }
 
+/* Cible : .hydration-page .hydration-custom-form label */
 .hydration-page .hydration-custom-form label {
   color: var(--nutrition-text-soft);
   font-size: 0.8rem;
@@ -77,6 +95,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .hydration-page .hydration-custom-row */
 .hydration-page .hydration-custom-row {
   display: flex;
   align-items: stretch;
@@ -84,6 +103,7 @@
   min-width: 0;
 }
 
+/* Cible : .hydration-page .hydration-custom-row input, .hydration-page input[type="date"] */
 .hydration-page .hydration-custom-row input,
 .hydration-page input[type="date"] {
   width: 100%;
@@ -104,11 +124,13 @@
     box-shadow 160ms ease;
 }
 
+/* Cible : .hydration-page .hydration-custom-row input::placeholder */
 .hydration-page .hydration-custom-row input::placeholder {
   color: var(--nutrition-muted);
   opacity: 0.8;
 }
 
+/* Cible : .hydration-page .hydration-custom-row input:focus-visible, .hydration-page input[type="date"]:focus-visible */
 .hydration-page .hydration-custom-row input:focus-visible,
 .hydration-page input[type="date"]:focus-visible {
   border-color: var(--nutrition-cyan);
@@ -117,6 +139,7 @@
   box-shadow: 0 0 18px rgba(103, 232, 249, 0.06);
 }
 
+/* Cible : .hydration-page .hydration-custom-row .training-primary-button, .hydration-page .hydration-custom-row .training-secondary-button */
 .hydration-page .hydration-custom-row .training-primary-button,
 .hydration-page .hydration-custom-row .training-secondary-button {
   flex: 0 0 auto;
@@ -132,6 +155,7 @@
     transform 180ms ease;
 }
 
+/* Cible : .hydration-page .hydration-custom-row .training-primary-button */
 .hydration-page .hydration-custom-row .training-primary-button {
   border: 1px solid transparent;
   background: linear-gradient(
@@ -143,63 +167,77 @@
   box-shadow: 0 6px 18px rgba(91, 55, 190, 0.2);
 }
 
+/* Cible : .hydration-page .hydration-custom-row .training-primary-button:hover */
 .hydration-page .hydration-custom-row .training-primary-button:hover {
   background: linear-gradient(110deg, #a078ff, #8173f5);
   transform: translateY(-1px);
 }
 
+/* Cible : .hydration-page .hydration-custom-row .training-secondary-button */
 .hydration-page .hydration-custom-row .training-secondary-button {
   border: 1px solid var(--nutrition-border-strong);
   background: var(--nutrition-surface-soft);
   color: var(--nutrition-text-soft);
 }
 
+/* Cible : .hydration-page .hydration-custom-row .training-secondary-button:hover */
 .hydration-page .hydration-custom-row .training-secondary-button:hover {
   border-color: var(--nutrition-cyan);
   background: var(--nutrition-surface-hover);
 }
 
+/* Cible : .hydration-page .hydration-custom-form > small */
 .hydration-page .hydration-custom-form > small {
   color: var(--nutrition-muted);
   font-size: 0.72rem;
   line-height: 1.65;
 }
 
+/* Règles responsive — (max-width: 480px) */
 @media (max-width: 480px) {
+  /* Cible : .hydration-page .hydration-quick-actions */
   .hydration-page .hydration-quick-actions {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
   }
 
+  /* Cible : .hydration-page .hydration-quick-button */
   .hydration-page .hydration-quick-button {
     min-height: 96px;
     padding: 12px 5px;
   }
 
+  /* Cible : .hydration-page .hydration-quick-button strong */
   .hydration-page .hydration-quick-button strong {
     font-size: 1rem;
   }
 
+  /* Cible : .hydration-page .hydration-quick-button small */
   .hydration-page .hydration-quick-button small {
     font-size: 0.65rem;
     overflow-wrap: anywhere;
   }
 
+  /* Cible : .hydration-page .hydration-custom-row */
   .hydration-page .hydration-custom-row {
     flex-wrap: wrap;
   }
 
+  /* Cible : .hydration-page .hydration-custom-row input */
   .hydration-page .hydration-custom-row input {
     flex: 1 1 100%;
   }
 
+  /* Cible : .hydration-page .hydration-custom-row .training-primary-button, .hydration-page .hydration-custom-row .training-secondary-button */
   .hydration-page .hydration-custom-row .training-primary-button,
   .hydration-page .hydration-custom-row .training-secondary-button {
     flex: 1 1 0;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .hydration-page .hydration-quick-button, .hydration-page .hydration-custom-row input, .hydration-page .hydration-custom-row button */
   .hydration-page .hydration-quick-button,
   .hydration-page .hydration-custom-row input,
   .hydration-page .hydration-custom-row button {

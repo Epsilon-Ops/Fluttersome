@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/responsive.css
+   ZONE    : Page Sommeil
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SLEEP RESPONSIVE
@@ -6,12 +15,15 @@
 
 /* Tablettes et mobiles */
 
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .sleep-page .section-heading */
   .sleep-page .section-heading {
     align-items: flex-start;
     gap: 0.85rem;
   }
 
+  /* Cible : .sleep-page .section-tag */
   .sleep-page .section-tag {
     max-width: 100%;
     font-size: 0.64rem;
@@ -19,12 +31,14 @@
 
   /* Navigation entre les sections */
 
+  /* Cible : .sleep-page .sleep-tabs */
   .sleep-page .sleep-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
 
+  /* Cible : .sleep-page .sleep-tab */
   .sleep-page .sleep-tab {
     flex: 1 1 120px;
     min-width: 0;
@@ -36,22 +50,26 @@
 
   /* Actions principales */
 
+  /* Cible : .sleep-page .sleep-primary-action */
   .sleep-page .sleep-primary-action {
     display: flex;
     justify-content: stretch;
   }
 
+  /* Cible : .sleep-page .sleep-primary-button */
   .sleep-page .sleep-primary-button {
     width: 100%;
   }
 
   /* Statistiques */
 
+  /* Cible : .sleep-page .sleep-metric-grid */
   .sleep-page .sleep-metric-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 
+  /* Cible : .sleep-page .sleep-metric-card */
   .sleep-page .sleep-metric-card {
     min-width: 0;
     padding: 1rem;
@@ -59,31 +77,37 @@
 
   /* Historique */
 
+  /* Cible : .sleep-page .sleep-history-item */
   .sleep-page .sleep-history-item {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.85rem;
   }
 
+  /* Cible : .sleep-page .sleep-history-actions */
   .sleep-page .sleep-history-actions {
     width: 100%;
     justify-content: flex-start;
   }
 
+  /* Cible : .sleep-page .sleep-history-actions button */
   .sleep-page .sleep-history-actions button {
     flex: 1 1 auto;
   }
 
   /* Formulaire */
 
+  /* Cible : .sleep-page .sleep-form-grid */
   .sleep-page .sleep-form-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .sleep-page .sleep-form-actions */
   .sleep-page .sleep-form-actions {
     flex-direction: column-reverse;
   }
 
+  /* Cible : .sleep-page .sleep-form-actions button */
   .sleep-page .sleep-form-actions button {
     width: 100%;
     min-width: 0;
@@ -91,22 +115,26 @@
 
   /* Détails de la nuit */
 
+  /* Cible : .sleep-page .sleep-night-details */
   .sleep-page .sleep-night-details {
     align-items: stretch;
     flex-direction: column;
   }
 
+  /* Cible : .sleep-page .sleep-night-details span */
   .sleep-page .sleep-night-details span {
     width: 100%;
   }
 
   /* Ressenti corporel */
 
+  /* Cible : .sleep-page .body-feeling-form-grid, .sleep-page .body-feeling-list */
   .sleep-page .body-feeling-form-grid,
   .sleep-page .body-feeling-list {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .sleep-page .body-feeling-form-header, .sleep-page .body-feeling-history-header */
   .sleep-page .body-feeling-form-header,
   .sleep-page .body-feeling-history-header {
     align-items: flex-start;
@@ -117,49 +145,60 @@
 
 /* Petits mobiles */
 
+/* Règles responsive — (max-width: 400px) */
 @media (max-width: 400px) {
+  /* Cible : .sleep-page .section-heading */
   .sleep-page .section-heading {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  /* Cible : .sleep-page .section-heading h2 */
   .sleep-page .section-heading h2 {
     font-size: 1.35rem;
   }
 
+  /* Cible : .sleep-page .sleep-main-card, .sleep-page .sleep-metric-card, .sleep-page .sleep-target-panel */
   .sleep-page .sleep-main-card,
   .sleep-page .sleep-metric-card,
   .sleep-page .sleep-target-panel {
     padding: 1rem;
   }
 
+  /* Cible : .sleep-page .sleep-duration-display */
   .sleep-page .sleep-duration-display {
     font-size: clamp(2.2rem, 12vw, 2.5rem);
   }
 
+  /* Cible : .sleep-page .sleep-tabs */
   .sleep-page .sleep-tabs {
     gap: 0.35rem;
   }
 
+  /* Cible : .sleep-page .sleep-tab */
   .sleep-page .sleep-tab {
     flex-basis: 100%;
   }
 
+  /* Cible : .sleep-page .sleep-history-actions */
   .sleep-page .sleep-history-actions {
     display: flex;
     flex-wrap: wrap;
   }
 
+  /* Cible : .sleep-page .sleep-history-actions button */
   .sleep-page .sleep-history-actions button {
     flex: 1 1 100px;
   }
 
+  /* Cible : .sleep-page .body-feeling-intro, .sleep-page .body-feeling-form, .sleep-page .body-feeling-history */
   .sleep-page .body-feeling-intro,
   .sleep-page .body-feeling-form,
   .sleep-page .body-feeling-history {
     padding: 0.9rem;
   }
 
+  /* Cible : .sleep-page .body-feeling-entry-top */
   .sleep-page .body-feeling-entry-top {
     flex-wrap: wrap;
   }
@@ -167,7 +206,9 @@
 
 /* Accessibilité : réduire les animations */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .sleep-page *, .sleep-page *::before, .sleep-page *::after */
   .sleep-page *,
   .sleep-page *::before,
   .sleep-page *::after {
@@ -177,13 +218,16 @@
   }
 }
 
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .sleep-page .welcome-eyebrow */
   .sleep-page .welcome-eyebrow {
     background: none;
     -webkit-text-fill-color: currentColor;
   }
 }
 
+/* Cible : .sleep-page .welcome-eyebrow */
 .sleep-page .welcome-eyebrow {
   background: none;
 }

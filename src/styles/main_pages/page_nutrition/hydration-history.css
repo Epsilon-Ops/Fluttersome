@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/hydration-history.css
+   ZONE    : Page Nutrition
+   RÔLE    : Hydration history
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — HYDRATATION : HISTORIQUE */
 
+/* Cible : .hydration-page .hydration-history-heading */
 .hydration-page .hydration-history-heading {
   display: flex;
   align-items: center;
@@ -11,24 +21,29 @@
   margin-bottom: 16px;
 }
 
+/* Cible : .hydration-page .hydration-history-heading > div */
 .hydration-page .hydration-history-heading > div {
   min-width: 0;
 }
 
+/* Cible : .hydration-page .hydration-history-heading h2 */
 .hydration-page .hydration-history-heading h2 {
   margin-bottom: 6px;
 }
 
+/* Cible : .hydration-page .hydration-history-heading input[type="date"] */
 .hydration-page .hydration-history-heading input[type="date"] {
   width: auto;
   max-width: 100%;
 }
 
+/* Cible : .hydration-page .hydration-entry-list */
 .hydration-page .hydration-entry-list {
   width: 100%;
   min-width: 0;
 }
 
+/* Cible : .hydration-page .hydration-entry */
 .hydration-page .hydration-entry {
   display: flex;
   align-items: center;
@@ -39,11 +54,13 @@
   transition: background 160ms ease;
 }
 
+/* Cible : .hydration-page .hydration-entry:last-child */
 .hydration-page .hydration-entry:last-child {
   padding-bottom: 0;
   border-bottom: 0;
 }
 
+/* Cible : .hydration-page .hydration-entry-icon */
 .hydration-page .hydration-entry-icon {
   display: grid;
   place-items: center;
@@ -58,6 +75,7 @@
   font-size: 1.2rem;
 }
 
+/* Cible : .hydration-page .hydration-entry-info */
 .hydration-page .hydration-entry-info {
   display: flex;
   flex-direction: column;
@@ -66,6 +84,7 @@
   min-width: 0;
 }
 
+/* Cible : .hydration-page .hydration-entry-info strong */
 .hydration-page .hydration-entry-info strong {
   color: var(--nutrition-text);
   font-size: 0.9rem;
@@ -74,12 +93,14 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .hydration-page .hydration-entry-info span */
 .hydration-page .hydration-entry-info span {
   color: var(--nutrition-muted);
   font-size: 0.72rem;
   overflow-wrap: anywhere;
 }
 
+/* Cible : .hydration-page .hydration-delete-button */
 .hydration-page .hydration-delete-button {
   flex: 0 0 auto;
   min-height: 36px;
@@ -100,12 +121,14 @@
     color 160ms ease;
 }
 
+/* Cible : .hydration-page .hydration-delete-button:hover */
 .hydration-page .hydration-delete-button:hover {
   border-color: rgba(255, 146, 159, 0.45);
   background: rgba(255, 90, 110, 0.1);
   color: #ff929f;
 }
 
+/* Cible : .hydration-page .hydration-empty */
 .hydration-page .hydration-empty {
   margin: 0;
   padding: 28px 16px;
@@ -121,21 +144,26 @@
   overflow-wrap: anywhere;
 }
 
+/* Règles responsive — (max-width: 420px) */
 @media (max-width: 420px) {
+  /* Cible : .hydration-page .hydration-history-heading */
   .hydration-page .hydration-history-heading {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  /* Cible : .hydration-page .hydration-history-heading input[type="date"] */
   .hydration-page .hydration-history-heading input[type="date"] {
     width: 100%;
   }
 
+  /* Cible : .hydration-page .hydration-entry */
   .hydration-page .hydration-entry {
     align-items: flex-start;
     gap: 10px;
   }
 
+  /* Cible : .hydration-page .hydration-entry-icon */
   .hydration-page .hydration-entry-icon {
     flex-basis: 36px;
     width: 36px;
@@ -143,13 +171,16 @@
     font-size: 1rem;
   }
 
+  /* Cible : .hydration-page .hydration-delete-button */
   .hydration-page .hydration-delete-button {
     padding: 7px 8px;
     font-size: 0.68rem;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .hydration-page .hydration-entry, .hydration-page .hydration-delete-button */
   .hydration-page .hydration-entry,
   .hydration-page .hydration-delete-button {
     transition: none;

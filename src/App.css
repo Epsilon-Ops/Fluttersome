@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/App.css
+   ZONE    : Feuille racine de l’application
+   RÔLE    : App
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================
    EPSILON — Styles spécifiques à l'application

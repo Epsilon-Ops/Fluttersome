@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/variables.css
+   ZONE    : Page Entraînement
+   RÔLE    : Variables
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Variables du thème
    ========================================================= */
 
+   /* Cible : :root */
    :root {
     color-scheme: dark;
   

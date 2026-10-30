@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/decisions.css
+   ZONE    : Page Coach
+   RÔLE    : Decisions
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Decisions & Coach Chat
@@ -6,6 +15,7 @@
 
 /* Décision de séance */
 
+/* Cible : .coach-session-decision__session, .coach-session-decision__recommendation */
 .coach-session-decision__session,
 .coach-session-decision__recommendation {
   min-width: 0;
@@ -15,6 +25,7 @@
   background: rgba(13, 16, 28, 0.72);
 }
 
+/* Cible : .coach-session-decision__session h3, .coach-session-decision__recommendation h3 */
 .coach-session-decision__session h3,
 .coach-session-decision__recommendation h3 {
   margin: 0 0 8px;
@@ -25,6 +36,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-session-decision__session p, .coach-session-decision__recommendation p */
 .coach-session-decision__session p,
 .coach-session-decision__recommendation p {
   margin: 8px 0 0;
@@ -34,6 +46,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-session-decision__recommendation */
 .coach-session-decision__recommendation {
   margin-top: 14px;
   border-color: rgba(103, 232, 249, 0.2);
@@ -42,6 +55,7 @@
     var(--coach-surface);
 }
 
+/* Cible : .coach-session-decision__note */
 .coach-session-decision__note {
   margin: 15px 0 0;
   color: var(--coach-muted);
@@ -51,12 +65,14 @@
 
 /* Comparaison des décisions */
 
+/* Cible : .coach-decision-comparison__grid */
 .coach-decision-comparison__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
+/* Cible : .coach-decision-option */
 .coach-decision-option {
   min-width: 0;
   padding: 16px;
@@ -70,6 +86,7 @@
     transform var(--coach-transition);
 }
 
+/* Cible : .coach-decision-option h3 */
 .coach-decision-option h3 {
   margin: 0 0 8px;
   color: var(--coach-text);
@@ -79,6 +96,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-decision-option p */
 .coach-decision-option p {
   margin: 8px 0;
   color: var(--coach-muted);
@@ -87,10 +105,12 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-decision-option p:last-child */
 .coach-decision-option p:last-child {
   margin-bottom: 0;
 }
 
+/* Cible : .coach-decision-option--selected */
 .coach-decision-option--selected {
   border-color: var(--coach-accent);
   background:
@@ -103,12 +123,14 @@
 
 /* Chat du coach */
 
+/* Cible : .coach-chat__questions */
 .coach-chat__questions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
+/* Cible : .coach-chat__question */
 .coach-chat__question {
   display: block;
   min-width: 0;
@@ -131,6 +153,7 @@
     box-shadow var(--coach-transition);
 }
 
+/* Cible : .coach-chat__question:hover */
 .coach-chat__question:hover {
   border-color: var(--coach-border-strong);
   background: rgba(139, 92, 246, 0.09);
@@ -138,10 +161,12 @@
   box-shadow: 0 0 18px rgba(139, 92, 246, 0.06);
 }
 
+/* Cible : .coach-chat__question:active */
 .coach-chat__question:active {
   transform: translateY(1px);
 }
 
+/* Cible : .coach-chat__answer */
 .coach-chat__answer {
   min-width: 0;
   margin-top: 18px;
@@ -153,6 +178,7 @@
     var(--coach-input-bg);
 }
 
+/* Cible : .coach-chat__answer h3 */
 .coach-chat__answer h3 {
   margin: 0 0 9px;
   color: var(--coach-cyan);
@@ -161,6 +187,7 @@
   line-height: 1.5;
 }
 
+/* Cible : .coach-chat__answer p */
 .coach-chat__answer p {
   margin: 0;
   color: var(--coach-text-soft);
@@ -171,24 +198,31 @@
 
 /* Responsive */
 
+/* Règles responsive — (hover: hover) and (pointer: fine) */
 @media (hover: hover) and (pointer: fine) {
+  /* Cible : .coach-decision-option:hover */
   .coach-decision-option:hover {
     border-color: var(--coach-border-strong);
   }
 }
 
+/* Règles responsive — (max-width: 850px) */
 @media (max-width: 850px) {
+  /* Cible : .coach-decision-comparison__grid */
   .coach-decision-comparison__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .coach-decision-comparison__grid, .coach-chat__questions */
   .coach-decision-comparison__grid,
   .coach-chat__questions {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .coach-session-decision__session, .coach-session-decision__recommendation, .coach-decision-option, .coach-chat__answer */
   .coach-session-decision__session,
   .coach-session-decision__recommendation,
   .coach-decision-option,
@@ -197,7 +231,9 @@
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .coach-decision-option, .coach-chat__question */
   .coach-decision-option,
   .coach-chat__question {
     transition: none;

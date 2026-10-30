@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/analysis.css
+   ZONE    : Page Coach
+   RÔLE    : Analysis
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Performance & Trends
@@ -6,12 +15,14 @@
 
 /* Analyse des performances */
 
+/* Cible : .coach-performance-analysis__list */
 .coach-performance-analysis__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
+/* Cible : .coach-performance-analysis__item */
 .coach-performance-analysis__item {
   min-width: 0;
   padding: 17px;
@@ -24,6 +35,7 @@
     transform var(--coach-transition);
 }
 
+/* Cible : .coach-performance-analysis__item h3 */
 .coach-performance-analysis__item h3 {
   margin: 0 0 7px;
   color: var(--coach-text);
@@ -33,6 +45,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-performance-analysis__item p */
 .coach-performance-analysis__item p {
   margin: 7px 0 0;
   color: var(--coach-muted);
@@ -41,6 +54,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-performance-analysis__note */
 .coach-performance-analysis__note {
   margin: 18px 0 0;
   padding-top: 15px;
@@ -52,6 +66,7 @@
 
 /* Tendances de progression */
 
+/* Cible : .coach-progression-trends__periods */
 .coach-progression-trends__periods {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -59,6 +74,7 @@
   margin-bottom: 18px;
 }
 
+/* Cible : .coach-progression-trends__periods article */
 .coach-progression-trends__periods article {
   min-width: 0;
   padding: 17px;
@@ -73,6 +89,7 @@
     box-shadow var(--coach-transition);
 }
 
+/* Cible : .coach-progression-trends__periods h3 */
 .coach-progression-trends__periods h3 {
   margin: 0 0 9px;
   color: var(--coach-text);
@@ -82,6 +99,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-progression-trends__periods p */
 .coach-progression-trends__periods p {
   margin: 0;
   color: var(--coach-muted);
@@ -90,6 +108,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .coach-progression-trends > p:last-child */
 .coach-progression-trends > p:last-child {
   margin-bottom: 0;
   color: var(--coach-muted);
@@ -97,7 +116,9 @@
   line-height: 1.7;
 }
 
+/* Règles responsive — (hover: hover) and (pointer: fine) */
 @media (hover: hover) and (pointer: fine) {
+  /* Cible : .coach-performance-analysis__item:hover, .coach-progression-trends__periods article:hover */
   .coach-performance-analysis__item:hover,
   .coach-progression-trends__periods article:hover {
     transform: translateY(-2px);
@@ -106,20 +127,25 @@
   }
 }
 
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .coach-performance-analysis__list, .coach-progression-trends__periods */
   .coach-performance-analysis__list,
   .coach-progression-trends__periods {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
 
+  /* Cible : .coach-performance-analysis__item, .coach-progression-trends__periods article */
   .coach-performance-analysis__item,
   .coach-progression-trends__periods article {
     padding: 15px;
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .coach-performance-analysis__item, .coach-progression-trends__periods article */
   .coach-performance-analysis__item,
   .coach-progression-trends__periods article {
     transition: none;

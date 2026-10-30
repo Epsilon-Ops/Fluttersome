@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/BottomNav.css
+   ZONE    : Styles de la navigation mobile
+   RÔLE    : barre de navigation mobile
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BOTTOM NAVIGATION
@@ -7,6 +16,7 @@
 
 /* ---------- Variables locales ---------- */
 
+/* Cible : :root */
 :root {
   --bottom-nav-bg: rgba(10, 11, 23, 0.94);
   --bottom-nav-surface: #131528;
@@ -24,6 +34,7 @@
 
 /* ---------- Navigation masquée par défaut ---------- */
 
+/* Cible : .bottom-nav */
 .bottom-nav {
   display: none;
 }
@@ -32,7 +43,9 @@
    NAVIGATION MOBILE
    ========================================================= */
 
+/* Règles responsive — (max-width: 768px) */
 @media (max-width: 768px) {
+  /* Cible : .bottom-nav */
   .bottom-nav {
     position: fixed;
     inset: auto 0 0;
@@ -61,6 +74,7 @@
 
   /* Lueur décorative supérieure */
 
+  /* Cible : .bottom-nav::before */
   .bottom-nav::before {
     position: absolute;
     top: -1px;
@@ -85,6 +99,7 @@
      BOUTONS DE NAVIGATION
      ======================================================= */
 
+  /* Cible : .bottom-nav-item */
   .bottom-nav-item {
     position: relative;
 
@@ -123,12 +138,14 @@
       transform 180ms ease;
   }
 
+  /* Cible : .bottom-nav-item:active */
   .bottom-nav-item:active {
     transform: scale(0.95);
   }
 
   /* Élément actif */
 
+  /* Cible : .bottom-nav-item.active */
   .bottom-nav-item.active {
     border-color: rgba(180, 160, 255, 0.19);
 
@@ -146,6 +163,7 @@
       0 1px 0 rgba(255, 255, 255, 0.025) inset;
   }
 
+  /* Cible : .bottom-nav-item.active::before */
   .bottom-nav-item.active::before {
     position: absolute;
     top: -8px;
@@ -168,6 +186,7 @@
     transform: translateX(-50%);
   }
 
+  /* Cible : .bottom-nav-item:focus-visible */
   .bottom-nav-item:focus-visible {
     outline: 2px solid var(--bottom-nav-violet);
     outline-offset: -2px;
@@ -177,6 +196,7 @@
      ICÔNES ET LIBELLÉS
      ======================================================= */
 
+  /* Cible : .bottom-nav-icon */
   .bottom-nav-icon {
     display: flex;
     align-items: center;
@@ -194,21 +214,25 @@
       transform 180ms ease;
   }
 
+  /* Cible : .bottom-nav-icon svg */
   .bottom-nav-icon svg {
     display: block;
     width: 21px;
     height: 21px;
   }
 
+  /* Cible : .bottom-nav-item.active .bottom-nav-icon */
   .bottom-nav-item.active .bottom-nav-icon {
     color: var(--bottom-nav-violet);
     filter: drop-shadow(0 0 5px rgba(180, 160, 255, 0.22));
   }
 
+  /* Cible : .bottom-nav-item.active .bottom-nav-icon svg */
   .bottom-nav-item.active .bottom-nav-icon svg {
     stroke: currentColor;
   }
 
+  /* Cible : .bottom-nav-label */
   .bottom-nav-label {
     display: block;
 
@@ -224,6 +248,7 @@
      BOUTON ET CONTENEUR « PLUS »
      ======================================================= */
 
+  /* Cible : .bottom-nav-more-wrap */
   .bottom-nav-more-wrap {
     position: relative;
     z-index: 3;
@@ -235,6 +260,7 @@
     min-width: 0;
   }
 
+  /* Cible : .bottom-nav-more */
   .bottom-nav-more {
     width: 100%;
     height: 100%;
@@ -244,6 +270,7 @@
      ARRIÈRE-PLAN DU MENU
      ======================================================= */
 
+  /* Cible : .bottom-nav-backdrop */
   .bottom-nav-backdrop {
     position: fixed;
     inset: 0;
@@ -269,6 +296,7 @@
      MENU DÉROULANT « PLUS »
      ======================================================= */
 
+  /* Cible : .bottom-nav-menu */
   .bottom-nav-menu {
     position: absolute;
     right: 0;
@@ -305,14 +333,17 @@
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Cible : .bottom-nav-menu::-webkit-scrollbar */
   .bottom-nav-menu::-webkit-scrollbar {
     width: 5px;
   }
 
+  /* Cible : .bottom-nav-menu::-webkit-scrollbar-track */
   .bottom-nav-menu::-webkit-scrollbar-track {
     background: transparent;
   }
 
+  /* Cible : .bottom-nav-menu::-webkit-scrollbar-thumb */
   .bottom-nav-menu::-webkit-scrollbar-thumb {
     background: rgba(180, 160, 255, 0.32);
     border-radius: 10px;
@@ -320,6 +351,7 @@
 
   /* En-tête du menu */
 
+  /* Cible : .bottom-nav-menu-heading */
   .bottom-nav-menu-heading {
     padding: 11px 12px 12px;
 
@@ -335,6 +367,7 @@
      ÉLÉMENTS DU MENU
      ======================================================= */
 
+  /* Cible : .bottom-nav-menu-item */
   .bottom-nav-menu-item {
     display: flex;
     align-items: center;
@@ -366,16 +399,19 @@
       transform 160ms ease;
   }
 
+  /* Cible : .bottom-nav-menu-item:active */
   .bottom-nav-menu-item:active {
     background: rgba(139, 92, 246, 0.14);
     transform: scale(0.99);
   }
 
+  /* Cible : .bottom-nav-menu-item:focus-visible */
   .bottom-nav-menu-item:focus-visible {
     outline: 2px solid var(--bottom-nav-violet);
     outline-offset: -2px;
   }
 
+  /* Cible : .bottom-nav-menu-item.active */
   .bottom-nav-menu-item.active {
     border-color: rgba(180, 160, 255, 0.17);
 
@@ -391,6 +427,7 @@
 
   /* Icônes des catégories */
 
+  /* Cible : .bottom-nav-menu-icon */
   .bottom-nav-menu-icon {
     display: flex;
     align-items: center;
@@ -407,12 +444,14 @@
       filter 160ms ease;
   }
 
+  /* Cible : .bottom-nav-menu-icon svg */
   .bottom-nav-menu-icon svg {
     display: block;
     width: 19px;
     height: 19px;
   }
 
+  /* Cible : .bottom-nav-menu-item.active .bottom-nav-menu-icon */
   .bottom-nav-menu-item.active .bottom-nav-menu-icon {
     color: var(--category-color, var(--bottom-nav-cyan));
     filter: drop-shadow(0 0 5px rgba(103, 232, 249, 0.16));
@@ -420,6 +459,7 @@
 
   /* Coche de la catégorie active */
 
+  /* Cible : .bottom-nav-menu-check */
   .bottom-nav-menu-check {
     display: flex;
     align-items: center;
@@ -440,6 +480,7 @@
    ANIMATIONS
    ========================================================= */
 
+/* Animation : bottom-nav-fade-in */
 @keyframes bottom-nav-fade-in {
   from {
     opacity: 0;
@@ -450,6 +491,7 @@
   }
 }
 
+/* Animation : bottom-nav-menu-in */
 @keyframes bottom-nav-menu-in {
   from {
     opacity: 0;
@@ -466,29 +508,35 @@
    PETITS ÉCRANS
    ========================================================= */
 
+/* Règles responsive — (max-width: 380px) */
 @media (max-width: 380px) {
+  /* Cible : .bottom-nav */
   .bottom-nav {
     gap: 1px;
     padding-right: 4px;
     padding-left: 4px;
   }
 
+  /* Cible : .bottom-nav-item */
   .bottom-nav-item {
     padding-right: 1px;
     padding-left: 1px;
     font-size: 9px;
   }
 
+  /* Cible : .bottom-nav-icon */
   .bottom-nav-icon {
     width: 23px;
     height: 23px;
   }
 
+  /* Cible : .bottom-nav-icon svg */
   .bottom-nav-icon svg {
     width: 19px;
     height: 19px;
   }
 
+  /* Cible : .bottom-nav-menu */
   .bottom-nav-menu {
     width: min(270px, calc(100vw - 16px));
   }
@@ -498,7 +546,9 @@
    ACCESSIBILITÉ
    ========================================================= */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .bottom-nav-item, .bottom-nav-icon, .bottom-nav-menu-item, .bottom-nav-menu-icon */
   .bottom-nav-item,
   .bottom-nav-icon,
   .bottom-nav-menu-item,
@@ -506,11 +556,13 @@
     transition: none !important;
   }
 
+  /* Cible : .bottom-nav-backdrop, .bottom-nav-menu */
   .bottom-nav-backdrop,
   .bottom-nav-menu {
     animation: none !important;
   }
 
+  /* Cible : .bottom-nav-item:active, .bottom-nav-menu-item:active */
   .bottom-nav-item:active,
   .bottom-nav-menu-item:active {
     transform: none;

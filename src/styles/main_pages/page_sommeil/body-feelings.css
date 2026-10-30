@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_sommeil/body-feelings.css
+   ZONE    : Page Sommeil
+   RÔLE    : Body feelings
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — BODY FEELINGS
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .body-feeling-section */
    .body-feeling-section {
     display: flex;
     min-width: 0;
@@ -12,6 +22,7 @@
     margin-top: 24px;
   }
   
+  /* Cible : .body-feeling-intro, .body-feeling-form, .body-feeling-history */
   .body-feeling-intro,
   .body-feeling-form,
   .body-feeling-history {
@@ -29,6 +40,7 @@
     box-shadow: var(--sleep-shadow-card);
   }
   
+  /* Cible : .body-feeling-intro h3, .body-feeling-form h3, .body-feeling-history h3 */
   .body-feeling-intro h3,
   .body-feeling-form h3,
   .body-feeling-history h3 {
@@ -40,6 +52,7 @@
     line-height: 1.4;
   }
   
+  /* Cible : .body-feeling-intro p, .body-feeling-form-header p, .body-feeling-history-header p */
   .body-feeling-intro p,
   .body-feeling-form-header p,
   .body-feeling-history-header p {
@@ -49,6 +62,7 @@
     line-height: 1.7;
   }
   
+  /* Cible : .body-feeling-form-header, .body-feeling-history-header */
   .body-feeling-form-header,
   .body-feeling-history-header {
     display: flex;
@@ -58,6 +72,7 @@
     margin-bottom: 22px;
   }
   
+  /* Cible : .body-feeling-form-grid */
   .body-feeling-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -65,6 +80,7 @@
     margin-bottom: 20px;
   }
   
+  /* Cible : .body-feeling-field */
   .body-feeling-field {
     display: flex;
     min-width: 0;
@@ -73,6 +89,7 @@
     margin-bottom: 18px;
   }
   
+  /* Cible : .body-feeling-field label */
   .body-feeling-field label {
     color: var(--sleep-text-soft);
     font-size: 0.9rem;
@@ -80,6 +97,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .body-feeling-field select, .body-feeling-field input:not([type="range"]), .body-feeling-field textarea */
   .body-feeling-field select,
   .body-feeling-field input:not([type="range"]),
   .body-feeling-field textarea {
@@ -99,12 +117,14 @@
       box-shadow var(--sleep-motion-fast);
   }
   
+  /* Cible : .body-feeling-field select:hover, .body-feeling-field input:not([type="range"]):hover, .body-feeling-field textarea:hover */
   .body-feeling-field select:hover,
   .body-feeling-field input:not([type="range"]):hover,
   .body-feeling-field textarea:hover {
     border-color: var(--sleep-border-strong);
   }
   
+  /* Cible : .body-feeling-field select:focus-visible, .body-feeling-field input:focus-visible, .body-feeling-field textarea:focus-visible, .body-feeling-form button:focus-visible,… */
   .body-feeling-field select:focus-visible,
   .body-feeling-field input:focus-visible,
   .body-feeling-field textarea:focus-visible,
@@ -115,23 +135,27 @@
     outline-offset: 3px;
   }
   
+  /* Cible : .body-feeling-field select option */
   .body-feeling-field select option {
     background: var(--sleep-surface);
     color: var(--sleep-text);
   }
   
+  /* Cible : .body-feeling-field input::placeholder, .body-feeling-field textarea::placeholder */
   .body-feeling-field input::placeholder,
   .body-feeling-field textarea::placeholder {
     color: #8887a2;
     opacity: 1;
   }
   
+  /* Cible : .body-feeling-field textarea */
   .body-feeling-field textarea {
     min-height: 100px;
     resize: vertical;
     line-height: 1.65;
   }
   
+  /* Cible : .body-feeling-field input[type="range"] */
   .body-feeling-field input[type="range"] {
     width: 100%;
     margin: 8px 0;
@@ -139,6 +163,7 @@
     cursor: pointer;
   }
   
+  /* Cible : .body-feeling-range-labels */
   .body-feeling-range-labels {
     display: flex;
     justify-content: space-between;
@@ -148,6 +173,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .body-feeling-field-error */
   .body-feeling-field-error {
     margin: 0;
     color: var(--sleep-danger);
@@ -157,6 +183,7 @@
   
   /* Actions du formulaire */
   
+  /* Cible : .body-feeling-form-actions */
   .body-feeling-form-actions {
     display: flex;
     align-items: center;
@@ -165,6 +192,7 @@
     margin-top: 8px;
   }
   
+  /* Cible : .body-feeling-cancel-button, .body-feeling-delete-button */
   .body-feeling-cancel-button,
   .body-feeling-delete-button {
     min-height: 40px;
@@ -183,11 +211,13 @@
       color var(--sleep-motion-fast);
   }
   
+  /* Cible : .body-feeling-cancel-button:hover */
   .body-feeling-cancel-button:hover {
     border-color: var(--sleep-border-strong);
     background: var(--sleep-surface-hover);
   }
   
+  /* Cible : .body-feeling-form-note */
   .body-feeling-form-note {
     margin: 18px 0 0;
     color: var(--sleep-muted);
@@ -195,6 +225,7 @@
     line-height: 1.6;
   }
   
+  /* Cible : .body-feeling-count */
   .body-feeling-count {
     flex-shrink: 0;
     padding: 7px 11px;
@@ -209,12 +240,14 @@
   
   /* Liste des observations */
   
+  /* Cible : .body-feeling-list */
   .body-feeling-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
   
+  /* Cible : .body-feeling-entry */
   .body-feeling-entry {
     min-width: 0;
     padding: 18px;
@@ -227,6 +260,7 @@
       box-shadow var(--sleep-motion-normal);
   }
   
+  /* Cible : .body-feeling-entry-top */
   .body-feeling-entry-top {
     display: flex;
     align-items: flex-start;
@@ -235,6 +269,7 @@
     min-width: 0;
   }
   
+  /* Cible : .body-feeling-entry-top h4, .body-feeling-empty h4 */
   .body-feeling-entry-top h4,
   .body-feeling-empty h4 {
     margin: 0;
@@ -245,6 +280,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .body-feeling-entry-date */
   .body-feeling-entry-date {
     margin: 6px 0 0;
     color: var(--sleep-muted);
@@ -252,6 +288,7 @@
     line-height: 1.55;
   }
   
+  /* Cible : .body-feeling-intensity */
   .body-feeling-intensity {
     flex-shrink: 0;
     padding: 6px 9px;
@@ -264,6 +301,7 @@
     font-variant-numeric: tabular-nums;
   }
   
+  /* Cible : .body-feeling-entry-details */
   .body-feeling-entry-details {
     display: flex;
     flex-wrap: wrap;
@@ -271,6 +309,7 @@
     margin-top: 14px;
   }
   
+  /* Cible : .body-feeling-entry-details span */
   .body-feeling-entry-details span {
     max-width: 100%;
     padding: 6px 9px;
@@ -283,6 +322,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .body-feeling-entry-notes */
   .body-feeling-entry-notes {
     margin: 14px 0 0;
     color: var(--sleep-text-soft);
@@ -291,6 +331,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .body-feeling-caution */
   .body-feeling-caution {
     margin: 14px 0 0;
     padding: 12px;
@@ -303,17 +344,20 @@
     line-height: 1.65;
   }
   
+  /* Cible : .body-feeling-entry-actions */
   .body-feeling-entry-actions {
     display: flex;
     justify-content: flex-end;
     margin-top: 16px;
   }
   
+  /* Cible : .body-feeling-delete-button */
   .body-feeling-delete-button {
     border-color: rgba(255, 146, 159, 0.2);
     color: var(--sleep-danger);
   }
   
+  /* Cible : .body-feeling-delete-button:hover */
   .body-feeling-delete-button:hover {
     border-color: rgba(255, 146, 159, 0.4);
     background: rgba(255, 146, 159, 0.08);
@@ -322,6 +366,7 @@
   
   /* État vide */
   
+  /* Cible : .body-feeling-empty */
   .body-feeling-empty {
     padding: 28px 16px;
     border: 1px dashed var(--sleep-border);
@@ -330,6 +375,7 @@
     text-align: center;
   }
   
+  /* Cible : .body-feeling-empty p */
   .body-feeling-empty p {
     max-width: 460px;
     margin: 10px auto 0;
@@ -340,7 +386,9 @@
   
   /* Survol */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .body-feeling-entry:hover */
     .body-feeling-entry:hover {
       border-color: var(--sleep-border-strong);
       background: rgba(139, 92, 246, 0.035);
@@ -350,7 +398,9 @@
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 700px) */
   @media (max-width: 700px) {
+    /* Cible : .body-feeling-intro, .body-feeling-form, .body-feeling-history */
     .body-feeling-intro,
     .body-feeling-form,
     .body-feeling-history {
@@ -358,52 +408,64 @@
       border-radius: var(--sleep-radius-md);
     }
   
+    /* Cible : .body-feeling-form-grid, .body-feeling-list */
     .body-feeling-form-grid,
     .body-feeling-list {
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .body-feeling-form-header, .body-feeling-history-header */
     .body-feeling-form-header,
     .body-feeling-history-header {
       flex-direction: column;
       gap: 8px;
     }
   
+    /* Cible : .body-feeling-count */
     .body-feeling-count {
       align-self: flex-start;
     }
   }
   
+  /* Règles responsive — (max-width: 420px) */
   @media (max-width: 420px) {
+    /* Cible : .body-feeling-intro, .body-feeling-form, .body-feeling-history */
     .body-feeling-intro,
     .body-feeling-form,
     .body-feeling-history {
       padding: 14px;
     }
   
+    /* Cible : .body-feeling-entry */
     .body-feeling-entry {
       padding: 14px;
     }
   
+    /* Cible : .body-feeling-entry-top */
     .body-feeling-entry-top {
       gap: 8px;
     }
   
+    /* Cible : .body-feeling-range-labels */
     .body-feeling-range-labels {
       font-size: 0.72rem;
     }
   
+    /* Cible : .body-feeling-form-actions */
     .body-feeling-form-actions {
       align-items: stretch;
       flex-direction: column;
     }
   
+    /* Cible : .body-feeling-form-actions button */
     .body-feeling-form-actions button {
       width: 100%;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .body-feeling-field input, .body-feeling-field select, .body-feeling-field textarea, .body-feeling-cancel-button, .body-feeling-delete-button, .body-feeling-entry */
     .body-feeling-field input,
     .body-feeling-field select,
     .body-feeling-field textarea,

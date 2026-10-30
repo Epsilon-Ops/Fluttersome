@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/layout/footer.css
+   ZONE    : Mise en page générale (coque de l’application)
+   RÔLE    : Footer
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .app-footer */
 .app-footer {
     display: flex;
     justify-content: space-between;
@@ -9,16 +19,19 @@
     letter-spacing: 0.1em;
   }
   
+  /* Cible : .footer-separator */
   .footer-separator {
     padding: 0 5px;
     color: #b7ff4a;
   }
 
+  /* Cible : .app-footer */
   .app-footer {
     border-top-color: var(--color-border);
     color: #7b8798;
   }
   
+  /* Cible : .footer-separator */
   .footer-separator {
     color: var(--color-accent);
   }

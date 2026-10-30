@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/settings/animations.css
+   ZONE    : Réglages globaux (variables, polices, animations)
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    BLACK DIAMOND PREMIUM++ — SETTINGS ANIMATIONS
@@ -6,6 +15,7 @@
 
 /* ---------- Keyframes ---------- */
 
+/* Animation : settings-fade-in */
 @keyframes settings-fade-in {
     from {
       opacity: 0;
@@ -18,6 +28,7 @@
     }
   }
   
+  /* Animation : settings-slide-in */
   @keyframes settings-slide-in {
     from {
       opacity: 0;
@@ -30,6 +41,7 @@
     }
   }
   
+  /* Animation : settings-scale-in */
   @keyframes settings-scale-in {
     from {
       opacity: 0;
@@ -42,6 +54,7 @@
     }
   }
   
+  /* Animation : settings-status-pulse */
   @keyframes settings-status-pulse {
     0%,
     100% {
@@ -55,12 +68,14 @@
     }
   }
   
+  /* Animation : settings-spin */
   @keyframes settings-spin {
     to {
       transform: rotate(360deg);
     }
   }
   
+  /* Animation : settings-shimmer */
   @keyframes settings-shimmer {
     from {
       background-position: 180% 0;
@@ -73,6 +88,7 @@
   
   /* ---------- Entrée de page ---------- */
   
+  /* Cible : .settings-page, .settings-container */
   .settings-page,
   .settings-container {
     animation: settings-fade-in 380ms
@@ -81,6 +97,7 @@
   
   /* ---------- Sections ---------- */
   
+  /* Cible : .settings-page section, .settings-container section */
   .settings-page section,
   .settings-container section {
     animation: settings-fade-in 400ms
@@ -89,6 +106,7 @@
   
   /* ---------- Panneaux ---------- */
   
+  /* Cible : .settings-page .panel, .settings-page .settings-card, .settings-container .panel, .settings-container .settings-card */
   .settings-page .panel,
   .settings-page .settings-card,
   .settings-container .panel,
@@ -100,6 +118,7 @@
       transform 220ms ease;
   }
   
+  /* Cible : .settings-page .panel:hover, .settings-page .settings-card:hover, .settings-container .panel:hover, .settings-container .settings-card:hover */
   .settings-page .panel:hover,
   .settings-page .settings-card:hover,
   .settings-container .panel:hover,
@@ -109,6 +128,7 @@
   
   /* ---------- Boutons ---------- */
   
+  /* Cible : .settings-page button, .settings-container button, .settings-page .settings-button, .settings-container .settings-button */
   .settings-page button,
   .settings-container button,
   .settings-page .settings-button,
@@ -121,6 +141,7 @@
       color 180ms ease;
   }
   
+  /* Cible : .settings-page button:active, .settings-container button:active, .settings-page .settings-button:active, .settings-container .settings-button:active */
   .settings-page button:active,
   .settings-container button:active,
   .settings-page .settings-button:active,
@@ -130,6 +151,7 @@
   
   /* ---------- Champs ---------- */
   
+  /* Cible : .settings-page input, .settings-page select, .settings-page textarea, .settings-container input, .settings-container select, .settings-container textarea */
   .settings-page input,
   .settings-page select,
   .settings-page textarea,
@@ -142,6 +164,7 @@
       background-color 180ms ease;
   }
   
+  /* Cible : .settings-page input:focus, .settings-page select:focus, .settings-page textarea:focus, .settings-container input:focus, .settings-container select:focus, .settings-co… */
   .settings-page input:focus,
   .settings-page select:focus,
   .settings-page textarea:focus,
@@ -155,6 +178,7 @@
   
   /* ---------- Toggles ---------- */
   
+  /* Cible : .settings-page input[type="checkbox"], .settings-container input[type="checkbox"] */
   .settings-page input[type="checkbox"],
   .settings-container input[type="checkbox"] {
     accent-color: var(--competition-violet, #aa91ff);
@@ -162,6 +186,7 @@
   
   /* ---------- Messages d'état ---------- */
   
+  /* Cible : .settings-page .success, .settings-page .success-message, .settings-container .success, .settings-container .success-message */
   .settings-page .success,
   .settings-page .success-message,
   .settings-container .success,
@@ -169,6 +194,7 @@
     animation: settings-fade-in 240ms ease both;
   }
   
+  /* Cible : .settings-page .status-indicator, .settings-container .status-indicator */
   .settings-page .status-indicator,
   .settings-container .status-indicator {
     animation: settings-status-pulse 2.8s ease-in-out infinite;
@@ -176,6 +202,7 @@
   
   /* ---------- Chargement ---------- */
   
+  /* Cible : .settings-page .loading-spinner, .settings-container .loading-spinner */
   .settings-page .loading-spinner,
   .settings-container .loading-spinner {
     animation: settings-spin 900ms linear infinite;
@@ -184,6 +211,7 @@
   
   /* ---------- Focus clavier ---------- */
   
+  /* Cible : .settings-page button:focus-visible, .settings-page a:focus-visible, .settings-page input:focus-visible, .settings-page select:focus-visible, .settings-page textarea:f… */
   .settings-page button:focus-visible,
   .settings-page a:focus-visible,
   .settings-page input:focus-visible,
@@ -200,7 +228,9 @@
   
   /* ---------- Accessibilité ---------- */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .settings-page *, .settings-page *::before, .settings-page *::after, .settings-container *, .settings-container *::before, .settings-container *::after */
     .settings-page *,
     .settings-page *::before,
     .settings-page *::after,

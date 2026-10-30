@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/buttons-tabs.css
+   ZONE    : Page Compétitions
+   RÔLE    : Buttons tabs
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — PREMIUM++
@@ -8,6 +17,7 @@
    NAVIGATION PAR ONGLETS
    ========================================================= */
 
+   /* Cible : .competitions-page .competition-tabs */
    .competitions-page .competition-tabs {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -30,6 +40,7 @@
       inset 0 1px 0 rgb(255 255 255 / 3%);
   }
   
+  /* Cible : .competitions-page .competition-tab */
   .competitions-page .competition-tab {
     position: relative;
   
@@ -62,6 +73,7 @@
       box-shadow var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-tab:hover */
   .competitions-page .competition-tab:hover {
     border-color: rgb(177 163 255 / 12%);
     background: rgb(255 255 255 / 4%);
@@ -69,10 +81,12 @@
     transform: translateY(-1px);
   }
   
+  /* Cible : .competitions-page .competition-tab:active */
   .competitions-page .competition-tab:active {
     transform: scale(0.97);
   }
   
+  /* Cible : .competitions-page .competition-tab.is-active */
   .competitions-page .competition-tab.is-active {
     border-color: rgb(182 161 255 / 36%);
   
@@ -91,6 +105,7 @@
       inset 0 1px 0 rgb(255 255 255 / 19%);
   }
   
+  /* Cible : .competitions-page .competition-tab.is-active::after */
   .competitions-page .competition-tab.is-active::after {
     content: "";
     position: absolute;
@@ -109,6 +124,7 @@
      BOUTON PRINCIPAL
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-primary-button */
   .competitions-page .competition-primary-button {
     position: relative;
     isolation: isolate;
@@ -151,6 +167,7 @@
       filter var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-primary-button::before */
   .competitions-page .competition-primary-button::before {
     content: "";
     position: absolute;
@@ -172,6 +189,7 @@
       transform 350ms ease;
   }
   
+  /* Cible : .competitions-page .competition-primary-button:hover */
   .competitions-page .competition-primary-button:hover {
     filter: brightness(1.08);
     transform: translateY(-2px);
@@ -182,15 +200,18 @@
       inset 0 1px 0 rgb(255 255 255 / 22%);
   }
   
+  /* Cible : .competitions-page .competition-primary-button:hover::before */
   .competitions-page .competition-primary-button:hover::before {
     opacity: 1;
     transform: translateX(35%);
   }
   
+  /* Cible : .competitions-page .competition-primary-button:active */
   .competitions-page .competition-primary-button:active {
     transform: translateY(0) scale(0.97);
   }
   
+  /* Cible : .competitions-page .competition-primary-button:disabled */
   .competitions-page .competition-primary-button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -203,6 +224,7 @@
      BOUTON DE SUPPRESSION
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-delete-button */
   .competitions-page .competition-delete-button {
     display: inline-flex;
     align-items: center;
@@ -231,6 +253,7 @@
       color var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-delete-button:hover */
   .competitions-page .competition-delete-button:hover {
     border-color: rgb(255 111 145 / 40%);
     background: var(--competition-red-light);
@@ -238,6 +261,7 @@
     transform: translateY(-1px);
   }
   
+  /* Cible : .competitions-page .competition-delete-button:active */
   .competitions-page .competition-delete-button:active {
     transform: scale(0.94);
   }
@@ -246,6 +270,7 @@
      ACCESSIBILITÉ
      ========================================================= */
   
+  /* Cible : .competitions-page :where( .competition-form-toggle, .competition-tab, .competition-delete-button, .competition-primary-button ):focus-visible */
   .competitions-page :where(
     .competition-form-toggle,
     .competition-tab,
@@ -256,13 +281,16 @@
     outline-offset: 3px;
   }
   
+  /* Règles responsive — (max-width: 680px) */
   @media (max-width: 680px) {
+    /* Cible : .competitions-page .competition-tabs */
     .competitions-page .competition-tabs {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 5px;
       padding: 5px;
     }
   
+    /* Cible : .competitions-page .competition-tab */
     .competitions-page .competition-tab {
       min-height: 42px;
       padding: 9px 5px;
@@ -270,7 +298,9 @@
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page .competition-tab, .competitions-page .competition-primary-button, .competitions-page .competition-delete-button */
     .competitions-page .competition-tab,
     .competitions-page .competition-primary-button,
     .competitions-page .competition-delete-button {

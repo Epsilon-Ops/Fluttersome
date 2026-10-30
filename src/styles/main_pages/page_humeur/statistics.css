@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/statistics.css
+   ZONE    : Page Humeur
+   RÔLE    : Statistics
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — STATISTIQUES HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-statistics__grid */
    .mood-statistics__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -12,6 +22,7 @@
   
   /* Cartes de statistiques */
   
+  /* Cible : .mood-stat-card */
   .mood-stat-card {
     display: flex;
     flex-direction: column;
@@ -35,6 +46,7 @@
       transform var(--mood-transition);
   }
   
+  /* Cible : .mood-stat-card__label */
   .mood-stat-card__label {
     color: var(--mood-color-muted);
     font-size: 0.85rem;
@@ -42,6 +54,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .mood-stat-card__value */
   .mood-stat-card__value {
     margin-top: 14px;
     color: var(--mood-color-text);
@@ -53,12 +66,14 @@
     font-variant-numeric: tabular-nums;
   }
   
+  /* Cible : .mood-stat-card__value--text */
   .mood-stat-card__value--text {
     font-size: clamp(1.05rem, 2vw, 1.45rem);
     letter-spacing: -0.02em;
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .mood-stat-card__hint */
   .mood-stat-card__hint {
     margin-top: 8px;
     color: var(--mood-color-muted);
@@ -66,6 +81,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .mood-stat-card__frequent */
   .mood-stat-card__frequent {
     display: flex;
     align-items: center;
@@ -79,6 +95,7 @@
   
   /* Répartition des humeurs */
   
+  /* Cible : .mood-statistics__breakdown */
   .mood-statistics__breakdown {
     margin-top: 28px;
     padding: 22px;
@@ -88,19 +105,23 @@
     box-shadow: var(--mood-shadow-card);
   }
   
+  /* Cible : .mood-statistics__title */
   .mood-statistics__title {
     margin-bottom: 18px;
   }
   
+  /* Cible : .mood-statistics__mood-list */
   .mood-statistics__mood-list {
     display: grid;
     gap: 16px;
   }
   
+  /* Cible : .mood-statistics__mood */
   .mood-statistics__mood {
     min-width: 0;
   }
   
+  /* Cible : .mood-statistics__mood-heading */
   .mood-statistics__mood-heading {
     display: flex;
     align-items: center;
@@ -109,6 +130,7 @@
     margin-bottom: 8px;
   }
   
+  /* Cible : .mood-statistics__mood-name */
   .mood-statistics__mood-name {
     display: inline-flex;
     align-items: center;
@@ -120,12 +142,14 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .mood-statistics__mood-name svg */
   .mood-statistics__mood-name svg {
     flex: 0 0 auto;
     width: 20px;
     height: 20px;
   }
   
+  /* Cible : .mood-statistics__mood-count */
   .mood-statistics__mood-count {
     flex: 0 0 auto;
     color: var(--mood-color-muted);
@@ -136,6 +160,7 @@
   
   /* Barres de répartition */
   
+  /* Cible : .mood-statistics__bar */
   .mood-statistics__bar {
     width: 100%;
     height: 9px;
@@ -145,6 +170,7 @@
     background: #29283a;
   }
   
+  /* Cible : .mood-statistics__bar-fill */
   .mood-statistics__bar-fill {
     width: 0;
     height: 100%;
@@ -162,7 +188,9 @@
   
   /* Survol */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .mood-stat-card:hover */
     .mood-stat-card:hover {
       transform: translateY(-2px);
       border-color: var(--mood-color-border-strong);
@@ -172,33 +200,41 @@
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .mood-statistics__grid */
     .mood-statistics__grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 12px;
     }
   
+    /* Cible : .mood-stat-card */
     .mood-stat-card {
       min-height: 120px;
       padding: 18px;
     }
   
+    /* Cible : .mood-statistics__breakdown */
     .mood-statistics__breakdown {
       margin-top: 20px;
       padding: 17px;
     }
   
+    /* Cible : .mood-statistics__mood-heading */
     .mood-statistics__mood-heading {
       gap: 8px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mood-stat-card, .mood-statistics__bar-fill */
     .mood-stat-card,
     .mood-statistics__bar-fill {
       transition: none;
     }
   
+    /* Cible : .mood-stat-card:hover */
     .mood-stat-card:hover {
       transform: none;
     }

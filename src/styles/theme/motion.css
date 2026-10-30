@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/theme/motion.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Motion
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    MOUVEMENT — stretch & squash exagéré + passif permanent
    ========================================================= */
 
 /* ---------- Entrée de page ---------- */
+/* Animation : duo-page-enter */
 @keyframes duo-page-enter {
   0%   { opacity: 0; transform: translateY(30px) scale(0.93, 1.07); }
   55%  { opacity: 1; transform: translateY(-8px) scale(1.03, 0.96); }
@@ -11,6 +21,7 @@
 }
 
 /* ---------- Pop d'apparition ---------- */
+/* Animation : duo-pop-in */
 @keyframes duo-pop-in {
   0%   { opacity: 0; transform: scale(0.45, 1.6); }
   45%  { opacity: 1; transform: scale(1.2, 0.8); }
@@ -19,6 +30,7 @@
 }
 
 /* ---------- Saut écrasé (bouton validé, coche) ---------- */
+/* Animation : duo-bounce */
 @keyframes duo-bounce {
   0%   { transform: scale(1, 1) translateY(0); }
   18%  { transform: scale(1.22, 0.74) translateY(0); }
@@ -29,6 +41,7 @@
 }
 
 /* ---------- Étirement (icônes) ---------- */
+/* Animation : duo-stretch */
 @keyframes duo-stretch {
   0%   { transform: scale(1, 1); }
   28%  { transform: scale(0.8, 1.24); }
@@ -38,6 +51,7 @@
 }
 
 /* ---------- Gelée (navigation) ---------- */
+/* Animation : duo-jelly */
 @keyframes duo-jelly {
   0%, 100% { transform: scale(1, 1); }
   25%  { transform: scale(1.16, 0.84); }
@@ -46,6 +60,7 @@
 }
 
 /* ---------- PASSIF : flottement avec écrasement ---------- */
+/* Animation : duo-float */
 @keyframes duo-float {
   0%, 100% { transform: translateY(0) scale(1, 1); }
   20%  { transform: translateY(-2px) scale(1, 1); }
@@ -54,12 +69,14 @@
 }
 
 /* ---------- PASSIF : respiration du halo ---------- */
+/* Animation : duo-breathe */
 @keyframes duo-breathe {
-  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow), 0 4px 0 var(--accent-deep); }
-  50%      { box-shadow: 0 0 26px 6px var(--accent-glow), 0 4px 0 var(--accent-deep); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow), 0 2px 0 var(--accent-deep); }
+  50%      { box-shadow: 0 0 26px 6px var(--accent-glow), 0 2px 0 var(--accent-deep); }
 }
 
 /* ---------- PASSIF : balancement ludique (toutes les 6 s) ---------- */
+/* Animation : duo-wiggle */
 @keyframes duo-wiggle {
   0%, 86%, 100% { transform: rotate(0deg) scale(1, 1); }
   89% { transform: rotate(-10deg) scale(1.1, 0.9); }
@@ -68,6 +85,7 @@
 }
 
 /* ---------- PASSIF : reflet qui traverse ---------- */
+/* Animation : diamond-glint */
 @keyframes diamond-glint {
   0%   { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
   12%  { opacity: 1; }
@@ -75,12 +93,14 @@
 }
 
 /* ---------- PASSIF : scintillement ---------- */
+/* Animation : diamond-twinkle */
 @keyframes diamond-twinkle {
   0%, 100% { opacity: 0.25; transform: scale(0.45) rotate(0deg); }
   50%      { opacity: 1; transform: scale(1.18) rotate(45deg); }
 }
 
 /* ---------- PASSIF : dérive de l'aura ---------- */
+/* Animation : aura-drift */
 @keyframes aura-drift {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
   50%  { transform: translate3d(3%, -2%, 0) scale(1.07); }
@@ -88,12 +108,14 @@
 }
 
 /* ---------- PASSIF : point de statut qui pulse ---------- */
+/* Animation : duo-status-pulse */
 @keyframes duo-status-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgb(88 204 2 / 60%); transform: scale(1); }
   50%      { box-shadow: 0 0 0 8px rgb(88 204 2 / 0%); transform: scale(1.18, 0.88); }
 }
 
 /* ---------- PASSIF : flamme qui vacille (streak) ---------- */
+/* Animation : duo-flame */
 @keyframes duo-flame {
   0%, 100% { transform: scale(1, 1) rotate(-2deg); }
   30%  { transform: scale(0.92, 1.12) rotate(3deg); }
@@ -101,12 +123,14 @@
 }
 
 /* ---------- PASSIF : brillance qui glisse sur les boutons ---------- */
+/* Animation : duo-shine */
 @keyframes duo-shine {
   0%, 70%, 100% { transform: translateX(-120%); }
   85%           { transform: translateX(120%); }
 }
 
 /* ---------- Secousse (succès, record) ---------- */
+/* Animation : duo-shake */
 @keyframes duo-shake {
   0%, 100% { transform: rotate(0); }
   20% { transform: rotate(-8deg) scale(1.1); }
@@ -116,7 +140,9 @@
 }
 
 /* ---------- Préférence « réduire les animations » ---------- */
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : *, *::before, *::after */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

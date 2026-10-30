@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/dashboard/home.css
+   ZONE    : Tableau de bord (accueil)
+   RÔLE    : Home
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================
    EPSILON — DASHBOARD PREMIUM++
    Black Diamond / Athlete Cockpit
    ========================================= */
 
+   /* Cible : .dashboard-home */
    .dashboard-home {
     --dash-violet: #a68bff;
     --dash-blue: #6fa8ff;
@@ -24,6 +34,7 @@
      INTRODUCTION
      ========================================= */
   
+  /* Cible : .dashboard-welcome */
   .dashboard-welcome {
     position: relative;
     display: flex;
@@ -62,6 +73,7 @@
       inset 0 1px 0 rgb(255 255 255 / 5%);
   }
   
+  /* Cible : .dashboard-welcome::before */
   .dashboard-welcome::before {
     content: "";
     position: absolute;
@@ -77,6 +89,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .dashboard-welcome::after */
   .dashboard-welcome::after {
     content: "";
     position: absolute;
@@ -96,12 +109,14 @@
     pointer-events: none;
   }
   
+  /* Cible : .dashboard-welcome__content */
   .dashboard-welcome__content {
     position: relative;
     z-index: 1;
     max-width: 640px;
   }
   
+  /* Cible : .dashboard-welcome .eyebrow */
   .dashboard-welcome .eyebrow {
     display: inline-block;
     margin-bottom: 13px;
@@ -112,6 +127,7 @@
     letter-spacing: 0.17em;
   }
   
+  /* Cible : .dashboard-welcome h1 */
   .dashboard-welcome h1 {
     margin: 0;
   
@@ -122,6 +138,7 @@
     letter-spacing: -0.045em;
   }
   
+  /* Cible : .dashboard-welcome__content > p */
   .dashboard-welcome__content > p {
     max-width: 510px;
     margin: 14px 0 18px;
@@ -131,6 +148,7 @@
     line-height: 1.8;
   }
   
+  /* Cible : .dashboard-welcome__date */
   .dashboard-welcome__date {
     display: inline-flex;
     align-items: center;
@@ -148,6 +166,7 @@
     letter-spacing: 0.025em;
   }
   
+  /* Cible : .dashboard-welcome__icon */
   .dashboard-welcome__icon {
     position: relative;
     z-index: 1;
@@ -181,6 +200,7 @@
      SECTIONS
      ========================================= */
   
+  /* Cible : .dashboard-home__section */
   .dashboard-home__section {
     display: flex;
     flex-direction: column;
@@ -188,6 +208,7 @@
     min-width: 0;
   }
   
+  /* Cible : .dashboard-home__section-heading */
   .dashboard-home__section-heading {
     display: flex;
     align-items: flex-end;
@@ -195,6 +216,7 @@
     gap: 18px;
   }
   
+  /* Cible : .dashboard-home__section-heading .eyebrow */
   .dashboard-home__section-heading .eyebrow {
     display: block;
     margin-bottom: 7px;
@@ -205,6 +227,7 @@
     letter-spacing: 0.16em;
   }
   
+  /* Cible : .dashboard-home__section-heading h2 */
   .dashboard-home__section-heading h2 {
     margin: 0;
   
@@ -214,6 +237,7 @@
     letter-spacing: -0.035em;
   }
   
+  /* Cible : .dashboard-home__section-heading > p */
   .dashboard-home__section-heading > p {
     margin: 0 0 3px;
   
@@ -227,6 +251,7 @@
      INDICATEURS
      ========================================= */
   
+  /* Cible : .dashboard-home__metrics */
   .dashboard-home__metrics {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -238,11 +263,13 @@
      Les sélecteurs sont volontairement limités
      au dashboard. */
   
+  /* Cible : .dashboard-home__metrics > *, .dashboard-home__metrics .stat-card */
   .dashboard-home__metrics > *,
   .dashboard-home__metrics .stat-card {
     min-width: 0;
   }
   
+  /* Cible : .dashboard-home__metrics .stat-card */
   .dashboard-home__metrics .stat-card {
     position: relative;
     overflow: hidden;
@@ -267,6 +294,7 @@
       box-shadow 220ms ease;
   }
   
+  /* Cible : .dashboard-home__metrics .stat-card::before */
   .dashboard-home__metrics .stat-card::before {
     content: "";
     position: absolute;
@@ -282,6 +310,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .dashboard-home__metrics .stat-card:hover */
   .dashboard-home__metrics .stat-card:hover {
     transform: translateY(-4px) scale(1.012);
   
@@ -296,6 +325,7 @@
   /* Les cartes cliquables doivent conserver
      une indication de focus visible. */
   
+  /* Cible : .dashboard-home__metrics .stat-card:focus-visible, .dashboard-home__metrics .stat-card button:focus-visible */
   .dashboard-home__metrics .stat-card:focus-visible,
   .dashboard-home__metrics .stat-card button:focus-visible {
     outline: 2px solid #b7a1ff;
@@ -306,12 +336,14 @@
      ACCÈS RAPIDES
      ========================================= */
   
+  /* Cible : .dashboard-home__quick-links */
   .dashboard-home__quick-links {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
   }
   
+  /* Cible : .dashboard-home__quick-link */
   .dashboard-home__quick-link {
     position: relative;
   
@@ -351,6 +383,7 @@
       box-shadow 220ms ease;
   }
   
+  /* Cible : .dashboard-home__quick-link::before */
   .dashboard-home__quick-link::before {
     content: "";
     position: absolute;
@@ -367,6 +400,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .dashboard-home__quick-link:hover:not(:disabled) */
   .dashboard-home__quick-link:hover:not(:disabled) {
     transform: translateY(-3px) scale(1.012);
   
@@ -377,24 +411,29 @@
       0 0 18px rgb(122 91 255 / 6%);
   }
   
+  /* Cible : .dashboard-home__quick-link:hover:not(:disabled)::before */
   .dashboard-home__quick-link:hover:not(:disabled)::before {
     opacity: 1;
   }
   
+  /* Cible : .dashboard-home__quick-link:active:not(:disabled) */
   .dashboard-home__quick-link:active:not(:disabled) {
     transform: translateY(0) scale(0.975);
   }
   
+  /* Cible : .dashboard-home__quick-link:focus-visible */
   .dashboard-home__quick-link:focus-visible {
     outline: 2px solid #b7a1ff;
     outline-offset: 3px;
   }
   
+  /* Cible : .dashboard-home__quick-link:disabled */
   .dashboard-home__quick-link:disabled {
     cursor: default;
     opacity: 0.65;
   }
   
+  /* Cible : .dashboard-home__quick-icon */
   .dashboard-home__quick-icon {
     position: relative;
     z-index: 1;
@@ -422,6 +461,7 @@
       background 220ms ease;
   }
   
+  /* Cible : .dashboard-home__quick-link:hover:not(:disabled) .dashboard-home__quick-icon */
   .dashboard-home__quick-link:hover:not(:disabled)
   .dashboard-home__quick-icon {
     transform: rotate(-4deg) scale(1.06);
@@ -434,6 +474,7 @@
       );
   }
   
+  /* Cible : .dashboard-home__quick-text */
   .dashboard-home__quick-text {
     position: relative;
     z-index: 1;
@@ -446,6 +487,7 @@
     min-width: 0;
   }
   
+  /* Cible : .dashboard-home__quick-text strong */
   .dashboard-home__quick-text strong {
     overflow-wrap: anywhere;
   
@@ -455,12 +497,14 @@
     line-height: 1.4;
   }
   
+  /* Cible : .dashboard-home__quick-text > span */
   .dashboard-home__quick-text > span {
     color: #9694ad;
     font-size: 10px;
     line-height: 1.5;
   }
   
+  /* Cible : .dashboard-home__quick-link > svg */
   .dashboard-home__quick-link > svg {
     position: relative;
     z-index: 1;
@@ -473,6 +517,7 @@
       color 200ms ease;
   }
   
+  /* Cible : .dashboard-home__quick-link:hover:not(:disabled) > svg */
   .dashboard-home__quick-link:hover:not(:disabled) > svg {
     transform: translate(2px, -2px);
     color: #b9a4ff;
@@ -482,6 +527,7 @@
      NOTE D'INFORMATION
      ========================================= */
   
+  /* Cible : .dashboard-home__footer-note */
   .dashboard-home__footer-note {
     display: flex;
     align-items: flex-start;
@@ -502,12 +548,14 @@
     color: #aaa9c2;
   }
   
+  /* Cible : .dashboard-home__footer-note > svg */
   .dashboard-home__footer-note > svg {
     flex-shrink: 0;
     margin-top: 1px;
     color: #91aaff;
   }
   
+  /* Cible : .dashboard-home__footer-note p */
   .dashboard-home__footer-note p {
     margin: 0;
   
@@ -519,6 +567,7 @@
      ANIMATIONS
      ========================================= */
   
+  /* Animation : diamond-float */
   @keyframes diamond-float {
     0%,
     100% {
@@ -534,27 +583,34 @@
      RESPONSIVE
      ========================================= */
   
+  /* Règles responsive — (max-width: 1200px) */
   @media (max-width: 1200px) {
+    /* Cible : .dashboard-home__metrics */
     .dashboard-home__metrics {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   
+    /* Cible : .dashboard-home__quick-links */
     .dashboard-home__quick-links {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .dashboard-home */
     .dashboard-home {
       gap: 25px;
     }
   
+    /* Cible : .dashboard-welcome */
     .dashboard-welcome {
       min-height: 0;
       padding: 25px 21px;
       border-radius: 20px;
     }
   
+    /* Cible : .dashboard-welcome__icon */
     .dashboard-welcome__icon {
       flex-basis: 58px;
       width: 58px;
@@ -562,37 +618,45 @@
       border-radius: 17px;
     }
   
+    /* Cible : .dashboard-welcome__icon svg */
     .dashboard-welcome__icon svg {
       width: 24px;
       height: 24px;
     }
   
+    /* Cible : .dashboard-welcome__content > p */
     .dashboard-welcome__content > p {
       font-size: 12px;
     }
   
+    /* Cible : .dashboard-home__section-heading */
     .dashboard-home__section-heading {
       align-items: flex-start;
     }
   
+    /* Cible : .dashboard-home__section-heading > p */
     .dashboard-home__section-heading > p {
       max-width: 42%;
       font-size: 10px;
     }
   
+    /* Cible : .dashboard-home__metrics */
     .dashboard-home__metrics {
       gap: 11px;
     }
   
+    /* Cible : .dashboard-home__quick-links */
     .dashboard-home__quick-links {
       gap: 10px;
     }
   
+    /* Cible : .dashboard-home__quick-link */
     .dashboard-home__quick-link {
       gap: 10px;
       padding: 12px;
     }
   
+    /* Cible : .dashboard-home__quick-icon */
     .dashboard-home__quick-icon {
       flex-basis: 37px;
       width: 37px;
@@ -600,17 +664,21 @@
     }
   }
   
+  /* Règles responsive — (max-width: 480px) */
   @media (max-width: 480px) {
+    /* Cible : .dashboard-welcome */
     .dashboard-welcome {
       align-items: flex-start;
       gap: 12px;
       padding: 23px 17px;
     }
   
+    /* Cible : .dashboard-welcome h1 */
     .dashboard-welcome h1 {
       font-size: 27px;
     }
   
+    /* Cible : .dashboard-welcome__icon */
     .dashboard-welcome__icon {
       flex-basis: 43px;
       width: 43px;
@@ -618,34 +686,41 @@
       border-radius: 13px;
     }
   
+    /* Cible : .dashboard-welcome__icon svg */
     .dashboard-welcome__icon svg {
       width: 21px;
       height: 21px;
     }
   
+    /* Cible : .dashboard-home__section-heading */
     .dashboard-home__section-heading {
       flex-direction: column;
       gap: 7px;
     }
   
+    /* Cible : .dashboard-home__section-heading > p */
     .dashboard-home__section-heading > p {
       max-width: none;
       text-align: left;
     }
   
+    /* Cible : .dashboard-home__metrics */
     .dashboard-home__metrics {
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .dashboard-home__quick-links */
     .dashboard-home__quick-links {
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .dashboard-home__quick-link */
     .dashboard-home__quick-link {
       min-height: 76px;
       padding: 13px;
     }
   
+    /* Cible : .dashboard-home__footer-note */
     .dashboard-home__footer-note {
       padding: 14px;
     }
@@ -655,11 +730,14 @@
      ACCESSIBILITÉ
      ========================================= */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .dashboard-welcome__icon */
     .dashboard-welcome__icon {
       animation: none;
     }
   
+    /* Cible : .dashboard-home *, .dashboard-home *::before, .dashboard-home *::after */
     .dashboard-home *,
     .dashboard-home *::before,
     .dashboard-home *::after {

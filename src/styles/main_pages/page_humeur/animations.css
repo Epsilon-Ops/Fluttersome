@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/animations.css
+   ZONE    : Page Humeur
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — ANIMATIONS DE LA PAGE HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Animation : mood-fade-in */
    @keyframes mood-fade-in {
     from {
       opacity: 0;
@@ -16,6 +26,7 @@
     }
   }
   
+  /* Animation : mood-tab-glow */
   @keyframes mood-tab-glow {
     from {
       box-shadow: 0 0 0 rgba(139, 92, 246, 0);
@@ -26,10 +37,12 @@
     }
   }
   
+  /* Cible : .mood-page */
   .mood-page {
     animation: mood-fade-in 320ms ease-out both;
   }
   
+  /* Cible : .mood-tabs__button */
   .mood-tabs__button {
     transition:
       color 180ms ease,
@@ -39,15 +52,19 @@
       transform 180ms ease;
   }
   
+  /* Cible : .mood-tabs__button:hover */
   .mood-tabs__button:hover {
     transform: translateY(-1px);
   }
   
+  /* Cible : .mood-tabs__button.is-active */
   .mood-tabs__button.is-active {
     animation: mood-tab-glow 220ms ease-out both;
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mood-page, .mood-tabs__button, .mood-tabs__button.is-active */
     .mood-page,
     .mood-tabs__button,
     .mood-tabs__button.is-active {

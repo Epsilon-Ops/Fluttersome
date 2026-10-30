@@ -1,6 +1,16 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/messages.css
+   ZONE    : Page Nutrition
+   RÔLE    : Messages
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* Messages de l'hydratation */
 
+/* Cible : .hydration-page .hydration-message */
 .hydration-page .hydration-message {
     margin: 0;
     padding: 12px 14px;
@@ -14,6 +24,7 @@
   
   /* Messages du journal alimentaire */
   
+  /* Cible : .food-message */
   .food-message {
     margin: 0;
     padding: 12px 15px;
@@ -27,11 +38,13 @@
   
   /* Accessibilité clavier */
   
+  /* Cible : .hydration-page :where(button, input):focus-visible */
   .hydration-page :where(button, input):focus-visible {
     outline: 3px solid rgb(39 133 91 / 25%);
     outline-offset: 3px;
   }
   
+  /* Cible : .food-primary-button:focus-visible, .food-delete-button:focus-visible */
   .food-primary-button:focus-visible,
   .food-delete-button:focus-visible {
     outline: 3px solid rgb(39 133 91 / 25%);

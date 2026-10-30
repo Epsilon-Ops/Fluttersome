@@ -1,9 +1,136 @@
+/* ============================================================
+   FICHIER : src/styles/theme/tasks.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Tasks
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
-   TÂCHES — cartes « leçon » Duolingo, icônes et couleurs
-   lisibles. --task-primary (fond de l'icône), --task-accent
-   (liseré), --task-ink (couleur de l'icône, calculée en JS).
+   TÂCHES — blocs par catégorie, poignées de glisser,
+   cartes « leçon ». Le rendu PC reste celui d'origine ; le
+   téléphone reprend la même mise en page en plus compact.
+   Variables utilisées :
+   --tile       : couleur de la tuile d'icône (fond)
+   --tile-line  : liseré de la tuile
+   --task-ink   : couleur de l'icône (calculée en JS)
+   --group-main / --group-bg / --group-ink : bloc catégorie
    ========================================================= */
 
+/* ---------- Poignées et listes réordonnables (SortableList) ---------- */
+
+/* Tout élément qui sert de poignée : pas de défilement tactile dessus */
+/* Cible : .app-shell .sortable-handle */
+.app-shell .sortable-handle {
+  touch-action: none;          /* le doigt glisse l'élément, pas la page */
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+/* Cible : .app-shell .sortable-handle:active */
+.app-shell .sortable-handle:active { cursor: grabbing; }
+
+/* Cible : .app-shell .sortable-handle:focus-visible */
+.app-shell .sortable-handle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Cible : .app-shell .sortable-list */
+.app-shell .sortable-list {
+  display: grid;
+  gap: 10px;
+}
+
+/* Chaque élément : position relative pour le z-index pendant le glisser */
+/* Cible : .app-shell .sortable-item */
+.app-shell .sortable-item {
+  position: relative;
+  transition: transform 0.22s var(--motion-smooth);
+}
+
+/* L'élément tenu suit le doigt sans délai */
+/* Cible : .app-shell .sortable-item.is-dragging */
+.app-shell .sortable-item.is-dragging {
+  transition: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px -8px rgb(0 0 0 / 70%);
+}
+
+/* Cible : .app-shell .sortable-grip-icon */
+.app-shell .sortable-grip-icon { fill: currentColor; }
+
+/* ---------- Blocs catégorie ---------- */
+
+/* Cible : .app-shell .tasks-groups */
+.app-shell .tasks-groups {
+  gap: 16px;
+}
+
+/* Cadre du bloc : teinté de la couleur dominante */
+/* Cible : .app-shell .tasks-group */
+.app-shell .tasks-group {
+  overflow: hidden;
+  border: 2px solid color-mix(in srgb, var(--group-main, #FFFFFF) 50%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--group-main, #FFFFFF) 6%, #0A0B14);
+  box-shadow: 0 3px 0 var(--depth-surface);
+}
+
+/* Titre du bloc : couleur dominante (ou dégradé) */
+/* Cible : .app-shell .tasks-group-header */
+.app-shell .tasks-group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--group-bg, #FFFFFF);
+  color: var(--group-ink, #1A1400);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Cible : .app-shell .tasks-group-title */
+.app-shell .tasks-group-title { flex: 1 1 auto; min-width: 0; }
+
+/* Cible : .app-shell .tasks-group-count */
+.app-shell .tasks-group-count {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgb(0 0 0 / 22%);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* Cible : .app-shell .tasks-group-grip */
+.app-shell .tasks-group-grip {
+  display: inline-grid;
+  place-items: center;
+  opacity: 0.7;
+}
+
+/* Cible : .app-shell .tasks-group-header:hover .tasks-group-grip */
+.app-shell .tasks-group-header:hover .tasks-group-grip { opacity: 1; }
+
+/* Corps du bloc : liste des tâches */
+/* Cible : .app-shell .tasks-group-body */
+.app-shell .tasks-group-body {
+  padding: 12px;
+}
+
+/* Cible : .app-shell .tasks-group-body .sortable-list */
+.app-shell .tasks-group-body .sortable-list {
+  gap: 10px;
+}
+
+/* ---------- Carte de tâche : PC ---------- */
+
+/* Cible : .app-shell .task-card */
 .app-shell .task-card {
   --tile: var(--task-primary, var(--duo-yellow));
   --tile-line: var(--task-accent, #FFFFFF);
@@ -14,25 +141,27 @@
   gap: 16px;
   padding: 16px 18px 16px 16px;
   border: 2px solid var(--color-border);
-  border-bottom-width: 6px;
-  border-radius: 26px;
+  border-radius: 8px;
   background:
     radial-gradient(circle at 0% 50%, color-mix(in srgb, var(--tile) 22%, transparent), transparent 42%),
     linear-gradient(180deg, #161A2E 0%, #0A0B14 100%);
-  box-shadow: 0 6px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
   transition: transform 0.45s var(--motion-spring), box-shadow 0.25s, border-color 0.25s;
   animation: duo-pop-in 0.6s var(--motion-wobble) both;
 }
 
+/* Cible : .app-shell .task-card:hover */
 .app-shell .task-card:hover {
   border-color: var(--tile-line);
-  transform: translateY(-4px) scale(1.012, 0.988);
-  box-shadow: 0 10px 0 var(--depth-surface), 0 0 30px -10px var(--tile);
+  transform: translateY(-3px) scale(1.01, 0.99);
+  box-shadow: 0 2px 0 var(--depth-surface), 0 0 24px -10px var(--tile);
 }
 
-.app-shell .task-card:active { transform: translateY(3px) scale(0.985, 0.95); }
+/* Cible : .app-shell .task-card:active */
+.app-shell .task-card:active { transform: translateY(2px) scale(0.99, 0.96); }
 
-/* ----- Case à cocher ronde géante ----- */
+/* Case à cocher ronde */
+/* Cible : .app-shell .task-card-checkbox */
 .app-shell .task-card-checkbox {
   position: relative;
   display: grid;
@@ -42,6 +171,7 @@
   cursor: pointer;
 }
 
+/* Cible : .app-shell .task-card-checkbox input */
 .app-shell .task-card-checkbox input {
   position: absolute;
   inset: 0;
@@ -53,36 +183,41 @@
   z-index: 2;
 }
 
+/* Cible : .app-shell .task-card-checkbox > span */
 .app-shell .task-card-checkbox > span {
   display: grid;
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 3px solid var(--color-border-strong);
-  border-bottom-width: 5px;
+  border: 2px solid var(--color-border-strong);
   border-radius: 50%;
   background: #0A0B14;
   transition: transform 0.35s var(--motion-spring), background-color 0.2s, border-color 0.2s;
 }
 
+/* Cible : .app-shell .task-card-checkbox:hover > span */
 .app-shell .task-card-checkbox:hover > span {
-  transform: scale(1.14, 0.88);
+  transform: scale(1.12, 0.9);
   border-color: var(--duo-green);
 }
 
-.app-shell .task-card-checkbox:active > span { transform: scale(0.82, 0.72); }
+/* Cible : .app-shell .task-card-checkbox:active > span */
+.app-shell .task-card-checkbox:active > span { transform: scale(0.84, 0.74); }
 
+/* Cible : .app-shell .task-card-checkbox input:focus-visible + span */
 .app-shell .task-card-checkbox input:focus-visible + span {
-  outline: 3px solid var(--duo-green);
-  outline-offset: 3px;
+  outline: 2px solid var(--duo-green);
+  outline-offset: 2px;
 }
 
+/* Cible : .app-shell .task-card-checkbox input:checked + span */
 .app-shell .task-card-checkbox input:checked + span {
   background: var(--duo-green);
   border-color: var(--duo-green-deep);
   animation: duo-bounce 0.7s var(--motion-wobble);
 }
 
+/* Cible : .app-shell .task-card-checkbox input:checked + span::after */
 .app-shell .task-card-checkbox input:checked + span::after {
   content: '✓';
   color: #FFFFFF;
@@ -90,10 +225,10 @@
   font-weight: 900;
   font-size: 22px;
   line-height: 1;
-  text-shadow: 0 2px 0 rgb(0 0 0 / 35%);
 }
 
-/* ----- Tuile d'icône : grosse, colorée, lisible ----- */
+/* Tuile d'icône : poignée de glisser-déposer */
+/* Cible : .app-shell .task-card-icon */
 .app-shell .task-card-icon {
   position: relative;
   display: grid;
@@ -101,17 +236,18 @@
   width: 72px;
   height: 72px;
   flex: 0 0 72px;
-  border: 3px solid var(--tile-line);
-  border-bottom-width: 7px;
+  border: 2px solid var(--tile-line);
+  border-bottom-width: 2px;
   border-bottom-color: color-mix(in srgb, var(--tile) 55%, #000);
-  border-radius: 24px;
+  border-radius: 8px;
   background: var(--tile);
   color: var(--task-ink, #FFFFFF);
-  box-shadow: 0 0 22px -6px var(--tile);
+  box-shadow: 0 0 18px -8px var(--tile);
   animation: duo-float 4.2s ease-in-out infinite;
   transition: transform 0.4s var(--motion-spring);
 }
 
+/* Cible : .app-shell .task-card-icon svg */
 .app-shell .task-card-icon svg {
   width: 36px;
   height: 36px;
@@ -119,17 +255,34 @@
   filter: drop-shadow(0 1px 0 rgb(0 0 0 / 15%));
 }
 
-.app-shell .task-card:hover .task-card-icon {
-  animation: duo-stretch 0.7s var(--motion-wobble);
+/* Petits points en bas à droite : indiquent qu'on peut glisser l'icône */
+/* Cible : .app-shell .task-card-icon::after */
+.app-shell .task-card-icon::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 9px;
+  height: 9px;
+  background: radial-gradient(circle, currentColor 1.1px, transparent 1.4px) 0 0 / 3px 3px;
+  opacity: 0.55;
 }
 
-/* ----- Corps de la carte ----- */
+/* Cible : .app-shell .task-card:hover .task-card-icon */
+.app-shell .task-card:hover .task-card-icon { animation: duo-stretch 0.7s var(--motion-wobble); }
+
+/* Cible : .app-shell .task-card-icon:hover */
+.app-shell .task-card-icon:hover { transform: scale(1.06, 0.94); }
+
+/* Corps de la carte */
+/* Cible : .app-shell .task-card-main */
 .app-shell .task-card-main {
   display: grid;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
 }
 
+/* Cible : .app-shell .task-card-title-button */
 .app-shell .task-card-title-button {
   justify-self: start;
   max-width: 100%;
@@ -140,103 +293,165 @@
   cursor: pointer;
 }
 
+/* Cible : .app-shell .task-card-title */
 .app-shell .task-card-title {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.2;
   color: var(--color-text);
   overflow-wrap: anywhere;
 }
 
+/* Cible : .app-shell .task-card-title-button:hover .task-card-title */
 .app-shell .task-card-title-button:hover .task-card-title { color: var(--tile); }
 
+/* Cible : .app-shell .task-card-category */
 .app-shell .task-card-category {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   justify-self: start;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--tile) 20%, transparent);
-  border: 2px solid color-mix(in srgb, var(--tile) 55%, transparent);
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--tile) 60%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--tile) 18%, transparent);
   color: var(--tile-line);
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 11px;
+  font-size: 10.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* ----- Actions ----- */
+/* Boutons modifier / supprimer */
+/* Cible : .app-shell .task-card-actions */
 .app-shell .task-card-actions {
   display: flex;
   gap: 8px;
 }
 
+/* Cible : .app-shell .task-action-button */
 .app-shell .task-action-button {
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 4px;
-  border-radius: 14px;
+  border-bottom-width: 2px;
+  border-radius: 8px;
   background: #151929;
   color: var(--color-text);
   font-size: 18px;
   box-shadow: none;
 }
 
-.app-shell .task-action-button:hover { transform: rotate(-8deg) scale(1.12); border-color: var(--tile); color: var(--tile-line); }
-.app-shell .task-action-button:active { transform: scale(0.8, 0.72); }
-
+/* Cible : .app-shell .task-action-button:hover */
+.app-shell .task-action-button:hover { transform: rotate(-6deg) scale(1.1); border-color: var(--tile); color: var(--tile-line); }
+/* Cible : .app-shell .task-action-button:active */
+.app-shell .task-action-button:active { transform: scale(0.84, 0.76); }
+/* Cible : .app-shell .task-action-button.delete:hover */
 .app-shell .task-action-button.delete:hover { border-color: var(--duo-red); color: #FFB4B4; }
 
-/* ----- Terminée : terne, barrée, tuile verte ----- */
+/* Tâche terminée : terne, barrée */
+/* Cible : .app-shell .task-card.is-completed */
 .app-shell .task-card.is-completed {
   opacity: 0.72;
   filter: saturate(0.4);
 }
 
+/* Cible : .app-shell .task-card.is-completed .task-card-title */
 .app-shell .task-card.is-completed .task-card-title {
   text-decoration: line-through;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   text-decoration-color: var(--duo-green);
   color: var(--color-muted);
 }
 
-.app-shell .task-card.is-completed .task-card-icon {
-  animation: none;
-}
+/* Cible : .app-shell .task-card.is-completed .task-card-icon */
+.app-shell .task-card.is-completed .task-card-icon { animation: none; }
 
-/* ----- Liste et filtres ----- */
-.app-shell .tasks-list {
-  display: grid;
-  gap: 14px;
-}
-
+/* Listes vides */
+/* Cible : .app-shell .tasks-list-empty */
 .app-shell .tasks-list-empty {
-  padding: 26px;
+  padding: 22px;
   border: 2px dashed var(--color-border-strong);
-  border-radius: 24px;
+  border-radius: 8px;
   text-align: center;
   color: var(--color-muted);
   font-weight: 800;
 }
 
-/* Responsive : sous 560 px, les actions passent sous le contenu */
-@media (max-width: 560px) {
+/* ---------- Carte de tâche : TÉLÉPHONE ----------
+   Même mise en page que le PC (case | icône | titre | actions),
+   en plus compact. Les boutons restent sur la ligne du titre. */
+/* Règles responsive — (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Cible : .app-shell .tasks-group-header */
+  .app-shell .tasks-group-header { padding: 8px 10px; font-size: 12px; }
+  /* Cible : .app-shell .tasks-group-body */
+  .app-shell .tasks-group-body { padding: 8px; }
+  /* Cible : .app-shell .tasks-groups */
+  .app-shell .tasks-groups { gap: 12px; }
+
+  /* Cible : .app-shell .task-card */
   .app-shell .task-card {
-    grid-template-columns: auto minmax(0, 1fr);
-    grid-template-areas:
-      'check icon'
-      'main main'
-      'actions actions';
-    row-gap: 12px;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: start;          /* tout s'aligne sur la ligne du titre */
+    gap: 9px;
+    padding: 9px 9px 9px 9px;
+    border-radius: 6px;
   }
-  .app-shell .task-card-checkbox { grid-area: check; }
-  .app-shell .task-card-icon { grid-area: icon; width: 60px; height: 60px; flex-basis: 60px; }
-  .app-shell .task-card-main { grid-area: main; }
-  .app-shell .task-card-actions { grid-area: actions; justify-content: flex-end; }
+
+  /* Cible : .app-shell .task-card-checkbox, .app-shell .task-card-checkbox > span */
+  .app-shell .task-card-checkbox,
+  .app-shell .task-card-checkbox > span { width: 26px; height: 26px; }
+  /* Cible : .app-shell .task-card-checkbox */
+  .app-shell .task-card-checkbox { margin-top: 1px; }
+  /* Cible : .app-shell .task-card-checkbox input:checked + span::after */
+  .app-shell .task-card-checkbox input:checked + span::after { font-size: 14px; }
+
+  /* Cible : .app-shell .task-card-icon */
+  .app-shell .task-card-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    border-radius: 9px;
+    margin-top: 0;
+  }
+  /* Cible : .app-shell .task-card-icon svg */
+  .app-shell .task-card-icon svg { width: 22px; height: 22px; }
+  /* Cible : .app-shell .task-card-icon::after */
+  .app-shell .task-card-icon::after { width: 7px; height: 7px; }
+
+  /* Cible : .app-shell .task-card-title */
+  .app-shell .task-card-title { font-size: 14.5px; }
+  /* Cible : .app-shell .task-card-category */
+  .app-shell .task-card-category { font-size: 9.5px; padding: 1px 6px; }
+
+  /* Boutons sur la même ligne que le titre (ligne = 1,2 × 14,5 px) */
+  /* Cible : .app-shell .task-card-actions */
+  .app-shell .task-card-actions {
+    align-self: start;
+    gap: 5px;
+    margin-top: -2px;
+  }
+  /* Cible : .app-shell .task-action-button */
+  .app-shell .task-action-button { width: 28px; height: 28px; font-size: 13px; border-radius: 7px; }
+}
+
+/* Règles responsive — (max-width: 380px) */
+@media (max-width: 380px) {
+  /* Cible : .app-shell .task-card */
+  .app-shell .task-card { gap: 7px; padding: 7px; }
+  /* Cible : .app-shell .task-card-checkbox, .app-shell .task-card-checkbox > span */
+  .app-shell .task-card-checkbox,
+  .app-shell .task-card-checkbox > span { width: 24px; height: 24px; }
+  /* Cible : .app-shell .task-card-icon */
+  .app-shell .task-card-icon { width: 36px; height: 36px; flex-basis: 36px; }
+  /* Cible : .app-shell .task-card-icon svg */
+  .app-shell .task-card-icon svg { width: 20px; height: 20px; }
+  /* Cible : .app-shell .task-card-title */
+  .app-shell .task-card-title { font-size: 13.5px; }
+  /* Cible : .app-shell .task-action-button */
+  .app-shell .task-action-button { width: 26px; height: 26px; }
 }

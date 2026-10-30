@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/pages/page-placeholder.css
+   ZONE    : Pages génériques (vides ou en construction)
+   RÔLE    : Page placeholder
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .page-placeholder */
 .page-placeholder {
     display: flex;
     min-height: 340px;
@@ -11,6 +21,7 @@
     box-shadow: 0 4px 18px rgba(23, 43, 69, 0.04);
   }
   
+  /* Cible : .page-placeholder-icon */
   .page-placeholder-icon {
     display: grid;
     width: 60px;
@@ -20,6 +31,7 @@
     border-radius: 16px;
   }
   
+  /* Cible : .page-placeholder .eyebrow */
   .page-placeholder .eyebrow {
     margin: 0 0 8px;
     color: var(--color-muted);
@@ -28,6 +40,7 @@
     letter-spacing: 0.12em;
   }
   
+  /* Cible : .page-placeholder h1 */
   .page-placeholder h1 {
     margin: 0;
     color: var(--color-text);
@@ -35,6 +48,7 @@
     font-weight: 750;
   }
   
+  /* Cible : .page-placeholder-description */
   .page-placeholder-description {
     max-width: 520px;
     margin: 12px 0 24px;
@@ -42,6 +56,7 @@
     line-height: 1.7;
   }
   
+  /* Cible : .page-placeholder-status */
   .page-placeholder-status {
     display: flex;
     align-items: center;
@@ -53,6 +68,7 @@
     font-size: 13px;
   }
   
+  /* Cible : .page-placeholder-dot */
   .page-placeholder-dot {
     width: 8px;
     height: 8px;

@@ -1,3 +1,13 @@
+/* ============================================================
+   FICHIER : src/styles/pages/empty-page.css
+   ZONE    : Pages génériques (vides ou en construction)
+   RÔLE    : Empty page
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
+/* Cible : .empty-page */
 .empty-page {
     display: flex;
     flex-direction: column;
@@ -8,6 +18,7 @@
     margin: 0 auto;
   }
   
+  /* Cible : .empty-page-icon */
   .empty-page-icon {
     display: grid;
     width: 64px;
@@ -21,11 +32,13 @@
     font-size: 29px;
   }
   
+  /* Cible : .empty-page h1 */
   .empty-page h1 {
     margin-top: 12px;
     font-size: 35px;
   }
   
+  /* Cible : .empty-page p */
   .empty-page p {
     max-width: 430px;
     color: #9295a2;
@@ -33,6 +46,7 @@
     line-height: 1.9;
   }
   
+  /* Cible : .coming-soon */
   .coming-soon {
     display: flex;
     align-items: center;
@@ -46,6 +60,7 @@
     letter-spacing: 0.1em;
   }
   
+  /* Cible : .coming-soon-dot */
   .coming-soon-dot {
     width: 6px;
     height: 6px;
@@ -53,6 +68,7 @@
     box-shadow: none;
   }
 
+  /* Cible : .empty-page-icon */
   .empty-page-icon {
     border-color: color-mix(
       in srgb,
@@ -66,10 +82,12 @@
     );
   }
   
+  /* Cible : .empty-page p */
   .empty-page p {
     color: var(--color-muted);
   }
   
+  /* Cible : .coming-soon */
   .coming-soon {
     border-color: var(--color-border);
     background: #fff;

@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/theme/pages.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Pages
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    PAGES — accents, bannières d'en-tête et détails par page
    ========================================================= */
 
 /* ---------- Bannières d'en-tête : grosses cartes à accent ---------- */
+/* Cible : .app-shell :is( .mood-header, .strength-header, .tasks-header, .nutrition-header, .food-diary-header, .hydration-header ) */
 .app-shell :is(
   .mood-header,
   .strength-header,
@@ -14,19 +24,20 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 22px;
-  padding: 28px 30px;
+  padding: 20px 22px;
   border: 2px solid var(--color-border);
-  border-bottom-width: 8px;
-  border-radius: 32px;
+  border-bottom-width: 2px;
+  border-radius: 14px;
   background:
     radial-gradient(ellipse 60% 140% at 100% 0%, color-mix(in srgb, var(--accent) 34%, transparent), transparent 62%),
     radial-gradient(ellipse 50% 120% at 0% 120%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%),
     linear-gradient(135deg, #12152B 0%, #07080F 100%);
-  box-shadow: 0 10px 0 var(--depth-surface), 0 30px 60px -30px var(--accent-glow);
+  box-shadow: 0 3px 0 var(--depth-surface), 0 30px 60px -30px var(--accent-glow);
   animation: duo-page-enter 0.8s var(--motion-wobble) both;
 }
 
 /* Pastille géante décorative dans l'en-tête */
+/* Cible : .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header)::after */
 .app-shell :is(.mood-header, .strength-header, .tasks-header, .nutrition-header)::after {
   content: '';
   position: absolute;
@@ -40,39 +51,46 @@
   pointer-events: none;
 }
 
+/* Cible : .app-shell .page-heading, .app-shell .tasks-page-heading */
 .app-shell .page-heading,
 .app-shell .tasks-page-heading {
   font-family: var(--font-display);
   font-weight: 900;
 }
 
+/* Cible : .app-shell .page-description */
 .app-shell .page-description { color: var(--color-muted); font-weight: 700; }
 
+/* Cible : .app-shell .page-section */
 .app-shell .page-section {
   animation: duo-page-enter 0.7s var(--motion-wobble) both;
 }
 
 /* ---------- Humeur : gros boutons d'émotion ---------- */
+/* Cible : .app-shell .mood-option */
 .app-shell .mood-option {
   display: grid;
   justify-items: center;
   gap: 6px;
   padding: 14px 10px;
   border: 2px solid var(--color-border-strong);
-  border-bottom-width: 6px;
-  border-radius: 24px;
+  border-bottom-width: 2px;
+  border-radius: 12px;
   background: linear-gradient(180deg, #181C32, #0C0D18);
-  box-shadow: 0 4px 0 var(--depth-surface);
+  box-shadow: 0 2px 0 var(--depth-surface);
   transition: transform 0.4s var(--motion-spring), border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
+/* Cible : .app-shell .mood-option:hover */
 .app-shell .mood-option:hover {
   transform: translateY(-5px) scale(1.06, 0.94);
   border-color: var(--accent);
 }
 
+/* Cible : .app-shell .mood-option:active */
 .app-shell .mood-option:active { transform: translateY(4px) scale(0.92, 0.84); }
 
+/* Cible : .app-shell .mood-option.is-selected */
 .app-shell .mood-option.is-selected {
   border-color: var(--accent-deep);
   background: var(--accent);
@@ -81,24 +99,29 @@
   animation: duo-bounce 0.75s var(--motion-wobble);
 }
 
+/* Cible : .app-shell .mood-option__icon */
 .app-shell .mood-option__icon {
   display: grid;
   place-items: center;
   width: 54px;
   height: 54px;
-  border-radius: 18px;
+  border-radius: 10px;
   background: color-mix(in srgb, var(--accent) 18%, transparent);
   color: var(--accent);
   animation: duo-float 3.6s ease-in-out infinite;
 }
 
+/* Cible : .app-shell .mood-option.is-selected .mood-option__icon */
 .app-shell .mood-option.is-selected .mood-option__icon {
   background: rgb(255 255 255 / 28%);
   color: var(--accent-ink);
 }
 
+/* Cible : .app-shell .mood-option__icon svg */
 .app-shell .mood-option__icon svg { filter: drop-shadow(0 3px 0 rgb(0 0 0 / 40%)); }
+/* Cible : .app-shell .mood-option__label */
 .app-shell .mood-option__label { font-family: var(--font-display); font-weight: 900; font-size: 13px; }
+/* Cible : .app-shell .mood-option__score */
 .app-shell .mood-option__score {
   font-family: var(--font-mono);
   font-weight: 500;
@@ -107,6 +130,7 @@
 }
 
 /* ---------- Chiffres mis en valeur (chronos, records) ---------- */
+/* Cible : .app-shell .competition-time, .app-shell .performance-value, .app-shell .record-value */
 .app-shell .competition-time,
 .app-shell .performance-value,
 .app-shell .record-value {
@@ -119,6 +143,7 @@
 }
 
 /* ---------- Titres de sections dans les pages : soulignement d'accent ---------- */
+/* Cible : .app-shell .section-heading h2, .app-shell .dashboard-home__section-heading h2 */
 .app-shell .section-heading h2,
 .app-shell .dashboard-home__section-heading h2 {
   position: relative;
@@ -126,6 +151,7 @@
   padding-bottom: 6px;
 }
 
+/* Cible : .app-shell .section-heading h2::after, .app-shell .dashboard-home__section-heading h2::after */
 .app-shell .section-heading h2::after,
 .app-shell .dashboard-home__section-heading h2::after {
   content: '';
@@ -140,5 +166,6 @@
 }
 
 /* ---------- Coach : ambiance orange « mentor » ---------- */
+/* Cible : .app-shell[data-page='coach'] .panel-heading h3, .app-shell[data-page='coach'] .section-heading h2 */
 .app-shell[data-page='coach'] .panel-heading h3,
 .app-shell[data-page='coach'] .section-heading h2 { color: var(--accent); }

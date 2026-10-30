@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/animations.css
+   ZONE    : Page Tâches
+   RÔLE    : Animations
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — ANIMATIONS ET MICRO-INTERACTIONS
@@ -8,6 +17,7 @@
    1. Apparition progressive de la page
    ----------------------------------------------------- */
 
+   /* Animation : tasks-fade-in */
    @keyframes tasks-fade-in {
     from {
       opacity: 0;
@@ -20,6 +30,7 @@
     }
   }
   
+  /* Animation : tasks-modal-enter */
   @keyframes tasks-modal-enter {
     from {
       opacity: 0;
@@ -32,6 +43,7 @@
     }
   }
   
+  /* Animation : tasks-backdrop-enter */
   @keyframes tasks-backdrop-enter {
     from {
       opacity: 0;
@@ -42,6 +54,7 @@
     }
   }
   
+  /* Animation : tasks-glow-pulse */
   @keyframes tasks-glow-pulse {
     0%,
     100% {
@@ -53,6 +66,7 @@
     }
   }
   
+  /* Animation : tasks-status-pulse */
   @keyframes tasks-status-pulse {
     0%,
     100% {
@@ -64,6 +78,7 @@
     }
   }
   
+  /* Animation : tasks-progress-enter */
   @keyframes tasks-progress-enter {
     from {
       transform: scaleX(0);
@@ -78,16 +93,19 @@
      2. Apparition des principales zones
      ----------------------------------------------------- */
   
+  /* Cible : .tasks-page > .tasks-header, .tasks-page > .tasks-page-heading, .tasks-page > .tasks-overview */
   .tasks-page > .tasks-header,
   .tasks-page > .tasks-page-heading,
   .tasks-page > .tasks-overview {
     animation: tasks-fade-in 360ms ease-out both;
   }
   
+  /* Cible : .tasks-page > .tasks-page-heading */
   .tasks-page > .tasks-page-heading {
     animation-delay: 45ms;
   }
   
+  /* Cible : .tasks-page > .tasks-overview */
   .tasks-page > .tasks-overview {
     animation-delay: 80ms;
   }
@@ -96,6 +114,7 @@
      3. Cartes et panneaux
      ----------------------------------------------------- */
   
+  /* Cible : .task-card, .tasks-stat-card, .tasks-stats-panel, .tasks-toolbar, .tasks-empty */
   .task-card,
   .tasks-stat-card,
   .tasks-stats-panel,
@@ -107,15 +126,19 @@
       background-color 180ms ease;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .task-card:hover */
     .task-card:hover {
       border-color: rgba(167, 139, 250, 0.32);
     }
   
+    /* Cible : .tasks-stat-card:hover */
     .tasks-stat-card:hover {
       border-color: rgba(167, 139, 250, 0.28);
     }
   
+    /* Cible : .tasks-toolbar:hover */
     .tasks-toolbar:hover {
       border-color: rgba(167, 139, 250, 0.24);
     }
@@ -125,11 +148,13 @@
      4. Boutons et commandes
      ----------------------------------------------------- */
   
+  /* Cible : .tasks-page button, .tasks-modal button */
   .tasks-page button,
   .tasks-modal button {
     -webkit-tap-highlight-color: transparent;
   }
   
+  /* Cible : .tasks-primary-button, .tasks-secondary-button, .tasks-reset-filters, .tasks-tab, .task-action-button */
   .tasks-primary-button,
   .tasks-secondary-button,
   .tasks-reset-filters,
@@ -144,18 +169,22 @@
       opacity 180ms ease;
   }
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .tasks-primary-button:hover:not(:disabled), .tasks-secondary-button:hover:not(:disabled) */
     .tasks-primary-button:hover:not(:disabled),
     .tasks-secondary-button:hover:not(:disabled) {
       transform: translateY(-1px);
     }
   
+    /* Cible : .tasks-reset-filters:hover:not(:disabled), .task-action-button:hover:not(:disabled) */
     .tasks-reset-filters:hover:not(:disabled),
     .task-action-button:hover:not(:disabled) {
       transform: translateY(-1px);
     }
   }
   
+  /* Cible : .tasks-page button:active:not(:disabled), .tasks-modal button:active:not(:disabled) */
   .tasks-page button:active:not(:disabled),
   .tasks-modal button:active:not(:disabled) {
     transform: translateY(0);
@@ -165,10 +194,12 @@
      5. Modale
      ----------------------------------------------------- */
   
+  /* Cible : .tasks-modal-backdrop */
   .tasks-modal-backdrop {
     animation: tasks-backdrop-enter 180ms ease-out both;
   }
   
+  /* Cible : .tasks-modal */
   .tasks-modal {
     animation: tasks-modal-enter 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
     transform-origin: center;
@@ -178,6 +209,7 @@
      6. Indicateurs de statut
      ----------------------------------------------------- */
   
+  /* Cible : .tasks-storage-dot */
   .tasks-storage-dot {
     animation: tasks-status-pulse 2.8s ease-in-out infinite;
   }
@@ -186,6 +218,7 @@
      7. Progression des sous-tâches
      ----------------------------------------------------- */
   
+  /* Cible : .task-subtasks-progress-fill */
   .task-subtasks-progress-fill {
     transform-origin: left center;
     animation: tasks-progress-enter 450ms ease-out both;
@@ -195,11 +228,13 @@
      8. Interactions clavier
      ----------------------------------------------------- */
   
+  /* Cible : .tasks-page :where(button, a, summary), .tasks-modal :where(button, a, summary) */
   .tasks-page :where(button, a, summary),
   .tasks-modal :where(button, a, summary) {
     -webkit-tap-highlight-color: transparent;
   }
   
+  /* Cible : .tasks-page :where(button, a, summary):focus-visible, .tasks-modal :where(button, a, summary):focus-visible */
   .tasks-page :where(button, a, summary):focus-visible,
   .tasks-modal :where(button, a, summary):focus-visible {
     outline: 2px solid #a78bfa;
@@ -210,7 +245,9 @@
      9. Accessibilité — mouvement réduit
      ----------------------------------------------------- */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .tasks-page > .tasks-header, .tasks-page > .tasks-page-heading, .tasks-page > .tasks-overview, .tasks-modal-backdrop, .tasks-modal, .tasks-storage-dot, .task-subtasks-… */
     .tasks-page > .tasks-header,
     .tasks-page > .tasks-page-heading,
     .tasks-page > .tasks-overview,
@@ -221,6 +258,7 @@
       animation: none !important;
     }
   
+    /* Cible : .tasks-page *, .tasks-page *::before, .tasks-page *::after, .tasks-modal *, .tasks-modal *::before, .tasks-modal *::after */
     .tasks-page *,
     .tasks-page *::before,
     .tasks-page *::after,

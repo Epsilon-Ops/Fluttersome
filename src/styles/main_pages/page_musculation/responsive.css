@@ -1,172 +1,224 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/responsive.css
+   ZONE    : Page Musculation
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================
    MUSCULATION — RESPONSIVE
    Black Diamond Premium++
    ========================================= */
 
 /* Tablettes */
+/* Règles responsive — (max-width: 900px) */
 @media (max-width: 900px) {
+  /* Cible : .strength-metrics-grid */
   .strength-metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 /* En-tête et statistiques */
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .strength-header */
   .strength-header {
     align-items: stretch;
     padding: 16px;
   }
 
+  /* Cible : .strength-header-main */
   .strength-header-main {
     align-items: flex-start;
   }
 
+  /* Cible : .strength-header > button */
   .strength-header > button {
     width: 100%;
   }
 
+  /* Cible : .strength-metrics-grid */
   .strength-metrics-grid {
     gap: 10px;
   }
 
+  /* Cible : .strength-metric-card */
   .strength-metric-card {
     padding: 12px;
   }
 }
 
 /* Panneaux et calendrier */
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .strength-panel */
   .strength-panel {
     padding: 14px;
   }
 
+  /* Cible : .strength-week-grid */
   .strength-week-grid {
     gap: 4px;
   }
 
+  /* Cible : .strength-week-day */
   .strength-week-day {
     padding: 10px 2px;
     gap: 6px;
   }
 
+  /* Cible : .strength-week-day-name, .strength-week-day-month */
   .strength-week-day-name,
   .strength-week-day-month {
     font-size: 9px;
   }
 
+  /* Cible : .strength-week-day-number */
   .strength-week-day-number {
     font-size: 17px;
   }
 
+  /* Cible : .strength-week-day-count */
   .strength-week-day-count {
     font-size: 9px;
   }
 }
 
 /* Formulaires */
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .strength-form-grid */
   .strength-form-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
 
+  /* Cible : .strength-field-full */
   .strength-field-full {
     grid-column: auto;
   }
 
+  /* Cible : .strength-form-actions */
   .strength-form-actions {
     flex-direction: column-reverse;
   }
 
+  /* Cible : .strength-form-actions button */
   .strength-form-actions button {
     width: 100%;
   }
 }
 
 /* Blocs d'entraînement */
+/* Règles responsive — (max-width: 600px) */
 @media (max-width: 600px) {
+  /* Cible : .strength-block-card */
   .strength-block-card {
     padding: 13px;
   }
 
+  /* Cible : .strength-blocks-section .strength-panel-heading */
   .strength-blocks-section .strength-panel-heading {
     align-items: stretch;
   }
 
+  /* Cible : .strength-blocks-section .strength-panel-heading > button */
   .strength-blocks-section .strength-panel-heading > button {
     width: 100%;
   }
 
+  /* Cible : .strength-block-exercises > .strength-exercise-heading */
   .strength-block-exercises > .strength-exercise-heading {
     align-items: stretch;
   }
 
+  /* Cible : .strength-block-exercises > .strength-exercise-heading > button */
   .strength-block-exercises > .strength-exercise-heading > button {
     width: 100%;
   }
 }
 
 /* Exercices et séries */
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .strength-exercise-card */
   .strength-exercise-card {
     padding: 12px;
   }
 
+  /* Cible : .strength-set-grid */
   .strength-set-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Règles responsive — (max-width: 420px) */
 @media (max-width: 420px) {
+  /* Cible : .strength-set-grid */
   .strength-set-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
 /* Détails des séances */
+/* Règles responsive — (max-width: 480px) */
 @media (max-width: 480px) {
+  /* Cible : .strength-session-summary */
   .strength-session-summary {
     flex-wrap: wrap;
   }
 
+  /* Cible : .strength-session-summary::after */
   .strength-session-summary::after {
     margin-left: auto;
   }
 
+  /* Cible : .strength-status */
   .strength-status {
     order: 1;
   }
 }
 
 /* Très petits écrans */
+/* Règles responsive — (max-width: 360px) */
 @media (max-width: 360px) {
+  /* Cible : .strength-page */
   .strength-page {
     gap: 16px;
   }
 
+  /* Cible : .strength-header, .strength-panel */
   .strength-header,
   .strength-panel {
     padding: 12px;
   }
 
+  /* Cible : .strength-header-main */
   .strength-header-main {
     gap: 10px;
   }
 
+  /* Cible : .strength-header-icon */
   .strength-header-icon {
     width: 42px;
     height: 42px;
     font-size: 21px;
   }
 
+  /* Cible : .strength-metric-card */
   .strength-metric-card {
     padding: 10px;
   }
 
+  /* Cible : .strength-week-day */
   .strength-week-day {
     min-height: 78px;
   }
 
+  /* Cible : .strength-week-day-number */
   .strength-week-day-number {
     font-size: 15px;
   }

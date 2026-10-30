@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/layout.css
+   ZONE    : Page Tâches
+   RÔLE    : Layout
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — STRUCTURE ET EN-TÊTE
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .tasks-page */
    .tasks-page {
     display: flex;
     flex-direction: column;
@@ -13,10 +23,12 @@
     color: var(--tasks-ink);
   }
   
+  /* Cible : .tasks-page :where(h1, h2, h3, h4, p) */
   .tasks-page :where(h1, h2, h3, h4, p) {
     margin-top: 0;
   }
   
+  /* Cible : .tasks-page .eyebrow */
   .tasks-page .eyebrow {
     display: block;
     color: var(--tasks-muted);
@@ -27,6 +39,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .tasks-header */
   .tasks-header {
     position: relative;
     isolation: isolate;
@@ -53,6 +66,7 @@
     box-shadow: var(--tasks-shadow);
   }
   
+  /* Cible : .tasks-header::before */
   .tasks-header::before {
     position: absolute;
     z-index: -1;
@@ -71,6 +85,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .tasks-header-mark */
   .tasks-header-mark {
     display: grid;
     width: 58px;
@@ -92,14 +107,17 @@
     font-weight: 800;
   }
   
+  /* Cible : .tasks-header .eyebrow */
   .tasks-header .eyebrow {
     color: #c8baff;
   }
   
+  /* Cible : .tasks-header-content */
   .tasks-header-content {
     min-width: 0;
   }
   
+  /* Cible : .tasks-header-content h1 */
   .tasks-header-content h1 {
     margin: 5px 0 6px;
     color: #f7f5ff;
@@ -110,6 +128,7 @@
     text-wrap: balance;
   }
   
+  /* Cible : .tasks-header-content p, .tasks-modal-header p */
   .tasks-header-content p,
   .tasks-modal-header p {
     margin: 0;
@@ -118,10 +137,12 @@
     line-height: 1.6;
   }
   
+  /* Cible : .tasks-header-content p */
   .tasks-header-content p {
     color: #c1bfd6;
   }
   
+  /* Cible : .tasks-page-heading */
   .tasks-page-heading {
     display: flex;
     align-items: center;
@@ -130,6 +151,7 @@
     min-width: 0;
   }
   
+  /* Cible : .tasks-page-heading h2 */
   .tasks-page-heading h2 {
     margin: 5px 0;
     color: var(--tasks-ink);
@@ -138,6 +160,7 @@
     letter-spacing: -0.035em;
   }
   
+  /* Cible : .tasks-date */
   .tasks-date {
     margin: 4px 0 0;
     color: var(--tasks-muted);
@@ -145,6 +168,7 @@
     text-transform: capitalize;
   }
   
+  /* Cible : .tasks-overview */
   .tasks-overview {
     display: flex;
     flex-direction: column;
@@ -152,6 +176,7 @@
     min-width: 0;
   }
   
+  /* Cible : .tasks-section */
   .tasks-section {
     display: flex;
     flex-direction: column;
@@ -159,6 +184,7 @@
     min-width: 0;
   }
   
+  /* Cible : .tasks-section-heading */
   .tasks-section-heading {
     display: flex;
     align-items: center;
@@ -167,6 +193,7 @@
     min-width: 0;
   }
   
+  /* Cible : .tasks-section-heading h2 */
   .tasks-section-heading h2 {
     margin: 5px 0 0;
     color: var(--tasks-ink);
@@ -175,6 +202,7 @@
     letter-spacing: -0.025em;
   }
   
+  /* Cible : .tasks-muted */
   .tasks-muted {
     margin: 0;
     color: var(--tasks-muted);
@@ -182,36 +210,44 @@
     line-height: 1.6;
   }
   
+  /* Règles responsive — (hover: hover) */
   @media (hover: hover) {
+    /* Cible : .tasks-header */
     .tasks-header {
       transition:
         border-color 200ms ease,
         box-shadow 200ms ease;
     }
   
+    /* Cible : .tasks-header:hover */
     .tasks-header:hover {
       border-color: var(--tasks-border-strong);
       box-shadow: var(--tasks-shadow), var(--tasks-glow);
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .tasks-page */
     .tasks-page {
       gap: 19px;
       padding-bottom: 24px;
     }
   
+    /* Cible : .tasks-header */
     .tasks-header {
       gap: 14px;
       padding: 20px;
       border-radius: 17px;
     }
   
+    /* Cible : .tasks-header::before */
     .tasks-header::before {
       right: 20px;
       left: 20px;
     }
   
+    /* Cible : .tasks-header-mark */
     .tasks-header-mark {
       width: 48px;
       height: 48px;
@@ -220,21 +256,26 @@
       font-size: 1.4rem;
     }
   
+    /* Cible : .tasks-header-content h1 */
     .tasks-header-content h1 {
       font-size: clamp(1.4rem, 6vw, 1.8rem);
     }
   
+    /* Cible : .tasks-header-content p */
     .tasks-header-content p {
       font-size: 0.85rem;
     }
   
+    /* Cible : .tasks-page-heading */
     .tasks-page-heading {
       align-items: stretch;
       flex-direction: column;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .tasks-header */
     .tasks-header {
       transition: none;
     }

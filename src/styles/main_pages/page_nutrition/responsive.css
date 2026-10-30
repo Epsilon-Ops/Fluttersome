@@ -1,14 +1,26 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/responsive.css
+   ZONE    : Page Nutrition
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    TABLETTE — HYDRATATION ET NUTRITION
    ========================================================= */
 
+   /* Règles responsive — (max-width: 1000px) */
    @media (max-width: 1000px) {
+    /* Cible : .nutrition-page, .hydration-page */
     .nutrition-page,
     .hydration-page {
       gap: 20px;
     }
   
+    /* Cible : .nutrition-page .nutrition-card, .hydration-page .hydration-card */
     .nutrition-page .nutrition-card,
     .hydration-page .hydration-card {
       padding: 17px;
@@ -19,15 +31,19 @@
      TABLETTE — JOURNAL ALIMENTAIRE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 900px) */
   @media (max-width: 900px) {
+    /* Cible : .food-summary-grid */
     .food-summary-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   
+    /* Cible : .food-diary-header */
     .food-diary-header {
       flex-direction: column;
     }
   
+    /* Cible : .food-date-field */
     .food-date-field {
       width: 100%;
       max-width: 300px;
@@ -38,29 +54,35 @@
      MOBILE — HYDRATATION ET NUTRITION
      ========================================================= */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .nutrition-page, .hydration-page */
     .nutrition-page,
     .hydration-page {
       gap: 16px;
     }
   
+    /* Cible : .nutrition-page > header, .hydration-page > .hydration-header */
     .nutrition-page > header,
     .hydration-page > .hydration-header {
       min-height: 0;
       padding: 24px 18px;
     }
   
+    /* Cible : .nutrition-page > header h1, .hydration-page .hydration-header h1 */
     .nutrition-page > header h1,
     .hydration-page .hydration-header h1 {
       font-size: clamp(27px, 7vw, 31px);
     }
   
+    /* Cible : .nutrition-page > header p, .hydration-page .hydration-header p */
     .nutrition-page > header p,
     .hydration-page .hydration-header p {
       font-size: 12px;
       line-height: 1.7;
     }
   
+    /* Cible : .nutrition-page .nutrition-card, .hydration-page .hydration-card */
     .nutrition-page .nutrition-card,
     .hydration-page .hydration-card {
       padding: 14px;
@@ -68,57 +90,69 @@
   
     /* Résumé d'hydratation */
   
+    /* Cible : .hydration-page .hydration-summary */
     .hydration-page .hydration-summary {
       padding: 18px 14px;
     }
   
+    /* Cible : .hydration-page .hydration-summary-top */
     .hydration-page .hydration-summary-top {
       gap: 12px;
       margin-bottom: 16px;
     }
   
+    /* Cible : .hydration-page .hydration-total */
     .hydration-page .hydration-total {
       font-size: clamp(29px, 8vw, 38px);
     }
   
+    /* Cible : .hydration-page .hydration-progress-ring */
     .hydration-page .hydration-progress-ring {
       flex-basis: 78px;
       width: 78px;
       height: 78px;
     }
   
+    /* Cible : .hydration-page .hydration-progress-ring::before */
     .hydration-page .hydration-progress-ring::before {
       inset: 6px;
     }
   
+    /* Cible : .hydration-page .hydration-progress-ring strong */
     .hydration-page .hydration-progress-ring strong {
       font-size: 16px;
     }
   
     /* Ajout d'eau */
   
+    /* Cible : .hydration-page .hydration-quick-actions */
     .hydration-page .hydration-quick-actions {
       gap: 8px;
       margin-top: 16px;
     }
   
+    /* Cible : .hydration-page .hydration-quick-button */
     .hydration-page .hydration-quick-button {
       min-height: 94px;
       padding: 10px 5px;
     }
   
+    /* Cible : .hydration-page .hydration-quick-button strong */
     .hydration-page .hydration-quick-button strong {
       font-size: 18px;
     }
   
+    /* Cible : .hydration-page .hydration-custom-row */
     .hydration-page .hydration-custom-row {
       flex-direction: column;
     }
   
+    /* Cible : .hydration-page .hydration-custom-row input */
     .hydration-page .hydration-custom-row input {
       font-size: 16px;
     }
   
+    /* Cible : .hydration-page .hydration-custom-row .training-primary-button, .hydration-page .hydration-custom-row .training-secondary-button */
     .hydration-page .hydration-custom-row .training-primary-button,
     .hydration-page .hydration-custom-row .training-secondary-button {
       width: 100%;
@@ -127,26 +161,31 @@
   
     /* Historique d'hydratation */
   
+    /* Cible : .hydration-page .hydration-history-heading */
     .hydration-page .hydration-history-heading {
       align-items: stretch;
       flex-direction: column;
     }
   
+    /* Cible : .hydration-page .hydration-history-heading input[type="date"] */
     .hydration-page .hydration-history-heading input[type="date"] {
       width: 100%;
       font-size: 16px;
     }
   
+    /* Cible : .hydration-page .hydration-entry */
     .hydration-page .hydration-entry {
       gap: 9px;
     }
   
+    /* Cible : .hydration-page .hydration-entry-icon */
     .hydration-page .hydration-entry-icon {
       flex-basis: 34px;
       width: 34px;
       height: 34px;
     }
   
+    /* Cible : .hydration-page .hydration-delete-button */
     .hydration-page .hydration-delete-button {
       padding: 7px;
       font-size: 10px;
@@ -157,56 +196,69 @@
      MOBILE — JOURNAL ALIMENTAIRE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 560px) */
   @media (max-width: 560px) {
+    /* Cible : .food-diary */
     .food-diary {
       gap: 16px;
     }
   
+    /* Cible : .food-summary-grid */
     .food-summary-grid {
       gap: 10px;
     }
   
+    /* Cible : .food-summary-card */
     .food-summary-card {
       padding: 14px;
       border-radius: 12px;
     }
   
+    /* Cible : .food-summary-card strong */
     .food-summary-card strong {
       font-size: 1.35rem;
     }
   
+    /* Cible : .food-summary-card span */
     .food-summary-card span {
       font-size: 0.76rem;
     }
   
+    /* Cible : .food-diary-card */
     .food-diary-card {
       padding: 17px;
       border-radius: 14px;
     }
   
+    /* Cible : .food-form-grid */
     .food-form-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 15px;
     }
   
+    /* Cible : .food-primary-button */
     .food-primary-button {
       width: 100%;
     }
   
+    /* Cible : .food-entry */
     .food-entry {
       flex-wrap: wrap;
       gap: 10px;
       padding: 14px;
     }
   
+    /* Cible : .food-entry-content */
     .food-entry-content {
       flex-basis: calc(100% - 70px);
     }
   
+    /* Cible : .food-delete-button */
     .food-delete-button {
       margin-left: auto;
     }
   
+    /* Cible : .food-optional-fields */
     .food-optional-fields {
       padding: 13px;
     }
@@ -216,21 +268,26 @@
      PETITS ÉCRANS
      ========================================================= */
   
+  /* Règles responsive — (max-width: 360px) */
   @media (max-width: 360px) {
+    /* Cible : .hydration-page .hydration-summary-top */
     .hydration-page .hydration-summary-top {
       align-items: flex-start;
     }
   
+    /* Cible : .hydration-page .hydration-progress-ring */
     .hydration-page .hydration-progress-ring {
       flex-basis: 68px;
       width: 68px;
       height: 68px;
     }
   
+    /* Cible : .hydration-page .hydration-entry */
     .hydration-page .hydration-entry {
       flex-wrap: wrap;
     }
   
+    /* Cible : .hydration-page .hydration-delete-button */
     .hydration-page .hydration-delete-button {
       margin-left: auto;
     }
@@ -240,7 +297,9 @@
      INTERACTIONS TACTILES
      ========================================================= */
   
+  /* Règles responsive — (hover: none) */
   @media (hover: none) {
+    /* Cible : .hydration-page .hydration-quick-button:hover, .hydration-page .hydration-delete-button:hover */
     .hydration-page .hydration-quick-button:hover,
     .hydration-page .hydration-delete-button:hover {
       background-color: inherit;
@@ -251,7 +310,9 @@
      MOUVEMENTS RÉDUITS
      ========================================================= */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .nutrition-page *, .nutrition-page *::before, .nutrition-page *::after, .hydration-page *, .hydration-page *::before, .hydration-page *::after */
     .nutrition-page *,
     .nutrition-page *::before,
     .nutrition-page *::after,

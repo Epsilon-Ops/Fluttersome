@@ -1,8 +1,26 @@
+/* ============================================================
+   FICHIER : src/styles/theme/index.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Index
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    EPSILON — THÈME v2 « BLACK DIAMOND × DUOLINGO »
-   Importé en dernier dans main.jsx.
-   Ordre : tokens → accents → motion → base → composants
-           → coque → tâches → pages
+   Point d'entrée du thème. Importé en DERNIER dans main.jsx,
+   donc il surcharge toutes les feuilles de pages.
+   Ordre de chargement (important, ne pas le changer) :
+     tokens    → variables (couleurs, rayons, ombres)
+     accents   → couleur propre à chaque page (data-page)
+     motion    → keyframes (stretch & squash, passifs)
+     base      → typographie, fond, défilement, focus
+     components→ boutons, champs, cartes, indicateurs
+     layout    → barre latérale, navigation, barre supérieure
+     tasks     → page Tâches (blocs, poignées, cartes)
+     pages     → en-têtes et détails propres à chaque page
+     responsive→ adaptations téléphone / tablette (en dernier)
    ========================================================= */
 
 @import './tokens.css';
@@ -13,3 +31,4 @@
 @import './layout.css';
 @import './tasks.css';
 @import './pages.css';
+@import './responsive.css';

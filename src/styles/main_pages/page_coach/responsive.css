@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_coach/responsive.css
+   ZONE    : Page Coach
+   RÔLE    : Responsive
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON COACH — Responsive
@@ -6,23 +15,29 @@
 
 /* ---------- Tablettes et petits écrans ---------- */
 
+/* Règles responsive — (max-width: 1000px) */
 @media (max-width: 1000px) {
+  /* Cible : .coach-dashboard */
   .coach-dashboard {
     gap: 16px;
   }
 
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     padding: 19px;
   }
 
+  /* Cible : .coach-decision-comparison__grid */
   .coach-decision-comparison__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* Cible : .coach-decision-option:last-child */
   .coach-decision-option:last-child {
     grid-column: 1 / -1;
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     gap: 18px;
   }
@@ -30,33 +45,41 @@
 
 /* ---------- Tablettes étroites et mobiles ---------- */
 
+/* Règles responsive — (max-width: 700px) */
 @media (max-width: 700px) {
+  /* Cible : .page-section:has(.coach-dashboard) */
   .page-section:has(.coach-dashboard) {
     gap: 18px;
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     padding: 23px 20px;
   }
 
+  /* Cible : .coach-dashboard */
   .coach-dashboard {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
 
+  /* Cible : .coach-dashboard > * */
   .coach-dashboard > * {
     grid-column: 1 / -1;
   }
 
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     padding: 17px;
     border-radius: 15px;
   }
 
+  /* Cible : .coach-dashboard .panel-header */
   .coach-dashboard .panel-header {
     gap: 10px;
   }
 
+  /* Cible : .coach-alerts__list, .coach-performance-analysis__list, .coach-progression-trends__periods, .coach-chat__questions, .coach-decision-comparison__grid */
   .coach-alerts__list,
   .coach-performance-analysis__list,
   .coach-progression-trends__periods,
@@ -65,10 +88,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Cible : .coach-decision-option:last-child */
   .coach-decision-option:last-child {
     grid-column: auto;
   }
 
+  /* Cible : .coach-alert, .coach-performance-analysis__item, .coach-progression-trends__periods article, .coach-decision-option */
   .coach-alert,
   .coach-performance-analysis__item,
   .coach-progression-trends__periods article,
@@ -76,6 +101,7 @@
     min-width: 0;
   }
 
+  /* Cible : .coach-readiness-breakdown__heading */
   .coach-readiness-breakdown__heading {
     gap: 10px;
   }
@@ -83,11 +109,14 @@
 
 /* ---------- Petits téléphones ---------- */
 
+/* Règles responsive — (max-width: 420px) */
 @media (max-width: 420px) {
+  /* Cible : .page-section:has(.coach-dashboard) */
   .page-section:has(.coach-dashboard) {
     gap: 15px;
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     align-items: flex-start;
     gap: 12px;
@@ -95,15 +124,18 @@
     border-radius: 17px;
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) .page-heading h1 */
   .page-section:has(.coach-dashboard) .page-heading h1 {
     font-size: clamp(1.8rem, 9vw, 2.35rem);
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) .page-description */
   .page-section:has(.coach-dashboard) .page-description {
     font-size: 0.86rem;
     line-height: 1.65;
   }
 
+  /* Cible : .page-section:has(.coach-dashboard) .metric-icon */
   .page-section:has(.coach-dashboard) .metric-icon {
     flex-basis: 40px;
     width: 40px;
@@ -111,43 +143,52 @@
     border-radius: 12px;
   }
 
+  /* Cible : .coach-dashboard */
   .coach-dashboard {
     gap: 12px;
   }
 
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     padding: 14px;
     border-radius: 13px;
   }
 
+  /* Cible : .coach-dashboard .panel-header */
   .coach-dashboard .panel-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 9px;
   }
 
+  /* Cible : .coach-readiness__score */
   .coach-readiness__score {
     font-size: clamp(2.3rem, 12vw, 3rem);
   }
 
+  /* Cible : .coach-readiness-breakdown__heading */
   .coach-readiness-breakdown__heading {
     align-items: flex-start;
   }
 
+  /* Cible : .coach-readiness-breakdown__heading strong */
   .coach-readiness-breakdown__heading strong {
     max-width: 45%;
     white-space: normal;
   }
 
+  /* Cible : .coach-chat__question */
   .coach-chat__question {
     padding: 11px 12px;
   }
 
+  /* Cible : .coach-chat__answer */
   .coach-chat__answer {
     margin-top: 14px;
     padding: 14px;
   }
 
+  /* Cible : .coach-summary__priorities li */
   .coach-summary__priorities li {
     padding-right: 10px;
   }
@@ -155,20 +196,25 @@
 
 /* ---------- Très petits écrans ---------- */
 
+/* Règles responsive — (max-width: 340px) */
 @media (max-width: 340px) {
+  /* Cible : .page-section:has(.coach-dashboard) > .page-heading */
   .page-section:has(.coach-dashboard) > .page-heading {
     flex-direction: column;
   }
 
+  /* Cible : .coach-dashboard .panel */
   .coach-dashboard .panel {
     padding: 12px;
   }
 
+  /* Cible : .coach-readiness-breakdown__heading */
   .coach-readiness-breakdown__heading {
     flex-direction: column;
     gap: 4px;
   }
 
+  /* Cible : .coach-readiness-breakdown__heading strong */
   .coach-readiness-breakdown__heading strong {
     max-width: 100%;
     text-align: left;
@@ -177,7 +223,9 @@
 
 /* ---------- Accessibilité ---------- */
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .coach-dashboard *, .coach-dashboard *::before, .coach-dashboard *::after, .page-section:has(.coach-dashboard) > .page-heading */
   .coach-dashboard *,
   .coach-dashboard *::before,
   .coach-dashboard *::after,

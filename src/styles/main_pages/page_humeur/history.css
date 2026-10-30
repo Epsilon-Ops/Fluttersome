@@ -1,14 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/history.css
+   ZONE    : Page Humeur
+   RÔLE    : History
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — HISTORIQUE DES HUMEUR ET ÉTATS VIDES
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-history, .mood-statistics */
    .mood-history,
    .mood-statistics {
      min-width: 0;
    }
    
+   /* Cible : .mood-history__toolbar, .mood-statistics__header */
    .mood-history__toolbar,
    .mood-statistics__header {
      display: flex;
@@ -19,6 +30,7 @@
      margin-bottom: 20px;
    }
    
+   /* Cible : .mood-history__title, .mood-statistics__title */
    .mood-history__title,
    .mood-statistics__title {
      margin: 0;
@@ -29,6 +41,7 @@
      line-height: 1.35;
    }
    
+   /* Cible : .mood-history__description, .mood-statistics__description */
    .mood-history__description,
    .mood-statistics__description {
      margin: 8px 0 0;
@@ -39,6 +52,7 @@
    
    /* Filtres de l'historique */
    
+   /* Cible : .mood-history__filters */
    .mood-history__filters {
      display: flex;
      flex-wrap: wrap;
@@ -49,6 +63,7 @@
      background: var(--mood-color-surface);
    }
    
+   /* Cible : .mood-history__filter */
    .mood-history__filter {
      min-height: 36px;
      padding: 8px 13px;
@@ -65,18 +80,21 @@
        border-color var(--mood-transition);
    }
    
+   /* Cible : .mood-history__filter:hover */
    .mood-history__filter:hover {
      border-color: var(--mood-color-border);
      background: var(--mood-color-surface-hover);
      color: var(--mood-color-text);
    }
    
+   /* Cible : .mood-history__filter.is-active */
    .mood-history__filter.is-active {
      border-color: rgba(167, 139, 250, 0.25);
      background: rgba(139, 92, 246, 0.16);
      color: #e5dcff;
    }
    
+   /* Cible : .mood-history__count */
    .mood-history__count {
      margin: 0 0 16px;
      color: var(--mood-color-muted);
@@ -85,6 +103,7 @@
      font-variant-numeric: tabular-nums;
    }
    
+   /* Cible : .mood-history__list */
    .mood-history__list {
      display: grid;
      gap: 12px;
@@ -92,6 +111,7 @@
    
    /* Carte d'une entrée */
    
+   /* Cible : .mood-history-item */
    .mood-history-item {
      display: flex;
      align-items: flex-start;
@@ -116,6 +136,7 @@
        background var(--mood-transition);
    }
    
+   /* Cible : .mood-history-item__icon */
    .mood-history-item__icon {
      display: grid;
      flex: 0 0 48px;
@@ -137,6 +158,7 @@
      color: var(--mood-category-color, var(--mood-color-primary));
    }
    
+   /* Cible : .mood-history-item__icon svg */
    .mood-history-item__icon svg {
      display: block;
      width: 32px;
@@ -144,11 +166,13 @@
      max-width: 100%;
    }
    
+   /* Cible : .mood-history-item__content */
    .mood-history-item__content {
      flex: 1;
      min-width: 0;
    }
    
+   /* Cible : .mood-history-item__header */
    .mood-history-item__header {
      display: flex;
      align-items: flex-start;
@@ -157,6 +181,7 @@
      gap: 8px 16px;
    }
    
+   /* Cible : .mood-history-item__title */
    .mood-history-item__title {
      margin: 0;
      color: var(--mood-color-text);
@@ -165,6 +190,7 @@
      line-height: 1.45;
    }
    
+   /* Cible : .mood-history-item__date */
    .mood-history-item__date {
      margin: 5px 0 0;
      color: var(--mood-color-muted);
@@ -172,6 +198,7 @@
      line-height: 1.5;
    }
    
+   /* Cible : .mood-history-item__category */
    .mood-history-item__category {
      display: inline-flex;
      align-items: center;
@@ -195,6 +222,7 @@
      line-height: 1.4;
    }
    
+   /* Cible : .mood-history-item__metrics */
    .mood-history-item__metrics {
      display: flex;
      flex-wrap: wrap;
@@ -202,6 +230,7 @@
      margin-top: 12px;
    }
    
+   /* Cible : .mood-history-item__metric */
    .mood-history-item__metric {
      display: inline-flex;
      align-items: center;
@@ -216,6 +245,7 @@
      line-height: 1.4;
    }
    
+   /* Cible : .mood-history-item__note */
    .mood-history-item__note {
      margin: 14px 0 0;
      padding-top: 12px;
@@ -229,6 +259,7 @@
    
    /* Action de suppression */
    
+   /* Cible : .mood-history-item__delete */
    .mood-history-item__delete {
      flex: 0 0 auto;
      min-height: 34px;
@@ -246,12 +277,14 @@
        color var(--mood-transition);
    }
    
+   /* Cible : .mood-history-item__delete:hover:not(:disabled) */
    .mood-history-item__delete:hover:not(:disabled) {
      border-color: rgba(251, 113, 133, 0.55);
      background: rgba(251, 113, 133, 0.14);
      color: #fecdd3;
    }
    
+   /* Cible : .mood-history-item__delete:focus-visible, .mood-history__filter:focus-visible */
    .mood-history-item__delete:focus-visible,
    .mood-history__filter:focus-visible {
      outline: 2px solid var(--mood-color-primary);
@@ -260,6 +293,7 @@
    
    /* État vide */
    
+   /* Cible : .mood-empty-state */
    .mood-empty-state {
      display: grid;
      justify-items: center;
@@ -276,6 +310,7 @@
      text-align: center;
    }
    
+   /* Cible : .mood-empty-state__icon */
    .mood-empty-state__icon {
      display: grid;
      width: 54px;
@@ -290,6 +325,7 @@
      font-weight: 500;
    }
    
+   /* Cible : .mood-empty-state__title */
    .mood-empty-state__title {
      margin: 0;
      color: var(--mood-color-text);
@@ -297,6 +333,7 @@
      font-weight: 800;
    }
    
+   /* Cible : .mood-empty-state__description */
    .mood-empty-state__description {
      max-width: 440px;
      margin: 10px 0 0;
@@ -307,7 +344,9 @@
    
    /* Responsive */
    
+   /* Règles responsive — (hover: hover) and (pointer: fine) */
    @media (hover: hover) and (pointer: fine) {
+     /* Cible : .mood-history-item:hover */
      .mood-history-item:hover {
        border-color: var(--mood-color-border-strong);
        border-left-color:
@@ -318,49 +357,60 @@
      }
    }
    
+   /* Règles responsive — (max-width: 600px) */
    @media (max-width: 600px) {
+     /* Cible : .mood-history__toolbar, .mood-statistics__header */
      .mood-history__toolbar,
      .mood-statistics__header {
        gap: 12px;
      }
    
+     /* Cible : .mood-history-item */
      .mood-history-item {
        flex-wrap: wrap;
        gap: 12px;
        padding: 15px;
      }
    
+     /* Cible : .mood-history-item__icon */
      .mood-history-item__icon {
        flex-basis: 42px;
        width: 42px;
        height: 42px;
      }
    
+     /* Cible : .mood-history-item__content */
      .mood-history-item__content {
        flex-basis: calc(100% - 60px);
      }
    
+     /* Cible : .mood-history-item__delete */
      .mood-history-item__delete {
        margin-left: auto;
      }
    
+     /* Cible : .mood-history__filters */
      .mood-history__filters {
        width: 100%;
      }
    
+     /* Cible : .mood-history__filter */
      .mood-history__filter {
        flex: 1;
        padding-inline: 8px;
        white-space: normal;
      }
    
+     /* Cible : .mood-empty-state */
      .mood-empty-state {
        padding: 32px 18px;
        border-radius: var(--mood-radius-md);
      }
    }
    
+   /* Règles responsive — (prefers-reduced-motion: reduce) */
    @media (prefers-reduced-motion: reduce) {
+     /* Cible : .mood-history-item, .mood-history__filter, .mood-history-item__delete */
      .mood-history-item,
      .mood-history__filter,
      .mood-history-item__delete {

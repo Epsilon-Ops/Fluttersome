@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/modal-form.css
+   ZONE    : Page Entraînement
+   RÔLE    : Modal form
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Formulaire de planification
    ========================================================= */
 
+   /* Cible : .training-form-grid */
    .training-form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -13,6 +23,7 @@
   
   /* ---------- Champs ---------- */
   
+  /* Cible : .training-field */
   .training-field {
     display: flex;
     flex-direction: column;
@@ -21,10 +32,12 @@
     min-width: 0;
   }
   
+  /* Cible : .training-field-full */
   .training-field-full {
     grid-column: 1 / -1;
   }
   
+  /* Cible : .training-field label */
   .training-field label {
     color: var(--color-text);
     font-size: 12px;
@@ -32,6 +45,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .training-field input, .training-field select, .training-field textarea */
   .training-field input,
   .training-field select,
   .training-field textarea {
@@ -57,18 +71,21 @@
       background-color var(--transition-fast, 160ms ease);
   }
   
+  /* Cible : .training-field input::placeholder, .training-field textarea::placeholder */
   .training-field input::placeholder,
   .training-field textarea::placeholder {
     color: var(--color-muted);
     opacity: 0.8;
   }
   
+  /* Cible : .training-field input:hover, .training-field select:hover, .training-field textarea:hover */
   .training-field input:hover,
   .training-field select:hover,
   .training-field textarea:hover {
     border-color: var(--color-border-strong);
   }
   
+  /* Cible : .training-field input:focus, .training-field select:focus, .training-field textarea:focus */
   .training-field input:focus,
   .training-field select:focus,
   .training-field textarea:focus {
@@ -77,26 +94,31 @@
     box-shadow: 0 0 0 3px rgb(170 145 255 / 12%);
   }
   
+  /* Cible : .training-field textarea */
   .training-field textarea {
     min-height: 96px;
     resize: vertical;
     line-height: 1.6;
   }
   
+  /* Cible : .training-field select */
   .training-field select {
     color-scheme: dark;
   }
   
+  /* Cible : .training-field select option */
   .training-field select option {
     color: var(--color-text);
     background: var(--color-surface);
   }
   
+  /* Cible : .training-field input[type="date"], .training-field input[type="time"] */
   .training-field input[type="date"],
   .training-field input[type="time"] {
     color-scheme: dark;
   }
   
+  /* Cible : .training-field input[type="checkbox"], .training-field input[type="radio"] */
   .training-field input[type="checkbox"],
   .training-field input[type="radio"] {
     accent-color: var(--color-primary);
@@ -104,6 +126,7 @@
   
   /* ---------- Aide contextuelle ---------- */
   
+  /* Cible : .training-field-help */
   .training-field-help {
     color: var(--color-muted);
     font-size: 11px;
@@ -112,6 +135,7 @@
   
   /* ---------- Erreur de validation ---------- */
   
+  /* Cible : .training-error */
   .training-error {
     display: block;
   
@@ -130,6 +154,7 @@
   
   /* ---------- Actions du formulaire ---------- */
   
+  /* Cible : .training-form-actions */
   .training-form-actions {
     display: flex;
     flex-wrap: wrap;
@@ -143,6 +168,7 @@
     border-top: 1px solid var(--color-border);
   }
   
+  /* Cible : .training-form-actions button */
   .training-form-actions button {
     transition:
       transform var(--transition-fast, 160ms ease),
@@ -151,13 +177,16 @@
       border-color var(--transition-base, 220ms ease);
   }
   
+  /* Cible : .training-form-actions button:active */
   .training-form-actions button:active {
     transform: scale(0.98);
   }
   
   /* ---------- Adaptation tablette ---------- */
   
+  /* Règles responsive — (max-width: 760px) */
   @media (max-width: 760px) {
+    /* Cible : .training-form-grid */
     .training-form-grid {
       gap: 14px;
     }
@@ -165,37 +194,46 @@
   
   /* ---------- Adaptation mobile ---------- */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .training-form-grid */
     .training-form-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: 15px;
     }
   
+    /* Cible : .training-field-full */
     .training-field-full {
       grid-column: auto;
     }
   
+    /* Cible : .training-field input, .training-field select, .training-field textarea */
     .training-field input,
     .training-field select,
     .training-field textarea {
       font-size: 16px;
     }
   
+    /* Cible : .training-field textarea */
     .training-field textarea {
       min-height: 88px;
     }
   
+    /* Cible : .training-form-actions */
     .training-form-actions {
       justify-content: stretch;
       gap: 8px;
     }
   
+    /* Cible : .training-form-actions button */
     .training-form-actions button {
       flex: 1 1 auto;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .training-field input, .training-field select, .training-field textarea, .training-form-actions button */
     .training-field input,
     .training-field select,
     .training-field textarea,
@@ -203,6 +241,7 @@
       transition: none;
     }
   
+    /* Cible : .training-form-actions button:active */
     .training-form-actions button:active {
       transform: none;
     }

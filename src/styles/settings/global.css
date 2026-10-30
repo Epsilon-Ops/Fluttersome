@@ -1,14 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/settings/global.css
+   ZONE    : Réglages globaux (variables, polices, animations)
+   RÔLE    : Global
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* ==========================================
    FLUTTERSOME — GLOBAL FOUNDATION
    ========================================== */
 
+   /* Cible : *, *::before, *::after */
    *,
    *::before,
    *::after {
      box-sizing: border-box;
    }
    
+   /* Cible : html */
    html {
      min-width: 320px;
      min-height: 100%;
@@ -18,6 +29,7 @@
      scrollbar-color: #49405F transparent;
    }
    
+   /* Cible : body */
    body {
      min-width: 320px;
      min-height: 100vh;
@@ -35,12 +47,14 @@
      line-height: 1.6;
    }
    
+   /* Cible : #root */
    #root {
      min-height: 100vh;
    }
    
    /* TYPOGRAPHIE */
    
+   /* Cible : h1, h2, h3, h4, h5, h6 */
    h1,
    h2,
    h3,
@@ -53,35 +67,42 @@
      line-height: 1.25;
    }
    
+   /* Cible : h1 */
    h1 {
      font-size: clamp(1.8rem, 3vw, 2.6rem);
      letter-spacing: -0.045em;
    }
    
+   /* Cible : h2 */
    h2 {
      font-size: clamp(1.3rem, 2vw, 1.7rem);
      letter-spacing: -0.03em;
    }
    
+   /* Cible : h3 */
    h3 {
      font-size: 1.05rem;
      letter-spacing: -0.015em;
    }
    
+   /* Cible : p */
    p {
      margin-top: 0;
    }
    
+   /* Cible : small, .text-muted */
    small,
    .text-muted {
      color: var(--color-muted);
    }
    
+   /* Cible : strong, b */
    strong,
    b {
      font-weight: 700;
    }
    
+   /* Cible : .mono, .performance-value, .mark-value, .record-value, .chrono, .time-value */
    .mono,
    .performance-value,
    .mark-value,
@@ -94,18 +115,21 @@
    
    /* LIENS */
    
+   /* Cible : a */
    a {
      color: var(--color-primary);
      text-decoration: none;
      transition: color var(--motion-fast) ease;
    }
    
+   /* Cible : a:hover */
    a:hover {
      color: var(--color-accent);
    }
    
    /* CONTRÔLES */
    
+   /* Cible : button, input, textarea, select */
    button,
    input,
    textarea,
@@ -113,16 +137,19 @@
      font: inherit;
    }
    
+   /* Cible : button */
    button {
      color: inherit;
      -webkit-tap-highlight-color: transparent;
    }
    
+   /* Cible : button:disabled */
    button:disabled {
      cursor: not-allowed;
      opacity: 0.55;
    }
    
+   /* Cible : :where(button, input, select, textarea, a):focus-visible */
    :where(button, input, select, textarea, a):focus-visible {
      outline: 2px solid var(--color-accent);
      outline-offset: 3px;
@@ -130,6 +157,7 @@
    
    /* BOUTONS : INTERACTION TACTILE */
    
+   /* Cible : button:not(:disabled) */
    button:not(:disabled) {
      transition:
        color var(--motion-fast) ease,
@@ -139,12 +167,14 @@
        transform var(--motion-fast) var(--motion-smooth);
    }
    
+   /* Cible : button:not(:disabled):active */
    button:not(:disabled):active {
      transform: scale(0.975);
    }
    
    /* SURFACES GÉNÉRIQUES */
    
+   /* Cible : .card, .panel, .dashboard-card */
    .card,
    .panel,
    .dashboard-card {
@@ -156,6 +186,7 @@
      box-shadow: var(--shadow-card);
    }
    
+   /* Cible : .card-header, .panel-header, .section-header */
    .card-header,
    .panel-header,
    .section-header {
@@ -167,6 +198,7 @@
      border-bottom: 1px solid var(--color-border);
    }
    
+   /* Cible : .card-body, .panel-body */
    .card-body,
    .panel-body {
      min-width: 0;
@@ -175,6 +207,7 @@
    
    /* FORMULAIRES */
    
+   /* Cible : input, select, textarea */
    input,
    select,
    textarea {
@@ -186,22 +219,26 @@
      accent-color: var(--color-accent);
    }
    
+   /* Cible : input, select */
    input,
    select {
      min-height: 40px;
      padding: 8px 12px;
    }
    
+   /* Cible : textarea */
    textarea {
      padding: 12px;
      resize: vertical;
    }
    
+   /* Cible : input::placeholder, textarea::placeholder */
    input::placeholder,
    textarea::placeholder {
      color: #777A93;
    }
    
+   /* Cible : :where(input, select, textarea):focus */
    :where(input, select, textarea):focus {
      border-color: var(--color-primary);
      outline: none;
@@ -210,16 +247,19 @@
    
    /* TABLEAUX */
    
+   /* Cible : table */
    table {
      width: 100%;
      border-collapse: collapse;
      font-size: 13px;
    }
    
+   /* Cible : thead */
    thead {
      background: rgb(255 255 255 / 3%);
    }
    
+   /* Cible : th */
    th {
      color: var(--color-muted);
      font-size: 11px;
@@ -229,35 +269,42 @@
      text-transform: uppercase;
    }
    
+   /* Cible : th, td */
    th,
    td {
      padding: 12px;
      border-bottom: 1px solid var(--color-border);
    }
    
+   /* Cible : td */
    td {
      vertical-align: middle;
    }
    
+   /* Cible : tbody tr:last-child td */
    tbody tr:last-child td {
      border-bottom: 0;
    }
    
+   /* Cible : tbody tr:hover */
    tbody tr:hover {
      background: rgb(185 154 255 / 5%);
    }
    
    /* MÉDIAS */
    
+   /* Cible : img, svg */
    img,
    svg {
      max-width: 100%;
    }
    
+   /* Cible : img */
    img {
      height: auto;
    }
    
+   /* Cible : ::selection */
    ::selection {
      color: #080910;
      background: var(--color-accent);
@@ -265,16 +312,19 @@
    
    /* SCROLLBARS */
    
+   /* Cible : * */
    * {
      scrollbar-width: thin;
      scrollbar-color: #49405F transparent;
    }
    
+   /* Cible : *::-webkit-scrollbar */
    *::-webkit-scrollbar {
      width: 8px;
      height: 8px;
    }
    
+   /* Cible : *::-webkit-scrollbar-thumb */
    *::-webkit-scrollbar-thumb {
      background: #49405F;
      border: 2px solid transparent;
@@ -282,33 +332,40 @@
      background-clip: padding-box;
    }
    
+   /* Cible : *::-webkit-scrollbar-thumb:hover */
    *::-webkit-scrollbar-thumb:hover {
      background-color: #7770A0;
    }
    
    /* RESPONSIVE */
    
+   /* Règles responsive — (max-width: 768px) */
    @media (max-width: 768px) {
+     /* Cible : body */
      body {
        font-size: 13px;
      }
    
+     /* Cible : .card-header, .panel-header, .section-header */
      .card-header,
      .panel-header,
      .section-header {
        padding: 13px;
      }
    
+     /* Cible : .card-body, .panel-body */
      .card-body,
      .panel-body {
        padding: 13px;
      }
    
+     /* Cible : th, td */
      th,
      td {
        padding: 9px 8px;
      }
    
+     /* Cible : .table-responsive */
      .table-responsive {
        width: 100%;
        overflow-x: auto;
@@ -318,7 +375,9 @@
    
    /* ACCESSIBILITÉ */
    
+   /* Règles responsive — (prefers-reduced-motion: reduce) */
    @media (prefers-reduced-motion: reduce) {
+     /* Cible : *, *::before, *::after */
      *,
      *::before,
      *::after {

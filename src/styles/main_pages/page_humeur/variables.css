@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/variables.css
+   ZONE    : Page Humeur
+   RÔLE    : Variables
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — VARIABLES DE LA PAGE HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-page */
    .mood-page {
     color-scheme: dark;
   
@@ -53,6 +63,7 @@
   
   /* Cohérence des dimensions dans les composants */
   
+  /* Cible : .mood-page *, .mood-page *::before, .mood-page *::after */
   .mood-page *,
   .mood-page *::before,
   .mood-page *::after {

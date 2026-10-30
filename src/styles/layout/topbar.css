@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/layout/topbar.css
+   ZONE    : Mise en page générale (coque de l’application)
+   RÔLE    : Topbar
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* ==========================================
    FLUTTERSOME — TOPBAR
    ========================================== */
 
+   /* Cible : .topbar */
    .topbar {
     position: sticky;
     top: 0;
@@ -22,6 +32,7 @@
     -webkit-backdrop-filter: blur(24px) saturate(145%);
   }
   
+  /* Cible : .topbar-context, .topbar-right */
   .topbar-context,
   .topbar-right {
     display: flex;
@@ -30,6 +41,7 @@
     min-width: 0;
   }
   
+  /* Cible : .topbar-context .eyebrow */
   .topbar-context .eyebrow {
     color: #898BA5;
     font-size: 10px;
@@ -37,10 +49,12 @@
     letter-spacing: 0.14em;
   }
   
+  /* Cible : .topbar-divider */
   .topbar-divider {
     color: #55566E;
   }
   
+  /* Cible : .topbar-current */
   .topbar-current {
     overflow: hidden;
     color: #F3F0FF;
@@ -50,6 +64,7 @@
     white-space: nowrap;
   }
   
+  /* Cible : .sync-status */
   .sync-status {
     display: inline-flex;
     align-items: center;
@@ -60,6 +75,7 @@
     letter-spacing: 0.08em;
   }
   
+  /* Cible : .sync-status .status-indicator */
   .sync-status .status-indicator {
     flex: 0 0 7px;
     width: 7px;
@@ -69,6 +85,7 @@
     box-shadow: 0 0 12px rgb(69 240 176 / 45%);
   }
   
+  /* Cible : .topbar .avatar */
   .topbar .avatar {
     flex-basis: 36px;
     width: 36px;
@@ -77,31 +94,38 @@
   
   /* MOBILE */
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .topbar */
     .topbar {
       min-height: 56px;
       padding: 0 16px;
     }
   
+    /* Cible : .topbar-context, .topbar-right */
     .topbar-context,
     .topbar-right {
       gap: 8px;
     }
   
+    /* Cible : .topbar-context .eyebrow */
     .topbar-context .eyebrow {
       font-size: 9px;
       letter-spacing: 0.045em;
     }
   
+    /* Cible : .topbar-current */
     .topbar-current {
       font-size: 12px;
     }
   
+    /* Cible : .sync-status */
     .sync-status {
       gap: 0;
       font-size: 0;
     }
   
+    /* Cible : .topbar .avatar */
     .topbar .avatar {
       flex-basis: 32px;
       width: 32px;
@@ -109,16 +133,20 @@
     }
   }
   
+  /* Règles responsive — (max-width: 380px) */
   @media (max-width: 380px) {
+    /* Cible : .topbar */
     .topbar {
       padding: 0 10px;
     }
   
+    /* Cible : .topbar-context, .topbar-right */
     .topbar-context,
     .topbar-right {
       gap: 6px;
     }
   
+    /* Cible : .topbar-context .eyebrow */
     .topbar-context .eyebrow {
       font-size: 8px;
     }

@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/theme/accents.css
+   ZONE    : Thème Epsilon « Black Diamond × Duolingo »
+   RÔLE    : Accents
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 /* =========================================================
    ACCENTS PAR PAGE
    Un attribut data-page sur .app-shell (App.jsx) sélectionne
@@ -7,35 +16,45 @@
    Nutrition vert · Tâches jaune · Coach orange
    ========================================================= */
 
+/* Cible : .app-shell[data-page='dashboard'] */
 .app-shell[data-page='dashboard'] {
   --accent: var(--duo-blue); --accent-deep: var(--duo-blue-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='competitions'] */
 .app-shell[data-page='competitions'] {
   --accent: var(--duo-red); --accent-deep: var(--duo-red-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='training'] */
 .app-shell[data-page='training'] {
   --accent: var(--duo-cyan); --accent-deep: var(--duo-cyan-deep); --accent-ink: #00222B;
 }
+/* Cible : .app-shell[data-page='strength'] */
 .app-shell[data-page='strength'] {
   --accent: var(--duo-violet); --accent-deep: var(--duo-violet-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='mood'] */
 .app-shell[data-page='mood'] {
   --accent: var(--duo-rose); --accent-deep: var(--duo-rose-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='sleep'] */
 .app-shell[data-page='sleep'] {
   --accent: var(--duo-indigo); --accent-deep: var(--duo-indigo-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='nutrition'] */
 .app-shell[data-page='nutrition'] {
   --accent: var(--duo-green); --accent-deep: var(--duo-green-deep); --accent-ink: #FFFFFF;
 }
+/* Cible : .app-shell[data-page='tasks'] */
 .app-shell[data-page='tasks'] {
   --accent: var(--duo-yellow); --accent-deep: var(--duo-yellow-deep); --accent-ink: #2B1D00;
 }
+/* Cible : .app-shell[data-page='coach'] */
 .app-shell[data-page='coach'] {
   --accent: var(--duo-orange); --accent-deep: var(--duo-orange-deep); --accent-ink: #2B1600;
 }
 
 /* Dérivés communs à toutes les pages */
+/* Cible : .app-shell */
 .app-shell {
   --accent-tint: color-mix(in srgb, var(--accent) 16%, transparent);
   --accent-glow: color-mix(in srgb, var(--accent) 38%, transparent);

@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/form.css
+   ZONE    : Page Humeur
+   RÔLE    : Form
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — FORMULAIRE DE SAISIE DE L'HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-entry-form */
    .mood-entry-form {
     display: grid;
     gap: 24px;
@@ -23,6 +33,7 @@
     color: var(--mood-color-text);
   }
   
+  /* Cible : .mood-entry-form__header */
   .mood-entry-form__header {
     display: flex;
     align-items: flex-start;
@@ -30,6 +41,7 @@
     gap: 16px;
   }
   
+  /* Cible : .mood-entry-form__eyebrow */
   .mood-entry-form__eyebrow {
     margin: 0 0 7px;
     color: #c4b5fd;
@@ -39,6 +51,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .mood-entry-form__title */
   .mood-entry-form__title {
     margin: 0;
     color: var(--mood-color-text);
@@ -48,6 +61,7 @@
     line-height: 1.3;
   }
   
+  /* Cible : .mood-entry-form__description */
   .mood-entry-form__description {
     margin: 8px 0 0;
     color: var(--mood-color-muted);
@@ -55,12 +69,14 @@
     line-height: 1.65;
   }
   
+  /* Cible : .mood-entry-form__field */
   .mood-entry-form__field {
     display: grid;
     gap: 10px;
     min-width: 0;
   }
   
+  /* Cible : .mood-entry-form__label */
   .mood-entry-form__label {
     color: var(--mood-color-text-soft);
     font-size: 0.9rem;
@@ -68,6 +84,7 @@
     line-height: 1.45;
   }
   
+  /* Cible : .mood-entry-form__help */
   .mood-entry-form__help {
     margin: 0;
     color: var(--mood-color-muted);
@@ -77,6 +94,7 @@
   
   /* Champs de saisie */
   
+  /* Cible : .mood-entry-form__input, .mood-entry-form__textarea, .mood-entry-form__select */
   .mood-entry-form__input,
   .mood-entry-form__textarea,
   .mood-entry-form__select {
@@ -98,18 +116,21 @@
       box-shadow var(--mood-transition);
   }
   
+  /* Cible : .mood-entry-form__input::placeholder, .mood-entry-form__textarea::placeholder */
   .mood-entry-form__input::placeholder,
   .mood-entry-form__textarea::placeholder {
     color: #77768f;
     opacity: 1;
   }
   
+  /* Cible : .mood-entry-form__input:hover, .mood-entry-form__textarea:hover, .mood-entry-form__select:hover */
   .mood-entry-form__input:hover,
   .mood-entry-form__textarea:hover,
   .mood-entry-form__select:hover {
     border-color: var(--mood-color-border-strong);
   }
   
+  /* Cible : .mood-entry-form__input:focus, .mood-entry-form__textarea:focus, .mood-entry-form__select:focus */
   .mood-entry-form__input:focus,
   .mood-entry-form__textarea:focus,
   .mood-entry-form__select:focus {
@@ -119,6 +140,7 @@
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.13);
   }
   
+  /* Cible : .mood-entry-form__input:disabled, .mood-entry-form__textarea:disabled, .mood-entry-form__select:disabled */
   .mood-entry-form__input:disabled,
   .mood-entry-form__textarea:disabled,
   .mood-entry-form__select:disabled {
@@ -126,17 +148,20 @@
     opacity: 0.55;
   }
   
+  /* Cible : .mood-entry-form__select option */
   .mood-entry-form__select option {
     background: var(--mood-color-surface);
     color: var(--mood-color-text);
   }
   
+  /* Cible : .mood-entry-form__textarea */
   .mood-entry-form__textarea {
     min-height: 110px;
     resize: vertical;
     line-height: 1.65;
   }
   
+  /* Cible : .mood-entry-form__datetime */
   .mood-entry-form__datetime {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -145,12 +170,14 @@
   
   /* Échelle de notation */
   
+  /* Cible : .mood-entry-form__scale */
   .mood-entry-form__scale {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 10px;
   }
   
+  /* Cible : .mood-entry-form__scale-button */
   .mood-entry-form__scale-button {
     display: grid;
     gap: 5px;
@@ -172,11 +199,13 @@
       transform var(--mood-transition);
   }
   
+  /* Cible : .mood-entry-form__scale-button:hover */
   .mood-entry-form__scale-button:hover {
     border-color: var(--mood-color-border-strong);
     background: var(--mood-color-surface-hover);
   }
   
+  /* Cible : .mood-entry-form__scale-button.is-selected */
   .mood-entry-form__scale-button.is-selected {
     border-color: var(--mood-color-primary);
     background: rgba(139, 92, 246, 0.15);
@@ -186,12 +215,14 @@
       0 0 16px rgba(139, 92, 246, 0.08);
   }
   
+  /* Cible : .mood-entry-form__scale-number */
   .mood-entry-form__scale-number {
     font-size: 1rem;
     font-weight: 850;
     font-variant-numeric: tabular-nums;
   }
   
+  /* Cible : .mood-entry-form__scale-caption */
   .mood-entry-form__scale-caption {
     color: var(--mood-color-muted);
     font-size: 0.72rem;
@@ -199,6 +230,7 @@
     line-height: 1.35;
   }
   
+  /* Cible : .mood-entry-form__scale-button.is-selected .mood-entry-form__scale-caption */
   .mood-entry-form__scale-button.is-selected
     .mood-entry-form__scale-caption {
     color: #c4b5fd;
@@ -206,12 +238,14 @@
   
   /* Curseur de valence */
   
+  /* Cible : .mood-entry-form__valence */
   .mood-entry-form__valence {
     width: 100%;
     accent-color: var(--mood-color-primary);
     cursor: pointer;
   }
   
+  /* Cible : .mood-entry-form__range-labels */
   .mood-entry-form__range-labels {
     display: flex;
     justify-content: space-between;
@@ -223,6 +257,7 @@
   
   /* Erreurs et validation */
   
+  /* Cible : .mood-entry-form__error */
   .mood-entry-form__error {
     margin: 0;
     padding: 12px 14px;
@@ -236,6 +271,7 @@
   
   /* Actions du formulaire */
   
+  /* Cible : .mood-entry-form__actions */
   .mood-entry-form__actions {
     display: flex;
     justify-content: flex-end;
@@ -245,6 +281,7 @@
     border-top: 1px solid var(--mood-color-border);
   }
   
+  /* Cible : .mood-primary-button, .mood-secondary-button */
   .mood-primary-button,
   .mood-secondary-button {
     display: inline-flex;
@@ -268,6 +305,7 @@
       transform var(--mood-transition);
   }
   
+  /* Cible : .mood-primary-button */
   .mood-primary-button {
     border-color: rgba(167, 139, 250, 0.45);
     background: linear-gradient(120deg, #8b5cf6 0%, #7651d5 100%);
@@ -275,24 +313,28 @@
     box-shadow: 0 5px 16px rgba(109, 73, 204, 0.2);
   }
   
+  /* Cible : .mood-primary-button:hover:not(:disabled) */
   .mood-primary-button:hover:not(:disabled) {
     border-color: rgba(196, 181, 253, 0.7);
     background: linear-gradient(120deg, #9b72ff 0%, #825fe4 100%);
     box-shadow: 0 7px 20px rgba(109, 73, 204, 0.27);
   }
   
+  /* Cible : .mood-secondary-button */
   .mood-secondary-button {
     border-color: var(--mood-color-border-strong);
     background: rgba(255, 255, 255, 0.035);
     color: var(--mood-color-text-soft);
   }
   
+  /* Cible : .mood-secondary-button:hover:not(:disabled) */
   .mood-secondary-button:hover:not(:disabled) {
     border-color: rgba(34, 211, 238, 0.4);
     background: rgba(34, 211, 238, 0.07);
     color: #a5f3fc;
   }
   
+  /* Cible : .mood-primary-button:disabled, .mood-secondary-button:disabled */
   .mood-primary-button:disabled,
   .mood-secondary-button:disabled {
     cursor: not-allowed;
@@ -300,6 +342,7 @@
     box-shadow: none;
   }
   
+  /* Cible : .mood-entry-form :where( button, input, select, textarea ):focus-visible */
   .mood-entry-form :where(
     button,
     input,
@@ -312,18 +355,23 @@
   
   /* Responsive */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .mood-entry-form__scale-button:hover:not(:disabled) */
     .mood-entry-form__scale-button:hover:not(:disabled) {
       transform: translateY(-1px);
     }
   
+    /* Cible : .mood-primary-button:hover:not(:disabled), .mood-secondary-button:hover:not(:disabled) */
     .mood-primary-button:hover:not(:disabled),
     .mood-secondary-button:hover:not(:disabled) {
       transform: translateY(-1px);
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .mood-entry-form */
     .mood-entry-form {
       gap: 20px;
       margin-top: 18px;
@@ -331,51 +379,63 @@
       border-radius: var(--mood-radius-md);
     }
   
+    /* Cible : .mood-entry-form__datetime */
     .mood-entry-form__datetime {
       grid-template-columns: minmax(0, 1fr);
       gap: 18px;
     }
   
+    /* Cible : .mood-entry-form__scale */
     .mood-entry-form__scale {
       gap: 6px;
     }
   
+    /* Cible : .mood-entry-form__scale-button */
     .mood-entry-form__scale-button {
       min-height: 58px;
       padding-inline: 3px;
     }
   
+    /* Cible : .mood-entry-form__scale-caption */
     .mood-entry-form__scale-caption {
       font-size: 0.66rem;
     }
   
+    /* Cible : .mood-entry-form__actions > button */
     .mood-entry-form__actions > button {
       flex: 1 1 auto;
     }
   }
   
+  /* Règles responsive — (max-width: 360px) */
   @media (max-width: 360px) {
+    /* Cible : .mood-entry-form__scale */
     .mood-entry-form__scale {
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 4px;
     }
   
+    /* Cible : .mood-entry-form__scale-button */
     .mood-entry-form__scale-button {
       min-height: 54px;
       padding: 7px 2px;
     }
   
+    /* Cible : .mood-entry-form__scale-number */
     .mood-entry-form__scale-number {
       font-size: 0.92rem;
     }
   
+    /* Cible : .mood-entry-form__scale-caption */
     .mood-entry-form__scale-caption {
       font-size: 0.6rem;
       overflow-wrap: anywhere;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mood-entry-form *, .mood-entry-form *::before, .mood-entry-form *::after */
     .mood-entry-form *,
     .mood-entry-form *::before,
     .mood-entry-form *::after {

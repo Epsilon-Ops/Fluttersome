@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/statistics.css
+   ZONE    : Page Compétitions
+   RÔLE    : Statistics
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
@@ -8,6 +17,7 @@
    GRILLE STATISTIQUE
    ========================================================= */
 
+   /* Cible : .competitions-page .metrics-grid */
    .competitions-page .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -16,6 +26,7 @@
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .competition-metric-card */
   .competitions-page .competition-metric-card {
     --metric-accent: #a991ff;
     --metric-glow: rgb(169 145 255 / 12%);
@@ -54,6 +65,7 @@
   
   /* Halo décoratif */
   
+  /* Cible : .competitions-page .competition-metric-card::after */
   .competitions-page .competition-metric-card::after {
     content: "";
     position: absolute;
@@ -70,6 +82,7 @@
     pointer-events: none;
   }
   
+  /* Cible : .competitions-page .competition-metric-card::before */
   .competitions-page .competition-metric-card::before {
     content: "";
     position: absolute;
@@ -89,6 +102,7 @@
     box-shadow: 0 0 12px var(--metric-glow);
   }
   
+  /* Cible : .competitions-page .competition-metric-card:hover */
   .competitions-page .competition-metric-card:hover {
     border-color: var(--competition-border-strong);
   
@@ -99,6 +113,7 @@
     transform: translateY(-3px);
   }
   
+  /* Cible : .competitions-page .competition-metric-label */
   .competitions-page .competition-metric-label {
     margin: 0;
   
@@ -112,6 +127,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .competitions-page .competition-metric-value */
   .competitions-page .competition-metric-value {
     display: block;
     max-width: 100%;
@@ -131,6 +147,7 @@
     text-shadow: 0 0 20px var(--metric-glow);
   }
   
+  /* Cible : .competitions-page .competition-metric-note */
   .competitions-page .competition-metric-note {
     margin: auto 0 0;
     padding-top: var(--space-2);
@@ -144,21 +161,25 @@
   
   /* Variantes facultatives si les classes sont ajoutées au JSX */
   
+  /* Cible : .competitions-page .competition-metric-card.metric-cyan */
   .competitions-page .competition-metric-card.metric-cyan {
     --metric-accent: #65d8ff;
     --metric-glow: rgb(101 216 255 / 12%);
   }
   
+  /* Cible : .competitions-page .competition-metric-card.metric-green */
   .competitions-page .competition-metric-card.metric-green {
     --metric-accent: #52e3ad;
     --metric-glow: rgb(82 227 173 / 12%);
   }
   
+  /* Cible : .competitions-page .competition-metric-card.metric-pink */
   .competitions-page .competition-metric-card.metric-pink {
     --metric-accent: #ff8aaa;
     --metric-glow: rgb(255 138 170 / 12%);
   }
   
+  /* Cible : .competitions-page .competition-metric-card.metric-amber */
   .competitions-page .competition-metric-card.metric-amber {
     --metric-accent: #ffc078;
     --metric-glow: rgb(255 192 120 / 12%);
@@ -168,6 +189,7 @@
      HISTORIQUE
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-history-list */
   .competitions-page .competition-history-list {
     width: 100%;
     min-width: 0;
@@ -179,6 +201,7 @@
     background: rgb(19 20 32 / 80%);
   }
   
+  /* Cible : .competitions-page .competition-history-row */
   .competitions-page .competition-history-row {
     position: relative;
   
@@ -198,10 +221,12 @@
       border-color var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-history-row:last-child */
   .competitions-page .competition-history-row:last-child {
     border-bottom: 0;
   }
   
+  /* Cible : .competitions-page .competition-history-row:hover */
   .competitions-page .competition-history-row:hover {
     background: linear-gradient(
       100deg,
@@ -212,6 +237,7 @@
   
   /* Informations principales */
   
+  /* Cible : .competitions-page .competition-history-main */
   .competitions-page .competition-history-main {
     display: flex;
     flex-direction: column;
@@ -221,6 +247,7 @@
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .competition-history-title */
   .competitions-page .competition-history-title {
     margin: 0;
   
@@ -232,6 +259,7 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .competitions-page .competition-history-subtitle */
   .competitions-page .competition-history-subtitle {
     display: block;
     max-width: 100%;
@@ -247,6 +275,7 @@
   
   /* Chrono */
   
+  /* Cible : .competitions-page .competition-history-time-wrap */
   .competitions-page .competition-history-time-wrap {
     display: flex;
     align-items: center;
@@ -255,6 +284,7 @@
     min-width: 90px;
   }
   
+  /* Cible : .competitions-page .competition-time */
   .competitions-page .competition-time {
     margin: 0;
   
@@ -271,6 +301,7 @@
   
   /* Type de performance et chronométrage */
   
+  /* Cible : .competitions-page .competition-history-meta */
   .competitions-page .competition-history-meta {
     display: flex;
     flex-direction: column;
@@ -282,6 +313,7 @@
   
   /* Actions de chaque ligne */
   
+  /* Cible : .competitions-page .competition-history-actions */
   .competitions-page .competition-history-actions {
     display: flex;
     align-items: center;
@@ -293,39 +325,48 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 900px) */
   @media (max-width: 900px) {
+    /* Cible : .competitions-page .metrics-grid */
     .competitions-page .metrics-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   
+    /* Cible : .competitions-page .competition-history-row */
     .competitions-page .competition-history-row {
       gap: 12px;
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .competitions-page .competition-metric-card */
     .competitions-page .competition-metric-card {
       min-height: 125px;
       padding: 14px;
     }
   
+    /* Cible : .competitions-page .competition-history-row */
     .competitions-page .competition-history-row {
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 10px 12px;
       padding: 15px;
     }
   
+    /* Cible : .competitions-page .competition-history-main */
     .competitions-page .competition-history-main {
       grid-column: 1;
       grid-row: 1;
     }
   
+    /* Cible : .competitions-page .competition-history-time-wrap */
     .competitions-page .competition-history-time-wrap {
       grid-column: 2;
       grid-row: 1;
       min-width: 0;
     }
   
+    /* Cible : .competitions-page .competition-history-meta */
     .competitions-page .competition-history-meta {
       grid-column: 1;
       grid-row: 2;
@@ -334,17 +375,21 @@
       flex-wrap: wrap;
     }
   
+    /* Cible : .competitions-page .competition-history-actions */
     .competitions-page .competition-history-actions {
       grid-column: 2;
       grid-row: 2;
     }
   
+    /* Cible : .competitions-page .competition-time */
     .competitions-page .competition-time {
       font-size: 15px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page .competition-metric-card, .competitions-page .competition-history-row */
     .competitions-page .competition-metric-card,
     .competitions-page .competition-history-row {
       transition: none;

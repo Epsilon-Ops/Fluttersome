@@ -1,14 +1,25 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/subtasks.css
+   ZONE    : Page Tâches
+   RÔLE    : Subtasks
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SOUS-TÂCHES
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .task-subtasks */
    .task-subtasks {
     min-width: 0;
     margin-top: 13px;
   }
   
+  /* Cible : .task-subtasks-toggle */
   .task-subtasks-toggle {
     display: flex;
     align-items: center;
@@ -28,15 +39,18 @@
     transition: color 160ms ease;
   }
   
+  /* Cible : .task-subtasks-toggle:hover */
   .task-subtasks-toggle:hover {
     color: #d8caff;
   }
   
+  /* Cible : .task-subtasks-toggle:focus-visible */
   .task-subtasks-toggle:focus-visible {
     outline: 2px solid var(--tasks-red);
     outline-offset: 3px;
   }
   
+  /* Cible : .task-subtasks-progress-label */
   .task-subtasks-progress-label {
     margin-left: auto;
     color: var(--tasks-muted);
@@ -45,6 +59,7 @@
     white-space: nowrap;
   }
   
+  /* Cible : .task-subtasks-progress */
   .task-subtasks-progress {
     width: 64px;
     height: 6px;
@@ -55,6 +70,7 @@
     background: rgba(167, 139, 250, 0.1);
   }
   
+  /* Cible : .task-subtasks-progress > span */
   .task-subtasks-progress > span {
     display: block;
     width: 0;
@@ -65,6 +81,7 @@
     transition: width 220ms ease;
   }
   
+  /* Cible : .task-subtasks-list */
   .task-subtasks-list {
     display: flex;
     flex-direction: column;
@@ -74,6 +91,7 @@
     border-left: 1px solid var(--tasks-border);
   }
   
+  /* Cible : .task-subtask */
   .task-subtask {
     display: flex;
     align-items: flex-start;
@@ -85,6 +103,7 @@
     cursor: pointer;
   }
   
+  /* Cible : .task-subtask input */
   .task-subtask input {
     width: 15px;
     height: 15px;
@@ -94,43 +113,53 @@
     cursor: pointer;
   }
   
+  /* Cible : .task-subtask input:focus-visible */
   .task-subtask input:focus-visible {
     outline: 2px solid var(--tasks-red);
     outline-offset: 3px;
   }
   
+  /* Cible : .task-subtask-title */
   .task-subtask-title {
     min-width: 0;
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .task-subtask-title.completed */
   .task-subtask-title.completed {
     color: var(--tasks-muted);
     text-decoration: line-through;
     text-decoration-color: rgba(160, 159, 183, 0.6);
   }
   
+  /* Règles responsive — (max-width: 420px) */
   @media (max-width: 420px) {
+    /* Cible : .task-subtasks-progress */
     .task-subtasks-progress {
       width: 46px;
       flex-basis: 46px;
     }
   
+    /* Cible : .task-subtasks-toggle */
     .task-subtasks-toggle {
       gap: 7px;
       font-size: 0.75rem;
     }
   
+    /* Cible : .task-subtasks-progress-label */
     .task-subtasks-progress-label {
       font-size: 0.7rem;
     }
   
+    /* Cible : .task-subtasks-list */
     .task-subtasks-list {
       padding-left: 10px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .task-subtasks-toggle, .task-subtasks-progress > span */
     .task-subtasks-toggle,
     .task-subtasks-progress > span {
       transition: none;

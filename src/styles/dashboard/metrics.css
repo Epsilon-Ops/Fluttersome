@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/dashboard/metrics.css
+   ZONE    : Tableau de bord (accueil)
+   RÔLE    : Metrics
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================
    GRILLE DES INDICATEURS
    ========================================= */
 
+   /* Cible : .metrics-grid */
    .metrics-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -13,6 +23,7 @@
      CARTE STATISTIQUE
      ========================================= */
   
+  /* Cible : .metric-card */
   .metric-card {
     min-width: 0;
     padding: 16px;
@@ -27,11 +38,13 @@
       transform 150ms ease;
   }
   
+  /* Cible : .metric-card:hover */
   .metric-card:hover {
     border-color: var(--category-color, var(--color-primary));
     box-shadow: 0 3px 12px rgb(20 40 65 / 8%);
   }
   
+  /* Cible : .metric-label */
   .metric-label {
     display: block;
     color: var(--color-muted);
@@ -42,6 +55,7 @@
     text-transform: uppercase;
   }
   
+  /* Cible : .metric-value-row */
   .metric-value-row {
     display: flex;
     align-items: baseline;
@@ -50,6 +64,7 @@
     margin-top: 16px;
   }
   
+  /* Cible : .metric-value */
   .metric-value {
     color: var(--color-primary);
     font-family: 'DM Mono', monospace;
@@ -61,12 +76,14 @@
     overflow-wrap: anywhere;
   }
   
+  /* Cible : .metric-unit */
   .metric-unit {
     color: var(--color-muted);
     font-size: 12px;
     font-weight: 600;
   }
   
+  /* Cible : .metric-note */
   .metric-note {
     display: block;
     margin-top: 8px;
@@ -77,40 +94,50 @@
   
   /* Valeurs remarquables */
   
+  /* Cible : .metric-card.is-record */
   .metric-card.is-record {
     border-top-color: var(--color-accent);
   }
   
+  /* Cible : .metric-card.is-record .metric-value */
   .metric-card.is-record .metric-value {
     color: var(--color-accent);
   }
   
   /* Adaptation mobile */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .metrics-grid */
     .metrics-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
   
+    /* Cible : .metric-card */
     .metric-card {
       padding: 12px;
     }
   
+    /* Cible : .metric-label */
     .metric-label {
       font-size: 10px;
     }
   
+    /* Cible : .metric-value */
     .metric-value {
       font-size: clamp(20px, 6vw, 27px);
     }
   
+    /* Cible : .metric-value-row */
     .metric-value-row {
       margin-top: 12px;
     }
   }
   
+  /* Règles responsive — (max-width: 350px) */
   @media (max-width: 350px) {
+    /* Cible : .metrics-grid */
     .metrics-grid {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -122,6 +149,7 @@
    Black Diamond / Glass / Squish & Squash
    ========================================= */
 
+   /* Cible : .dashboard-home .stat-card */
    .dashboard-home .stat-card {
     --stat-accent: #a68bff;
   
@@ -178,6 +206,7 @@
   
   /* Reflet de verre */
   
+  /* Cible : .dashboard-home .stat-card::before */
   .dashboard-home .stat-card::before {
     content: "";
     position: absolute;
@@ -197,6 +226,7 @@
   
   /* Fin liseré lumineux */
   
+  /* Cible : .dashboard-home .stat-card::after */
   .dashboard-home .stat-card::after {
     content: "";
     position: absolute;
@@ -219,6 +249,7 @@
   
   /* En-tête */
   
+  /* Cible : .dashboard-home .stat-card__top */
   .dashboard-home .stat-card__top {
     display: flex;
     align-items: center;
@@ -228,6 +259,7 @@
     min-width: 0;
   }
   
+  /* Cible : .dashboard-home .stat-card__title */
   .dashboard-home .stat-card__title {
     min-width: 0;
   
@@ -240,6 +272,7 @@
   
   /* Icône dans son médaillon */
   
+  /* Cible : .dashboard-home .stat-card__icon */
   .dashboard-home .stat-card__icon {
     display: grid;
     flex: 0 0 42px;
@@ -271,6 +304,7 @@
   
   /* Valeur principale */
   
+  /* Cible : .dashboard-home .stat-card__value */
   .dashboard-home .stat-card__value {
     margin-top: 17px;
   
@@ -286,6 +320,7 @@
   
   /* Sous-titre */
   
+  /* Cible : .dashboard-home .stat-card__subtitle */
   .dashboard-home .stat-card__subtitle {
     margin: 10px 0 0;
   
@@ -299,11 +334,13 @@
   
   /* Interactions */
   
+  /* Cible : .dashboard-home .stat-card--interactive */
   .dashboard-home .stat-card--interactive {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
   
+  /* Cible : .dashboard-home .stat-card--interactive:hover */
   .dashboard-home .stat-card--interactive:hover {
     transform: translateY(-4px) scale(1.012);
   
@@ -323,6 +360,7 @@
       inset 0 1px 0 rgb(255 255 255 / 7%);
   }
   
+  /* Cible : .dashboard-home .stat-card--interactive:hover .stat-card__icon */
   .dashboard-home .stat-card--interactive:hover .stat-card__icon {
     transform: rotate(-5deg) scale(1.07);
   
@@ -333,11 +371,13 @@
     );
   }
   
+  /* Cible : .dashboard-home .stat-card--interactive:active */
   .dashboard-home .stat-card--interactive:active {
     transform: translateY(0) scale(0.975);
     transition-duration: 80ms;
   }
   
+  /* Cible : .dashboard-home .stat-card--interactive:focus-visible */
   .dashboard-home .stat-card--interactive:focus-visible {
     outline: 2px solid #bba7ff;
     outline-offset: 3px;
@@ -346,52 +386,62 @@
   /* Quatre accents distincts, via les couleurs déjà
      fournies par le composant React. */
   
+  /* Cible : .dashboard-home .stat-card:has( .stat-card__icon [style*="139, 123, 216"] ) */
   .dashboard-home .stat-card:has(
     .stat-card__icon [style*="139, 123, 216"]
   ) {
     --stat-accent: #8b7bd8;
   }
   
+  /* Cible : .dashboard-home .stat-card:has( .stat-card__icon [style*="71, 133, 197"] ) */
   .dashboard-home .stat-card:has(
     .stat-card__icon [style*="71, 133, 197"]
   ) {
     --stat-accent: #4785c5;
   }
   
+  /* Cible : .dashboard-home .stat-card:has( .stat-card__icon [style*="208, 139, 69"] ) */
   .dashboard-home .stat-card:has(
     .stat-card__icon [style*="208, 139, 69"]
   ) {
     --stat-accent: #d08b45;
   }
   
+  /* Cible : .dashboard-home .stat-card:has( .stat-card__icon [style*="54, 155, 132"] ) */
   .dashboard-home .stat-card:has(
     .stat-card__icon [style*="54, 155, 132"]
   ) {
     --stat-accent: #369b84;
   }
 
+  /* Cible : .dashboard-home .stat-card:has(.stat-card__icon) */
   .dashboard-home .stat-card:has(.stat-card__icon) {
     --stat-accent: #a68bff;
   }
   
+  /* Cible : .dashboard-home .stat-card:has(.stat-card__icon[style]) */
   .dashboard-home .stat-card:has(.stat-card__icon[style]) {
     --stat-accent: var(--stat-accent, #a68bff);
   }
   
   /* Responsive */
   
+  /* Règles responsive — (max-width: 768px) */
   @media (max-width: 768px) {
+    /* Cible : .dashboard-home .stat-card */
     .dashboard-home .stat-card {
       min-height: 150px;
       padding: 16px;
     }
   
+    /* Cible : .dashboard-home .stat-card__icon */
     .dashboard-home .stat-card__icon {
       flex-basis: 38px;
       width: 38px;
       height: 38px;
     }
   
+    /* Cible : .dashboard-home .stat-card__value */
     .dashboard-home .stat-card__value {
       margin-top: 13px;
       font-size: 27px;
@@ -400,7 +450,9 @@
   
   /* Accessibilité */
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .dashboard-home .stat-card, .dashboard-home .stat-card * */
     .dashboard-home .stat-card,
     .dashboard-home .stat-card * {
       transition: none !important;

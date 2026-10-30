@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/modal-form.css
+   ZONE    : Page Compétitions
+   RÔLE    : Modal form
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
@@ -8,6 +17,7 @@
    EN-TÊTE CLIQUABLE
    ========================================================= */
 
+   /* Cible : .competitions-page .competition-form-toggle */
    .competitions-page .competition-form-toggle {
     position: relative;
     display: flex;
@@ -37,6 +47,7 @@
       box-shadow var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-form-toggle:hover */
   .competitions-page .competition-form-toggle:hover {
     background: linear-gradient(
       120deg,
@@ -48,10 +59,12 @@
     box-shadow: inset 0 0 24px rgb(151 117 255 / 5%);
   }
   
+  /* Cible : .competitions-page .competition-form-toggle:active */
   .competitions-page .competition-form-toggle:active {
     background: var(--competition-surface-raised);
   }
   
+  /* Cible : .competitions-page .competition-form-toggle > span:first-child */
   .competitions-page .competition-form-toggle > span:first-child {
     display: flex;
     flex-direction: column;
@@ -61,12 +74,14 @@
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .competition-form-toggle .eyebrow */
   .competitions-page .competition-form-toggle .eyebrow {
     margin: 0 0 var(--space-1);
     color: var(--competition-violet);
     letter-spacing: 0.12em;
   }
   
+  /* Cible : .competitions-page .competition-form-toggle strong */
   .competitions-page .competition-form-toggle strong {
     color: #f1edff;
     font-size: 15px;
@@ -74,6 +89,7 @@
     line-height: 1.45;
   }
   
+  /* Cible : .competitions-page .competition-toggle-hint */
   .competitions-page .competition-toggle-hint {
     display: block;
     margin: 0;
@@ -83,6 +99,7 @@
     line-height: 1.6;
   }
   
+  /* Cible : .competitions-page .competition-toggle-icon */
   .competitions-page .competition-toggle-icon {
     display: grid;
     place-items: center;
@@ -112,6 +129,7 @@
       background var(--competition-transition);
   }
   
+  /* Cible : .competitions-page .competition-form-toggle:hover .competition-toggle-icon */
   .competitions-page .competition-form-toggle:hover
   .competition-toggle-icon {
     border-color: rgb(177 163 255 / 48%);
@@ -123,6 +141,7 @@
      FORMULAIRE COMPLET
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-form-panel form */
   .competitions-page .competition-form-panel form {
     display: flex;
     flex-direction: column;
@@ -142,6 +161,7 @@
   
   /* Grille des champs */
   
+  /* Cible : .competitions-page .competition-form-grid */
   .competitions-page .competition-form-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -150,12 +170,14 @@
     min-width: 0;
   }
   
+  /* Cible : .competitions-page .competition-form-grid .field-full */
   .competitions-page .competition-form-grid .field-full {
     grid-column: 1 / -1;
   }
   
   /* Champs pleine largeur */
   
+  /* Cible : .competitions-page .competition-form-panel .field-wide */
   .competitions-page .competition-form-panel .field-wide {
     width: 100%;
     min-width: 0;
@@ -165,6 +187,7 @@
      NOTE INFORMATIVE
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-form-panel form > .competition-hint */
   .competitions-page .competition-form-panel form > .competition-hint {
     margin: 0;
     padding: 13px 15px;
@@ -189,6 +212,7 @@
      ACTIONS DU FORMULAIRE
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-form-actions */
   .competitions-page .competition-form-actions {
     display: flex;
     justify-content: flex-end;
@@ -206,6 +230,7 @@
      ERREURS ET VALIDATION
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-error */
   .competitions-page .competition-error {
     margin: 0;
     padding: 13px 15px;
@@ -233,6 +258,7 @@
      ACCESSIBILITÉ
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-form-toggle:focus-visible */
   .competitions-page .competition-form-toggle:focus-visible {
     outline: 2px solid var(--competition-violet);
     outline-offset: 3px;
@@ -242,39 +268,50 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 900px) */
   @media (max-width: 900px) {
+    /* Cible : .competitions-page .competition-form-grid */
     .competitions-page .competition-form-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .competitions-page .competition-form-toggle */
     .competitions-page .competition-form-toggle {
       padding: 15px;
     }
   
+    /* Cible : .competitions-page .competition-form-panel form */
     .competitions-page .competition-form-panel form {
       padding: 15px;
     }
   
+    /* Cible : .competitions-page .competition-form-grid */
     .competitions-page .competition-form-grid {
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .competitions-page .competition-form-grid .field-full */
     .competitions-page .competition-form-grid .field-full {
       grid-column: auto;
     }
   
+    /* Cible : .competitions-page .competition-form-actions */
     .competitions-page .competition-form-actions {
       align-items: stretch;
     }
   
+    /* Cible : .competitions-page .competition-form-actions > button */
     .competitions-page .competition-form-actions > button {
       flex: 1 1 100%;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .competitions-page .competition-form-toggle, .competitions-page .competition-toggle-icon */
     .competitions-page .competition-form-toggle,
     .competitions-page .competition-toggle-icon {
       transition: none;

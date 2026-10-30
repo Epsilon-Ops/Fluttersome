@@ -1,8 +1,18 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_nutrition/food-diary.css
+   ZONE    : Page Nutrition
+   RÔLE    : Food diary
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* EPSILON — JOURNAL ALIMENTAIRE : PREMIUM++ */
 
 /* Résumé de la journée */
 
+/* Cible : .food-summary-grid */
 .food-summary-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -10,6 +20,7 @@
   min-width: 0;
 }
 
+/* Cible : .food-summary-card */
 .food-summary-card {
   position: relative;
   display: flex;
@@ -39,6 +50,7 @@
     transform 180ms ease;
 }
 
+/* Cible : .food-summary-card span */
 .food-summary-card span {
   color: var(--nutrition-muted);
   font-size: 0.82rem;
@@ -47,6 +59,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .food-summary-card strong */
 .food-summary-card strong {
   color: var(--nutrition-cyan);
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
@@ -59,6 +72,7 @@
 
 /* Cartes principales */
 
+/* Cible : .food-diary-card */
 .food-diary-card {
   min-width: 0;
   padding: clamp(18px, 3vw, 28px);
@@ -77,6 +91,7 @@
   box-shadow: var(--nutrition-shadow-card);
 }
 
+/* Cible : .food-diary-card h3 */
 .food-diary-card h3 {
   margin: 0 0 9px;
   color: var(--nutrition-text);
@@ -87,6 +102,7 @@
   overflow-wrap: anywhere;
 }
 
+/* Cible : .food-muted */
 .food-muted {
   margin: 0 0 20px;
   color: var(--nutrition-muted);
@@ -95,7 +111,9 @@
   overflow-wrap: anywhere;
 }
 
+/* Règles responsive — (hover: hover) and (pointer: fine) */
 @media (hover: hover) and (pointer: fine) {
+  /* Cible : .food-summary-card:hover */
   .food-summary-card:hover {
     transform: translateY(-2px);
     border-color: var(--nutrition-border-strong);
@@ -103,33 +121,42 @@
   }
 }
 
+/* Règles responsive — (max-width: 850px) */
 @media (max-width: 850px) {
+  /* Cible : .food-summary-grid */
   .food-summary-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+/* Règles responsive — (max-width: 480px) */
 @media (max-width: 480px) {
+  /* Cible : .food-summary-grid */
   .food-summary-grid {
     gap: 10px;
   }
 
+  /* Cible : .food-summary-card */
   .food-summary-card {
     padding: 15px;
     border-radius: var(--nutrition-radius-md);
   }
 
+  /* Cible : .food-summary-card strong */
   .food-summary-card strong {
     font-size: 1.35rem;
   }
 
+  /* Cible : .food-diary-card */
   .food-diary-card {
     padding: 17px;
     border-radius: var(--nutrition-radius-md);
   }
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .food-summary-card */
   .food-summary-card {
     transition: none;
   }

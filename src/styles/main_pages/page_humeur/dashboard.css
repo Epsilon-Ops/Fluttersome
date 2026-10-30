@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/dashboard.css
+   ZONE    : Page Humeur
+   RÔLE    : Dashboard
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — ONGLETS ET TABLEAU DE BORD HUMEUR
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-tabs */
    .mood-tabs {
     display: flex;
     gap: 8px;
@@ -18,6 +28,7 @@
     scrollbar-width: thin;
   }
   
+  /* Cible : .mood-tabs__button */
   .mood-tabs__button {
     flex: 1 0 auto;
     min-height: 44px;
@@ -37,12 +48,14 @@
       box-shadow var(--mood-transition);
   }
   
+  /* Cible : .mood-tabs__button:hover */
   .mood-tabs__button:hover {
     border-color: var(--mood-color-border);
     background: var(--mood-color-surface-hover);
     color: var(--mood-color-text);
   }
   
+  /* Cible : .mood-tabs__button.is-active */
   .mood-tabs__button.is-active {
     border-color: rgba(167, 139, 250, 0.32);
     background: linear-gradient(
@@ -54,6 +67,7 @@
     box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.08);
   }
   
+  /* Cible : .mood-tabs__button:focus-visible */
   .mood-tabs__button:focus-visible {
     position: relative;
     z-index: 1;
@@ -63,14 +77,17 @@
   
   /* Tableau de bord */
   
+  /* Cible : .mood-dashboard */
   .mood-dashboard {
     min-width: 0;
   }
   
+  /* Cible : .mood-dashboard__header */
   .mood-dashboard__header {
     margin-bottom: 24px;
   }
   
+  /* Cible : .mood-dashboard__title */
   .mood-dashboard__title {
     margin: 0 0 8px;
     color: var(--mood-color-text);
@@ -80,6 +97,7 @@
     line-height: 1.3;
   }
   
+  /* Cible : .mood-dashboard__description */
   .mood-dashboard__description {
     margin: 0;
     color: var(--mood-color-muted);
@@ -87,11 +105,13 @@
     line-height: 1.65;
   }
   
+  /* Cible : .mood-dashboard__section, .mood-section */
   .mood-dashboard__section,
   .mood-section {
     min-width: 0;
   }
   
+  /* Cible : .mood-section */
   .mood-section {
     padding: 24px;
     border: 1px solid var(--mood-color-border);
@@ -106,6 +126,7 @@
     box-shadow: var(--mood-shadow-card);
   }
   
+  /* Cible : .mood-section__heading */
   .mood-section__heading {
     display: flex;
     align-items: center;
@@ -115,6 +136,7 @@
     margin-bottom: 20px;
   }
   
+  /* Cible : .mood-section__heading h2, .mood-section__heading h3 */
   .mood-section__heading h2,
   .mood-section__heading h3 {
     margin: 0;
@@ -126,6 +148,7 @@
   
   /* Boutons principaux */
   
+  /* Cible : .mood-add-button, .mood-primary-button */
   .mood-add-button,
   .mood-primary-button {
     display: inline-flex;
@@ -149,6 +172,7 @@
       box-shadow var(--mood-transition);
   }
   
+  /* Cible : .mood-add-button:hover:not(:disabled), .mood-primary-button:hover:not(:disabled) */
   .mood-add-button:hover:not(:disabled),
   .mood-primary-button:hover:not(:disabled) {
     border-color: rgba(196, 181, 253, 0.65);
@@ -156,11 +180,13 @@
     box-shadow: 0 6px 18px rgba(109, 73, 204, 0.24);
   }
   
+  /* Cible : .mood-add-button:active:not(:disabled), .mood-primary-button:active:not(:disabled) */
   .mood-add-button:active:not(:disabled),
   .mood-primary-button:active:not(:disabled) {
     transform: translateY(1px);
   }
   
+  /* Cible : .mood-add-flow */
   .mood-add-flow {
     display: grid;
     gap: 22px;
@@ -169,6 +195,7 @@
   
   /* Boutons secondaires */
   
+  /* Cible : .mood-secondary-button */
   .mood-secondary-button {
     display: inline-flex;
     align-items: center;
@@ -190,6 +217,7 @@
       color var(--mood-transition);
   }
   
+  /* Cible : .mood-secondary-button:hover:not(:disabled) */
   .mood-secondary-button:hover:not(:disabled) {
     border-color: rgba(34, 211, 238, 0.4);
     background: rgba(34, 211, 238, 0.07);
@@ -198,6 +226,7 @@
   
   /* Retours utilisateur */
   
+  /* Cible : .mood-feedback */
   .mood-feedback {
     margin: 14px 0 0;
     padding: 12px 14px;
@@ -207,6 +236,7 @@
     line-height: 1.6;
   }
   
+  /* Cible : .mood-feedback--error */
   .mood-feedback--error {
     border-color: rgba(251, 113, 133, 0.3);
     background: rgba(251, 113, 133, 0.09);
@@ -215,12 +245,14 @@
   
   /* Entrées du jour */
   
+  /* Cible : .mood-today-entries */
   .mood-today-entries {
     display: grid;
     gap: 12px;
     margin-top: 28px;
   }
   
+  /* Cible : .mood-today-entries > h3 */
   .mood-today-entries > h3 {
     margin: 0 0 4px;
     color: var(--mood-color-text);
@@ -230,50 +262,62 @@
   
   /* Responsive */
   
+  /* Règles responsive — (hover: hover) and (pointer: fine) */
   @media (hover: hover) and (pointer: fine) {
+    /* Cible : .mood-section */
     .mood-section {
       transition:
         border-color var(--mood-transition),
         box-shadow var(--mood-transition);
     }
   
+    /* Cible : .mood-section:hover */
     .mood-section:hover {
       border-color: rgba(167, 139, 250, 0.25);
     }
   }
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .mood-tabs */
     .mood-tabs {
       gap: 5px;
       margin-bottom: 19px;
       padding: 5px;
     }
   
+    /* Cible : .mood-tabs__button */
     .mood-tabs__button {
       min-height: 42px;
       padding-inline: 14px;
       font-size: 0.88rem;
     }
   
+    /* Cible : .mood-section */
     .mood-section {
       padding: 17px;
       border-radius: var(--mood-radius-md);
     }
   
+    /* Cible : .mood-section__heading */
     .mood-section__heading {
       align-items: stretch;
     }
   
+    /* Cible : .mood-add-button */
     .mood-add-button {
       width: 100%;
     }
   
+    /* Cible : .mood-dashboard__header */
     .mood-dashboard__header {
       margin-bottom: 19px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .mood-tabs__button, .mood-add-button, .mood-primary-button, .mood-secondary-button, .mood-section */
     .mood-tabs__button,
     .mood-add-button,
     .mood-primary-button,

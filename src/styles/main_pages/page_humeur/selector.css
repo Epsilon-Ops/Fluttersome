@@ -1,18 +1,30 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_humeur/selector.css
+   ZONE    : Page Humeur
+   RÔLE    : Selector
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — SÉLECTEURS D'HUMEUR ET D'ACTIVITÉ
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .mood-selector, .activity-selector */
    .mood-selector,
    .activity-selector {
      min-width: 0;
    }
    
+   /* Cible : .mood-selector__intro */
    .mood-selector__intro {
      margin-bottom: 24px;
    }
    
+   /* Cible : .mood-selector__title */
    .mood-selector__title {
      margin: 0 0 8px;
      color: var(--mood-color-text);
@@ -21,6 +33,7 @@
      letter-spacing: -0.025em;
    }
    
+   /* Cible : .mood-selector__description */
    .mood-selector__description {
      margin: 0;
      color: var(--mood-color-muted);
@@ -28,12 +41,14 @@
      line-height: 1.65;
    }
    
+   /* Cible : .mood-selector__categories */
    .mood-selector__categories {
      display: grid;
      grid-template-columns: repeat(2, minmax(0, 1fr));
      gap: 16px;
    }
    
+   /* Cible : .mood-category */
    .mood-category {
      min-width: 0;
      padding: 20px;
@@ -49,6 +64,7 @@
      box-shadow: var(--mood-shadow-card);
    }
    
+   /* Cible : .mood-category__title */
    .mood-category__title {
      display: flex;
      align-items: center;
@@ -60,6 +76,7 @@
      letter-spacing: -0.015em;
    }
    
+   /* Cible : .mood-category__dot */
    .mood-category__dot {
      width: 10px;
      height: 10px;
@@ -74,12 +91,14 @@
        );
    }
    
+   /* Cible : .mood-category__list */
    .mood-category__list {
      display: grid;
      grid-template-columns: repeat(2, minmax(0, 1fr));
      gap: 9px;
    }
    
+   /* Cible : .mood-option */
    .mood-option {
      display: flex;
      align-items: center;
@@ -101,11 +120,13 @@
        transform var(--mood-transition);
    }
    
+   /* Cible : .mood-option:hover */
    .mood-option:hover {
      border-color: var(--mood-option-color, var(--mood-color-primary));
      background: var(--mood-color-surface-hover);
    }
    
+   /* Cible : .mood-option.is-selected */
    .mood-option.is-selected {
      border-color: var(--mood-option-color, var(--mood-color-primary));
      background: color-mix(
@@ -128,6 +149,7 @@
          );
    }
    
+   /* Cible : .mood-option__icon */
    .mood-option__icon {
      display: inline-flex;
      align-items: center;
@@ -140,6 +162,7 @@
      color: var(--mood-option-color, var(--mood-color-primary));
    }
    
+   /* Cible : .mood-option__icon svg */
    .mood-option__icon svg {
      display: block;
      width: 32px;
@@ -148,6 +171,7 @@
      flex-shrink: 0;
    }
    
+   /* Cible : .mood-option__label */
    .mood-option__label {
      flex: 1;
      min-width: 0;
@@ -158,6 +182,7 @@
      line-height: 1.4;
    }
    
+   /* Cible : .mood-option__score */
    .mood-option__score {
      flex: 0 0 auto;
      color: var(--mood-option-color, var(--mood-color-muted));
@@ -166,10 +191,12 @@
      font-variant-numeric: tabular-nums;
    }
    
+   /* Cible : .mood-option.is-selected .mood-option__label */
    .mood-option.is-selected .mood-option__label {
      color: var(--mood-color-text);
    }
    
+   /* Cible : .mood-option:focus-visible, .activity-selector__option:focus-visible */
    .mood-option:focus-visible,
    .activity-selector__option:focus-visible {
      outline: 2px solid var(--mood-color-primary);
@@ -180,12 +207,14 @@
       Activités
       ----------------------------------------------------- */
    
+   /* Cible : .activity-selector */
    .activity-selector {
      margin: 0;
      padding: 0;
      border: 0;
    }
    
+   /* Cible : .activity-selector__title */
    .activity-selector__title {
      padding: 0;
      color: var(--mood-color-text);
@@ -193,6 +222,7 @@
      font-weight: 800;
    }
    
+   /* Cible : .activity-selector__description */
    .activity-selector__description {
      margin: 8px 0 16px;
      color: var(--mood-color-muted);
@@ -200,12 +230,14 @@
      line-height: 1.65;
    }
    
+   /* Cible : .activity-selector__list */
    .activity-selector__list {
      display: flex;
      flex-wrap: wrap;
      gap: 9px;
    }
    
+   /* Cible : .activity-selector__option */
    .activity-selector__option {
      display: inline-flex;
      align-items: center;
@@ -225,17 +257,20 @@
        box-shadow var(--mood-transition);
    }
    
+   /* Cible : .mood-option:disabled, .activity-selector__option:disabled */
    .mood-option:disabled,
    .activity-selector__option:disabled {
      cursor: not-allowed;
      opacity: 0.55;
    }
    
+   /* Cible : .activity-selector__option:hover */
    .activity-selector__option:hover {
      border-color: var(--mood-color-border-strong);
      background: var(--mood-color-surface-hover);
    }
    
+   /* Cible : .activity-selector__option.is-selected */
    .activity-selector__option.is-selected {
      border-color: var(--mood-color-primary);
      background: rgba(139, 92, 246, 0.14);
@@ -243,11 +278,13 @@
      box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.18);
    }
    
+   /* Cible : .activity-selector__option-label */
    .activity-selector__option-label {
      font-size: 0.88rem;
      font-weight: 650;
    }
    
+   /* Cible : .activity-selector__check */
    .activity-selector__check {
      display: inline-grid;
      width: 20px;
@@ -262,57 +299,71 @@
      font-weight: 800;
    }
    
+   /* Cible : .activity-selector__option.is-selected .activity-selector__check */
    .activity-selector__option.is-selected .activity-selector__check {
      border-color: var(--mood-color-primary);
      background: var(--mood-color-primary);
      color: #100b1c;
    }
    
+   /* Règles responsive — (hover: hover) and (pointer: fine) */
    @media (hover: hover) and (pointer: fine) {
+     /* Cible : .mood-option:hover, .activity-selector__option:hover */
      .mood-option:hover,
      .activity-selector__option:hover {
        transform: translateY(-1px);
      }
    }
    
+   /* Règles responsive — (max-width: 700px) */
    @media (max-width: 700px) {
+     /* Cible : .mood-selector__categories */
      .mood-selector__categories {
        grid-template-columns: minmax(0, 1fr);
      }
    }
    
+   /* Règles responsive — (max-width: 420px) */
    @media (max-width: 420px) {
+     /* Cible : .mood-selector__intro */
      .mood-selector__intro {
        margin-bottom: 18px;
      }
    
+     /* Cible : .mood-category */
      .mood-category {
        padding: 15px;
      }
    
+     /* Cible : .mood-category__list */
      .mood-category__list {
        grid-template-columns: minmax(0, 1fr);
      }
    
+     /* Cible : .mood-option */
      .mood-option {
        min-height: 50px;
        gap: 7px;
        padding: 9px 10px;
      }
    
+     /* Cible : .mood-option__icon */
      .mood-option__icon {
        width: 34px;
        height: 34px;
        flex-basis: 34px;
      }
    
+     /* Cible : .mood-option__icon svg */
      .mood-option__icon svg {
        width: 30px;
        height: 30px;
      }
    }
    
+   /* Règles responsive — (prefers-reduced-motion: reduce) */
    @media (prefers-reduced-motion: reduce) {
+     /* Cible : .mood-option, .activity-selector__option */
      .mood-option,
      .activity-selector__option {
        transition: none;

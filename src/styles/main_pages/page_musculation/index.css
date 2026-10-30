@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_musculation/index.css
+   ZONE    : Page Musculation
+   RÔLE    : Index
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 @import "./header.css";
 @import "./metrics.css";
 @import "./panel-calendar.css";
@@ -9,6 +18,7 @@
 @import "./responsive.css";
 @import "./animations.css";
 
+/* Cible : .strength-page */
 .strength-page {
   display: grid;
   gap: 24px;
@@ -18,12 +28,14 @@
   animation: strength-fade-in 0.45s ease both;
 }
 
+/* Cible : .strength-page *, .strength-page *::before, .strength-page *::after */
 .strength-page *,
 .strength-page *::before,
 .strength-page *::after {
   box-sizing: border-box;
 }
 
+/* Cible : .strength-page button, .strength-page input, .strength-page select, .strength-page textarea */
 .strength-page button,
 .strength-page input,
 .strength-page select,
@@ -31,16 +43,20 @@
   font: inherit;
 }
 
+/* Cible : .strength-page button */
 .strength-page button {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Cible : .strength-page :focus-visible */
 .strength-page :focus-visible {
   outline: 2px solid var(--color-accent, #a78bfa);
   outline-offset: 3px;
 }
 
+/* Règles responsive — (prefers-reduced-motion: reduce) */
 @media (prefers-reduced-motion: reduce) {
+  /* Cible : .strength-page, .strength-page *, .strength-page *::before, .strength-page *::after */
   .strength-page,
   .strength-page *,
   .strength-page *::before,

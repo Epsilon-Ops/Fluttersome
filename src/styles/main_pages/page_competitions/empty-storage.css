@@ -1,3 +1,12 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_competitions/empty-storage.css
+   ZONE    : Page Compétitions
+   RÔLE    : Empty storage
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
@@ -8,6 +17,7 @@
    ÉTAT VIDE
    ========================================================= */
 
+   /* Cible : .competitions-page .competition-empty-state */
    .competitions-page .competition-empty-state {
     position: relative;
     overflow: hidden;
@@ -33,6 +43,7 @@
     text-align: center;
   }
   
+  /* Cible : .competitions-page .competition-empty-state h3 */
   .competitions-page .competition-empty-state h3 {
     margin: 0 0 var(--space-2);
   
@@ -42,6 +53,7 @@
     line-height: 1.5;
   }
   
+  /* Cible : .competitions-page .competition-empty-state p */
   .competitions-page .competition-empty-state p {
     max-width: 440px;
     margin: 0 auto;
@@ -55,6 +67,7 @@
      NOTE DE STOCKAGE
      ========================================================= */
   
+  /* Cible : .competitions-page .competition-storage-note */
   .competitions-page .competition-storage-note {
     display: flex;
     align-items: flex-start;
@@ -79,6 +92,7 @@
     line-height: 1.8;
   }
   
+  /* Cible : .competitions-page .competition-storage-note > span:first-child */
   .competitions-page .competition-storage-note > span:first-child {
     flex: 0 0 auto;
     color: var(--competition-cyan);
@@ -86,6 +100,7 @@
   
   /* Empêche les contenus longs de déborder */
   
+  /* Cible : .competitions-page .competition-storage-note > * */
   .competitions-page .competition-storage-note > * {
     min-width: 0;
     overflow-wrap: anywhere;
@@ -95,12 +110,15 @@
      RESPONSIVE
      ========================================================= */
   
+  /* Règles responsive — (max-width: 600px) */
   @media (max-width: 600px) {
+    /* Cible : .competitions-page .competition-empty-state */
     .competitions-page .competition-empty-state {
       margin: 12px;
       padding: 26px 16px;
     }
   
+    /* Cible : .competitions-page .competition-storage-note */
     .competitions-page .competition-storage-note {
       padding: 12px;
     }

@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_taches/appearance.css
+   ZONE    : Page Tâches
+   RÔLE    : Appearance
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =====================================================
    EPSILON — APPARENCE ET PERSONNALISATION
    Black Diamond Premium++
    ===================================================== */
 
+   /* Cible : .tasks-appearance */
    .tasks-appearance {
     display: grid;
     gap: 20px;
@@ -11,6 +21,7 @@
   }
   
   /* Sélecteurs d'icônes et de couleurs */
+  /* Cible : .tasks-icon-picker, .tasks-color-picker */
   .tasks-icon-picker,
   .tasks-color-picker {
     display: flex;
@@ -19,6 +30,7 @@
     margin-top: 10px;
   }
   
+  /* Cible : .tasks-icon-option */
   .tasks-icon-option {
     display: grid;
     width: 42px;
@@ -38,12 +50,14 @@
       box-shadow 160ms ease;
   }
   
+  /* Cible : .tasks-icon-option:hover */
   .tasks-icon-option:hover {
     border-color: var(--tasks-border-strong);
     background: var(--tasks-surface-hover);
     color: var(--tasks-ink);
   }
   
+  /* Cible : .tasks-icon-option.is-selected */
   .tasks-icon-option.is-selected {
     border-color: rgba(167, 139, 250, 0.72);
     background: rgba(139, 92, 246, 0.17);
@@ -54,6 +68,7 @@
   }
   
   /* Palette de couleurs */
+  /* Cible : .tasks-color-option */
   .tasks-color-option {
     display: grid;
     width: 38px;
@@ -70,6 +85,7 @@
       transform 160ms ease;
   }
   
+  /* Cible : .tasks-color-option span */
   .tasks-color-option span {
     display: block;
     width: 26px;
@@ -80,17 +96,20 @@
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
   }
   
+  /* Cible : .tasks-color-option:hover */
   .tasks-color-option:hover {
     border-color: var(--tasks-border-strong);
     transform: translateY(-1px);
   }
   
+  /* Cible : .tasks-color-option.is-selected */
   .tasks-color-option.is-selected {
     border-color: var(--task-primary);
     box-shadow: 0 0 0 2px rgba(167, 139, 250, 0.18);
   }
   
   /* Recherche d'icônes */
+  /* Cible : .tasks-icon-search-controls */
   .tasks-icon-search-controls {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(150px, 0.65fr);
@@ -98,6 +117,7 @@
     margin-top: 10px;
   }
   
+  /* Cible : .tasks-icon-search-controls input, .tasks-icon-search-controls select */
   .tasks-icon-search-controls input,
   .tasks-icon-search-controls select {
     box-sizing: border-box;
@@ -118,15 +138,18 @@
       background 160ms ease;
   }
   
+  /* Cible : .tasks-icon-search-controls input::placeholder */
   .tasks-icon-search-controls input::placeholder {
     color: #77768e;
   }
   
+  /* Cible : .tasks-icon-search-controls input:hover, .tasks-icon-search-controls select:hover */
   .tasks-icon-search-controls input:hover,
   .tasks-icon-search-controls select:hover {
     border-color: var(--tasks-border-strong);
   }
   
+  /* Cible : .tasks-icon-search-controls input:focus, .tasks-icon-search-controls select:focus */
   .tasks-icon-search-controls input:focus,
   .tasks-icon-search-controls select:focus {
     border-color: var(--tasks-accent);
@@ -135,6 +158,7 @@
   }
   
   /* Résultats et groupes */
+  /* Cible : .tasks-icon-results */
   .tasks-icon-results {
     display: flex;
     flex-direction: column;
@@ -148,10 +172,12 @@
     scrollbar-width: thin;
   }
   
+  /* Cible : .tasks-icon-group */
   .tasks-icon-group {
     min-width: 0;
   }
   
+  /* Cible : .tasks-icon-group-title */
   .tasks-icon-group-title {
     display: flex;
     align-items: center;
@@ -164,6 +190,7 @@
     font-weight: 700;
   }
   
+  /* Cible : .tasks-icon-group-title span */
   .tasks-icon-group-title span {
     display: inline-grid;
     min-width: 21px;
@@ -179,6 +206,7 @@
     font-weight: 650;
   }
   
+  /* Cible : .tasks-icon-picker */
   .tasks-icon-picker {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
@@ -186,12 +214,14 @@
     margin-top: 0;
   }
   
+  /* Cible : .tasks-icon-option */
   .tasks-icon-option {
     width: 100%;
     min-width: 0;
     height: 42px;
   }
   
+  /* Cible : .tasks-icon-empty */
   .tasks-icon-empty {
     margin: 8px 0;
     padding: 18px 12px;
@@ -205,6 +235,7 @@
   }
   
   /* Accessibilité clavier */
+  /* Cible : .tasks-icon-option:focus-visible, .tasks-color-option:focus-visible, .tasks-icon-search-controls input:focus-visible, .tasks-icon-search-controls select:focus-visible */
   .tasks-icon-option:focus-visible,
   .tasks-color-option:focus-visible,
   .tasks-icon-search-controls input:focus-visible,
@@ -213,17 +244,22 @@
     outline-offset: 3px;
   }
   
+  /* Règles responsive — (max-width: 520px) */
   @media (max-width: 520px) {
+    /* Cible : .tasks-icon-search-controls */
     .tasks-icon-search-controls {
       grid-template-columns: minmax(0, 1fr);
     }
   
+    /* Cible : .tasks-icon-results */
     .tasks-icon-results {
       max-height: 240px;
     }
   }
   
+  /* Règles responsive — (prefers-reduced-motion: reduce) */
   @media (prefers-reduced-motion: reduce) {
+    /* Cible : .tasks-icon-option, .tasks-color-option, .tasks-icon-search-controls input, .tasks-icon-search-controls select */
     .tasks-icon-option,
     .tasks-color-option,
     .tasks-icon-search-controls input,

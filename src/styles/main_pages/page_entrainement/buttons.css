@@ -1,9 +1,19 @@
+/* ============================================================
+   FICHIER : src/styles/main_pages/page_entrainement/buttons.css
+   ZONE    : Page Entraînement
+   RÔLE    : Buttons
+   Chaque règle est précédée de « Cible » : les éléments
+   HTML qu’elle modifie. Les déclarations ne sont pas
+   redécrites ligne par ligne.
+   ============================================================ */
+
 
 /* =========================================================
    EPSILON — BLACK DIAMOND PREMIUM++
    ENTRAÎNEMENT — Boutons et interactions
    ========================================================= */
 
+   /* Cible : .training-icon-button, .training-today-button, .training-primary-button, .training-secondary-button, .training-text-button */
    .training-icon-button,
    .training-today-button,
    .training-primary-button,
@@ -39,6 +49,7 @@
    
    /* ---------- Bouton icône ---------- */
    
+   /* Cible : .training-icon-button */
    .training-icon-button {
      flex: 0 0 38px;
      width: 38px;
@@ -52,6 +63,7 @@
      font-size: 18px;
    }
    
+   /* Cible : .training-icon-button:hover */
    .training-icon-button:hover {
      color: #ffffff;
      background: var(--color-primary-light);
@@ -61,6 +73,7 @@
    
    /* ---------- Boutons secondaires ---------- */
    
+   /* Cible : .training-today-button, .training-secondary-button */
    .training-today-button,
    .training-secondary-button {
      color: var(--color-primary);
@@ -68,6 +81,7 @@
      border: 1px solid var(--color-border);
    }
    
+   /* Cible : .training-today-button:hover, .training-secondary-button:hover */
    .training-today-button:hover,
    .training-secondary-button:hover {
      color: #ffffff;
@@ -78,6 +92,7 @@
    
    /* ---------- Bouton principal ---------- */
    
+   /* Cible : .training-primary-button */
    .training-primary-button {
      color: #ffffff;
      background: linear-gradient(
@@ -91,6 +106,7 @@
      box-shadow: 0 5px 16px rgb(118 88 233 / 18%);
    }
    
+   /* Cible : .training-primary-button:hover */
    .training-primary-button:hover {
      background: linear-gradient(
        135deg,
@@ -106,6 +122,7 @@
    
    /* ---------- Bouton textuel ---------- */
    
+   /* Cible : .training-text-button */
    .training-text-button {
      min-height: 32px;
      padding: 6px 9px;
@@ -117,6 +134,7 @@
      font-size: 11px;
    }
    
+   /* Cible : .training-text-button:hover */
    .training-text-button:hover {
      color: var(--color-danger);
      background: var(--color-danger-light);
@@ -125,6 +143,7 @@
    
    /* ---------- États actifs ---------- */
    
+   /* Cible : .training-icon-button:active, .training-today-button:active, .training-primary-button:active, .training-secondary-button:active, .training-text-button:active */
    .training-icon-button:active,
    .training-today-button:active,
    .training-primary-button:active,
@@ -135,6 +154,7 @@
    
    /* ---------- États désactivés ---------- */
    
+   /* Cible : .training-page button:disabled, .training-block-actions button:disabled */
    .training-page button:disabled,
    .training-block-actions button:disabled {
      opacity: 0.42;
@@ -145,6 +165,7 @@
    
    /* ---------- Focus clavier ---------- */
    
+   /* Cible : .training-page .training-icon-button:focus-visible, .training-page .training-today-button:focus-visible, .training-page .training-primary-button:focus-visible, .traini… */
    .training-page .training-icon-button:focus-visible,
    .training-page .training-today-button:focus-visible,
    .training-page .training-primary-button:focus-visible,
@@ -156,7 +177,9 @@
    
    /* ---------- Mobile ---------- */
    
+   /* Règles responsive — (max-width: 480px) */
    @media (max-width: 480px) {
+     /* Cible : .training-primary-button, .training-secondary-button, .training-today-button */
      .training-primary-button,
      .training-secondary-button,
      .training-today-button {
@@ -164,7 +187,9 @@
      }
    }
    
+   /* Règles responsive — (prefers-reduced-motion: reduce) */
    @media (prefers-reduced-motion: reduce) {
+     /* Cible : .training-icon-button, .training-today-button, .training-primary-button, .training-secondary-button, .training-text-button */
      .training-icon-button,
      .training-today-button,
      .training-primary-button,
@@ -173,6 +198,7 @@
        transition: none;
      }
    
+     /* Cible : .training-icon-button:active, .training-today-button:active, .training-primary-button:active, .training-secondary-button:active, .training-text-button:active, .trainin… */
      .training-icon-button:active,
      .training-today-button:active,
      .training-primary-button:active,
