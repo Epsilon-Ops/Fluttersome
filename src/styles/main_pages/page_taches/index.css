@@ -1,10 +1,25 @@
 /* ============================================================
    FICHIER : src/styles/main_pages/page_taches/index.css
    ZONE    : Page Tâches
-   RÔLE    : Index
-   Chaque règle est précédée de « Cible » : les éléments
-   HTML qu’elle modifie. Les déclarations ne sont pas
-   redécrites ligne par ligne.
+   RÔLE    : Point d'entrée CSS principal
+
+   FONCTIONNEMENT :
+   Centralise et importe les différents fichiers CSS
+   responsables de l'apparence et du comportement visuel
+   de la page Tâches.
+
+   ORGANISATION :
+   - Variables globales de la page.
+   - Structure et mise en page.
+   - Composants et fonctionnalités.
+   - Apparence générale.
+   - Adaptations responsive.
+   - Animations et transitions.
+
+   IMPORTANT :
+   L'ordre des imports participe à la cascade CSS.
+   Chaque fichier conserve la responsabilité de sa
+   fonctionnalité ou de son domaine visuel.
    ============================================================ */
 
 
@@ -13,16 +28,99 @@
    Point d'entrée CSS
    ===================================================== */
 
-   @import "./variables.css";
-   @import "./layout.css";
-   @import "./buttons-tabs.css";
-   @import "./toolbar-filters.css";
-   @import "./statistics.css";
-   @import "./task-cards.css";
-   @import "./subtasks.css";
-   @import "./empty-storage.css";
-   @import "./modal-form.css";
-   @import "./appearance.css";
-   @import "./responsive.css";
-   @import "./animations.css";
-   
+
+/* -----------------------------------------------------
+   01 — FONDATIONS
+   Variables utilisées par les autres fichiers CSS.
+   ----------------------------------------------------- */
+
+@import "./variables.css";
+
+
+/* -----------------------------------------------------
+   02 — STRUCTURE GÉNÉRALE
+   Organisation et disposition des éléments de la page.
+   ----------------------------------------------------- */
+
+@import "./layout.css";
+
+
+/* -----------------------------------------------------
+   03 — NAVIGATION ET COMMANDES
+   Boutons, onglets et éléments de navigation.
+   ----------------------------------------------------- */
+
+@import "./buttons-tabs.css";
+
+
+/* -----------------------------------------------------
+   04 — BARRE D'OUTILS ET FILTRES
+   Recherche, filtres et commandes de gestion des tâches.
+   ----------------------------------------------------- */
+
+@import "./toolbar-filters.css";
+
+
+/* -----------------------------------------------------
+   05 — STATISTIQUES
+   Présentation des indicateurs et données statistiques.
+   ----------------------------------------------------- */
+
+@import "./statistics.css";
+
+
+/* -----------------------------------------------------
+   06 — CARTES DES TÂCHES
+   Apparence et organisation des cartes individuelles.
+   ----------------------------------------------------- */
+
+@import "./task-cards.css";
+
+
+/* -----------------------------------------------------
+   07 — SOUS-TÂCHES
+   Affichage, progression et interactions visuelles
+   des sous-tâches.
+   ----------------------------------------------------- */
+
+@import "./subtasks.css";
+
+
+/* -----------------------------------------------------
+   08 — ÉTATS VIDES
+   Présentation des zones sans données ou sans tâches.
+   ----------------------------------------------------- */
+
+@import "./empty-storage.css";
+
+
+/* -----------------------------------------------------
+   09 — MODALES ET FORMULAIRES
+   Fenêtres modales et éléments de saisie.
+   ----------------------------------------------------- */
+
+@import "./modal-form.css";
+
+
+/* -----------------------------------------------------
+   10 — APPARENCE GÉNÉRALE
+   Personnalisation visuelle complémentaire.
+   ----------------------------------------------------- */
+
+@import "./appearance.css";
+
+
+/* -----------------------------------------------------
+   11 — RESPONSIVE
+   Adaptations de l'interface selon la taille d'écran.
+   ----------------------------------------------------- */
+
+@import "./responsive.css";
+
+
+/* -----------------------------------------------------
+   12 — ANIMATIONS
+   Animations, transitions et effets visuels.
+   ----------------------------------------------------- */
+
+@import "./animations.css";

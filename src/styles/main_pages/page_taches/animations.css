@@ -1,10 +1,34 @@
+
 /* ============================================================
    FICHIER : src/styles/main_pages/page_taches/animations.css
    ZONE    : Page Tâches
-   RÔLE    : Animations
-   Chaque règle est précédée de « Cible » : les éléments
-   HTML qu’elle modifie. Les déclarations ne sont pas
-   redécrites ligne par ligne.
+   RÔLE    : Animations et micro-interactions
+
+   RESPONSABILITÉS :
+   - Définir les animations réutilisables.
+   - Animer l'apparition des différentes zones.
+   - Ajouter des transitions aux cartes et panneaux.
+   - Améliorer les interactions des boutons.
+   - Animer l'ouverture des modales.
+   - Mettre en évidence certains indicateurs.
+
+   ORGANISATION :
+   01. Définitions des animations
+   02. Apparition des zones principales
+   03. Cartes et panneaux
+   04. Boutons et commandes
+   05. Animations des modales
+   06. Indicateurs de statut
+
+   IMPORTANT :
+   Les transitions et animations sont définies ici
+   lorsqu'elles concernent plusieurs composants.
+
+   Les animations propres à un composant peuvent
+   rester dans son fichier CSS spécialisé.
+
+   La gestion globale de prefers-reduced-motion
+   est centralisée dans responsive.css.
    ============================================================ */
 
 
@@ -13,262 +37,567 @@
    Black Diamond Premium++
    ===================================================== */
 
+
+/* =====================================================
+   01 — DÉFINITIONS DES ANIMATIONS
+   ===================================================== */
+
+
 /* -----------------------------------------------------
-   1. Apparition progressive de la page
+   APPARITION PROGRESSIVE DE LA PAGE
+
+   Animation : tasks-fade-in
+
+   Rôle :
+   Fait apparaître progressivement un élément
+   en lui faisant effectuer un léger déplacement vertical.
+
+   Utilisation :
+   Apparition des principales zones de la page.
+
+   Effets :
+   - Départ avec une opacité nulle.
+   - Déplacement initial vers le bas.
+   - Arrivée à sa position normale.
    ----------------------------------------------------- */
 
-   /* Animation : tasks-fade-in */
-   @keyframes tasks-fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes tasks-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
-  
-  /* Animation : tasks-modal-enter */
-  @keyframes tasks-modal-enter {
-    from {
-      opacity: 0;
-      transform: translateY(12px) scale(0.985);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-  
-  /* Animation : tasks-backdrop-enter */
-  @keyframes tasks-backdrop-enter {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
-  }
-  
-  /* Animation : tasks-glow-pulse */
-  @keyframes tasks-glow-pulse {
-    0%,
-    100% {
-      box-shadow: 0 0 0 rgba(139, 92, 246, 0);
-    }
-  
-    50% {
-      box-shadow: 0 0 22px rgba(139, 92, 246, 0.12);
-    }
-  }
-  
-  /* Animation : tasks-status-pulse */
-  @keyframes tasks-status-pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-  
-    50% {
-      opacity: 0.65;
-    }
-  }
-  
-  /* Animation : tasks-progress-enter */
-  @keyframes tasks-progress-enter {
-    from {
-      transform: scaleX(0);
-    }
-  
-    to {
-      transform: scaleX(1);
-    }
-  }
-  
-  /* -----------------------------------------------------
-     2. Apparition des principales zones
-     ----------------------------------------------------- */
-  
-  /* Cible : .tasks-page > .tasks-header, .tasks-page > .tasks-page-heading, .tasks-page > .tasks-overview */
-  .tasks-page > .tasks-header,
-  .tasks-page > .tasks-page-heading,
-  .tasks-page > .tasks-overview {
-    animation: tasks-fade-in 360ms ease-out both;
-  }
-  
-  /* Cible : .tasks-page > .tasks-page-heading */
-  .tasks-page > .tasks-page-heading {
-    animation-delay: 45ms;
-  }
-  
-  /* Cible : .tasks-page > .tasks-overview */
-  .tasks-page > .tasks-overview {
-    animation-delay: 80ms;
-  }
-  
-  /* -----------------------------------------------------
-     3. Cartes et panneaux
-     ----------------------------------------------------- */
-  
-  /* Cible : .task-card, .tasks-stat-card, .tasks-stats-panel, .tasks-toolbar, .tasks-empty */
-  .task-card,
-  .tasks-stat-card,
-  .tasks-stats-panel,
-  .tasks-toolbar,
-  .tasks-empty {
-    transition:
-      border-color 180ms ease,
-      box-shadow 180ms ease,
-      background-color 180ms ease;
-  }
-  
-  /* Règles responsive — (hover: hover) and (pointer: fine) */
-  @media (hover: hover) and (pointer: fine) {
-    /* Cible : .task-card:hover */
-    .task-card:hover {
-      border-color: rgba(167, 139, 250, 0.32);
-    }
-  
-    /* Cible : .tasks-stat-card:hover */
-    .tasks-stat-card:hover {
-      border-color: rgba(167, 139, 250, 0.28);
-    }
-  
-    /* Cible : .tasks-toolbar:hover */
-    .tasks-toolbar:hover {
-      border-color: rgba(167, 139, 250, 0.24);
-    }
-  }
-  
-  /* -----------------------------------------------------
-     4. Boutons et commandes
-     ----------------------------------------------------- */
-  
-  /* Cible : .tasks-page button, .tasks-modal button */
-  .tasks-page button,
-  .tasks-modal button {
-    -webkit-tap-highlight-color: transparent;
-  }
-  
-  /* Cible : .tasks-primary-button, .tasks-secondary-button, .tasks-reset-filters, .tasks-tab, .task-action-button */
-  .tasks-primary-button,
-  .tasks-secondary-button,
-  .tasks-reset-filters,
-  .tasks-tab,
-  .task-action-button {
-    transition:
-      color 180ms ease,
-      background 180ms ease,
-      border-color 180ms ease,
-      box-shadow 180ms ease,
-      transform 180ms ease,
-      opacity 180ms ease;
-  }
-  
-  /* Règles responsive — (hover: hover) and (pointer: fine) */
-  @media (hover: hover) and (pointer: fine) {
-    /* Cible : .tasks-primary-button:hover:not(:disabled), .tasks-secondary-button:hover:not(:disabled) */
-    .tasks-primary-button:hover:not(:disabled),
-    .tasks-secondary-button:hover:not(:disabled) {
-      transform: translateY(-1px);
-    }
-  
-    /* Cible : .tasks-reset-filters:hover:not(:disabled), .task-action-button:hover:not(:disabled) */
-    .tasks-reset-filters:hover:not(:disabled),
-    .task-action-button:hover:not(:disabled) {
-      transform: translateY(-1px);
-    }
-  }
-  
-  /* Cible : .tasks-page button:active:not(:disabled), .tasks-modal button:active:not(:disabled) */
-  .tasks-page button:active:not(:disabled),
-  .tasks-modal button:active:not(:disabled) {
+
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  
-  /* -----------------------------------------------------
-     5. Modale
-     ----------------------------------------------------- */
-  
-  /* Cible : .tasks-modal-backdrop */
-  .tasks-modal-backdrop {
-    animation: tasks-backdrop-enter 180ms ease-out both;
+}
+
+
+/* -----------------------------------------------------
+   APPARITION DE LA MODALE
+
+   Animation : tasks-modal-enter
+
+   Rôle :
+   Anime l'entrée de la fenêtre modale.
+
+   Effets :
+   - Apparition progressive.
+   - Déplacement vertical léger.
+   - Agrandissement subtil jusqu'à sa taille normale.
+
+   Objectif :
+   Donner une impression d'ouverture fluide.
+   ----------------------------------------------------- */
+
+@keyframes tasks-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
   }
-  
-  /* Cible : .tasks-modal */
-  .tasks-modal {
-    animation: tasks-modal-enter 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
-    transform-origin: center;
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-  
-  /* -----------------------------------------------------
-     6. Indicateurs de statut
-     ----------------------------------------------------- */
-  
-  /* Cible : .tasks-storage-dot */
-  .tasks-storage-dot {
-    animation: tasks-status-pulse 2.8s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------------------
+   APPARITION DU FOND DE LA MODALE
+
+   Animation : tasks-backdrop-enter
+
+   Rôle :
+   Fait apparaître progressivement l'arrière-plan
+   assombri placé derrière la fenêtre modale.
+
+   Effet :
+   Passage progressif d'une transparence totale
+   à une opacité normale.
+   ----------------------------------------------------- */
+
+@keyframes tasks-backdrop-enter {
+  from {
+    opacity: 0;
   }
-  
-  /* -----------------------------------------------------
-     7. Progression des sous-tâches
-     ----------------------------------------------------- */
-  
-  /* Cible : .task-subtasks-progress-fill */
-  .task-subtasks-progress-fill {
-    transform-origin: left center;
-    animation: tasks-progress-enter 450ms ease-out both;
+
+  to {
+    opacity: 1;
   }
-  
-  /* -----------------------------------------------------
-     8. Interactions clavier
-     ----------------------------------------------------- */
-  
-  /* Cible : .tasks-page :where(button, a, summary), .tasks-modal :where(button, a, summary) */
-  .tasks-page :where(button, a, summary),
-  .tasks-modal :where(button, a, summary) {
-    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* -----------------------------------------------------
+   PULSATION LUMINEUSE
+
+   Animation : tasks-glow-pulse
+
+   Rôle :
+   Produit un effet de halo violet qui apparaît
+   puis disparaît progressivement.
+
+   Effet :
+   Variation périodique de la box-shadow.
+
+   Note :
+   Cette animation est disponible pour les composants
+   qui souhaitent utiliser une pulsation lumineuse.
+   ----------------------------------------------------- */
+
+@keyframes tasks-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(139, 92, 246, 0);
   }
-  
-  /* Cible : .tasks-page :where(button, a, summary):focus-visible, .tasks-modal :where(button, a, summary):focus-visible */
-  .tasks-page :where(button, a, summary):focus-visible,
-  .tasks-modal :where(button, a, summary):focus-visible {
-    outline: 2px solid #a78bfa;
-    outline-offset: 3px;
+
+  50% {
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.12);
   }
-  
-  /* -----------------------------------------------------
-     9. Accessibilité — mouvement réduit
-     ----------------------------------------------------- */
-  
-  /* Règles responsive — (prefers-reduced-motion: reduce) */
-  @media (prefers-reduced-motion: reduce) {
-    /* Cible : .tasks-page > .tasks-header, .tasks-page > .tasks-page-heading, .tasks-page > .tasks-overview, .tasks-modal-backdrop, .tasks-modal, .tasks-storage-dot, .task-subtasks-… */
-    .tasks-page > .tasks-header,
-    .tasks-page > .tasks-page-heading,
-    .tasks-page > .tasks-overview,
-    .tasks-modal-backdrop,
-    .tasks-modal,
-    .tasks-storage-dot,
-    .task-subtasks-progress-fill {
-      animation: none !important;
-    }
-  
-    /* Cible : .tasks-page *, .tasks-page *::before, .tasks-page *::after, .tasks-modal *, .tasks-modal *::before, .tasks-modal *::after */
-    .tasks-page *,
-    .tasks-page *::before,
-    .tasks-page *::after,
-    .tasks-modal *,
-    .tasks-modal *::before,
-    .tasks-modal *::after {
-      scroll-behavior: auto !important;
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
+}
+
+
+/* -----------------------------------------------------
+   PULSATION D'UN INDICATEUR DE STATUT
+
+   Animation : tasks-status-pulse
+
+   Rôle :
+   Fait varier légèrement l'opacité d'un indicateur
+   pour attirer discrètement l'attention.
+
+   Utilisation :
+   Indicateur visuel du stockage.
+   ----------------------------------------------------- */
+
+@keyframes tasks-status-pulse {
+  0%,
+  100% {
+    opacity: 1;
   }
-  
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+
+/* -----------------------------------------------------
+   ANIMATION DE PROGRESSION
+
+   Animation : tasks-progress-enter
+
+   Rôle :
+   Définit une animation de remplissage horizontal
+   à l'aide d'une transformation scaleX().
+
+   Effets :
+   - Départ avec une largeur visuelle nulle.
+   - Extension progressive jusqu'à la taille normale.
+
+   IMPORTANT :
+   Cette animation n'est actuellement pas affectée
+   à la barre des sous-tâches de TasksSubtasks.jsx.
+
+   Elle est conservée pour éviter de supprimer
+   une éventuelle utilisation dans un autre composant.
+   ----------------------------------------------------- */
+
+@keyframes tasks-progress-enter {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* =====================================================
+   02 — APPARITION DES ZONES PRINCIPALES
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   ANIMATION INITIALE DE LA PAGE
+
+   Cibles :
+   - .tasks-header
+   - .tasks-page-heading
+   - .tasks-overview
+
+   Condition :
+   Les éléments doivent être des enfants directs
+   de .tasks-page.
+
+   Rôle :
+   Anime l'apparition des principales zones
+   lors de leur affichage.
+
+   Animation :
+   tasks-fade-in pendant 360ms.
+   ----------------------------------------------------- */
+
+.tasks-page > .tasks-header,
+.tasks-page > .tasks-page-heading,
+.tasks-page > .tasks-overview {
+  animation: tasks-fade-in 360ms ease-out both;
+}
+
+
+/* -----------------------------------------------------
+   DÉCALAGE DE L'APPARITION DU TITRE
+
+   Cible : .tasks-page > .tasks-page-heading
+
+   Rôle :
+   Introduit un léger délai avant l'apparition
+   du titre de la page.
+
+   Objectif :
+   Créer une apparition progressive des zones
+   plutôt qu'un affichage simultané.
+   ----------------------------------------------------- */
+
+.tasks-page > .tasks-page-heading {
+  animation-delay: 45ms;
+}
+
+
+/* -----------------------------------------------------
+   DÉCALAGE DE L'APPARITION DU CONTENU
+
+   Cible : .tasks-page > .tasks-overview
+
+   Rôle :
+   Fait apparaître le contenu principal légèrement
+   après l'en-tête et le titre.
+   ----------------------------------------------------- */
+
+.tasks-page > .tasks-overview {
+  animation-delay: 80ms;
+}
+
+
+/* =====================================================
+   03 — TRANSITIONS DES CARTES ET PANNEAUX
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   TRANSITIONS VISUELLES DES COMPOSANTS
+
+   Cibles :
+   - .task-card
+   - .tasks-stat-card
+   - .tasks-stats-panel
+   - .tasks-toolbar
+   - .tasks-empty
+
+   Rôle :
+   Prépare les composants à effectuer des transitions
+   fluides lors de changements visuels.
+
+   Propriétés concernées :
+   - Couleur des bordures.
+   - Ombres.
+   - Couleur d'arrière-plan.
+
+   IMPORTANT :
+   Les transitions sont communes à plusieurs composants.
+   Les styles spécifiques de chaque état restent
+   dans leurs fichiers CSS respectifs.
+   ----------------------------------------------------- */
+
+.task-card,
+.tasks-stat-card,
+.tasks-stats-panel,
+.tasks-toolbar,
+.tasks-empty {
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+
+/* -----------------------------------------------------
+   INTERACTIONS AU SURVOL DES CARTES ET PANNEAUX
+
+   Condition :
+   - hover: hover
+   - pointer: fine
+
+   Rôle :
+   Active les effets de survol uniquement sur
+   les appareils disposant d'un pointeur précis.
+
+   Objectif :
+   Éviter les effets hover artificiels sur les écrans
+   tactiles.
+   ----------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+
+  /* ---------------------------------------------------
+     SURVOL DES CARTES DE TÂCHES
+
+     Cible : .task-card:hover
+
+     Rôle :
+     Renforce légèrement la bordure de la carte
+     lors du survol.
+     --------------------------------------------------- */
+
+  .task-card:hover {
+    border-color: rgba(167, 139, 250, 0.32);
+  }
+
+
+  /* ---------------------------------------------------
+     SURVOL DES CARTES STATISTIQUES
+
+     Cible : .tasks-stat-card:hover
+
+     Rôle :
+     Renforce la bordure des cartes statistiques
+     pour signaler leur interaction.
+     --------------------------------------------------- */
+
+  .tasks-stat-card:hover {
+    border-color: rgba(167, 139, 250, 0.28);
+  }
+
+
+  /* ---------------------------------------------------
+     SURVOL DE LA BARRE D'OUTILS
+
+     Cible : .tasks-toolbar:hover
+
+     Rôle :
+     Modifie légèrement la bordure de la barre d'outils
+     lors du survol.
+     --------------------------------------------------- */
+
+  .tasks-toolbar:hover {
+    border-color: rgba(167, 139, 250, 0.24);
+  }
+}
+
+
+/* =====================================================
+   04 — BOUTONS ET COMMANDES
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   SUPPRESSION DU FLASH TACTILE NATIF
+
+   Cibles :
+   - Boutons de la page.
+   - Boutons des modales.
+
+   Rôle :
+   Supprime la coloration de surbrillance tactile
+   appliquée par certains navigateurs mobiles
+   lors d'un appui sur un bouton.
+
+   IMPORTANT :
+   Ne supprime pas les retours visuels personnalisés
+   définis par les états hover, active et focus.
+   ----------------------------------------------------- */
+
+.tasks-page button,
+.tasks-modal button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* -----------------------------------------------------
+   TRANSITIONS DES BOUTONS ET COMMANDES
+
+   Cibles :
+   - .tasks-primary-button
+   - .tasks-secondary-button
+   - .tasks-reset-filters
+   - .tasks-tab
+   - .task-action-button
+
+   Rôle :
+   Harmonise les transitions visuelles des principaux
+   boutons et commandes de la page.
+
+   Propriétés concernées :
+   - Couleur du texte.
+   - Arrière-plan.
+   - Bordures.
+   - Ombres.
+   - Déplacement.
+   - Opacité.
+   ----------------------------------------------------- */
+
+.tasks-primary-button,
+.tasks-secondary-button,
+.tasks-reset-filters,
+.tasks-tab,
+.task-action-button {
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+
+/* -----------------------------------------------------
+   EFFETS DE SURVOL DES BOUTONS
+
+   Condition :
+   - hover: hover
+   - pointer: fine
+
+   Rôle :
+   Ajoute un léger déplacement vertical aux commandes
+   lorsque l'utilisateur les survole.
+
+   IMPORTANT :
+   Les boutons désactivés sont exclus de ces effets.
+   ----------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+
+  /* ---------------------------------------------------
+     BOUTONS PRINCIPAUX ET SECONDAIRES
+
+     Cibles :
+     - .tasks-primary-button:hover
+     - .tasks-secondary-button:hover
+
+     Rôle :
+     Soulève légèrement les boutons au survol.
+     --------------------------------------------------- */
+
+  .tasks-primary-button:hover:not(:disabled),
+  .tasks-secondary-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+
+  /* ---------------------------------------------------
+     BOUTONS DE RÉINITIALISATION ET D'ACTION
+
+     Cibles :
+     - .tasks-reset-filters:hover
+     - .task-action-button:hover
+
+     Rôle :
+     Applique le même léger déplacement vertical
+     aux commandes secondaires.
+     --------------------------------------------------- */
+
+  .tasks-reset-filters:hover:not(:disabled),
+  .task-action-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+}
+
+
+/* -----------------------------------------------------
+   ÉTAT ACTIF DES BOUTONS
+
+   Cibles :
+   - Boutons de la page.
+   - Boutons des modales.
+
+   Condition :
+   :active:not(:disabled)
+
+   Rôle :
+   Ramène les boutons à leur position normale
+   pendant leur activation.
+
+   Objectif :
+   Donner un retour visuel immédiat lors de l'appui.
+   ----------------------------------------------------- */
+
+.tasks-page button:active:not(:disabled),
+.tasks-modal button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   05 — ANIMATIONS DES MODALES
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   APPARITION DU FOND DE LA MODALE
+
+   Cible : .tasks-modal-backdrop
+
+   Rôle :
+   Anime l'apparition de l'arrière-plan qui recouvre
+   la page derrière la fenêtre modale.
+
+   Animation :
+   tasks-backdrop-enter pendant 180ms.
+   ----------------------------------------------------- */
+
+.tasks-modal-backdrop {
+  animation: tasks-backdrop-enter 180ms ease-out both;
+}
+
+
+/* -----------------------------------------------------
+   APPARITION DE LA FENÊTRE MODALE
+
+   Cible : .tasks-modal
+
+   Rôle :
+   Anime l'entrée de la fenêtre modale.
+
+   Animation :
+   tasks-modal-enter pendant 220ms.
+
+   transform-origin :
+   Définit le centre de la fenêtre comme origine
+   de sa transformation.
+   ----------------------------------------------------- */
+
+.tasks-modal {
+  animation: tasks-modal-enter 220ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  transform-origin: center;
+}
+
+
+/* =====================================================
+   06 — INDICATEURS DE STATUT
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   INDICATEUR LUMINEUX DU STOCKAGE
+
+   Cible : .tasks-storage-dot
+
+   Rôle :
+   Anime périodiquement l'opacité de l'indicateur
+   associé au statut du stockage.
+
+   Animation :
+   tasks-status-pulse pendant 2,8 secondes.
+
+   Comportement :
+   Animation infinie et progressive.
+   ----------------------------------------------------- */
+
+.tasks-storage-dot {
+  animation: tasks-status-pulse 2.8s ease-in-out infinite;
+}

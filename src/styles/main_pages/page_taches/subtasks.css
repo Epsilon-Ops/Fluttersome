@@ -1,10 +1,24 @@
 /* ============================================================
    FICHIER : src/styles/main_pages/page_taches/subtasks.css
    ZONE    : Page Tâches
-   RÔLE    : Subtasks
-   Chaque règle est précédée de « Cible » : les éléments
-   HTML qu’elle modifie. Les déclarations ne sont pas
-   redécrites ligne par ligne.
+   RÔLE    : Gestion visuelle des sous-tâches
+
+   COMPOSANT JSX ASSOCIÉ :
+   TasksSubtasks.jsx
+
+   FONCTIONNEMENT GÉNÉRAL :
+   - Affiche les sous-tâches d'une tâche.
+   - Permet de déplier et replier leur liste.
+   - Affiche le nombre de sous-tâches terminées.
+   - Affiche une barre de progression dynamique.
+   - Permet de cocher ou décocher chaque sous-tâche.
+   - Barre le texte des sous-tâches terminées.
+
+   IMPORTANT :
+   Chaque règle est précédée de « Cible » pour identifier
+   précisément les éléments JSX concernés.
+   Les commentaires expliquent le rôle visuel et fonctionnel
+   des blocs sans répéter inutilement chaque propriété.
    ============================================================ */
 
 
@@ -13,156 +27,523 @@
    Black Diamond Premium++
    ===================================================== */
 
-   /* Cible : .task-subtasks */
-   .task-subtasks {
-    min-width: 0;
-    margin-top: 13px;
-  }
-  
-  /* Cible : .task-subtasks-toggle */
-  .task-subtasks-toggle {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    min-width: 0;
-    padding: 8px 0;
-    border: 0;
-    border-radius: 5px;
-    background: transparent;
-    color: var(--tasks-text-soft);
-    text-align: left;
-    font: inherit;
-    font-size: 0.78rem;
-    font-weight: 650;
-    cursor: pointer;
-    transition: color 160ms ease;
-  }
-  
-  /* Cible : .task-subtasks-toggle:hover */
-  .task-subtasks-toggle:hover {
-    color: #d8caff;
-  }
-  
-  /* Cible : .task-subtasks-toggle:focus-visible */
-  .task-subtasks-toggle:focus-visible {
-    outline: 2px solid var(--tasks-red);
-    outline-offset: 3px;
-  }
-  
-  /* Cible : .task-subtasks-progress-label */
-  .task-subtasks-progress-label {
-    margin-left: auto;
-    color: var(--tasks-muted);
-    font-size: 0.73rem;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-  
-  /* Cible : .task-subtasks-progress */
+
+/* -----------------------------------------------------
+   CONTENEUR PRINCIPAL DES SOUS-TÂCHES
+
+   Cible : .task-subtasks
+
+   JSX :
+   <div className="task-subtasks">
+
+   Rôle :
+   Conteneur général regroupant le bouton d'ouverture
+   et la liste des sous-tâches.
+
+   Comportement :
+   - Empêche les débordements horizontaux.
+   - Sépare visuellement les sous-tâches du contenu
+     principal de la tâche.
+   ----------------------------------------------------- */
+
+.task-subtasks {
+  min-width: 0;
+  margin-top: 13px;
+}
+
+
+/* -----------------------------------------------------
+   BOUTON D'OUVERTURE / FERMETURE
+
+   Cible : .task-subtasks-toggle
+
+   JSX :
+   <button className="task-subtasks-toggle">
+
+   Rôle :
+   Bouton permettant de déplier ou de replier la liste
+   des sous-tâches.
+
+   Contenu JSX :
+   - Flèche indiquant l'état ouvert ou fermé.
+   - Texte « Sous-tâches ».
+   - Compteur de progression.
+   - Barre de progression.
+
+   Apparence :
+   - Organisation horizontale avec Flexbox.
+   - Alignement vertical des éléments.
+   - Fond transparent pour s'intégrer à la tâche.
+   - Texte aligné à gauche.
+   - Espacement régulier entre les éléments.
+
+   Interaction :
+   - Curseur pointeur.
+   - Transition douce de la couleur du texte.
+   ----------------------------------------------------- */
+
+.task-subtasks-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--tasks-text-soft);
+  text-align: left;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+
+/* -----------------------------------------------------
+   SURVOL DU BOUTON
+
+   Cible : .task-subtasks-toggle:hover
+
+   Rôle :
+   Modifie la couleur du bouton lorsque l'utilisateur
+   passe sa souris dessus.
+
+   Objectif :
+   Fournir un retour visuel indiquant que le bouton
+   est interactif.
+   ----------------------------------------------------- */
+
+.task-subtasks-toggle:hover {
+  color: #d8caff;
+}
+
+
+/* -----------------------------------------------------
+   ACCESSIBILITÉ DU BOUTON AU CLAVIER
+
+   Cible : .task-subtasks-toggle:focus-visible
+
+   Rôle :
+   Affiche un contour lorsque le bouton reçoit le focus
+   via la navigation au clavier.
+
+   Objectif :
+   Permettre de repérer visuellement le bouton actif
+   sans dépendre de la souris.
+   ----------------------------------------------------- */
+
+.task-subtasks-toggle:focus-visible {
+  outline: 2px solid var(--tasks-red);
+  outline-offset: 3px;
+}
+
+
+/* -----------------------------------------------------
+   COMPTEUR DES SOUS-TÂCHES TERMINÉES
+
+   Cible : .task-subtasks-progress-label
+
+   JSX :
+   <span className="task-subtasks-progress-label">
+     {completed}/{subtasks.length}
+   </span>
+
+   Rôle :
+   Affiche le nombre de sous-tâches terminées par rapport
+   au nombre total de sous-tâches.
+
+   Exemple :
+   3/5 signifie que 3 sous-tâches sur 5 sont terminées.
+
+   Apparence :
+   - Alignement automatique à droite grâce à margin-left.
+   - Couleur secondaire.
+   - Chiffres à largeur stable pour éviter les variations
+     visuelles lorsque le compteur change.
+   - Empêche le retour à la ligne.
+   ----------------------------------------------------- */
+
+.task-subtasks-progress-label {
+  margin-left: auto;
+  color: var(--tasks-muted);
+  font-size: 0.73rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+
+/* -----------------------------------------------------
+   CONTENEUR DE LA BARRE DE PROGRESSION
+
+   Cible : .task-subtasks-progress
+
+   JSX :
+   <span className="task-subtasks-progress">
+     <span style={{ width: `${percentage}%` }} />
+   </span>
+
+   Rôle :
+   Définit le cadre horizontal dans lequel s'affiche
+   la progression des sous-tâches.
+
+   Apparence :
+   - Barre de largeur fixe.
+   - Hauteur réduite.
+   - Fond violet discret.
+   - Bordure légère.
+   - Extrémités complètement arrondies.
+
+   Comportement :
+   - Masque le débordement du remplissage intérieur.
+   - Conserve sa largeur dans le bouton Flexbox.
+   ----------------------------------------------------- */
+
+.task-subtasks-progress {
+  width: 64px;
+  height: 6px;
+  flex: 0 0 64px;
+  overflow: hidden;
+  border: 1px solid rgba(167, 139, 250, 0.1);
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+
+/* -----------------------------------------------------
+   REMPLISSAGE DYNAMIQUE DE LA BARRE DE PROGRESSION
+
+   Cible : .task-subtasks-progress > span
+
+   JSX :
+   <span style={{ width: `${percentage}%` }} />
+
+   Rôle :
+   Représente visuellement le pourcentage de sous-tâches
+   terminées.
+
+   Fonctionnement :
+   La largeur est calculée directement dans le JSX
+   à partir de la variable percentage.
+
+   Exemples :
+   - 0 %   : barre vide.
+   - 50 %  : barre remplie à moitié.
+   - 100 % : barre entièrement remplie.
+
+   Apparence :
+   - Dégradé violet vers cyan.
+   - Effet lumineux discret.
+   - Extrémités arrondies.
+
+   Animation :
+   La transition accompagne les changements de largeur
+   lorsque l'utilisateur coche ou décoche une sous-tâche.
+   ----------------------------------------------------- */
+
+.task-subtasks-progress > span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee);
+  box-shadow: 0 0 9px rgba(139, 92, 246, 0.22);
+  transition: width 220ms ease;
+}
+
+
+/* -----------------------------------------------------
+   LISTE DES SOUS-TÂCHES DÉPLIÉES
+
+   Cible : .task-subtasks-list
+
+   JSX :
+   <div className="task-subtasks-list">
+
+   Rôle :
+   Conteneur affiché uniquement lorsque la variable
+   expanded du composant JSX vaut true.
+
+   Il regroupe toutes les sous-tâches générées
+   par subtasks.map().
+
+   Apparence :
+   - Organisation verticale avec Flexbox.
+   - Espacement régulier entre les sous-tâches.
+   - Décalage vers la droite par rapport au bouton.
+   - Trait vertical à gauche pour matérialiser
+     visuellement le rattachement aux sous-tâches.
+
+   Comportement :
+   - Empêche les débordements horizontaux.
+   ----------------------------------------------------- */
+
+.task-subtasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px 0 5px 13px;
+  border-left: 1px solid var(--tasks-border);
+}
+
+
+/* -----------------------------------------------------
+   LIGNE INDIVIDUELLE D'UNE SOUS-TÂCHE
+
+   Cible : .task-subtask
+
+   JSX :
+   <label className="task-subtask">
+
+   Rôle :
+   Représente une sous-tâche individuelle dans la liste.
+
+   Contenu :
+   - Une case à cocher.
+   - Le titre de la sous-tâche.
+
+   Apparence :
+   - Organisation horizontale avec Flexbox.
+   - Case à cocher alignée en haut.
+   - Espacement entre la case et le texte.
+   - Couleur de texte secondaire.
+
+   Interaction :
+   Le label permet également de cliquer sur le texte
+   pour activer ou désactiver la case à cocher.
+   ----------------------------------------------------- */
+
+.task-subtask {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  min-width: 0;
+  color: var(--tasks-text-soft);
+  font-size: 0.83rem;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+
+/* -----------------------------------------------------
+   CASE À COCHER D'UNE SOUS-TÂCHE
+
+   Cible : .task-subtask input
+
+   JSX :
+   <input
+     type="checkbox"
+     checked={Boolean(subtask.completed)}
+   />
+
+   Rôle :
+   Permet à l'utilisateur de marquer une sous-tâche
+   comme terminée ou non terminée.
+
+   Fonctionnement :
+   - Son état est contrôlé par subtask.completed.
+   - Son changement déclenche onToggleSubtask.
+   - La couleur de validation utilise la variable
+     --tasks-accent-dark.
+
+   Apparence :
+   - Dimensions fixes.
+   - Alignement avec le début du texte.
+   - Curseur pointeur.
+   ----------------------------------------------------- */
+
+.task-subtask input {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  margin: 3px 0 0;
+  accent-color: var(--tasks-accent-dark);
+  cursor: pointer;
+}
+
+
+/* -----------------------------------------------------
+   ACCESSIBILITÉ DE LA CASE À COCHER
+
+   Cible : .task-subtask input:focus-visible
+
+   Rôle :
+   Affiche un contour lorsque la case à cocher reçoit
+   le focus via la navigation au clavier.
+
+   Objectif :
+   Faciliter l'identification de la case actuellement
+   sélectionnée sans utiliser la souris.
+   ----------------------------------------------------- */
+
+.task-subtask input:focus-visible {
+  outline: 2px solid var(--tasks-red);
+  outline-offset: 3px;
+}
+
+
+/* -----------------------------------------------------
+   TITRE D'UNE SOUS-TÂCHE
+
+   Cible : .task-subtask-title
+
+   JSX :
+   <span className="task-subtask-title">
+     {subtask.title}
+   </span>
+
+   Rôle :
+   Affiche le texte descriptif de la sous-tâche.
+
+   Comportement :
+   - Autorise le texte à occuper l'espace disponible.
+   - Empêche les titres longs de provoquer
+     un débordement horizontal.
+   - Autorise la coupure des mots trop longs.
+   ----------------------------------------------------- */
+
+.task-subtask-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+
+/* -----------------------------------------------------
+   TITRE D'UNE SOUS-TÂCHE TERMINÉE
+
+   Cible : .task-subtask-title.completed
+
+   JSX :
+   Classe appliquée conditionnellement lorsque
+   subtask.completed vaut true.
+
+   Exemple :
+   className="task-subtask-title completed"
+
+   Rôle :
+   Différencie visuellement une sous-tâche terminée
+   d'une sous-tâche encore en cours.
+
+   Apparence :
+   - Texte atténué.
+   - Texte barré.
+   - Couleur spécifique pour le trait de suppression.
+
+   IMPORTANT :
+   Cette règle ne modifie pas l'état de la sous-tâche.
+   Elle modifie uniquement sa présentation visuelle.
+   ----------------------------------------------------- */
+
+.task-subtask-title.completed {
+  color: var(--tasks-muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(160, 159, 183, 0.6);
+}
+
+
+/* =====================================================
+   RESPONSIVE — PETITS ÉCRANS
+   Breakpoint : largeur maximale de 420px
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   ADAPTATION DE LA BARRE DE PROGRESSION
+
+   Cible : .task-subtasks-progress
+
+   Rôle :
+   Réduit la largeur de la barre sur les écrans étroits
+   pour préserver l'espace disponible dans le bouton.
+   ----------------------------------------------------- */
+
+@media (max-width: 420px) {
   .task-subtasks-progress {
-    width: 64px;
-    height: 6px;
-    flex: 0 0 64px;
-    overflow: hidden;
-    border: 1px solid rgba(167, 139, 250, 0.1);
-    border-radius: 999px;
-    background: rgba(167, 139, 250, 0.1);
+    width: 46px;
+    flex-basis: 46px;
   }
-  
-  /* Cible : .task-subtasks-progress > span */
-  .task-subtasks-progress > span {
-    display: block;
-    width: 0;
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #8b5cf6, #22d3ee);
-    box-shadow: 0 0 9px rgba(139, 92, 246, 0.22);
-    transition: width 220ms ease;
+
+
+  /* ---------------------------------------------------
+     ADAPTATION DU BOUTON D'OUVERTURE
+
+     Cible : .task-subtasks-toggle
+
+     Rôle :
+     Réduit l'espacement entre les éléments et la taille
+     du texte pour optimiser l'affichage mobile.
+     --------------------------------------------------- */
+
+  .task-subtasks-toggle {
+    gap: 7px;
+    font-size: 0.75rem;
   }
-  
-  /* Cible : .task-subtasks-list */
+
+
+  /* ---------------------------------------------------
+     ADAPTATION DU COMPTEUR
+
+     Cible : .task-subtasks-progress-label
+
+     Rôle :
+     Réduit légèrement la taille du compteur
+     pour conserver une disposition compacte.
+     --------------------------------------------------- */
+
+  .task-subtasks-progress-label {
+    font-size: 0.7rem;
+  }
+
+
+  /* ---------------------------------------------------
+     ADAPTATION DE LA LISTE
+
+     Cible : .task-subtasks-list
+
+     Rôle :
+     Réduit le décalage horizontal de la liste
+     pour mieux exploiter l'espace disponible
+     sur les petits écrans.
+     --------------------------------------------------- */
+
   .task-subtasks-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    min-width: 0;
-    padding: 11px 0 5px 13px;
-    border-left: 1px solid var(--tasks-border);
+    padding-left: 10px;
   }
-  
-  /* Cible : .task-subtask */
-  .task-subtask {
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-    min-width: 0;
-    color: var(--tasks-text-soft);
-    font-size: 0.83rem;
-    line-height: 1.55;
-    cursor: pointer;
+}
+
+
+/* =====================================================
+   ACCESSIBILITÉ — RÉDUCTION DES ANIMATIONS
+   Media query : prefers-reduced-motion: reduce
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   SUPPRESSION DES TRANSITIONS NON ESSENTIELLES
+
+   Cibles :
+   - .task-subtasks-toggle
+   - .task-subtasks-progress > span
+
+   Rôle :
+   Respecte la préférence système des utilisateurs
+   ayant activé la réduction des animations.
+
+   Effet :
+   - Supprime la transition de couleur du bouton.
+   - Supprime l'animation de largeur de la progression.
+
+   Objectif :
+   Limiter les animations visuelles pour les personnes
+   sensibles aux mouvements à l'écran.
+   ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .task-subtasks-toggle,
+  .task-subtasks-progress > span {
+    transition: none;
   }
-  
-  /* Cible : .task-subtask input */
-  .task-subtask input {
-    width: 15px;
-    height: 15px;
-    flex: 0 0 15px;
-    margin: 3px 0 0;
-    accent-color: var(--tasks-accent-dark);
-    cursor: pointer;
-  }
-  
-  /* Cible : .task-subtask input:focus-visible */
-  .task-subtask input:focus-visible {
-    outline: 2px solid var(--tasks-red);
-    outline-offset: 3px;
-  }
-  
-  /* Cible : .task-subtask-title */
-  .task-subtask-title {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  
-  /* Cible : .task-subtask-title.completed */
-  .task-subtask-title.completed {
-    color: var(--tasks-muted);
-    text-decoration: line-through;
-    text-decoration-color: rgba(160, 159, 183, 0.6);
-  }
-  
-  /* Règles responsive — (max-width: 420px) */
-  @media (max-width: 420px) {
-    /* Cible : .task-subtasks-progress */
-    .task-subtasks-progress {
-      width: 46px;
-      flex-basis: 46px;
-    }
-  
-    /* Cible : .task-subtasks-toggle */
-    .task-subtasks-toggle {
-      gap: 7px;
-      font-size: 0.75rem;
-    }
-  
-    /* Cible : .task-subtasks-progress-label */
-    .task-subtasks-progress-label {
-      font-size: 0.7rem;
-    }
-  
-    /* Cible : .task-subtasks-list */
-    .task-subtasks-list {
-      padding-left: 10px;
-    }
-  }
-  
-  /* Règles responsive — (prefers-reduced-motion: reduce) */
-  @media (prefers-reduced-motion: reduce) {
-    /* Cible : .task-subtasks-toggle, .task-subtasks-progress > span */
-    .task-subtasks-toggle,
-    .task-subtasks-progress > span {
-      transition: none;
-    }
-  }
-  
+}

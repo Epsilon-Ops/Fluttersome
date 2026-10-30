@@ -8,6 +8,7 @@ export const ICON_CATEGORIES = [
   { value: 'emotion', label: 'Émotions & bien-être' },
   { value: 'nature', label: 'Nature' },
   { value: 'interface', label: 'Interface & productivité' },
+  { value: 'celebration', label: 'Fêtes' },
 ]
 
 export const ICON_SEARCHER = [
@@ -316,6 +317,19 @@ export const ICON_SEARCHER = [
         name: 'bath',
         category: 'maison',
         label: 'Bain',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Célébrations --------------------------------------------
+  //  --------------------------------------------
+
+      // Halloween >>>
+      {
+        name: 'ghost',
+        category: 'celebration',
+        label: 'Fantôme',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },

@@ -1,77 +1,253 @@
+
 /* ============================================================
    FICHIER : src/styles/main_pages/page_taches/variables.css
    ZONE    : Page Tâches
-   RÔLE    : Variables
-   Chaque règle est précédée de « Cible » : les éléments
-   HTML qu’elle modifie. Les déclarations ne sont pas
-   redécrites ligne par ligne.
+   RÔLE    : Variables et thème visuel
+
+   RESPONSABILITÉS :
+   - Définir la palette de couleurs de la page.
+   - Centraliser les couleurs de texte et de surfaces.
+   - Définir les bordures, ombres et effets lumineux.
+   - Centraliser les rayons d'arrondi.
+   - Garantir une apparence sombre cohérente.
+
+   ORGANISATION :
+   01. Accents principaux
+   02. Accents secondaires
+   03. Couleurs de texte
+   04. Bordures
+   05. Surfaces et arrière-plans
+   06. États fonctionnels
+   07. Ombres et effets
+   08. Rayons d'arrondi
+   09. Compatibilité avec les anciens sélecteurs
+
+   IMPORTANT :
+   Les variables sont déclarées sur .tasks-page.
+   Les descendants de cet élément peuvent les utiliser
+   par héritage.
+
+   Si une modale est rendue en dehors de .tasks-page,
+   elle devra disposer de ces variables sur son propre
+   élément ou sur un ancêtre commun.
    ============================================================ */
 
 
 /* =====================================================
-   EPSILON — VARIABLES ET THÈME
+   EPSILON — THÈME ET VARIABLES
    Black Diamond Premium++
    ===================================================== */
 
-   /* Cible : .tasks-page */
-   .tasks-page {
-    color-scheme: dark;
-  
-    /* Accents principaux */
-    --tasks-accent: #a78bfa;
-    --tasks-accent-dark: #8b5cf6;
-    --tasks-accent-light: rgba(167, 139, 250, 0.13);
-  
-    /* Accent secondaire : cyan */
-    --tasks-red: #22d3ee;
-    --tasks-red-dark: #06b6d4;
-    --tasks-red-light: rgba(34, 211, 238, 0.12);
-  
-    /* Texte */
-    --tasks-ink: #f1f0fa;
-    --tasks-muted: #a09fb7;
-    --tasks-text-soft: #c5c4d8;
-  
-    /* Bordures */
-    --tasks-border: rgba(167, 139, 250, 0.16);
-    --tasks-border-strong: rgba(167, 139, 250, 0.3);
-  
-    /* Surfaces */
-    --tasks-surface: #151522;
-    --tasks-surface-raised: #1b1b2b;
-    --tasks-surface-hover: #222238;
-    --tasks-bg: #0b0b12;
-  
-    /* États */
-    --tasks-success: #34d399;
-    --tasks-warning: #fbbf24;
-    --tasks-danger: #fb7185;
-  
-    /* Ombres et effets */
-    --tasks-shadow:
-      0 12px 32px rgba(0, 0, 0, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.025);
-  
-    --tasks-glow:
-      0 0 24px rgba(139, 92, 246, 0.09);
-  
-    /* Rayons */
-    --tasks-radius-sm: 10px;
-    --tasks-radius-md: 15px;
-    --tasks-radius-lg: 21px;
-  
-    /* Compatibilité avec les sélecteurs existants */
-    --task-primary: var(--tasks-accent);
-    --task-accent: #ffffff;
-  }
-  
-  /* Cible : .tasks-page *, .tasks-page *::before, .tasks-page *::after, .tasks-modal *, .tasks-modal *::before, .tasks-modal *::after */
-  .tasks-page *,
-  .tasks-page *::before,
-  .tasks-page *::after,
-  .tasks-modal *,
-  .tasks-modal *::before,
-  .tasks-modal *::after {
-    box-sizing: border-box;
-  }
-  
+
+/* -----------------------------------------------------
+   01 — PALETTE PRINCIPALE
+
+   Cible : .tasks-page
+
+   Rôle :
+   Définit les variables utilisées par l'ensemble
+   des composants de la page Tâches.
+
+   color-scheme :
+   Indique au navigateur que cette zone utilise
+   un thème sombre, notamment pour les contrôles natifs.
+   ----------------------------------------------------- */
+
+.tasks-page {
+  color-scheme: dark;
+
+
+  /* ---------------------------------------------------
+     02 — ACCENTS PRINCIPAUX
+
+     Rôle :
+     Couleurs principales de l'identité visuelle.
+
+     Utilisation :
+     - Éléments mis en évidence.
+     - Actions principales.
+     - Sélections.
+     - Effets lumineux violets.
+     --------------------------------------------------- */
+
+  --tasks-accent: #a78bfa;
+  --tasks-accent-dark: #8b5cf6;
+  --tasks-accent-light: rgba(167, 139, 250, 0.13);
+
+
+  /* ---------------------------------------------------
+     03 — ACCENTS SECONDAIRES
+
+     Rôle :
+     Couleurs cyan utilisées en complément du violet.
+
+     IMPORTANT :
+     Le nom --tasks-red est conservé pour assurer
+     la compatibilité avec les sélecteurs existants.
+     Sa couleur actuelle est bien cyan.
+     --------------------------------------------------- */
+
+  --tasks-red: #22d3ee;
+  --tasks-red-dark: #06b6d4;
+  --tasks-red-light: rgba(34, 211, 238, 0.12);
+
+
+  /* ---------------------------------------------------
+     04 — COULEURS DE TEXTE
+
+     Rôle :
+     Hiérarchisation visuelle des textes.
+
+     Utilisation :
+     - ink : texte principal.
+     - muted : texte secondaire et discret.
+     - text-soft : texte intermédiaire.
+     --------------------------------------------------- */
+
+  --tasks-ink: #f1f0fa;
+  --tasks-muted: #a09fb7;
+  --tasks-text-soft: #c5c4d8;
+
+
+  /* ---------------------------------------------------
+     05 — BORDURES
+
+     Rôle :
+     Centralise les couleurs des séparations
+     et contours des composants.
+
+     Utilisation :
+     - border : bordures discrètes.
+     - border-strong : bordures renforcées,
+       notamment lors des interactions.
+     --------------------------------------------------- */
+
+  --tasks-border: rgba(167, 139, 250, 0.16);
+  --tasks-border-strong: rgba(167, 139, 250, 0.3);
+
+
+  /* ---------------------------------------------------
+     06 — SURFACES ET ARRIÈRE-PLANS
+
+     Rôle :
+     Définit les différents niveaux de profondeur
+     visuelle de l'interface.
+
+     Utilisation :
+     - surface : fond des composants.
+     - surface-raised : éléments surélevés.
+     - surface-hover : état de survol.
+     - bg : arrière-plan sombre principal.
+     --------------------------------------------------- */
+
+  --tasks-surface: #151522;
+  --tasks-surface-raised: #1b1b2b;
+  --tasks-surface-hover: #222238;
+  --tasks-bg: #0b0b12;
+
+
+  /* ---------------------------------------------------
+     07 — ÉTATS FONCTIONNELS
+
+     Rôle :
+     Couleurs utilisées pour identifier les différents
+     états d'une action ou d'un élément.
+
+     Utilisation :
+     - success : validation et réussite.
+     - warning : avertissement.
+     - danger : erreur ou action sensible.
+     --------------------------------------------------- */
+
+  --tasks-success: #34d399;
+  --tasks-warning: #fbbf24;
+  --tasks-danger: #fb7185;
+
+
+  /* ---------------------------------------------------
+     08 — OMBRES ET EFFETS LUMINEUX
+
+     Rôle :
+     Centralise les effets de profondeur et de lumière.
+
+     Utilisation :
+     - shadow : ombre générale des composants.
+     - glow : halo violet discret.
+     --------------------------------------------------- */
+
+  --tasks-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  --tasks-glow:
+    0 0 24px rgba(139, 92, 246, 0.09);
+
+
+  /* ---------------------------------------------------
+     09 — RAYONS D'ARRONDI
+
+     Rôle :
+     Harmonise les arrondis de l'interface.
+
+     Utilisation :
+     - sm : petits composants.
+     - md : composants intermédiaires.
+     - lg : grands conteneurs et panneaux.
+     --------------------------------------------------- */
+
+  --tasks-radius-sm: 10px;
+  --tasks-radius-md: 15px;
+  --tasks-radius-lg: 21px;
+
+
+  /* ---------------------------------------------------
+     10 — COMPATIBILITÉ AVEC LES ANCIENS SÉLECTEURS
+
+     Rôle :
+     Maintient les anciennes variables utilisées
+     par certains composants du projet.
+
+     IMPORTANT :
+     Ne pas supprimer sans avoir vérifié toutes
+     les références dans le reste du projet.
+     --------------------------------------------------- */
+
+  --task-primary: var(--tasks-accent);
+  --task-accent: #ffffff;
+}
+
+
+/* =====================================================
+   NORMALISATION DES DIMENSIONS
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   BOX-SIZING GLOBAL DE LA PAGE
+
+   Cibles :
+   - Tous les éléments de .tasks-page.
+   - Leurs pseudo-éléments ::before et ::after.
+   - Tous les éléments de .tasks-modal.
+   - Leurs pseudo-éléments ::before et ::after.
+
+   Rôle :
+   Applique border-box à l'ensemble des composants.
+
+   Comportement :
+   La largeur et la hauteur définies incluent
+   les bordures et les espacements internes.
+
+   Objectif :
+   Faciliter le calcul des dimensions et limiter
+   les débordements liés au padding et aux bordures.
+   ----------------------------------------------------- */
+
+.tasks-page *,
+.tasks-page *::before,
+.tasks-page *::after,
+.tasks-modal *,
+.tasks-modal *::before,
+.tasks-modal *::after {
+  box-sizing: border-box;
+}

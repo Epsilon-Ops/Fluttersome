@@ -4,33 +4,98 @@ import {
   TASK_COLOR_PALETTES,
 } from '../components/icons/icon-utils/icon-colors'
 
+
 export const TASK_CATEGORIES = [
-    { value: 'etudes', label: 'Études' },
-    { value: 'maison', label: 'Maison' },
-    { value: 'administratif', label: 'Administratif' },
-    { value: 'personnel', label: 'Personnel' },
-    { value: 'loisirs', label: 'Loisirs' },
-    { value: 'courses', label: 'Courses' },
-    { value: 'autre', label: 'Autre' },
-  ]
+  // Quotidien
+  { value: 'personnel', label: 'Personnel' },
+  { value: 'maison', label: 'Maison' },
+  { value: 'menage', label: 'Ménage' },
+  { value: 'courses', label: 'Courses' },
+  { value: 'repas', label: 'Repas' },
+
+  // Santé et bien-être
+  { value: 'hygiene', label: 'Hygiène' },
+  { value: 'sante', label: 'Santé' },
+  { value: 'sport', label: 'Sport' },
+  { value: 'bien_etre', label: 'Bien-être' },
+  { value: 'mental', label: 'Santé mentale' },
+
+  // Travail et études
+  { value: 'travail', label: 'Travail' },
+  { value: 'etudes', label: 'Études' },
+  { value: 'projets', label: 'Projets' },
+
+  // Gestion et obligations
+  { value: 'finance', label: 'Finances' },
+
+  // Relations sociales
+  { value: 'famille', label: 'Famille' },
+  { value: 'amis', label: 'Amis' },
+  { value: 'couple', label: 'Couple' },
+
+  // Plaisir et loisirs
+  { value: 'plaisir', label: 'Plaisir' },
+  { value: 'loisirs', label: 'Loisirs' },
+  { value: 'voyages', label: 'Voyages' },
+  { value: 'vacances', label: 'Vacances' },
+  { value: 'musique', label: 'Musique' },
+  { value: 'films_series', label: 'Films & Séries' },
+
+  // Développement personnel
+  { value: 'creativite', label: 'Créativité' },
+  { value: 'apprentissage', label: 'Apprentissage' },
+  { value: 'spiritualite', label: 'Spiritualité' },
+
+  // Organisation et logistique
+  { value: 'organisation', label: 'Organisation' },
+  { value: 'numerique', label: 'Numérique & Informatique' },
+
+  // Autres
+  { value: 'ecologie', label: 'Écologie' },
+  { value: 'animaux', label: 'Animaux' },
+  { value: 'jardinage', label: 'Jardinage' },
+  { value: 'benevolat', label: 'Bénévolat' },
+  { value: 'autre', label: 'Autre' },
+];
+
   
-  export const TASK_PRIORITIES = [
-    {
-      value: 'low',
-      label: 'Basse',
-      icon: 'arrow-down',
-    },
-    {
-      value: 'normal',
-      label: 'Normale',
-      icon: 'minus',
-    },
-    {
-      value: 'high',
-      label: 'Haute',
-      icon: 'arrow-up',
-    },
-  ]
+export const TASK_PRIORITIES = [
+  {
+    value: 'lowest',
+    label: 'Très basse',
+    icon: 'chevrons-down',
+  },
+  {
+    value: 'low',
+    label: 'Basse',
+    icon: 'arrow-down',
+  },
+  {
+    value: 'normal',
+    label: 'Normale',
+    icon: 'minus',
+  },
+  {
+    value: 'medium',
+    label: 'Modérée',
+    icon: 'arrow-right',
+  },
+  {
+    value: 'high',
+    label: 'Haute',
+    icon: 'arrow-up',
+  },
+  {
+    value: 'urgent',
+    label: 'Urgente',
+    icon: 'alert-circle',
+  },
+  {
+    value: 'critical',
+    label: 'Critique',
+    icon: 'alert-triangle',
+  },
+];
   
   export const TASK_VIEWS = [
     'Vue d’ensemble',

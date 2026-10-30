@@ -43,6 +43,10 @@ import {
   } from '../icon-list/Interface-Icons'
 
   import {
+    GhostIcon,
+  } from '../icon-list/Celebration-Icons'
+
+  import {
     HomeIcon,
     DoorIcon,
     KeyIcon,
@@ -129,6 +133,12 @@ import {
     check: CheckIcon,
     sparkles: SparklesIcon,
     info: InfoIcon,
+
+    // -----------------------------
+    // Célébrations -----------------------------
+    // -----------------------------
+    // >>> Halloween
+    ghost: GhostIcon,
   }
   
   export function AppIcon({
