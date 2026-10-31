@@ -44,7 +44,13 @@ import {
 
   import {
     GhostIcon,
+    WitchHatIcon,
+    EasterEggIcon,
   } from '../icon-list/Celebration-Icons'
+
+  import {
+    EggIcon,
+  } from '../icon-list/Animal-Icons'
 
   import {
     HomeIcon,
@@ -135,10 +141,17 @@ import {
     info: InfoIcon,
 
     // -----------------------------
+    // Animaux -----------------------------
+    // -----------------------------
+    egg: EggIcon,
+
+    // -----------------------------
     // Célébrations -----------------------------
     // -----------------------------
     // >>> Halloween
     ghost: GhostIcon,
+    witch_hat: WitchHatIcon,
+    easter_egg: EasterEggIcon,
   }
   
   export function AppIcon({

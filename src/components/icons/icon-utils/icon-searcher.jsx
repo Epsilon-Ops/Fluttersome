@@ -8,6 +8,7 @@ export const ICON_CATEGORIES = [
   { value: 'emotion', label: 'Émotions & bien-être' },
   { value: 'nature', label: 'Nature' },
   { value: 'interface', label: 'Interface & productivité' },
+  { value: 'animal', label: 'Animaux' },
   { value: 'celebration', label: 'Fêtes' },
 ]
 
@@ -322,6 +323,18 @@ export const ICON_SEARCHER = [
       },
 
   //  --------------------------------------------
+  // Animaux --------------------------------------------
+  //  --------------------------------------------
+      // Oiseaux >>>
+      {
+        name: 'egg',
+        category: 'animal',
+        label: 'OEuf',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
   // Célébrations --------------------------------------------
   //  --------------------------------------------
 
@@ -330,6 +343,20 @@ export const ICON_SEARCHER = [
         name: 'ghost',
         category: 'celebration',
         label: 'Fantôme',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'witch_hat',
+        category: 'celebration',
+        label: 'Chapeau Sorcière',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'easter_egg',
+        category: 'celebration',
+        label: 'OEuf de Pâques',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },

@@ -25,6 +25,23 @@ export function GhostIcon(props) {
     )
 }
 
+export function WitchHatIcon(props) {
+    return (
+      <Svg {...props}>
+        <svg fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> </style> <g> <path class="st0" d="M381.43,301.867l-28.652-101.654l27.874,14.598c21.485,11.259,47.991,4.628,61.656-15.402l44.42-65.151 c3.311-4.856,3.032-11.323-0.687-15.878c-3.722-4.555-9.992-6.119-15.416-3.842l-55.409,23.232l-87.413-59.315 c-62.438-49.949-135.39-11.122-156.102,56.196c-7.207,23.434-29.492,101.452-47.054,163.264 c28.414,9.001,83.031,18.65,128.219,18.65c44.813,0,98.901-9.485,127.511-18.43L396,353.581 c-17.79,10.034-87.6,24.595-143.132,24.595c-56.347,0-127.401-14.991-143.883-25.034c3.842-13.573,8.904-31.426,14.479-51.055 c-0.114,0.402-0.233,0.814-0.343,1.207C41.758,320.672,0,353.17,0,381.742c0,41.37,118.634,74.462,256,74.462 s256-33.092,256-74.462C512,352.337,467.575,318.833,381.43,301.867z"></path> </g> </g></svg>
+      </Svg>
+    )
+}
+
+export function EasterEggIcon(props) {
+    return (
+      <Svg {...props}>
+        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A6.194,6.194,0,0,0,8,4a12.675,12.675,0,0,0-4,9c0,3,2,9,8,9s8-6,8-9a12.675,12.675,0,0,0-4-9A6.194,6.194,0,0,0,12,2Zm6,11a7.631,7.631,0,0,1-.176,1.431A28.093,28.093,0,0,1,12,15a28.093,28.093,0,0,1-5.824-.569A7.631,7.631,0,0,1,6,13a9.567,9.567,0,0,1,.331-2.46A35.025,35.025,0,0,0,12,11a35.025,35.025,0,0,0,5.669-.46A9.567,9.567,0,0,1,18,13Z"></path></g></svg>
+      </Svg>
+    )
+}
+
+
 /*
     CelebrationIcon
     PartyIcon
@@ -102,8 +119,8 @@ export function GhostIcon(props) {
     HalloweenIcon
     PumpkinIcon
     JackOLanternIcon
-    GhostIcon
-    WitchHatIcon
+        ++ GhostIcon
+        ++ WitchHatIcon
     WitchIcon
     BatIcon
     SpiderWebIcon
