@@ -1,3 +1,12 @@
+// ResidencyIcon
+// https://www.svgrepo.com/svg/286122/pollution-co2
+
+// AnchorIcon
+// https://www.svgrepo.com/svg/12534/sailor-tattoo
+
+// CastleIcon
+// https://www.svgrepo.com/svg/360182/castle-f
+
 /*
     BuildingIcon
     SkyscraperIcon

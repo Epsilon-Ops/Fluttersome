@@ -1,3 +1,12 @@
+// NotificationIcon
+// https://www.svgrepo.com/svg/360123/bell-filled
+
+// No-NotificationIcon
+// https://www.svgrepo.com/svg/360125/bell-off-f
+
+// BirthdayIcon
+// https://www.svgrepo.com/svg/360130/birthday-cake-filled
+
 /*
     SocialIcon
     SocialMediaIcon

@@ -26,7 +26,12 @@ import {
   import {
     LeafIcon,
     SunIcon,
+    TwinBranchIcon,
   } from '../icon-list/Nature-Icons'
+
+  import {
+    CombIcon,
+  } from '../icon-list/Fashion-Icons'
   
   import {
     TrophyIcon,
@@ -69,7 +74,10 @@ import {
     DoorIcon,
     KeyIcon,
 
-    SofaIcon,
+    SofaShortIcon,
+    SofaLongIcon,
+    TVIcon,
+
     BedIcon,
     BedSleepingIcon,
     BedroomTableIcon,
@@ -84,13 +92,28 @@ import {
     LightbulbPowerIcon,
 
     BathIcon,
+    ToiletPaperIcon,
+    ToiletIcon,
+
+    SinkIcon,
+    SafeboxIcon,
+    FireplaceIcon,
   } from '../icon-list/Home-Icons'
+
+  import {
+    ToothpasteNBrushIcon,
+    ToothIcon,
+  } from '../icon-list/Health-Icons'
+
+  import {
+    RestaurantPlateIcon,
+  } from '../icon-list/Food-Icons'
   
   export const iconMap = {
-    // -----------------------------
-    // Flèches -----------------------------
-    // -----------------------------
-    // >>> Flèches classiques
+    // ----------------------------------------------------------
+    // Flèches ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Flèches classiques
     arrow_up: ArrowUpIcon,
     arrow_up_right: ArrowUpRightIcon,
     arrow_right: ArrowRightIcon,
@@ -100,7 +123,7 @@ import {
     arrow_left: ArrowLeftIcon,
     arrow_up_left: ArrowUpLeftIcon,
 
-    // >>> Flèches maigres
+        // >>> Flèches maigres
     arrow_up_narrow: ArrowUpNarrowIcon,
     arrow_up_right_narrow: ArrowUpRightNarrowIcon,
     arrow_right_narrow: ArrowRightNarrowIcon,
@@ -110,34 +133,46 @@ import {
     arrow_left_narrow: ArrowLeftNarrowIcon,
     arrow_up_left_narrow: ArrowUpLeftNarrowIcon,
 
-    // -----------------------------
-    // Maison -----------------------------
-    // -----------------------------
-    // >>> Maison Simple
+    // ----------------------------------------------------------
+    // Maison ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Maison Simple
     home: HomeIcon,
     door: DoorIcon,
     key: KeyIcon,
 
-    // >>> Pieces
-    sofa: SofaIcon,
+        // >>> Salon
+    sofa_short: SofaShortIcon,
+    sofa_long: SofaLongIcon,
+    tv: TVIcon,
+    fireplace: FireplaceIcon,
+
+        // >>> Chambre
     bed: BedIcon,
     sleeping_in_bed: BedSleepingIcon,
     bedroom_table: BedroomTableIcon,
     bedroom_lamp: BedroomLampIcon,
+    safebox: SafeboxIcon,
 
-    // >>> Mirroirs
+        // >>> Mirroirs
     mirror: MirrorIcon,
     mirror_makeup: MirrorMakeupIcon,
     mirror_bedroom: MirrorBedroomIcon,
     mirror_plate: MirrorPlateIcon,
 
-    // >>> Electricité
+        // >>> Electricité
     lightbulb: LightbulbIcon,
     lightbulb_power: LightbulbPowerIcon,
 
-    // >>> Bain
+        // >>> Bain
     bath: BathIcon,
     key_i: KeyIcon,
+    toothpaste_n_brush: ToothpasteNBrushIcon,
+    toilet_paper: ToiletPaperIcon,
+    toilet: ToiletIcon,
+
+        // >>> Cuisine
+    sink: SinkIcon,
 
     dashboard: DashboardIcon,
     trophy: TrophyIcon,
@@ -152,36 +187,58 @@ import {
     sparkles: SparklesIcon,
     info: InfoIcon,
 
-    // -----------------------------
-    // Animaux -----------------------------
-    // -----------------------------
+    // ----------------------------------------------------------
+    // Santé ----------------------------------------------------------
+    // ----------------------------------------------------------
+    tooth: ToothIcon,
+
+    // ----------------------------------------------------------
+    // Animaux ----------------------------------------------------------
+    // ----------------------------------------------------------
     egg: EggIcon,
 
-    // -----------------------------
-    // Célébrations -----------------------------
-    // -----------------------------
-    // >>> Halloween
+    // ----------------------------------------------------------
+    // Nouriturre ----------------------------------------------------------
+    // ----------------------------------------------------------
+    restaurant_plate: RestaurantPlateIcon,
+
+    // ----------------------------------------------------------
+    // Célébrations ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Halloween
     ghost: GhostIcon,
     witch_hat: WitchHatIcon,
     easter_egg: EasterEggIcon,
 
-    // -----------------------------
-    // Finance -----------------------------
-    // -----------------------------
-    // >>> Monnaie
+    // ----------------------------------------------------------
+    // Finance ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Monnaie
     money_i: Money1Icon,
     money_ii: Money2Icon,
     dollar: DollarIcon,
 
-    // >>> Cartes
+        // >>> Cartes
     money_card: MoneyCardIcon,
     mastercard_card: MastercardCardIcon,
     card_layout: CardLayoutIcon,
     double_card: DoubleCardIcon,
 
-    // >>> Pièces
+        // >>> Pièces
     double_coin: DoubleCoinIcon,
     clover_coin: CloverCoinIcon,
+
+    // ----------------------------------------------------------
+    // Nature ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Végétal
+    twin_branch: TwinBranchIcon,
+
+    // ----------------------------------------------------------
+    // Fashion ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Cheveux
+    comb: CombIcon,
   }
   
   export function AppIcon({

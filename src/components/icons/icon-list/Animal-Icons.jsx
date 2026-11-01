@@ -25,6 +25,12 @@ export function EggIcon(props) {
     )
 }
 
+// LadybugIcon
+// https://www.svgrepo.com/svg/297092/ladybug
+
+// SquirrelIcon
+// https://www.svgrepo.com/svg/173879/squirrel-filled-silhouette-from-side-view
+
 /*
     MammalIcon
     DogIcon

@@ -1,3 +1,57 @@
+// WaterSmoothIcon
+// https://www.svgrepo.com/svg/460156/water
+
+// WaterSharpIcon
+// https://www.svgrepo.com/svg/326868/water-sharp
+
+// DropIcon
+// https://www.svgrepo.com/svg/522340/water
+
+// WaterPowerIcon
+// https://www.svgrepo.com/svg/345941/water-flash-fill
+
+// WaterPipeIcon
+// https://www.svgrepo.com/svg/297099/water-tap-plumber
+
+// WaterBottleIcon
+// https://www.svgrepo.com/svg/297098/water-bottle-bottle
+
+// WaterHandIcon
+// https://www.svgrepo.com/svg/297079/water
+
+// WaterSplashIcon
+// https://www.svgrepo.com/svg/321685/water-splash
+
+// WaterClearIcon
+// https://www.svgrepo.com/svg/286091/water
+
+// WaterH2OIcon
+// https://www.svgrepo.com/svg/48779/water
+
+// WaterDropIcon
+// https://www.svgrepo.com/svg/149495/water
+
+// WaterScaleIcon
+// https://www.svgrepo.com/svg/147967/water-scale
+
+// WaterTemperatureIcon
+// https://www.svgrepo.com/svg/36391/cup-temperature
+
+// WaterFlaskIcon
+// https://www.svgrepo.com/svg/147341/water
+
+// CocaIcon
+// https://www.svgrepo.com/svg/266660/water-bottle-bottle
+
+// WhiskeyIcon
+// https://www.svgrepo.com/svg/266619/whiskey
+
+// BottleIcon
+// https://www.svgrepo.com/svg/266647/water-bottle
+
+// StarDrinkIcon
+// https://www.svgrepo.com/svg/266649/beer
+
 /*
     DrinkIcon
     DrinksIcon

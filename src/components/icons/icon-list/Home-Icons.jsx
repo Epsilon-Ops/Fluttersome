@@ -48,7 +48,7 @@ export function DoorIcon (props) {
 export function LightbulbIcon (props) {
     return (
         <Svg {...props}>
-            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"><path d="M15,16.372a7.5,7.5,0,1,0-6,0V18h6ZM11.221,6.087a3.5,3.5,0,0,0-2.7,3.023,1,1,0,0,1-.992.89,1.065,1.065,0,0,1-.112-.006,1,1,0,0,1-.884-1.1,5.5,5.5,0,0,1,4.246-4.754,1,1,0,0,1,.442,1.951ZM9,20h6v1a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1Z"></path></g></svg>
+            <svg fill="CurrentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"><path d="M15,16.372a7.5,7.5,0,1,0-6,0V18h6ZM11.221,6.087a3.5,3.5,0,0,0-2.7,3.023,1,1,0,0,1-.992.89,1.065,1.065,0,0,1-.112-.006,1,1,0,0,1-.884-1.1,5.5,5.5,0,0,1,4.246-4.754,1,1,0,0,1,.442,1.951ZM9,20h6v1a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1Z"></path></g></svg>
         </Svg>
     )
 }
@@ -56,7 +56,7 @@ export function LightbulbIcon (props) {
 export function LightbulbPowerIcon (props) {
     return (
         <Svg {...props}>
-            <svg fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"><path d="M15,16.372a7.5,7.5,0,1,0-6,0V18h6ZM14.1,12c-.034,0-.066.005-.1.005a1,1,0,0,1-.707-.293L12,10.414l-1.293,1.293a1,1,0,0,1-1.539-.152l-2-3a1,1,0,1,1,1.664-1.11l1.323,1.986,1.138-1.138a1,1,0,0,1,1.414,0l1.138,1.138,1.323-1.986a1,1,0,0,1,1.664,1.11l-2,3A1,1,0,0,1,14.1,12ZM9,20h6v1a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1Z"></path></g></svg>
+            <svg fill="CurrentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCurrentColorarrier" stroke-width="0"></g><g id="SVGRepo_tracerCurrentColorarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCurrentColorarrier"><path d="M15,16.372a7.5,7.5,0,1,0-6,0V18h6ZM14.1,12c-.034,0-.066.005-.1.005a1,1,0,0,1-.707-.293L12,10.414l-1.293,1.293a1,1,0,0,1-1.539-.152l-2-3a1,1,0,1,1,1.664-1.11l1.323,1.986,1.138-1.138a1,1,0,0,1,1.414,0l1.138,1.138,1.323-1.986a1,1,0,0,1,1.664,1.11l-2,3A1,1,0,0,1,14.1,12ZM9,20h6v1a1,1,0,0,1-1,1H10a1,1,0,0,1-1-1Z"></path></g></svg>
         </Svg>
     )
 }
@@ -84,10 +84,18 @@ export function KeyIcon (props) {
     )
 }
 
-export function SofaIcon (props) {
+export function SofaShortIcon (props) {
     return (
         <Svg {...props}>
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19.7497 12.75C20.7166 8.86578 21.1456 6.84737 20.134 5.42821C20.0665 5.33345 19.9948 5.24169 19.9193 5.15317C18.7216 3.75 16.4811 3.75 11.9999 3.75C7.5188 3.75 5.27824 3.75 4.08059 5.15317C4.00504 5.24169 3.93339 5.33345 3.86584 5.42821C2.85424 6.84737 3.28329 8.86578 4.25017 12.75H19.7497Z" fill="currentColor"></path> <path d="M4.75 17.75V19.75C4.75 20.1642 4.41421 20.5 4 20.5C3.58579 20.5 3.25 20.1642 3.25 19.75V17.6046C2.51704 17.3079 2 16.5893 2 15.75C2 14.6454 2.89543 13.75 4 13.75H20C21.1046 13.75 22 14.6454 22 15.75C22 16.5893 21.483 17.3079 20.75 17.6046V19.75C20.75 20.1642 20.4142 20.5 20 20.5C19.5858 20.5 19.25 20.1642 19.25 19.75V17.75H4.75Z" fill="CurrentColor"></path> </g></svg>
+        </Svg>
+    )
+}
+
+export function SofaLongIcon (props) {
+    return (
+        <Svg {...props}>
+            <svg fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="93.775,353.794 93.775,405.889 418.225,405.889 418.225,390.681 418.225,353.794 "></polygon> </g> </g> <g> <g> <path d="M80.569,106.111c-26.958,0-48.891,21.932-48.891,48.891v63.653h13.706c26.436,0,47.975,21.31,48.372,47.654h0.01h147.025 V106.111H80.569z"></path> </g> </g> <g> <g> <path d="M431.431,106.111H271.208v160.197h147.025h0.011c0.396-26.342,21.936-47.654,48.372-47.654h13.706v-63.653 C480.321,128.042,458.39,106.111,431.431,106.111z"></path> </g> </g> <g> <g> <rect x="93.776" y="296.72" width="324.45" height="26.653"></rect> </g> </g> <g> <g> <path d="M45.385,249.071H17.974C8.063,249.071,0,257.134,0,267.044v138.844h63.358V267.045 C63.358,257.135,55.295,249.071,45.385,249.071z"></path> </g> </g> <g> <g> <path d="M494.026,249.07h-27.411c-9.91,0-17.974,8.063-17.974,17.974v29.68v14.626v42.444v52.095h63.357V267.044H512 C512,257.134,503.937,249.07,494.026,249.07z"></path> </g> </g> </g></svg>
         </Svg>
     )
 }
@@ -245,8 +253,6 @@ export function MirrorMakeupIcon (props) {
     )
 }
 
-
-
 export function MirrorBedroomIcon (props) {
     return (
         <Svg {...props}>
@@ -292,6 +298,147 @@ export function MirrorPlateIcon (props) {
         </Svg>
     )
 }
+
+
+export function SinkIcon({ size = 20, className = '', ...props }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 512 512"
+            fill="currentColor"
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            {...props}
+        >
+            <path d="M454.609,185.027H321.515V166.19h51.591v-30.417h-82.008v49.253h-19.89V50.865c0-11.275,9.173-20.447,20.447-20.447c11.274,0,20.446,9.172,20.446,20.447v30.828h30.417V50.865C342.519,22.817,319.701,0,291.656,0c-28.047,0-50.865,22.817-50.865,50.865v134.162h-19.89v-49.253h-82.008v30.417h51.591v18.836H57.39c-19.567,0-35.487,15.919-35.487,35.487c0,17.28,12.417,31.706,28.796,34.845c6.651,94.654,77.582,171.855,169.307,188.101v32.546c0,19.847,16.146,35.994,35.994,35.994c19.847,0,35.994-16.146,35.994-35.994v-32.546c91.726-16.245,162.656-93.446,169.307-188.101c16.378-3.139,28.796-17.565,28.796-34.845C490.096,200.946,474.177,185.027,454.609,185.027z M344.503,368.138c-26.079,18.174-56.682,27.78-88.504,27.78v-30.417c25.572,0,50.162-7.718,71.113-22.318c20.498-14.285,36.105-34.072,45.136-57.223l28.338,11.053C389.357,325.8,369.965,350.395,344.503,368.138z" />
+        </svg>
+    )
+}
+
+export function ToiletPaperIcon({ size = 20, className = '', ...props }) {
+    return (
+        <svg fill="currentColor" height={size} width={size} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 297 297" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M290.617,10.009C290.617,4.481,286.136,0,280.61,0H16.391C10.864,0,6.383,4.481,6.383,10.009v181.649 c0,5.527,4.481,10.009,10.008,10.009c5.527,0,10.009-4.482,10.009-10.009v-18.431c0-2.534,2.054-4.588,4.588-4.588h8.102 c2.534,0,4.588,2.054,4.588,4.588v113.764c0,3.327,1.653,6.436,4.411,8.297c1.678,1.132,3.631,1.712,5.599,1.712 c1.266,0,2.538-0.241,3.746-0.728l27.863-11.252l27.857,11.252c2.404,0.972,5.092,0.972,7.496,0l27.857-11.25l27.854,11.25 c2.403,0.972,5.091,0.972,7.496,0l27.855-11.25l27.854,11.25c3.085,1.245,6.588,0.878,9.346-0.983 c2.758-1.86,4.411-4.97,4.411-8.297V168.64h12.69c2.534,0,4.588,2.054,4.588,4.588v18.431c0,5.527,4.481,10.009,10.009,10.009 c5.526,0,10.008-4.482,10.008-10.009V10.009z M73.411,218.181H57.399c-5.528,0-10.009-4.481-10.009-10.009 c0-5.526,4.48-10.008,10.009-10.008h16.013c5.526,0,10.009,4.481,10.009,10.008C83.42,213.699,78.938,218.181,73.411,218.181z M127.509,218.181h-16.013c-5.526,0-10.009-4.481-10.009-10.009c0-5.526,4.482-10.008,10.009-10.008h16.013 c5.528,0,10.009,4.481,10.009,10.008C137.518,213.699,133.037,218.181,127.509,218.181z M183.556,218.181h-16.014 c-5.526,0-10.008-4.481-10.008-10.009c0-5.526,4.481-10.008,10.008-10.008h16.014c5.527,0,10.008,4.481,10.008,10.008 C193.564,213.699,189.083,218.181,183.556,218.181z M239.602,218.181h-16.013c-5.526,0-10.009-4.481-10.009-10.009 c0-5.526,4.482-10.008,10.009-10.008h16.013c5.528,0,10.009,4.481,10.009,10.008C249.611,213.699,245.13,218.181,239.602,218.181z M265.681,119.099c2.717,0,4.919,2.202,4.919,4.919v20.017c0,2.534-2.054,4.588-4.588,4.588h-8.102 c-2.534,0-4.588-2.054-4.588-4.588v-0.332c0-2.534-2.054-4.588-4.588-4.588H48.265c-2.534,0-4.588,2.054-4.588,4.588 c0,2.717-2.202,4.919-4.919,4.919h-7.439c-2.717,0-4.919-2.202-4.919-4.919v-19.686c0-2.717,2.203-4.919,4.919-4.919H265.681z"></path> </g></svg>
+    )
+}
+
+
+export function ToiletIcon({ size = 20, className = '', ...props }) {
+    return (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 512 512"
+            fill="currentColor"
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            {...props}
+        >
+            <path d="M378.345,481.583v-79.877C346.76,432.603,303.569,451.684,256,451.684s-90.761-19.08-122.345-49.977v79.877h-25.638V512h25.638h244.69h25.638v-30.417H378.345z" />
+
+            <path d="M395.243,0H116.757C97.19,0,81.271,15.919,81.271,35.487c0,16.045,10.707,29.629,25.348,34.003v120.945h298.763v-0.001V69.49c14.641-4.374,25.348-17.958,25.348-34.003C430.729,15.919,414.81,0,395.243,0z M356.039,121.669h-78.697V91.252h78.697V121.669z" />
+
+            <path d="M412.428,220.851H99.572c-19.567,0-35.487,15.919-35.487,35.487c0,12.86,6.876,24.143,17.145,30.369c5.355,3.247,11.635,5.118,18.342,5.118h12.576c7.625,72.638,69.227,129.442,143.852,129.442s136.227-56.803,143.852-129.442h12.576c6.707,0,12.986-1.872,18.342-5.118c10.269-6.225,17.145-17.508,17.145-30.369C447.915,236.77,431.996,220.851,412.428,220.851z" />
+        </svg>
+    )
+}
+
+export function TVIcon({ size = 20, className = '', ...props }) {
+    return (
+        <svg
+            fill="currentColor"
+            height={size}
+            width={size}
+            viewBox="0 0 512 512"
+        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="76.043,116.419 76.043,312.017 271.641,116.419 "></polygon> </g> </g> <g> <g> <polygon points="314.657,116.419 97.551,333.525 197.343,333.525 414.449,116.419 "></polygon> </g> </g> <g> <g> <polygon points="240.359,333.525 435.957,333.525 435.957,137.927 "></polygon> </g> </g> <g> <g> <path d="M512,409.567V40.376H0v369.191h173.282v31.64h-51.393v30.417h51.393h165.435h51.393v-30.417h-51.393v-31.64H512z M45.626,363.942V86.002h420.748v277.94H45.626z"></path> </g> </g> </g></svg>
+    )
+}
+
+export function SafeboxIcon({ size = 20, className = '', ...props }) {
+    return (
+<svg fill="currentColor" height={size} width={size} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+  <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+  <g id="SVGRepo_iconCarrier">
+    <g>
+      <g>
+        <path d="M322.598,255.865v-30.417h21.906c-2.304-13.448-7.604-25.886-15.193-36.595l-15.465,15.465l-21.508-21.508l15.465-15.465 c-10.709-7.589-23.146-12.89-36.595-15.193v21.906h-30.417v-21.906c-13.448,2.304-25.886,7.604-36.595,15.193l15.465,15.465 l-21.508,21.508l-15.465-15.465c-7.589,10.709-12.89,23.146-15.193,36.595h21.906v30.417h-21.906 c2.304,13.448,7.604,25.885,15.194,36.594l15.465-15.465l21.508,21.508l-15.465,15.465c10.709,7.589,23.146,12.89,36.594,15.193 v-21.906h30.417v21.906c13.448-2.304,25.885-7.604,36.594-15.193l-15.465-15.465l21.508-21.508l15.465,15.465 c7.589-10.709,12.89-23.146,15.194-36.594H322.598z M256,270.635c-16.556,0-29.978-13.422-29.978-29.978 c0-16.556,13.422-29.978,29.978-29.978c16.557,0,29.978,13.422,29.978,29.978C285.978,257.213,272.556,270.635,256,270.635z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path d="M99.836,81.112v29.213h16.582v30.417H99.836v184.62h16.582v30.417H99.836v44.421h331.05V81.112H99.836z M399.417,255.865 h-24.159C367.76,314.998,317.136,360.872,256,360.872c-66.287,0-120.216-53.929-120.216-120.216 C135.783,174.369,189.712,120.441,256,120.441c61.136,0,111.76,45.874,119.258,105.007h24.159V255.865z"/>
+      </g>
+    </g>
+    <g>
+      <g>
+        <path d="M0,0v481.313h30.417V512h30.417v-30.687h390.331V512h30.417v-30.687H512V0H0z M461.304,430.618H69.419v-74.838H52.837 v-30.417h16.582v-184.62H52.837v-30.417h16.582v-59.63h391.885V430.618z"/>
+      </g>
+    </g>
+  </g>
+</svg>
+    )
+}
+
+export function FireplaceIcon({ size = 20, className = '', ...props }) {
+    return (
+        <svg fill="currentColor" width={size} height={size} xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.002 512.002" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M117.56,228.259V455.53H394.44V228.259H117.56z M255.999,433.224c-41.288,0.001-74.759-33.469-74.759-74.758 c0-64.982,74.759-109.266,74.759-109.266s74.759,44.282,74.759,109.266C330.758,399.754,297.287,433.224,255.999,433.224z"></path> </g> </g> <g> <g> <rect x="424.857" y="228.26" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <rect x="11.386" y="400.056" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <polygon points="11.386,142.363 11.386,197.842 87.143,197.842 87.143,197.841 424.857,197.841 424.857,197.842 500.614,197.842 500.614,142.363 "></polygon> </g> </g> <g> <g> <rect x="11.386" y="314.158" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <rect x="424.857" y="314.158" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <rect x="424.857" y="400.056" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <rect x="11.386" y="228.26" width="75.759" height="55.479"></rect> </g> </g> <g> <g> <rect y="56.467" width="512.002" height="55.479"></rect> </g> </g> <g> <g> <path d="M255.994,313.796c-12.329,12.406-24.059,28.603-24.059,44.671c0,13.268,10.796,24.063,24.065,24.063 s24.064-10.795,24.064-24.063C280.064,342.999,268.718,326.701,255.994,313.796z"></path> </g> </g> </g></svg>
+    )
+}
+
+// DuckbuoyIcon
+// https://www.svgrepo.com/svg/1145/duck-float
+
+// ShowerIcon
+// https://www.svgrepo.com/svg/73323/shower-with-water
+
+// ToiletBrushIcon
+// https://www.svgrepo.com/svg/174544/toilet-brush?edit=true
+
+// RaddishLightbulbIcon
+// https://www.svgrepo.com/svg/286101/light-bulb
+
+// TrashBinRecycleIcon
+// https://www.svgrepo.com/svg/286102/recycle-bin-trash
+
+// KitchenKettleIcon
+// https://www.svgrepo.com/svg/266636/kettle-food-and-restaurant
+
+// FryingPanIcon
+// https://www.svgrepo.com/svg/266637/frying-pan-pan
+
+// KitchenTimerIcon
+// https://www.svgrepo.com/svg/266638/timer
+
+// CookingIcon
+// https://www.svgrepo.com/svg/266639/ingredients-plate
+
+// CookPotIcon
+// https://www.svgrepo.com/svg/266643/pot-cooking
+
+// SpoonIcon
+// https://www.svgrepo.com/svg/266654/spoon
+
+// ForkIcon
+// https://www.svgrepo.com/svg/266657/fork
+
+// KnifeIcon
+// https://www.svgrepo.com/svg/266662/knife
+
+// SpatulaIcon
+// https://www.svgrepo.com/svg/266666/spatula
+
+// RollinPinIcon
+// https://www.svgrepo.com/svg/266668/rolling-pin
+
+// PizzaCutterIcon
+// https://www.svgrepo.com/svg/266671/pizza-cutter-food-and-restaurant
+
+// MixerIcon
+// https://www.svgrepo.com/svg/266667/mixer
 
 
 /*

@@ -1,3 +1,18 @@
+// BrightnessIcon
+// https://www.svgrepo.com/svg/360153/brightness
+
+// BrightDownIcon
+// https://www.svgrepo.com/svg/360156/brightness-down-f
+
+// BrightUpIcon
+// https://www.svgrepo.com/svg/360157/brightness-up-f
+
+// BrowseIcon
+// https://www.svgrepo.com/svg/360159/browse
+
+// CameraIcon
+// https://www.svgrepo.com/svg/360178/camera-f
+
 /*
     AccessibilityIcon
     AccessibilityPersonIcon

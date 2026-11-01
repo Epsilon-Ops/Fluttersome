@@ -41,6 +41,12 @@ export function EasterEggIcon(props) {
     )
 }
 
+// RelaxDayIcon
+// https://www.svgrepo.com/svg/96611/chain-and-sun
+
+// MoonBatsIcon
+// https://www.svgrepo.com/svg/322825/moon-bats
+
 
 /*
     CelebrationIcon

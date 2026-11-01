@@ -11,6 +11,9 @@ export const ICON_CATEGORIES = [
   { value: 'animal', label: 'Animaux' },
   { value: 'celebration', label: 'Fêtes' },
   { value: 'finance', label: 'Finance' },
+  { value: 'sante', label: 'Santé' },
+  { value: 'food', label: 'Nourriture' },
+  { value: 'fashion', label: 'Fashion' },
 ]
 
 export const ICON_SEARCHER = [
@@ -228,14 +231,37 @@ export const ICON_SEARCHER = [
       'homepage','start','house','building','principal','main'],
       },
 
-      // Pieces >>>
+      // Salon >>>
       {
-        name: 'sofa',
+        name: 'sofa_short',
         category: 'maison',
         label: 'Canapé',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'sofa_long',
+        category: 'maison',
+        label: 'Canapé',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'tv',
+        category: 'maison',
+        label: 'Télévision',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'fireplace',
+        category: 'maison',
+        label: 'Cheminée',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Chambre >>>
       {
         name: 'bed',
         category: 'maison',
@@ -261,6 +287,13 @@ export const ICON_SEARCHER = [
         name: 'bedroom_lamp',
         category: 'maison',
         label: 'Dors dans lit',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'safebox',
+        category: 'maison',
+        label: 'Boite Secrète',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -296,7 +329,6 @@ export const ICON_SEARCHER = [
       },
 
       // Electricité >>>
-
       {
         name: 'lightbulb',
         category: 'maison',
@@ -322,6 +354,46 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'sink',
+        category: 'maison',
+        label: 'Evier',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'toilet_paper',
+        category: 'maison',
+        label: 'Papier Toilette',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'toilet',
+        category: 'maison',
+        label: 'Toilette',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Santé --------------------------------------------
+  //  --------------------------------------------
+      // Visage >>>
+      {
+        name: 'toothpaste_n_brush',
+        category: 'sante',
+        label: 'Pâte Dentifrice & Brosse',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'tooth',
+        category: 'sante',
+        label: 'Dent',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
   //  --------------------------------------------
   // Animaux --------------------------------------------
@@ -331,6 +403,18 @@ export const ICON_SEARCHER = [
         name: 'egg',
         category: 'animal',
         label: 'OEuf',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Nouriturre --------------------------------------------
+  //  --------------------------------------------
+      // Plateaux >>>
+      {
+        name: 'restaurant_plate',
+        category: 'food',
+        label: 'Assiette de Restaurant',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -431,6 +515,30 @@ export const ICON_SEARCHER = [
         name: 'clover_coin',
         category: 'finance',
         label: 'Billet II',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Nature --------------------------------------------
+  //  --------------------------------------------
+      // Végétal >>>
+      {
+        name: 'twin_branch',
+        category: 'nature',
+        label: 'Branches Jumelles',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Fashion --------------------------------------------
+  //  --------------------------------------------
+      // Cheveux >>>
+      {
+        name: 'comb',
+        category: 'fashion',
+        label: 'Peigne',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
