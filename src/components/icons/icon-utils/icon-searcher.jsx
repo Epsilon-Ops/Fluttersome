@@ -10,6 +10,7 @@ export const ICON_CATEGORIES = [
   { value: 'interface', label: 'Interface & productivité' },
   { value: 'animal', label: 'Animaux' },
   { value: 'celebration', label: 'Fêtes' },
+  { value: 'finance', label: 'Finance' },
 ]
 
 export const ICON_SEARCHER = [
@@ -357,6 +358,79 @@ export const ICON_SEARCHER = [
         name: 'easter_egg',
         category: 'celebration',
         label: 'OEuf de Pâques',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Finance --------------------------------------------
+  //  --------------------------------------------
+
+      // Monnaie >>>
+      {
+        name: 'money_i',
+        category: 'finance',
+        label: 'Billet I',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'money_ii',
+        category: 'finance',
+        label: 'Billet II',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'dollar',
+        category: 'finance',
+        label: 'Dollar',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Cartes >>>
+      {
+        name: 'money_card',
+        category: 'finance',
+        label: 'Billet I',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'mastercard_card',
+        category: 'finance',
+        label: 'Billet II',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'card_layout',
+        category: 'finance',
+        label: 'Dollar',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'double_card',
+        category: 'finance',
+        label: 'Dollar',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+  
+      // Pièces >>>
+      {
+        name: 'double_coin',
+        category: 'finance',
+        label: 'Billet I',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'clover_coin',
+        category: 'finance',
+        label: 'Billet II',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },

@@ -53,6 +53,18 @@ import {
   } from '../icon-list/Animal-Icons'
 
   import {
+    Money1Icon,
+    Money2Icon,
+    DollarIcon,
+    MoneyCardIcon,
+    MastercardCardIcon,
+    CardLayoutIcon,
+    DoubleCardIcon,
+    DoubleCoinIcon,
+    CloverCoinIcon,
+  } from '../icon-list/Finance-Icons'
+
+  import {
     HomeIcon,
     DoorIcon,
     KeyIcon,
@@ -152,6 +164,24 @@ import {
     ghost: GhostIcon,
     witch_hat: WitchHatIcon,
     easter_egg: EasterEggIcon,
+
+    // -----------------------------
+    // Finance -----------------------------
+    // -----------------------------
+    // >>> Monnaie
+    money_i: Money1Icon,
+    money_ii: Money2Icon,
+    dollar: DollarIcon,
+
+    // >>> Cartes
+    money_card: MoneyCardIcon,
+    mastercard_card: MastercardCardIcon,
+    card_layout: CardLayoutIcon,
+    double_card: DoubleCardIcon,
+
+    // >>> Pièces
+    double_coin: DoubleCoinIcon,
+    clover_coin: CloverCoinIcon,
   }
   
   export function AppIcon({
