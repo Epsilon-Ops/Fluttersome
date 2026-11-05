@@ -9,6 +9,7 @@ import {
 } from '../../utils/taskHelpers'
 
 import TasksHeader from './TasksHeader'
+import '../../styles/main_pages/page_taches/routines-timers.css'
 import TasksTabs from './TasksTabs'
 import TasksOverview from './TasksOverview'
 import TasksToolbar from './TasksToolbar'
@@ -16,7 +17,9 @@ import TasksList from './TasksList'
 import TasksFormModal from './TasksFormModal'
 import TasksStorageNote from './TasksStorageNote'
 import useTaskLayout from '../../hooks/useTaskLayout'
-import { TaskLayoutContext } from './TaskLayoutContext'
+import { TaskLayoutContext, TaskActionsContext } from './TaskLayoutContext'
+import TaskTimerScreen from './TaskTimerScreen'
+import { isTaskOpen } from '../../utils/taskHelpers'
 
 // Par défaut on n'affiche que les tâches à faire (« À faire »).
 // Les tâches terminées apparaissent dans l'onglet « Terminées »
@@ -44,6 +47,8 @@ export default function Tasks() {
     deleteTask,
     toggleTaskCompleted,
     toggleSubtask,
+    changeCounter,
+    timerAction,
   } = useTasks()
 
   const [activeTab, setActiveTab] = useState('overview')
@@ -51,7 +56,14 @@ export default function Tasks() {
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [formOpen, setFormOpen] = useState(false)
   const [editingTask, setEditingTask] = useState(null)
+  const [timerTaskId, setTimerTaskId] = useState(null)
   const layoutApi = useTaskLayout()
+  const timerTask = tasks.find((task) => task.id === timerTaskId) ?? null
+
+  const actionsApi = {
+    openTimer: (id) => setTimerTaskId(id),
+    changeCounter,
+  }
 
   const todayLabel = new Intl.DateTimeFormat('fr-FR', {
     weekday: 'long',
@@ -61,7 +73,7 @@ export default function Tasks() {
 
   const counts = useMemo(
     () => ({
-      overview: tasks.filter((task) => !task.completed).length,
+      overview: tasks.filter(isTaskOpen).length,
       all: tasks.length,
       upcoming: tasks.filter(
         (task) => !task.completed && isTaskUpcoming(task),
@@ -91,7 +103,7 @@ export default function Tasks() {
       return filteredTasks
     }
 
-    return filteredTasks.filter((task) => !task.completed)
+    return filteredTasks.filter(isTaskOpen)
   }, [activeTab, filteredTasks])
 
   const activeFilterCount = [
@@ -153,6 +165,7 @@ export default function Tasks() {
 
   return (
     <TaskLayoutContext.Provider value={layoutApi}>
+    <TaskActionsContext.Provider value={actionsApi}>
     <div className="dashboard tasks-page">
       <TasksHeader />
 
@@ -315,7 +328,15 @@ export default function Tasks() {
         onClose={closeForm}
         onSave={handleSave}
       />
+      {timerTask && (
+        <TaskTimerScreen
+          task={timerTask}
+          onClose={() => setTimerTaskId(null)}
+          onAction={timerAction}
+        />
+      )}
     </div>
+    </TaskActionsContext.Provider>
     </TaskLayoutContext.Provider>
   )
 }

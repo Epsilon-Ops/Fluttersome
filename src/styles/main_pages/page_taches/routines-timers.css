@@ -1,0 +1,307 @@
+/* =========================================================
+   Routines, tâches négatives, timers et compteurs
+   ========================================================= */
+
+.task-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.task-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--task-primary, #17191F);
+}
+
+.task-badge-routine {
+  background: var(--task-primary, #17191F);
+  color: var(--task-ink, #fff);
+}
+
+.task-badge-negative {
+  background: #FDE7E4;
+  color: #9F183C;
+}
+
+.task-card.is-negative .task-card-checkbox input:checked + span {
+  background: #24533B;
+}
+
+.task-relapse-message {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #9F183C;
+  animation: task-fade-in 0.3s ease;
+}
+
+@keyframes task-fade-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Ligne d'état timer dans la carte */
+.task-behavior {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.task-behavior-status {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.task-timer-open {
+  border: 1px solid var(--task-primary, #17191F);
+  background: transparent;
+  color: var(--task-primary, #17191F);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Compteur */
+.task-counter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding-bottom: 6px;
+}
+
+.task-counter button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--task-primary, #17191F);
+  color: var(--task-ink, #fff);
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.task-counter button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.task-counter-value {
+  min-width: 64px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.task-counter-value strong {
+  font-size: 1.3rem;
+}
+
+.task-counter-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.task-counter-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--task-primary, #17191F);
+  transition: width 0.3s ease;
+}
+
+/* Sélecteurs segmentés du formulaire */
+.tasks-form-kind {
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.tasks-segmented {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  gap: 3px;
+}
+
+.tasks-segmented-wrap {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.tasks-segmented button {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.tasks-segmented button.is-selected {
+  background: #17191F;
+  color: #fff;
+}
+
+.tasks-form-field small {
+  display: block;
+  margin-top: 4px;
+}
+
+/* Page timer plein écran */
+.task-timer-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--task-accent, #E8DFFF), #fff 70%);
+  overflow-y: auto;
+  padding: env(safe-area-inset-top, 0px) 16px env(safe-area-inset-bottom, 0px);
+}
+
+.task-timer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 4px;
+}
+
+.task-timer-back {
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task-timer-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.task-timer-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.task-timer-ring {
+  position: relative;
+  width: min(72vw, 300px);
+  height: min(72vw, 300px);
+}
+
+.task-timer-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.task-timer-track,
+.task-timer-progress {
+  fill: none;
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.task-timer-track {
+  stroke: rgba(0, 0, 0, 0.08);
+}
+
+.task-timer-progress {
+  stroke: var(--task-primary, #17191F);
+  transition: stroke-dashoffset 0.25s linear;
+}
+
+.task-timer-ring.is-rest .task-timer-progress {
+  stroke: var(--task-accent, #A4C3A2);
+}
+
+.task-timer-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-timer-center strong {
+  font-size: clamp(2.2rem, 9vw, 3.2rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.task-timer-center span {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.task-timer-reps,
+.task-timer-hint {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.task-timer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.task-timer-controls button {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.task-timer-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.task-timer-primary {
+  background: var(--task-primary, #17191F) !important;
+  color: var(--task-ink, #fff) !important;
+  border-color: transparent !important;
+  font-weight: 700;
+}
+
+.task-timer-ghost {
+  background: transparent !important;
+  border-color: transparent !important;
+  opacity: 0.7;
+}

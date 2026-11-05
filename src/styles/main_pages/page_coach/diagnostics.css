@@ -1,0 +1,77 @@
+/* Diagnostics du coach : sommeil et performances */
+
+.coach-diagnostics__disclaimer {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(69, 86, 109, 0.08);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.coach-diagnostics__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.coach-diagnostics__block h3 {
+  margin: 0 0 10px;
+}
+
+.coach-diagnostics__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.coach-diagnostics__stats dt {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.coach-diagnostics__stats dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.coach-diagnostics__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.coach-diagnostics__item {
+  padding: 12px;
+  border-radius: 12px;
+  border-left: 4px solid #8A94A6;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.coach-diagnostics__item.is-positive { border-left-color: #24533B; }
+.coach-diagnostics__item.is-attention { border-left-color: #F06458; }
+.coach-diagnostics__item.is-info { border-left-color: #075BCE; }
+
+.coach-diagnostics__item-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.coach-diagnostics__item p {
+  margin: 6px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.coach-diagnostics__pill {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background: rgba(0, 0, 0, 0.06);
+}

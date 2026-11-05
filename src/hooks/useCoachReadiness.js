@@ -66,6 +66,9 @@ export default function useCoachReadiness() {
       targetMinutes: sleepTargetMinutes,
       available: hasSleepData,
     },
+    // Données complètes, utilisées par les diagnostics (sommeil et performances)
+    allNights: nights,
+    allPerformances: performances,
     bodyFeelings: {
       recent: recentFeelings,
       available: hasBodyFeelingData,

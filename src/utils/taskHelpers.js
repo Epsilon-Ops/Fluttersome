@@ -1,4 +1,12 @@
 import {
+  createTimerState,
+  getPeriodKey,
+  isRoutine,
+  RECURRENCES,
+  BEHAVIORS,
+  toDateKey,
+} from './recurrenceHelpers'
+import {
   DEFAULT_TASK_ICON,
   DEFAULT_TASK_COLOR,
   TASK_COLOR_PALETTES,
@@ -204,7 +212,7 @@ export const TASK_PRIORITIES = [
   
       const matchesStatus =
         status === 'all' ||
-        (status === 'active' && !task.completed) ||
+        (status === 'active' && isTaskOpen(task)) ||
         (status === 'completed' && task.completed) ||
         (status === 'overdue' && isTaskOverdue(task))
   
@@ -223,42 +231,127 @@ export const TASK_PRIORITIES = [
     )
   }
   
-  export function createTaskData(values, existingTask = null) {
-    const now = new Date().toISOString()
-  
-    return {
-      id: existingTask?.id ?? createTaskId(),
-      title: String(values.title ?? '').trim(),
-      icon: values.icon || existingTask?.icon || DEFAULT_TASK_ICON,
-      color: TASK_COLOR_PALETTES.some(
-        (palette) => palette.id === values.color
-      )
-        ? values.color
-        : TASK_COLOR_PALETTES.some(
-              (palette) => palette.id === existingTask?.color
-            )
-          ? existingTask.color
-          : DEFAULT_TASK_COLOR,
-      due: values.due || '',
-      priority: values.priority || 'normal',
-      category: values.category || 'personnel',
-      duration:
-        values.duration === '' ||
-        values.duration == null
-          ? ''
-          : Number(values.duration),
-      notes: String(values.notes ?? '').trim(),
-      subtasks: Array.isArray(values.subtasks)
-        ? values.subtasks.map((subtask) => ({
-            id: subtask.id || createTaskId(),
-            title: String(subtask.title ?? '').trim(),
-            completed: Boolean(subtask.completed),
-          }))
-        : [],
-      completed: existingTask?.completed ?? false,
-      createdAt: existingTask?.createdAt ?? now,
-      completedAt: existingTask?.completedAt ?? null,
-      updatedAt: now,
-      order: existingTask?.order ?? 0,
-    }
+function clampInt(value, min, max, fallback) {
+  const number = Number(value)
+  if (value === '' || value == null || !Number.isFinite(number)) return fallback
+  return Math.min(max, Math.max(min, Math.round(number)))
+}
+
+/**
+ * Une tâche « ouverte » reste visible dans la liste du jour :
+ * les routines (récurrentes ou négatives) apparaissent toujours,
+ * les autres disparaissent une fois terminées.
+ */
+export function isTaskOpen(task) {
+  return !task.completed || isRoutine(task)
+}
+
+export const COUNTER_UNITS = [
+  { value: 'seconds', label: 'Secondes', shortLabel: 's' },
+  { value: 'minutes', label: 'Minutes', shortLabel: 'min' },
+  { value: 'hours', label: 'Heures', shortLabel: 'h' },
+]
+
+export function getCounterUnit(unit) {
+  return COUNTER_UNITS.find((item) => item.value === unit)
+    ?? COUNTER_UNITS[1]
+}
+
+export function createTaskData(values, existingTask = null) {
+  const now = new Date()
+  const nowIso = now.toISOString()
+
+  const kind = values.kind === 'negative' ? 'negative' : 'normal'
+
+  const recurrence = RECURRENCES.some((item) => item.value === values.recurrence)
+    ? values.recurrence
+    : 'none'
+
+  const behavior =
+    kind === 'negative'
+      ? 'check'
+      : BEHAVIORS.some((item) => item.value === values.behavior)
+        ? values.behavior
+        : 'check'
+
+  const recurrenceInterval = clampInt(values.recurrenceInterval, 1, 365, 2)
+
+  const recurrenceAnchor =
+    existingTask?.recurrenceAnchor ?? toDateKey(now)
+
+  // Si la cadence change, la progression repart de zéro
+  const cadenceChanged =
+    Boolean(existingTask) &&
+    (existingTask.recurrence !== recurrence ||
+      Number(existingTask.recurrenceInterval) !== recurrenceInterval ||
+      existingTask.kind !== kind ||
+      existingTask.behavior !== behavior)
+
+  const draft = { recurrence, recurrenceInterval, recurrenceAnchor, createdAt: existingTask?.createdAt ?? nowIso }
+
+  const completed = cadenceChanged
+    ? kind === 'negative'
+    : existingTask
+      ? existingTask.completed
+      : kind === 'negative'
+
+  return {
+    id: existingTask?.id ?? createTaskId(),
+    title: String(values.title ?? '').trim(),
+    icon: values.icon || existingTask?.icon || DEFAULT_TASK_ICON,
+    color: TASK_COLOR_PALETTES.some((palette) => palette.id === values.color)
+      ? values.color
+      : TASK_COLOR_PALETTES.some((palette) => palette.id === existingTask?.color)
+        ? existingTask.color
+        : DEFAULT_TASK_COLOR,
+    // Une tâche répétée n'a pas d'échéance unique
+    due: recurrence === 'none' ? values.due || '' : '',
+    priority: values.priority || 'normal',
+    category: values.category || 'personnel',
+    duration:
+      values.duration === '' || values.duration == null
+        ? ''
+        : Number(values.duration),
+    notes: String(values.notes ?? '').trim(),
+    subtasks: Array.isArray(values.subtasks)
+      ? values.subtasks.map((subtask) => ({
+          id: subtask.id || createTaskId(),
+          title: String(subtask.title ?? '').trim(),
+          completed: Boolean(subtask.completed),
+        }))
+      : [],
+
+    // Nature et répétition
+    kind,
+    recurrence,
+    recurrenceInterval,
+    recurrenceAnchor,
+    periodKey: cadenceChanged
+      ? null
+      : existingTask?.periodKey ?? getPeriodKey(draft, now),
+
+    // Mode de la tâche : classique, timer, X fois timer, compteur
+    behavior,
+    timerMinutes:
+      values.timerMinutes === '' || values.timerMinutes == null
+        ? ''
+        : Number(values.timerMinutes),
+    repeatCount: clampInt(values.repeatCount, 1, 99, 1),
+    restMinutes: clampInt(values.restMinutes, 0, 1440, 0),
+    counterGoal: clampInt(values.counterGoal, 0, 100000, 0),
+    counterStep: clampInt(values.counterStep, 1, 1000, 1),
+    counterUnit: getCounterUnit(values.counterUnit).value,
+
+    // Progression courante
+    timer: cadenceChanged
+      ? createTimerState()
+      : existingTask?.timer ?? createTimerState(),
+    counterValue: cadenceChanged ? 0 : existingTask?.counterValue ?? 0,
+
+    completed,
+    createdAt: existingTask?.createdAt ?? nowIso,
+    completedAt: existingTask?.completedAt ?? (completed && !existingTask ? nowIso : null),
+    updatedAt: nowIso,
+    order: existingTask?.order ?? 0,
   }
+}

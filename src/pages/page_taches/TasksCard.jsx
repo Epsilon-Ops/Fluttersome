@@ -1,8 +1,22 @@
-
+import { useContext } from 'react'
 import { AppIcon } from '../../components/icons/icon-utils/index'
 import { getTaskColorPalette } from '../../components/icons/icon-utils/icon-colors'
 import TasksSubtasks from './TasksSubtasks'
-import { getCategoryLabel } from '../../utils/taskHelpers'
+import { TaskActionsContext } from './TaskLayoutContext'
+import {
+  getCategoryLabel,
+} from '../../utils/taskHelpers'
+import {
+  getBehaviorLabel,
+  getCounterGoal,
+  getCounterUnit,
+  getRecurrenceLabel,
+  getTimerConfig,
+  isCounterBehavior,
+  isNegative,
+  isRecurring,
+  isTimerBehavior,
+} from '../../utils/recurrenceHelpers'
 
 // Couleur d'icône lisible : sombre sur fond clair, blanche sur fond foncé.
 function getReadableInk(hex = '#000000') {
@@ -14,6 +28,25 @@ function getReadableInk(hex = '#000000') {
   return luminance > 0.6 ? '#1A1400' : '#FFFFFF'
 }
 
+// Statut d'un timer, sans horloge en direct (la carte ne se met pas à jour seconde par seconde)
+function getTimerStatus(task) {
+  if (task.completed) return 'Terminé'
+
+  const timer = task.timer ?? {}
+  const { repeatCount, targetSec } = getTimerConfig(task)
+
+  if (timer.runningSince != null) return 'En cours'
+  if (timer.phase === 'rest') return 'En récupération'
+
+  if (repeatCount > 1) {
+    return `${timer.repsDone ?? 0}/${repeatCount} faites · ${targetSec / 60} min chacune`
+  }
+
+  return (timer.elapsedSec ?? 0) > 0
+    ? `En pause · ${targetSec / 60} min`
+    : `${targetSec / 60} min à compléter`
+}
+
 export default function TasksCard({
   task,
   dragHandleProps,
@@ -22,7 +55,14 @@ export default function TasksCard({
   onDelete,
   onToggleSubtask,
 }) {
+  const actions = useContext(TaskActionsContext)
   const palette = getTaskColorPalette(task.color)
+
+  const negative = isNegative(task)
+  const routine = isRecurring(task)
+  const timer = isTimerBehavior(task)
+  const counter = isCounterBehavior(task)
+  const canEdit = !task.completed || routine || negative
 
   function handleDelete() {
     const confirmed = window.confirm(
@@ -34,10 +74,26 @@ export default function TasksCard({
     }
   }
 
+  let checkboxLabel = task.completed
+    ? 'Marquer comme non terminée'
+    : 'Terminer cette tâche'
+
+  if (negative) {
+    checkboxLabel = task.completed
+      ? 'Signaler une rechute'
+      : 'Marquer comme tenu'
+  }
+
+  const counterGoal = getCounterGoal(task)
+  const counterValue = Number(task.counterValue) || 0
+  const counterUnit = getCounterUnit(task)
+  const counterRatio =
+    counterGoal > 0 ? Math.min(100, (counterValue / counterGoal) * 100) : 0
+
   return (
     <article
-      className={`task-card ${
-        task.completed ? 'is-completed' : ''
+      className={`task-card ${task.completed ? 'is-completed' : ''} ${
+        negative ? 'is-negative' : ''
       }`}
       style={{
         '--task-primary': palette.primary,
@@ -45,14 +101,7 @@ export default function TasksCard({
         '--task-ink': getReadableInk(palette.primary),
       }}
     >
-      <label
-        className="task-card-checkbox"
-        aria-label={
-          task.completed
-            ? 'Marquer comme non terminée'
-            : 'Terminer cette tâche'
-        }
-      >
+      <label className="task-card-checkbox" aria-label={checkboxLabel}>
         <input
           type="checkbox"
           checked={Boolean(task.completed)}
@@ -75,25 +124,93 @@ export default function TasksCard({
           type="button"
           className="task-card-title-button"
           onClick={() => onEdit?.(task)}
-          disabled={task.completed}
+          disabled={!canEdit}
         >
           <span className="task-card-title">{task.title}</span>
         </button>
 
-        {task.category && (
-          <span className="task-card-category">
-            {getCategoryLabel(task.category)}
-          </span>
+        <div className="task-card-badges">
+          {task.category && (
+            <span className="task-card-category">
+              {getCategoryLabel(task.category)}
+            </span>
+          )}
+          {routine && (
+            <span className="task-badge task-badge-routine">
+              {getRecurrenceLabel(task)}
+            </span>
+          )}
+          {negative && (
+            <span className="task-badge task-badge-negative">
+              À éviter
+            </span>
+          )}
+          {timer && (
+            <span className="task-badge">{getBehaviorLabel(task)}</span>
+          )}
+          {counter && (
+            <span className="task-badge">{getBehaviorLabel(task)}</span>
+          )}
+        </div>
+
+        {negative && !task.completed && (
+          <p className="task-relapse-message">Tu vas y arriver !</p>
         )}
 
-        <TasksSubtasks
-          task={task}
-          onToggleSubtask={onToggleSubtask}
-        />
+        {timer && (
+          <div className="task-behavior">
+            <span className="task-behavior-status">
+              {getTimerStatus(task)}
+            </span>
+            <button
+              type="button"
+              className="task-timer-open"
+              onClick={() => actions?.openTimer(task.id)}
+            >
+              {task.completed ? 'Voir le timer' : 'Ouvrir le timer'}
+            </button>
+          </div>
+        )}
+
+        {counter && (
+          <div
+            className="task-counter"
+            role="group"
+            aria-label={`Compteur en ${counterUnit.label.toLowerCase()}`}
+          >
+            <button
+              type="button"
+              onClick={() => actions?.changeCounter(task.id, -1)}
+              disabled={counterValue <= 0}
+              aria-label="Diminuer"
+            >
+              −
+            </button>
+
+            <span className="task-counter-value">
+              <strong>{counterValue}</strong>
+              <span> / {counterGoal} {counterUnit.shortLabel}</span>
+            </span>
+
+            <button
+              type="button"
+              onClick={() => actions?.changeCounter(task.id, 1)}
+              aria-label="Augmenter"
+            >
+              +
+            </button>
+
+            <span className="task-counter-bar" aria-hidden="true">
+              <span style={{ width: `${counterRatio}%` }} />
+            </span>
+          </div>
+        )}
+
+        <TasksSubtasks task={task} onToggleSubtask={onToggleSubtask} />
       </div>
 
       <div className="task-card-actions">
-        {!task.completed && (
+        {canEdit && (
           <button
             type="button"
             className="task-action-button"

@@ -9,6 +9,8 @@ import {
 } from '../../utils/taskHelpers'
 
 import TasksList from './TasksList'
+import { isTaskOpen } from '../../utils/taskHelpers'
+import { isRoutine } from '../../utils/recurrenceHelpers'
 
 function CollapsibleSection({
   eyebrow,
@@ -62,9 +64,14 @@ export default function TasksOverview({
 }) {
   const [statsOpen, setStatsOpen] = useState(false)
 
-  const activeTasks = tasks.filter((task) => !task.completed)
+  const openTasks = tasks.filter(isTaskOpen)
 
-  const todayTasks = activeTasks.filter(isTaskDueToday)
+  const activeTasks = openTasks.filter((task) => !task.completed)
+
+  // Routines (récurrentes ou négatives) apparaissent chaque jour, cochées ou non
+  const todayTasks = openTasks.filter(
+    (task) => isRoutine(task) || isTaskDueToday(task),
+  )
 
   const overdueTasks = activeTasks.filter(isTaskOverdue)
 

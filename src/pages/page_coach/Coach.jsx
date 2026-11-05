@@ -1,5 +1,8 @@
 
+import { useMemo } from 'react'
 import { AppIcon } from '../../components/icons/icon-utils/index'
+import CoachDiagnostics from './CoachDiagnostics'
+import { buildDiagnostics } from '../../services/coach/diagnostics/buildDiagnostics'
 
 import CoachSummary from './CoachSummary'
 import CoachAlerts from './CoachAlerts'
@@ -14,8 +17,30 @@ import SessionDecision from './SessionDecision'
 import useCoachReadiness from '../../hooks/useCoachReadiness'
 import '../../styles/main_pages/page_coach/index.css'
 
+// Résume les repères en quelques phrases pour le chat du coach
+function summarizeFindings(findings, emptyText) {
+  const useful = findings.filter((finding) => finding.level !== 'insufficient')
+
+  if (useful.length === 0) return findings[0]?.detail ?? emptyText
+
+  return useful
+    .slice(0, 3)
+    .map((finding) => finding.detail)
+    .join(' ')
+}
+
 export default function Coach() {
   const coachData = useCoachReadiness()
+
+  const diagnostics = useMemo(
+    () =>
+      buildDiagnostics({
+        nights: coachData.allNights,
+        performances: coachData.allPerformances,
+        sleepTargetMinutes: coachData.sleep.targetMinutes,
+      }),
+    [coachData.allNights, coachData.allPerformances, coachData.sleep.targetMinutes],
+  )
 
   const {
     sleep,
@@ -63,12 +88,14 @@ export default function Coach() {
     readiness: explanation,
     session:
       'Aucune décision automatique n’est prise. Vérifie les sensations corporelles, la récupération et les objectifs de la séance avec ton entraîneur.',
-    performance:
-      performances.available
-        ? `${performances.recent.length} performance(s) enregistrée(s) sur les 28 derniers jours. Consulte leur distance, leur chrono et leurs conditions avant de comparer les résultats.`
-        : 'Aucune performance récente exploitable n’est disponible.',
-    recovery:
-      'Tu peux examiner le sommeil, les ressentis corporels et l’évolution des entraînements. Une douleur forte ou inhabituelle mérite une attention particulière, indépendamment du score de préparation.',
+    performance: summarizeFindings(
+      diagnostics.performance.findings,
+      'Aucune performance exploitable pour l’instant.',
+    ),
+    recovery: summarizeFindings(
+      diagnostics.sleep.findings,
+      'Enregistre tes nuits pour que le coach puisse examiner ta récupération. Une douleur forte ou inhabituelle mérite une attention particulière, indépendamment de tout repère.',
+    ),
   }
 
   return (
@@ -101,6 +128,8 @@ export default function Coach() {
         <ReadinessBreakdown breakdown={{}} />
 
         <CoachAlerts alerts={alerts} />
+
+        <CoachDiagnostics diagnostics={diagnostics} />
 
         <SessionDecision
           rationale="La décision doit tenir compte du programme prévu, du ressenti personnel et des conseils de l’entraîneur."

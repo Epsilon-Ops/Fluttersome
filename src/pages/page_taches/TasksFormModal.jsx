@@ -4,6 +4,10 @@ import {
 } from '../../components/icons/icon-utils/icon-searcher'
 import { useEffect, useState } from 'react'
 import {
+  BEHAVIORS,
+  RECURRENCES,
+} from '../../utils/recurrenceHelpers'
+import {
   TASK_CATEGORIES,
   TASK_PRIORITIES,
 } from '../../utils/taskHelpers'
@@ -27,6 +31,22 @@ const EMPTY_FORM = {
   subtasks: [],
   icon: DEFAULT_TASK_ICON,
   color: DEFAULT_TASK_COLOR,
+  kind: 'normal',
+  recurrence: 'none',
+  recurrenceInterval: '2',
+  behavior: 'check',
+  timerMinutes: '',
+  repeatCount: '3',
+  restMinutes: '0',
+  counterGoal: '',
+  counterStep: '1',
+  counterUnit: 'minutes',
+}
+
+function isIntegerInRange(value, min, max) {
+  if (value === '' || value == null) return false
+  const number = Number(value)
+  return Number.isInteger(number) && number >= min && number <= max
 }
 
 export default function TasksFormModal({
@@ -105,6 +125,16 @@ const groupedIcons = ICON_CATEGORIES
             ),
             icon: task.icon ?? DEFAULT_TASK_ICON,
             color: task.color ?? DEFAULT_TASK_COLOR,
+            kind: task.kind ?? 'normal',
+            recurrence: task.recurrence ?? 'none',
+            recurrenceInterval: String(task.recurrenceInterval ?? 2),
+            behavior: task.behavior ?? 'check',
+            timerMinutes: String(task.timerMinutes ?? ''),
+            repeatCount: String(task.repeatCount ?? 3),
+            restMinutes: String(task.restMinutes ?? 0),
+            counterGoal: String(task.counterGoal ?? ''),
+            counterStep: String(task.counterStep ?? 1),
+            counterUnit: task.counterUnit ?? 'minutes',
           }
         : {
             ...EMPTY_FORM,
@@ -138,6 +168,14 @@ const groupedIcons = ICON_CATEGORIES
     setForm((current) => ({
       ...current,
       [field]: value,
+    }))
+  }
+
+  function setKind(kind) {
+    setForm((current) => ({
+      ...current,
+      kind,
+      behavior: kind === 'negative' ? 'check' : current.behavior,
     }))
   }
 
@@ -184,6 +222,52 @@ const groupedIcons = ICON_CATEGORIES
     if (!title) {
       setError('Le titre de la tâche est obligatoire.')
       return
+    }
+
+    if (
+      form.recurrence === 'everyXDays' &&
+      !isIntegerInRange(form.recurrenceInterval, 1, 365)
+    ) {
+      setError('Le nombre de jours doit être compris entre 1 et 365.')
+      return
+    }
+
+    if (form.kind === 'normal' && (form.behavior === 'timer' || form.behavior === 'repeatTimer')) {
+      if (!isIntegerInRange(form.timerMinutes, 1, 1440)) {
+        setError('La durée du timer doit être comprise entre 1 et 1440 minutes.')
+        return
+      }
+
+      if (form.behavior === 'repeatTimer') {
+        if (!isIntegerInRange(form.repeatCount, 1, 99)) {
+          setError('Le nombre de fois doit être compris entre 1 et 99.')
+          return
+        }
+
+        if (!isIntegerInRange(form.restMinutes, 0, 1440)) {
+          setError('Le repos doit être compris entre 0 et 1440 minutes.')
+          return
+        }
+      }
+    }
+
+    if (form.kind === 'normal' && form.behavior === 'counter') {
+      if (!isIntegerInRange(form.counterGoal, 1, 100000)) {
+        setError('La valeur objectif doit être un entier positif.')
+        return
+      }
+
+      if (!isIntegerInRange(form.counterStep, 1, 1000)) {
+        setError('Le pas doit être un entier compris entre 1 et 1000.')
+        return
+      }
+
+      if (
+        !['seconds', 'minutes', 'hours'].includes(form.counterUnit)
+      ) {
+        setError('Unité de compteur invalide.')
+        return
+      }
     }
 
     if (
@@ -265,6 +349,197 @@ const groupedIcons = ICON_CATEGORIES
               placeholder="Ex. Réviser les maths"
             />
           </label>
+
+          <section className="tasks-form-kind">
+            <div className="tasks-form-field">
+              <span>Nature de la tâche</span>
+              <div className="tasks-segmented">
+                <button
+                  type="button"
+                  className={form.kind === 'normal' ? 'is-selected' : ''}
+                  aria-pressed={form.kind === 'normal'}
+                  onClick={() => setKind('normal')}
+                >
+                  Normale
+                </button>
+                <button
+                  type="button"
+                  className={form.kind === 'negative' ? 'is-selected' : ''}
+                  aria-pressed={form.kind === 'negative'}
+                  onClick={() => setKind('negative')}
+                >
+                  Négative (à éviter)
+                </button>
+              </div>
+              <p className="tasks-form-hint">
+                {form.kind === 'negative'
+                  ? 'Cochée par défaut. Décoche-la en cas de rechute.'
+                  : 'Une action à accomplir.'}
+              </p>
+            </div>
+
+            <div className="tasks-form-grid">
+              <label className="tasks-form-field">
+                <span>Répétition</span>
+                <select
+                  value={form.recurrence}
+                  onChange={(event) =>
+                    updateField('recurrence', event.target.value)
+                  }
+                >
+                  {RECURRENCES.map((item) => (
+                    <option key={item.value} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              {form.recurrence === 'everyXDays' && (
+                <label className="tasks-form-field">
+                  <span>Tous les (jours)</span>
+                  <input
+                    type="number"
+                    min="1"
+                    max="365"
+                    step="1"
+                    value={form.recurrenceInterval}
+                    onChange={(event) =>
+                      updateField('recurrenceInterval', event.target.value)
+                    }
+                  />
+                </label>
+              )}
+            </div>
+
+            {form.kind === 'normal' && (
+              <div className="tasks-form-field">
+                <span>Fonctionnement</span>
+                <div className="tasks-segmented tasks-segmented-wrap">
+                  {BEHAVIORS.map((item) => (
+                    <button
+                      key={item.value}
+                      type="button"
+                      className={form.behavior === item.value ? 'is-selected' : ''}
+                      aria-pressed={form.behavior === item.value}
+                      onClick={() => updateField('behavior', item.value)}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+                <p className="tasks-form-hint">
+                  {BEHAVIORS.find((item) => item.value === form.behavior)?.hint}
+                </p>
+              </div>
+            )}
+
+            {form.kind === 'normal' &&
+              (form.behavior === 'timer' || form.behavior === 'repeatTimer') && (
+                <div className="tasks-form-grid">
+                  <label className="tasks-form-field">
+                    <span>
+                      {form.behavior === 'repeatTimer'
+                        ? 'Durée par fois (min)'
+                        : 'Durée du timer (min)'}
+                    </span>
+                    <input
+                      type="number"
+                      min="1"
+                      max="1440"
+                      step="1"
+                      value={form.timerMinutes}
+                      onChange={(event) =>
+                        updateField('timerMinutes', event.target.value)
+                      }
+                      placeholder="Ex. 25"
+                    />
+                  </label>
+
+                  {form.behavior === 'repeatTimer' && (
+                    <>
+                      <label className="tasks-form-field">
+                        <span>Nombre de fois (X)</span>
+                        <input
+                          type="number"
+                          min="1"
+                          max="99"
+                          step="1"
+                          value={form.repeatCount}
+                          onChange={(event) =>
+                            updateField('repeatCount', event.target.value)
+                          }
+                        />
+                      </label>
+
+                      <label className="tasks-form-field">
+                        <span>Repos entre les fois (min)</span>
+                        <input
+                          type="number"
+                          min="0"
+                          max="1440"
+                          step="1"
+                          value={form.restMinutes}
+                          onChange={(event) =>
+                            updateField('restMinutes', event.target.value)
+                          }
+                        />
+                        <small className="tasks-form-hint">
+                          0 = pause à la fin, tu relances la suivante.
+                        </small>
+                      </label>
+                    </>
+                  )}
+                </div>
+              )}
+
+            {form.kind === 'normal' && form.behavior === 'counter' && (
+              <div className="tasks-form-grid">
+
+                <label className="tasks-form-field">
+                  <span>Valeur objectif</span>
+                  <input
+                    type="number"
+                    min="1"
+                    step="1"
+                    value={form.counterGoal}
+                    onChange={(event) =>
+                      updateField('counterGoal', event.target.value)
+                    }
+                    placeholder="Ex. 8"
+                  />
+                </label>
+
+                <label className="tasks-form-field">
+                  <span>Unité du compteur</span>
+                  <select
+                    value={form.counterUnit}
+                    onChange={(event) =>
+                      updateField('counterUnit', event.target.value)
+                    }
+                  >
+                    <option value="seconds">Secondes</option>
+                    <option value="minutes">Minutes</option>
+                    <option value="hours">Heures</option>
+                  </select>
+                </label>
+
+                <label className="tasks-form-field">
+                  <span>Pas (+ / −)</span>
+                  <input
+                    type="number"
+                    min="1"
+                    step="1"
+                    value={form.counterStep}
+                    onChange={(event) =>
+                      updateField('counterStep', event.target.value)
+                    }
+                  />
+                </label>
+
+              </div>
+            )}
+          </section>
 
           <section className="tasks-appearance">
           <div className="tasks-form-field">
@@ -373,6 +648,7 @@ const groupedIcons = ICON_CATEGORIES
               <input
                 type="date"
                 value={form.due}
+                disabled={form.recurrence !== 'none'}
                 onChange={(event) =>
                   updateField('due', event.target.value)
                 }
