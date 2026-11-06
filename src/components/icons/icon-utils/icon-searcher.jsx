@@ -5,9 +5,9 @@ export const ICON_CATEGORIES = [
   { value: 'fleches', label: 'Flèches' },
   { value: 'sport', label: 'Sport' },
   { value: 'maison', label: 'Maison' },
-  { value: 'emotion', label: 'Émotions & bien-être' },
+  { value: 'emotion', label: 'Émotions & Bien-Être' },
   { value: 'nature', label: 'Nature' },
-  { value: 'interface', label: 'Interface & productivité' },
+  { value: 'interface', label: 'Interface & Productivité' },
   { value: 'animal', label: 'Animaux' },
   { value: 'celebration', label: 'Fêtes' },
   { value: 'finance', label: 'Finance' },
@@ -375,6 +375,27 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'duck_buoy',
+        category: 'maison',
+        label: 'Canard Bouée',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'shower',
+        category: 'maison',
+        label: 'Douche',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'shower_curtain',
+        category: 'maison',
+        label: 'Douche Rideaux',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
   //  --------------------------------------------
   // Santé --------------------------------------------
@@ -415,6 +436,125 @@ export const ICON_SEARCHER = [
         name: 'restaurant_plate',
         category: 'food',
         label: 'Assiette de Restaurant',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Fruits >>>
+      {
+        name: 'watermelon',
+        category: 'food',
+        label: 'Pastèque',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'peach_open',
+        category: 'food',
+        label: 'Pêche Ouverte',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'peach',
+        category: 'food',
+        label: 'Pêche',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'raspberry',
+        category: 'food',
+        label: 'Baie',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'orange',
+        category: 'food',
+        label: 'Orange',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'lemon',
+        category: 'food',
+        label: 'Citron',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'pear',
+        category: 'food',
+        label: 'Poire',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Légumes >>>
+      {
+        name: 'carrot',
+        category: 'food',
+        label: 'Carotte',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Patisseries >>>
+      {
+        name: 'bread',
+        category: 'food',
+        label: 'Pain',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'loaf',
+        category: 'food',
+        label: 'Brioche',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Assortments >>>
+      {
+        name: 'salt',
+        category: 'food',
+        label: 'Sel',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Sugar >>>
+      {
+        name: 'popsicle',
+        category: 'food',
+        label: 'Glace à l eau',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'acorn',
+        category: 'food',
+        label: 'Noisette',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Repas >>>
+      {
+        name: 'dish',
+        category: 'food',
+        label: 'Repas',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+      // Autre >>>
+      {
+        name: 'chef',
+        category: 'food',
+        label: 'Chef',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },

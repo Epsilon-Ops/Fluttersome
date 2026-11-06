@@ -98,6 +98,9 @@ import {
     SinkIcon,
     SafeboxIcon,
     FireplaceIcon,
+    DuckbuoyIcon,
+    ShowerIcon,
+    ShowerCurtainIcon,
   } from '../icon-list/Home-Icons'
 
   import {
@@ -106,7 +109,22 @@ import {
   } from '../icon-list/Health-Icons'
 
   import {
+    BreadIcon,
+    OrangeIcon,
+    CarrotIcon,
+    PeachIcon,
+    PeachOpenIcon,
+    RaspberryIcon,
     RestaurantPlateIcon,
+    WatermelonIcon,
+    SaltIcon,
+    LoafIcon,
+    DishIcon,
+    ChefIcon,
+    LemonIcon,
+    PearIcon,
+    PopsicleIcon,
+    AcornIcon,
   } from '../icon-list/Food-Icons'
   
   export const iconMap = {
@@ -170,6 +188,9 @@ import {
     toothpaste_n_brush: ToothpasteNBrushIcon,
     toilet_paper: ToiletPaperIcon,
     toilet: ToiletIcon,
+    duck_buoy: DuckbuoyIcon,
+    shower: ShowerIcon,
+    shower_curtain: ShowerCurtainIcon,
 
         // >>> Cuisine
     sink: SinkIcon,
@@ -201,6 +222,21 @@ import {
     // Nouriturre ----------------------------------------------------------
     // ----------------------------------------------------------
     restaurant_plate: RestaurantPlateIcon,
+    watermelon: WatermelonIcon,
+    peach_open: PeachOpenIcon,
+    peach: PeachIcon,
+    bread: BreadIcon,
+    raspberry: RaspberryIcon,
+    orange: OrangeIcon,
+    carrot: CarrotIcon,
+    salt: SaltIcon,
+    loaf: LoafIcon,
+    dish: DishIcon,
+    chef: ChefIcon,
+    lemon: LemonIcon,
+    pear: PearIcon,
+    popsicle: PopsicleIcon,
+    acorn: AcornIcon,
 
     // ----------------------------------------------------------
     // Célébrations ----------------------------------------------------------
