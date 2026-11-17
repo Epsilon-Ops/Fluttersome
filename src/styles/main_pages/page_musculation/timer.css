@@ -1,0 +1,57 @@
+/* Chronomètre manuel flottant (musculation) */
+.rest-timer {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(560px, calc(100vw - 32px));
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #1f2a3d;
+  color: var(--color-text, #F5F5FF);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-left: 6px solid #7652b5;
+}
+
+.rest-timer--work { border-left-color: #d93446; }
+
+.rest-timer__info { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.rest-timer__kind { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.rest-timer__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rest-timer__clock { font-size: 26px; font-variant-numeric: tabular-nums; font-weight: 700; }
+.rest-timer__actions { display: flex; gap: 6px; }
+.rest-timer__actions button {
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--color-text, #F5F5FF);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+/* Bloc de configuration du chrono dans un exercice */
+.strength-timer-config {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px dashed rgba(118, 82, 181, 0.45);
+  border-radius: 14px;
+}
+.strength-timer-config__row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; }
+.strength-timer-config__row label { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; }
+.strength-timer-config input[type="text"] { max-width: 120px; }
+.strength-timer-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.strength-timer-actions button { font: inherit; font-size: 13px; padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(118, 82, 181, 0.5); background: var(--color-surface-alt, #171824); cursor: pointer; }
+.strength-history-hint { font-size: 13px; opacity: 0.85; margin: 6px 0 0; }
+
+/* Progression */
+.strength-progression__chart { width: 100%; max-width: 620px; height: auto; color: inherit; }
+.strength-progression__stats { list-style: none; padding: 0; margin: 12px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.strength-progression__stats li { display: flex; flex-direction: column; padding: 10px 12px; border-radius: 12px; background: rgba(118, 82, 181, 0.08); }
+.strength-progression__stats span { font-size: 12px; opacity: 0.75; }
+.strength-progression__stats strong { font-size: 18px; font-variant-numeric: tabular-nums; }

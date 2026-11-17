@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useState } from 'react'
 import '../../styles/main_pages/page_sommeil/index.css'
@@ -7,7 +8,7 @@ import SleepTabs from './SleepTabs'
 import SleepOverview from './SleepOverview'
 import SleepHistory from './SleepHistory'
 import SleepStatistics from './SleepStatistics'
-import SleepReadinessPlaceholder from './SleepReadinessPlaceholder'
+import SleepRecoveryCard from './SleepRecoveryCard'
 import SleepForm from './SleepForm'
 import BodyFeelingForm from './BodyFeelingForm'
 import BodyFeelingHistory from './BodyFeelingHistory'
@@ -156,7 +157,7 @@ export default function Sleep() {
       )}
 
       {activeSection === 'Ressenti corporel' && (
-        <section className="body-feeling-section">
+        <CollapsibleSection id="body-feelings" title="Sensations corporelles" defaultOpen={false}><section className="body-feeling-section">
           <div className="body-feeling-intro">
             <h3>Comment se sent ton corps ?</h3>
             <p>
@@ -178,7 +179,7 @@ export default function Sleep() {
             feelings={feelings}
             onDelete={handleDeleteBodyFeeling}
           />
-        </section>
+        </section></CollapsibleSection>
       )}
 
       {(activeSection === 'Vue d’ensemble' ||
@@ -217,7 +218,7 @@ export default function Sleep() {
             sleepTargetMinutes={sleepTargetMinutes}
             onSleepTargetChange={updateSleepTarget}
           />
-          <SleepReadinessPlaceholder />
+          <SleepRecoveryCard nights={nights} sleepTargetMinutes={sleepTargetMinutes} />
         </>
       )}
 

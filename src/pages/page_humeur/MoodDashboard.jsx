@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useState } from 'react'
 import useMood from '../../hooks/useMood'
@@ -59,7 +60,7 @@ export default function MoodDashboard({ activeTab = 'today' }) {
 
   if (activeTab === 'history') {
     return (
-      <section className="mood-section" aria-labelledby="mood-history-title">
+      <CollapsibleSection id="mood-history" title="Historique" defaultOpen={false}><section className="mood-section" aria-labelledby="mood-history-title">
         <div className="mood-section__heading">
           <h2 id="mood-history-title">Mon historique</h2>
           <p>Retrouve les émotions que tu as enregistrées.</p>
@@ -69,20 +70,20 @@ export default function MoodDashboard({ activeTab = 'today' }) {
           entries={entries}
           onDelete={deleteMoodEntry}
         />
-      </section>
+      </section></CollapsibleSection>
     )
   }
 
   if (activeTab === 'statistics') {
     return (
-      <section className="mood-section" aria-labelledby="mood-statistics-title">
+      <CollapsibleSection id="mood-statistics" title="Statistiques" defaultOpen={false}><section className="mood-section" aria-labelledby="mood-statistics-title">
         <div className="mood-section__heading">
           <h2 id="mood-statistics-title">Mes statistiques</h2>
           <p>Observe les tendances de ton ressenti.</p>
         </div>
 
         <MoodStatistics entries={entries} />
-      </section>
+      </section></CollapsibleSection>
     )
   }
 

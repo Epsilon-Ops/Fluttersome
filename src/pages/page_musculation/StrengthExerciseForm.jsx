@@ -1,10 +1,16 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import {
   muscleGroups,
   strengthCategories,
   strengthEquipment,
   createEmptySet,
+  createEmptyExerciseTimer,
 } from '../../utils/strengthHelpers'
+import { parseDurationToSeconds, formatSeconds } from '../../utils/timeHelpers'
+import { getLastPerformance } from '../../utils/strengthProgress'
+import { useStrengthContext } from './StrengthTimerContext'
+import { formatShortDateLabel } from './strengthFormat'
 
 export default function StrengthExerciseForm({
   exercise,
@@ -12,11 +18,70 @@ export default function StrengthExerciseForm({
   onChange,
   onRemove,
 }) {
+  const { series, startTimer } = useStrengthContext()
+  const timer = createEmptyExerciseTimer(exercise.timer || {})
+  const restSetSeconds = parseDurationToSeconds(exercise.restAfterSet)
+  const restExerciseSeconds = parseDurationToSeconds(exercise.restAfterExercise)
+  const lastPerformance = getLastPerformance(series, exercise.name)
+
   function updateField(field, value) {
     onChange({
       ...exercise,
       [field]: value,
     })
+  }
+
+  function updateTimer(field, value) {
+    updateField('timer', { ...timer, [field]: value })
+  }
+
+  function handleSetCompleted(setIndex, checked) {
+    updateSet(setIndex, 'completed', checked)
+
+    if (checked && timer.enabled && timer.onSetEnd && restSetSeconds > 0) {
+      startTimer({
+        seconds: restSetSeconds,
+        label: `Série ${setIndex + 1} · ${exercise.name || 'exercice'}`,
+        kind: 'rest',
+      })
+    }
+  }
+
+  function startSeriesEffort() {
+    const work = parseDurationToSeconds(timer.workSeconds)
+    const next =
+      restSetSeconds > 0
+        ? {
+            seconds: restSetSeconds,
+            label: `Après l’effort · ${exercise.name || 'exercice'}`,
+            kind: 'rest',
+          }
+        : null
+
+    startTimer({
+      seconds: work,
+      label: exercise.name || 'Effort',
+      kind: 'work',
+      next,
+    })
+  }
+
+  function finishExercise() {
+    startTimer({
+      seconds: restExerciseSeconds,
+      label: `Fin de ${exercise.name || 'l’exercice'}`,
+      kind: 'rest',
+    })
+  }
+
+  function reuseLastLoad() {
+    if (!lastPerformance) return
+
+    const sets = exercise.sets.map((set) =>
+      set.load === '' ? { ...set, load: String(lastPerformance.maxLoad) } : set,
+    )
+
+    updateField('sets', sets)
   }
 
   function updateSet(setIndex, field, value) {
@@ -55,6 +120,12 @@ export default function StrengthExerciseForm({
         </button>
       </div>
 
+      <CollapsibleSection
+        id={`exercise-${exercise.id}`}
+        title={exercise.name || 'Nouvel exercice'}
+        summary={`${exercise.sets.length} série(s) · ${exercise.sets.filter((set) => set.completed).length} réalisée(s)`}
+        defaultOpen={!exercise.name}
+      >
       <div className="strength-form-grid">
         <label className="strength-field strength-field-full">
           <span>Nom de l’exercice</span>
@@ -194,6 +265,103 @@ export default function StrengthExerciseForm({
         </label>
       </div>
 
+      {lastPerformance && (
+        <p className="strength-history-hint">
+          Dernière fois ({formatShortDateLabel(lastPerformance.date)}) :{' '}
+          {lastPerformance.maxLoad} kg · 1RM estimé ≈{' '}
+          {lastPerformance.bestE1rm ?? '—'} kg
+          {lastPerformance.recordE1rm
+            ? ` · record ≈ ${lastPerformance.recordE1rm} kg`
+            : ''}
+          {' '}
+          <button
+            type="button"
+            className="training-secondary-button"
+            onClick={reuseLastLoad}
+          >
+            Reprendre cette charge
+          </button>
+        </p>
+      )}
+
+      <fieldset className="strength-timer-config">
+        <legend className="strength-field-legend">Chronomètre</legend>
+
+        <label className="strength-set-completed">
+          <input
+            type="checkbox"
+            checked={timer.enabled}
+            onChange={(event) => updateTimer('enabled', event.target.checked)}
+          />
+          Utiliser un chrono pour cet exercice
+        </label>
+
+        {timer.enabled && (
+          <>
+            <div className="strength-timer-config__row">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={timer.onStart}
+                  onChange={(event) => updateTimer('onStart', event.target.checked)}
+                />
+                Chrono d’effort au début de chaque série
+              </label>
+
+              {timer.onStart && (
+                <label>
+                  Effort
+                  <input
+                    type="text"
+                    value={timer.workSeconds}
+                    onChange={(event) => updateTimer('workSeconds', event.target.value)}
+                    placeholder="Ex. 1 min"
+                  />
+                </label>
+              )}
+            </div>
+
+            <div className="strength-timer-config__row">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={timer.onSetEnd}
+                  onChange={(event) => updateTimer('onSetEnd', event.target.checked)}
+                />
+                Récupération après chaque série
+              </label>
+
+              <label>
+                <input
+                  type="checkbox"
+                  checked={timer.onExerciseEnd}
+                  onChange={(event) => updateTimer('onExerciseEnd', event.target.checked)}
+                />
+                Récupération après l’exercice
+              </label>
+            </div>
+
+            <div className="strength-timer-actions">
+              {timer.onStart && (
+                <button type="button" onClick={startSeriesEffort}>
+                  ▶ Lancer une série ({formatSeconds(parseDurationToSeconds(timer.workSeconds))})
+                </button>
+              )}
+
+              {timer.onExerciseEnd && (
+                <button
+                  type="button"
+                  onClick={finishExercise}
+                  disabled={restExerciseSeconds <= 0}
+                >
+                  ✓ Terminer l’exercice ({formatSeconds(restExerciseSeconds)})
+                </button>
+              )}
+            </div>
+          </>
+        )}
+      </fieldset>
+
       <div className="strength-sets-section">
         <div className="strength-exercise-heading">
           <div>
@@ -220,7 +388,7 @@ export default function StrengthExerciseForm({
                   type="checkbox"
                   checked={Boolean(set.completed)}
                   onChange={(event) =>
-                    updateSet(setIndex, 'completed', event.target.checked)
+                    handleSetCompleted(setIndex, event.target.checked)
                   }
                 />
                 Réalisée
@@ -329,6 +497,7 @@ export default function StrengthExerciseForm({
           </div>
         ))}
       </div>
+      </CollapsibleSection>
     </article>
   )
 }

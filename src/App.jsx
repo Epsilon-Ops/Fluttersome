@@ -1,5 +1,7 @@
 
-import { useState } from 'react'
+import useReminders from './hooks/useReminders'
+import useKeyboardShortcuts from './hooks/useKeyboardShortcuts'
+import { useEffect, useRef, useState } from 'react'
 
 import { categories } from './constants/categories'
 import { AppIcon } from './components/icons/icon-utils/index.jsx'
@@ -39,6 +41,7 @@ import './styles/layout/bottom-nav.css'
 import './styles/loading/status.css'
 import './styles/pages/empty-page.css'
 import './styles/pages/page-placeholder.css'
+import './styles/settings/ux-accessibility.css'
 
 
 
@@ -55,7 +58,20 @@ const pageComponents = {
 }
 
 export default function App() {
+  useReminders()
   const [activePage, setActivePage] = useState('dashboard')
+  const firstRender = useRef(true)
+
+  useKeyboardShortcuts(categories, setActivePage)
+
+  // Au changement de page, le focus va au contenu : la navigation au clavier reste fluide.
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false
+      return
+    }
+    document.getElementById('contenu')?.focus({ preventScroll: false })
+  }, [activePage])
 
   const currentPage = categories.find(
     (category) => category.id === activePage,
@@ -65,12 +81,13 @@ export default function App() {
 
   return (
     <div className="app-shell" data-page={activePage}>
+      <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Sidebar
         activePage={activePage}
         onNavigate={setActivePage}
       />
 
-      <main className="main-content">
+      <main className="main-content" id="contenu" tabIndex={-1}>
         <header className="topbar">
           <div className="topbar-context">
             <span className="eyebrow">ESPACE ATHLÈTE</span>
@@ -83,7 +100,7 @@ export default function App() {
           <div className="topbar-right">
             <span className="sync-status">
               <span className="status-indicator" />
-              MODE LOCAL
+              DONNÉES LOCALES
             </span>
             <div className="avatar" aria-label="Profil utilisateur">
               S
@@ -103,6 +120,9 @@ export default function App() {
           <span>
             EPSILON <span className="footer-separator">/</span>
             SPRINT PERFORMANCE
+          </span>
+          <span className="shortcut-hint">
+            Raccourcis : <kbd>Alt</kbd> + <kbd>1</kbd> à <kbd>9</kbd>
           </span>
           <span>CONÇU POUR PROGRESSER</span>
         </footer>

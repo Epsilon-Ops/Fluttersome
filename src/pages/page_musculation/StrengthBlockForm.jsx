@@ -1,7 +1,10 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { strengthCategories } from '../../utils/strengthHelpers'
 import StrengthExerciseForm from './StrengthExerciseForm'
 import { createEmptyExercise } from '../../utils/strengthHelpers'
+import { parseDurationToSeconds, formatSeconds } from '../../utils/timeHelpers'
+import { useStrengthContext } from './StrengthTimerContext'
 
 export default function StrengthBlockForm({
   block,
@@ -9,6 +12,17 @@ export default function StrengthBlockForm({
   onChange,
   onRemove,
 }) {
+  const { startTimer } = useStrengthContext()
+  const blockRest = parseDurationToSeconds(block.restAfterBlock)
+  const timerEnabled = block.timerEnabled !== false
+
+  function finishBlock() {
+    startTimer({
+      seconds: blockRest,
+      label: `Fin du bloc · ${block.name || 'bloc'}`,
+      kind: 'rest',
+    })
+  }
   function updateField(field, value) {
     onChange({
       ...block,
@@ -63,6 +77,7 @@ export default function StrengthBlockForm({
       </div>
 
 
+<CollapsibleSection id={`block-${block.id}`} title="Exercices du bloc" summary={`${block.exercises.length} exercice(s)`} defaultOpen={true}>
 <div className="strength-block-exercises">
   <div className="strength-exercise-heading">
     <div>
@@ -91,7 +106,7 @@ export default function StrengthBlockForm({
     />
   ))}
 </div>
-
+</CollapsibleSection>
 
       <div className="strength-form-grid">
         <label className="strength-field">
@@ -139,6 +154,24 @@ export default function StrengthBlockForm({
             rows={2}
           />
         </label>
+      </div>
+      <div className="strength-timer-config">
+        <label className="strength-set-completed">
+          <input
+            type="checkbox"
+            checked={timerEnabled}
+            onChange={(event) => updateField('timerEnabled', event.target.checked)}
+          />
+          Chrono de récupération à la fin du bloc
+        </label>
+
+        {timerEnabled && (
+          <div className="strength-timer-actions">
+            <button type="button" onClick={finishBlock} disabled={blockRest <= 0}>
+              ✓ Terminer le bloc ({formatSeconds(blockRest)})
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )

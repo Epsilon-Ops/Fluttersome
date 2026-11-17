@@ -15,6 +15,8 @@ import TasksOverview from './TasksOverview'
 import TasksToolbar from './TasksToolbar'
 import TasksList from './TasksList'
 import TasksFormModal from './TasksFormModal'
+import TasksQuickAdd from './TasksQuickAdd'
+import '../../styles/main_pages/page_taches/quick-add.css'
 import TasksStorageNote from './TasksStorageNote'
 import useTaskLayout from '../../hooks/useTaskLayout'
 import { TaskLayoutContext, TaskActionsContext } from './TaskLayoutContext'
@@ -168,6 +170,8 @@ export default function Tasks() {
     <TaskActionsContext.Provider value={actionsApi}>
     <div className="dashboard tasks-page">
       <TasksHeader />
+
+      <TasksQuickAdd onAdd={addTask} />
 
       <section className="tasks-page-heading">
         <div>

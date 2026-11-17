@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useEffect, useMemo, useState } from 'react'
 
@@ -6,6 +7,8 @@ import StrengthMetrics from './StrengthMetrics'
 import StrengthWeek from './StrengthWeek'
 import StrengthForm from './StrengthForm'
 import StrengthSessionPreview from './StrengthSessionPreview'
+import StrengthProgression from './StrengthProgression'
+import { StrengthContextProvider } from './StrengthTimerContext'
 
 import '../../styles/main_pages/page_musculation/index.css'
 
@@ -148,6 +151,7 @@ export default function Strength() {
   }
 
   return (
+    <StrengthContextProvider sessions={sessions}>
     <main className="strength-page">
       <StrengthHeader onAdd={handleAddSession} />
       {isFormOpen && (
@@ -161,6 +165,8 @@ export default function Strength() {
       )}
 
       <StrengthMetrics stats={stats} />
+
+      <CollapsibleSection id="strength-progression" title="Progression par exercice" defaultOpen={false}><StrengthProgression sessions={sessions} /></CollapsibleSection>
 
       <StrengthWeek
         days={days}
@@ -215,5 +221,6 @@ export default function Strength() {
         )}
       </section>
     </main>
+    </StrengthContextProvider>
   )
 }

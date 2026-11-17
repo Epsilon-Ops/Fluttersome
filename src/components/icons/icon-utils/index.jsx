@@ -126,6 +126,13 @@ import {
     PopsicleIcon,
     AcornIcon,
   } from '../icon-list/Food-Icons'
+
+  import { 
+    HeadsetChatIcon,
+    HeadsetIcon,
+    HeadsetProIcon,
+    MusicIcon,
+  } from '../icon-list/Music-Icons'
   
   export const iconMap = {
     // ----------------------------------------------------------
@@ -275,6 +282,15 @@ import {
     // ----------------------------------------------------------
         // >>> Cheveux
     comb: CombIcon,
+
+    // ----------------------------------------------------------
+    // Musique ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> Musique Classique
+    music: MusicIcon,
+    headset: HeadsetIcon,
+    headset_pro: HeadsetProIcon,
+    headset_chat: HeadsetChatIcon,
   }
   
   export function AppIcon({

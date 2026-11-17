@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useMemo } from 'react'
 import {
@@ -84,7 +85,7 @@ export default function SleepOverview({
         </article>
       </div>
 
-      <section className="panel sleep-target-panel">
+      <CollapsibleSection id="sleep-target" title="Objectif de sommeil" defaultOpen={false}><section className="panel sleep-target-panel">
         <div className="panel-heading">
           <div>
             <span className="eyebrow">TON OBJECTIF</span>
@@ -118,7 +119,7 @@ export default function SleepOverview({
         <p className="sleep-target-summary">
           Objectif actuel : <strong>{formatDuration(sleepTargetMinutes)}</strong>
         </p>
-      </section>
+      </section></CollapsibleSection>
     </div>
   )
 }

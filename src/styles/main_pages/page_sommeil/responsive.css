@@ -231,3 +231,9 @@
 .sleep-page .welcome-eyebrow {
   background: none;
 }
+
+/* Carte de récupération */
+.sleep-recovery-stats { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.sleep-recovery-stats li { display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 14px; background: rgba(82, 101, 184, 0.08); }
+.sleep-recovery-stats span { font-size: 12px; opacity: 0.75; }
+.sleep-recovery-stats strong { font-size: 18px; font-variant-numeric: tabular-nums; }

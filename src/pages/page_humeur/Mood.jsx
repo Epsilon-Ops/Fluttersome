@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import MoodHeader from './MoodHeader'
 import MoodDashboard from './MoodDashboard'
+import MoodTrendChart from './MoodTrendChart'
 import '../..//styles/main_pages/page_humeur/index.css'
 
 const MOOD_TABS = [
@@ -34,6 +35,7 @@ export default function Mood() {
       </nav>
 
       <section className="mood-page__content">
+        <MoodTrendChart />
         <MoodDashboard activeTab={activeTab} />
       </section>
     </main>

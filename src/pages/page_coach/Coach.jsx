@@ -1,9 +1,8 @@
-
+import CollapsibleSection from '../../components/CollapsibleSection'
 import { useMemo } from 'react'
 import { AppIcon } from '../../components/icons/icon-utils/index'
-import CoachDiagnostics from './CoachDiagnostics'
-import { buildDiagnostics } from '../../services/coach/diagnostics/buildDiagnostics'
 
+import CoachDiagnostics from './CoachDiagnostics'
 import CoachSummary from './CoachSummary'
 import CoachAlerts from './CoachAlerts'
 import CoachChat from './CoachChat'
@@ -14,88 +13,37 @@ import ReadinessBreakdown from './ReadinessBreakdown'
 import ReadinessCard from './ReadinessCard'
 import SessionDecision from './SessionDecision'
 
-import useCoachReadiness from '../../hooks/useCoachReadiness'
+import { runCoachAnalysis } from '../../services/coach/runCoachAnalysis'
+import { COACH_QUESTIONS } from '../../services/coach/questions/coachQuestions'
 import '../../styles/main_pages/page_coach/index.css'
 
-// Résume les repères en quelques phrases pour le chat du coach
-function summarizeFindings(findings, emptyText) {
-  const useful = findings.filter((finding) => finding.level !== 'insufficient')
+function buildProgression(performance) {
+  const main = performance.main
+  if (!main?.comparison) return {}
 
-  if (useful.length === 0) return findings[0]?.detail ?? emptyText
+  const { recentAvg, previousAvg, diffPct } = main.comparison
+  const direction = diffPct < -0.3 ? 'plus rapide' : diffPct > 0.3 ? 'plus lent' : 'similaire'
 
-  return useful
-    .slice(0, 3)
-    .map((finding) => finding.detail)
-    .join(' ')
+  return {
+    currentPeriod: { label: `90 derniers jours · ${main.label}` },
+    previousPeriod: { label: `90 jours précédents · ${main.label}` },
+    comparison: {
+      summary: `Ta moyenne récente (${recentAvg.toFixed(2)} s) est ${direction} que la période précédente (${previousAvg.toFixed(2)} s), soit ${diffPct > 0 ? '+' : ''}${diffPct.toFixed(1)} %.`,
+      limitations: 'Comparaison de moyennes sur peu de chronos : elle reste indicative.',
+    },
+  }
 }
 
 export default function Coach() {
-  const coachData = useCoachReadiness()
+  const analysis = useMemo(() => runCoachAnalysis(new Date()), [])
 
-  const diagnostics = useMemo(
-    () =>
-      buildDiagnostics({
-        nights: coachData.allNights,
-        performances: coachData.allPerformances,
-        sleepTargetMinutes: coachData.sleep.targetMinutes,
-      }),
-    [coachData.allNights, coachData.allPerformances, coachData.sleep.targetMinutes],
-  )
+  const { context, readiness, alerts, decision, summary, performance, diagnostics } = analysis
 
-  const {
-    sleep,
-    bodyFeelings,
-    performances,
-    status,
-    score,
-    reliability,
-    explanation,
-  } = coachData
+  const progression = buildProgression(performance)
 
-  const recentPain = bodyFeelings.recent.filter(
-    (feeling) => feeling.sensationType === 'pain',
-  )
-
-  const alerts = recentPain.map((feeling) => ({
-    id: feeling.id,
-    level: feeling.intensity >= 7 ? 'warning' : 'info',
-    title: 'Douleur signalée',
-    message: `${feeling.bodyPart} — intensité ${feeling.intensity}/10.`,
-    recommendation:
-      'Évite de forcer sur une zone douloureuse et demande conseil à un adulte de confiance ou à un professionnel de santé si la douleur est forte, inhabituelle ou persistante.',
-  }))
-
-  const priorities = []
-
-  if (!sleep.available) {
-    priorities.push('Enregistrer une nuit de sommeil pour enrichir le suivi.')
-  }
-
-  if (!bodyFeelings.available) {
-    priorities.push('Ajouter une observation corporelle si tu ressens quelque chose à noter.')
-  }
-
-  if (!performances.available) {
-    priorities.push('Enregistrer des performances pour permettre leur analyse.')
-  }
-
-  const summary =
-    sleep.available || bodyFeelings.available || performances.available
-      ? 'Les données disponibles sont regroupées ci-dessous. Elles permettent de consulter le suivi, mais ne suffisent pas à elles seules à établir un diagnostic ou un score de préparation validé.'
-      : 'Les données de sommeil, de ressenti corporel et de performance apparaîtront ici au fur et à mesure de leur enregistrement.'
-
-  const answers = {
-    readiness: explanation,
-    session:
-      'Aucune décision automatique n’est prise. Vérifie les sensations corporelles, la récupération et les objectifs de la séance avec ton entraîneur.',
-    performance: summarizeFindings(
-      diagnostics.performance.findings,
-      'Aucune performance exploitable pour l’instant.',
-    ),
-    recovery: summarizeFindings(
-      diagnostics.sleep.findings,
-      'Enregistre tes nuits pour que le coach puisse examiner ta récupération. Une douleur forte ou inhabituelle mérite une attention particulière, indépendamment de tout repère.',
-    ),
+  const answerFor = (id) => {
+    const question = COACH_QUESTIONS.find((item) => item.id === id)
+    return question ? question.answer(analysis) : ''
   }
 
   return (
@@ -105,8 +53,8 @@ export default function Coach() {
           <span className="eyebrow">ACCOMPAGNEMENT</span>
           <h1>Coach</h1>
           <p className="page-description">
-            Tes données de sommeil, tes sensations corporelles et tes
-            performances réunies pour suivre ta progression.
+            Une analyse calculée à partir de tes sommeils, de tes séances, de tes chronos,
+            de ton humeur et de ta nutrition. Aucun diagnostic médical.
           </p>
         </div>
 
@@ -116,34 +64,37 @@ export default function Coach() {
       </div>
 
       <div className="coach-dashboard">
-        <CoachSummary summary={summary} priorities={priorities} />
+        <CoachSummary summary={summary.summary} priorities={summary.priorities} />
 
         <ReadinessCard
-          score={score}
-          status={status}
-          reliability={reliability}
-          explanation={explanation}
+          score={readiness.score}
+          status={readiness.status}
+          reliability={readiness.reliability}
+          explanation={readiness.explanation}
         />
 
-        <ReadinessBreakdown breakdown={{}} />
+        <CollapsibleSection id="readiness-breakdown" title="Facteurs du score" summary={readiness.score !== null ? `${readiness.score}/100` : 'indisponible'} defaultOpen={false}><ReadinessBreakdown breakdown={readiness.breakdown} /></CollapsibleSection>
 
         <CoachAlerts alerts={alerts} />
 
-        <CoachDiagnostics diagnostics={diagnostics} />
+        <CollapsibleSection id="diagnostics" title="Repères statistiques" defaultOpen={false}><CoachDiagnostics diagnostics={diagnostics} /></CollapsibleSection>
 
-        <SessionDecision
-          rationale="La décision doit tenir compte du programme prévu, du ressenti personnel et des conseils de l’entraîneur."
-        />
+        <CollapsibleSection id="session-decision" title="Décision du jour" defaultOpen={true}><SessionDecision
+          session={decision.session}
+          recommendation={decision.recommendation}
+          rationale={decision.rationale}
+        /></CollapsibleSection>
 
-        <DecisionComparison />
+        <CollapsibleSection id="decision-options" title="Trois options" defaultOpen={false}><DecisionComparison
+          options={decision.options}
+          selectedOption={decision.selected}
+        /></CollapsibleSection>
 
-        <PerformanceAnalysis
-          performances={performances.recent}
-        />
+        <CollapsibleSection id="performance-analysis" title="Analyse des performances" summary={`${context.performances.length} performance(s)`} defaultOpen={false}><PerformanceAnalysis performances={context.performances} /></CollapsibleSection>
 
-        <ProgressionTrends />
+        <CollapsibleSection id="progression" title="Ta progression" defaultOpen={false}><ProgressionTrends {...progression} /></CollapsibleSection>
 
-        <CoachChat answers={answers} />
+        <CoachChat questions={COACH_QUESTIONS} getAnswer={answerFor} />
       </div>
     </section>
   )

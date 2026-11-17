@@ -1,5 +1,10 @@
 
 import { useEffect, useState } from 'react'
+import FoodSearch from './FoodSearch'
+import DayTargets from './DayTargets'
+import { loadTrainingSessions } from '../../utils/trainingHelpers'
+import { loadStrengthSessions } from '../../utils/strengthHelpers'
+import '../../styles/main_pages/page_nutrition/extras.css'
 import {
   MEAL_TYPES,
   createFoodEntry,
@@ -133,7 +138,19 @@ export default function FoodDiary() {
           simplement noter ce que tu as mangé.
         </p>
 
-        <form className="food-form" onSubmit={addMeal}>
+        <DayTargets
+            totals={totals}
+            isTrainingDay={
+              loadTrainingSessions().some((s) => s.date === selectedDate) ||
+              loadStrengthSessions().some((s) => s.date === selectedDate)
+            }
+          />
+
+          <FoodSearch
+            onPick={(values) => setForm((current) => ({ ...current, ...values }))}
+          />
+
+          <form className="food-form" onSubmit={addMeal}>
           <div className="food-form-grid">
             <label>
               Type de repas

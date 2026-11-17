@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 import {
   ICON_CATEGORIES,
   ICON_SEARCHER,
@@ -24,6 +25,8 @@ import {
 const EMPTY_FORM = {
   title: '',
   due: '',
+  dueTime: '',
+  reminderBefore: '',
   priority: 'normal',
   category: 'personnel',
   duration: '',
@@ -116,6 +119,8 @@ const groupedIcons = ICON_CATEGORIES
         ? {
             title: task.title ?? '',
             due: task.due ?? '',
+            dueTime: task.dueTime ?? '',
+            reminderBefore: task.reminderBefore ?? '',
             priority: task.priority ?? 'normal',
             category: task.category ?? 'personnel',
             duration: task.duration ?? '',
@@ -541,7 +546,7 @@ const groupedIcons = ICON_CATEGORIES
             )}
           </section>
 
-          <section className="tasks-appearance">
+          <CollapsibleSection id="task-appearance" title="Apparence" defaultOpen={false}><section className="tasks-appearance">
           <div className="tasks-form-field">
             <span>Icône</span>
 
@@ -640,7 +645,7 @@ const groupedIcons = ICON_CATEGORIES
                 Couleur principale et couleur accentuée
               </p>
             </div>
-          </section>
+          </section></CollapsibleSection>
 
           <div className="tasks-form-grid">
             <label className="tasks-form-field">
@@ -653,6 +658,36 @@ const groupedIcons = ICON_CATEGORIES
                   updateField('due', event.target.value)
                 }
               />
+            </label>
+
+            <label className="tasks-form-field">
+              <span>Heure</span>
+              <input
+                type="time"
+                value={form.dueTime}
+                disabled={form.recurrence !== 'none' || !form.due}
+                onChange={(event) =>
+                  updateField('dueTime', event.target.value)
+                }
+              />
+            </label>
+
+            <label className="tasks-form-field">
+              <span>Rappel</span>
+              <select
+                value={form.reminderBefore}
+                disabled={!form.dueTime || form.recurrence !== 'none'}
+                onChange={(event) =>
+                  updateField('reminderBefore', event.target.value)
+                }
+              >
+                <option value="">Aucun rappel</option>
+                <option value="0">Au moment prévu</option>
+                <option value="10">10 min avant</option>
+                <option value="30">30 min avant</option>
+                <option value="60">1 h avant</option>
+                <option value="1440">La veille à la même heure</option>
+              </select>
             </label>
 
             <label className="tasks-form-field">
@@ -718,7 +753,7 @@ const groupedIcons = ICON_CATEGORIES
             />
           </label>
 
-          <section className="tasks-form-subtasks">
+          <CollapsibleSection id="task-subtasks" title="Sous-tâches" defaultOpen={true}><section className="tasks-form-subtasks">
             <div className="tasks-form-section-heading">
               <div>
                 <h3>Sous-tâches</h3>
@@ -767,7 +802,7 @@ const groupedIcons = ICON_CATEGORIES
                 Ajouter
               </button>
             </div>
-          </section>
+          </section></CollapsibleSection>
 
           {error && (
             <p className="tasks-form-error" role="alert">

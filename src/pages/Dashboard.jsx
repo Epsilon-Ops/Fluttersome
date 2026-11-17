@@ -3,6 +3,9 @@ import { useMemo } from 'react'
 
 import { AppIcon } from '../components/icons/icon-utils/index.jsx'
 import StatCard from '../components/StatCard'
+import AppSettingsPanel from '../components/AppSettingsPanel'
+import TodayPanel from '../components/TodayPanel'
+import '../styles/main_pages/app-settings.css'
 
 import useSleep from '../hooks/useSleep'
 import usePerformances from '../hooks/usePerformances'
@@ -75,6 +78,8 @@ export default function Dashboard({ onNavigate }) {
           <AppIcon name="sparkles" size={30} />
         </div>
       </header>
+
+      <TodayPanel />
 
       <section className="dashboard-home__section">
         <div className="dashboard-home__section-heading">
@@ -233,6 +238,8 @@ export default function Dashboard({ onNavigate }) {
           ))}
         </div>
       </section>
+
+      <AppSettingsPanel />
 
       <section className="dashboard-home__footer-note">
         <AppIcon name="info" size={19} />

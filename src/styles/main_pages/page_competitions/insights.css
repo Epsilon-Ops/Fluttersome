@@ -1,0 +1,17 @@
+.competition-insight__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0; }
+.competition-insight__stat { display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 14px; background: rgba(217, 52, 70, 0.07); }
+.competition-insight__stat span { font-size: 12px; opacity: 0.75; }
+.competition-insight__stat strong { font-size: 18px; font-variant-numeric: tabular-nums; }
+.competition-insight__subtitle { margin: 16px 0 8px; font-size: 14px; }
+.competition-insight__months { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.competition-insight__months li { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.competition-insight__months li > span:first-child { width: 70px; }
+.competition-insight__bar { display: inline-block; height: 10px; border-radius: 6px; background: #d93446; }
+.competition-insight__goal-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.competition-insight__goal-form label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.competition-insight__goal-form input { padding: 8px 10px; border-radius: 10px; border: 1px solid rgba(217, 52, 70, 0.35); font: inherit; }
+.competition-insight__goal-form button { padding: 9px 14px; border-radius: 10px; border: 0; background: #d93446; color: var(--color-text, #F5F5FF); font: inherit; cursor: pointer; }
+.competition-insight__error { color: var(--color-danger, #FF6B6B); font-size: 13px; }
+.competition-insight__progress { height: 12px; border-radius: 8px; background: rgba(217, 52, 70, 0.12); overflow: hidden; margin-top: 12px; }
+.competition-insight__progress span { display: block; height: 100%; background: #d93446; border-radius: 8px; }
+.competition-insight__note { font-size: 12px; opacity: 0.7; margin-top: 14px; }

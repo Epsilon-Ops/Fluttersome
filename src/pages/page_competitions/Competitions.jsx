@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useMemo, useState } from 'react'
 import '../../styles/main_pages/page_competitions/index.css'
@@ -9,7 +10,8 @@ import PerformanceForm from './PerformanceForm'
 import PerformanceOverview from './PerformanceOverview'
 import PerformanceHistory from './PerformanceHistory'
 import EvolutionChart from './EvolutionChart'
-import CompetitionPlaceholder from './CompetitionPlaceholder'
+import CompetitionInsights from './CompetitionInsights'
+import '../../styles/main_pages/page_competitions/insights.css'
 import CompetitionStorageNote from './CompetitionStorageNote'
 
 import usePerformances from '../../hooks/usePerformances'
@@ -269,12 +271,12 @@ export default function Competitions() {
       )}
 
       {activeSection === 'Historique' && (
-        <PerformanceHistory
+        <CollapsibleSection id="competition-history" title="Historique des performances" defaultOpen={false}><PerformanceHistory
           performances={distancePerformances}
           historyTypeFilter={historyTypeFilter}
           onFilterChange={setHistoryTypeFilter}
           onDelete={deletePerformance}
-        />
+        /></CollapsibleSection>
       )}
 
       {activeSection === 'Évolution' && (
@@ -301,7 +303,11 @@ export default function Competitions() {
       {['Forme', 'Régularité', 'Objectifs'].includes(
         activeSection,
       ) && (
-        <CompetitionPlaceholder section={activeSection} />
+        <CompetitionInsights
+          section={activeSection}
+          distance={selectedDistance}
+          officialPerformances={officialPerformances}
+        />
       )}
 
       <CompetitionStorageNote />

@@ -26,6 +26,7 @@ export default function Sidebar({ activePage, onNavigate }) {
             }`}
             style={{ '--category-color': category.color }}
             onClick={() => onNavigate(category.id)}
+            aria-current={activePage === category.id ? 'page' : undefined}
           >
             <span className="nav-icon">
               <CategoryIcon name={category.icon} size={19} />

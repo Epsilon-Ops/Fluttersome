@@ -1,0 +1,7 @@
+.tasks-quick-add { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; align-items: end; margin: 0 0 16px; }
+.tasks-quick-add__label { display: flex; flex-direction: column; gap: 6px; grid-column: 1 / 2; font-size: 13px; }
+.tasks-quick-add__label input { padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(40, 125, 145, 0.35); font: inherit; }
+.tasks-quick-add button { padding: 10px 16px; border-radius: 12px; border: 0; background: #287d91; color: var(--color-text, #F5F5FF); font: inherit; cursor: pointer; }
+.tasks-quick-add button:disabled { opacity: 0.45; cursor: default; }
+.tasks-quick-add__hint { grid-column: 1 / -1; margin: 0; font-size: 13px; opacity: 0.8; }
+@media (max-width: 600px) { .tasks-quick-add { grid-template-columns: 1fr; } }

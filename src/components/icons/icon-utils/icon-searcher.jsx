@@ -14,6 +14,7 @@ export const ICON_CATEGORIES = [
   { value: 'sante', label: 'Santé' },
   { value: 'food', label: 'Nourriture' },
   { value: 'fashion', label: 'Fashion' },
+  { value: 'music', label: 'Musique' },
 ]
 
 export const ICON_SEARCHER = [
@@ -681,6 +682,56 @@ export const ICON_SEARCHER = [
         label: 'Peigne',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Musique --------------------------------------------
+  //  --------------------------------------------
+
+      // Musique simple >>>
+      {
+        name: 'music',
+        category: 'music',
+        label: 'Musique',
+        keywords: [
+          'flèche', 'fleche', 'haut', 'monter', 'montée', 'ascension',
+          'progression', 'augmentation', 'croissance', 'hausse',
+          'direction', 'nord', 'précédent', 'precedent', 'up',
+          'vertical', 'développement', 'developpement',
+        ],
+      },
+      {
+        name: 'headset',
+        category: 'music',
+        label: 'Casque de Musique',
+        keywords: [
+          'flèche', 'fleche', 'haut', 'monter', 'montée', 'ascension',
+          'progression', 'augmentation', 'croissance', 'hausse',
+          'direction', 'nord', 'précédent', 'precedent', 'up',
+          'vertical', 'développement', 'developpement',
+        ],
+      },
+      {
+        name: 'headset_pro',
+        category: 'music',
+        label: 'Casque de Musique (Pro)',
+        keywords: [
+          'flèche', 'fleche', 'haut', 'monter', 'montée', 'ascension',
+          'progression', 'augmentation', 'croissance', 'hausse',
+          'direction', 'nord', 'précédent', 'precedent', 'up',
+          'vertical', 'développement', 'developpement',
+        ],
+      },
+      {
+        name: 'headset_chat',
+        category: 'music',
+        label: 'Casque de Discussion',
+        keywords: [
+          'flèche', 'fleche', 'haut', 'monter', 'montée', 'ascension',
+          'progression', 'augmentation', 'croissance', 'hausse',
+          'direction', 'nord', 'précédent', 'precedent', 'up',
+          'vertical', 'développement', 'developpement',
+        ],
       },
 
   // --------------------------------------------------------

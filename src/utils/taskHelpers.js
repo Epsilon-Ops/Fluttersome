@@ -306,6 +306,12 @@ export function createTaskData(values, existingTask = null) {
         : DEFAULT_TASK_COLOR,
     // Une tâche répétée n'a pas d'échéance unique
     due: recurrence === 'none' ? values.due || '' : '',
+    // Heure d'échéance (HH:MM) et rappel en minutes avant l'échéance
+    dueTime: recurrence === 'none' && values.due ? values.dueTime || '' : '',
+    reminderBefore:
+      recurrence === 'none' && values.dueTime && values.reminderBefore !== '' && values.reminderBefore != null
+        ? String(values.reminderBefore)
+        : '',
     priority: values.priority || 'normal',
     category: values.category || 'personnel',
     duration:

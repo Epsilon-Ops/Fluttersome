@@ -80,6 +80,25 @@ export function createEmptySet(overrides = {}) {
   }
 }
 
+/*
+  Chronomètre manuel par exercice. Tous les exercices n'en ont pas
+  besoin (ex. squat ou deadlift : pas de chrono ; gainage : oui).
+  - onStart : un chrono de travail se lance au début de chaque série
+  - workSeconds : durée de l'effort (ex. 60 pour un gainage d'une minute)
+  - onSetEnd : une récupération se lance quand une série est cochée
+  - onExerciseEnd : une récupération se lance quand l'exercice est terminé
+*/
+export function createEmptyExerciseTimer(overrides = {}) {
+  return {
+    enabled: false,
+    onStart: false,
+    workSeconds: '60',
+    onSetEnd: true,
+    onExerciseEnd: true,
+    ...overrides,
+  }
+}
+
 export function createEmptyExercise(overrides = {}) {
   return {
     id: makeStrengthId(),
@@ -94,6 +113,7 @@ export function createEmptyExercise(overrides = {}) {
     restAfterSet: '2 min',
     restAfterExercise: '2 min',
     notes: '',
+    timer: createEmptyExerciseTimer(),
     sets: [
       createEmptySet(),
       createEmptySet(),
@@ -109,6 +129,7 @@ export function createEmptyBlock(overrides = {}) {
     name: 'Nouveau bloc',
     category: 'Force',
     restAfterBlock: '3 min',
+    timerEnabled: true,
     notes: '',
     exercises: [createEmptyExercise()],
     ...overrides,
@@ -283,9 +304,11 @@ export function loadStrengthSessions() {
                         id: set.id || makeStrengthId(),
                       }))
                     : [],
+                  timer: createEmptyExerciseTimer(exercise.timer || {}),
                   id: exercise.id || makeStrengthId(),
                 }))
               : [],
+            timerEnabled: block.timerEnabled !== false,
             id: block.id || makeStrengthId(),
           }))
         : [],

@@ -1,3 +1,4 @@
+import CollapsibleBlock from '../../components/CollapsibleSection'
 
 import { useState } from 'react'
 
@@ -95,7 +96,7 @@ export default function TasksOverview({
 
   return (
     <div className="tasks-overview">
-      <section className="tasks-stats-panel">
+      <CollapsibleBlock id="task-stats" title="Statistiques" defaultOpen={false}><section className="tasks-stats-panel">
         <button
           type="button"
           className="tasks-collapsible-heading"
@@ -141,7 +142,7 @@ export default function TasksOverview({
             </article>
           </div>
         )}
-      </section>
+      </section></CollapsibleBlock>
 
       {overdueTasks.length > 0 && (
         <CollapsibleSection

@@ -1,3 +1,5 @@
+import { formatRaceTime } from './timeHelpers'
+
 
 export const STORAGE_KEY = 'epsilon.performances.v1'
 
@@ -13,6 +15,7 @@ export const sections = [
 export const distances = [
   { value: '60', label: '60 m' },
   { value: '100', label: '100 m' },
+  { value: '110', label: '110 m haies' },
   { value: '200', label: '200 m' },
   { value: '400', label: '400 m' },
 ]
@@ -57,7 +60,31 @@ export function loadPerformances() {
 }
 
 export function formatTime(time) {
-  return `${Number(time).toFixed(2)} s`
+  return formatRaceTime(time)
+}
+
+/* Distances où le vent est mesuré : au-delà de +2,0 m/s
+   avec vent favorable, le chrono ne peut pas être homologué. */
+export const WIND_RULE_DISTANCES = ['100', '110', '200']
+export const MAX_LEGAL_TAILWIND = 2
+
+export function isWindLegal(performance) {
+  if (!WIND_RULE_DISTANCES.includes(performance.distance)) return true
+
+  const speed = Number(performance.windSpeed)
+
+  if (!Number.isFinite(speed) || performance.windSpeed === '') return true
+
+  if (performance.windDirection === 'tailwind') {
+    return Math.abs(speed) <= MAX_LEGAL_TAILWIND
+  }
+
+  // Sans direction renseignée, un vent positif est considéré comme favorable.
+  if (!performance.windDirection) {
+    return speed <= MAX_LEGAL_TAILWIND
+  }
+
+  return true
 }
 
 export function formatDate(date) {
@@ -97,7 +124,8 @@ export function getOfficialPerformances(performances) {
   return performances.filter(
     (item) =>
       item.type === 'competition' &&
-      item.timing === 'electronic',
+      item.timing === 'electronic' &&
+      isWindLegal(item),
   )
 }
 

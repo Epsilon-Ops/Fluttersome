@@ -1,6 +1,8 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import Hydration from './Hydration'
 import FoodDiary from './FoodDiary'
+import NutritionHistory from './NutritionHistory'
 import '../../styles/main_pages/page_nutrition/index.css'
 
 export default function Nutrition() {
@@ -24,6 +26,10 @@ export default function Nutrition() {
       <section className="nutrition-section">
         <FoodDiary />
       </section>
+
+      <CollapsibleSection id="nutrition-history-section" title="Historique 14 jours" defaultOpen={false}><section className="nutrition-section">
+        <NutritionHistory />
+      </section></CollapsibleSection>
     </main>
   )
 }

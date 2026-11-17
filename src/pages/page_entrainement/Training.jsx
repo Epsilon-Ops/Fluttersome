@@ -1,3 +1,4 @@
+import CollapsibleSection from '../../components/CollapsibleSection'
 
 import { useEffect, useMemo, useState } from 'react'
 import '../../styles/main_pages/page_entrainement/index.css'
@@ -5,6 +6,7 @@ import '../../styles/main_pages/page_entrainement/index.css'
 import TrainingHeader from './TrainingHeader'
 import TrainingWeek from './TrainingWeek'
 import TrainingMetrics from './TrainingMetrics'
+import TrainingVolumeChart from './TrainingVolumeChart'
 import TrainingSessionList from './TrainingSessionList'
 import TrainingForm from './TrainingForm'
 
@@ -380,6 +382,8 @@ export default function Training() {
 
       <TrainingMetrics stats={stats} />
 
+      <CollapsibleSection id="training-volume" title="Volume par semaine" defaultOpen={false}><TrainingVolumeChart sessions={sessions} /></CollapsibleSection>
+
       <TrainingSessionList
         sessions={daySessions}
         selectedDay={selectedDay}
@@ -414,7 +418,7 @@ export default function Training() {
         />
       )}
 
-      <section className="training-panel training-week-summary">
+      <CollapsibleSection id="training-week-summary" title="Bilan de la semaine" defaultOpen={false}><section className="training-panel training-week-summary">
         <div>
           <span className="eyebrow">BILAN HEBDOMADAIRE</span>
           <h2>Ta régularité</h2>
@@ -452,7 +456,7 @@ export default function Training() {
             </span>
           </div>
         </div>
-      </section>
+      </section></CollapsibleSection>
 
       <p className="training-storage-note">
         Les séances sont conservées dans le stockage local de ce
