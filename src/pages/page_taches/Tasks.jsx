@@ -47,6 +47,7 @@ export default function Tasks() {
     addTask,
     updateTask,
     deleteTask,
+    deleteTasks,
     toggleTaskCompleted,
     toggleSubtask,
     changeCounter,
@@ -149,6 +150,23 @@ export default function Tasks() {
     }
 
     closeForm()
+  }
+
+  // Supprime les tâches terminées actuellement affichées (les filtres sont respectés)
+  function clearVisibleCompleted() {
+    const ids = visibleTasks
+      .filter((task) => task.completed)
+      .map((task) => task.id)
+
+    if (ids.length === 0) return
+
+    const confirmed = window.confirm(
+      `Supprimer définitivement ${ids.length} tâche(s) terminée(s) ?`,
+    )
+
+    if (confirmed) {
+      deleteTasks(ids)
+    }
   }
 
   function changeTab(tab) {
@@ -278,6 +296,17 @@ export default function Tasks() {
                 {visibleTasks.length > 1 ? 'tâches' : 'tâche'}
               </h2>
             </div>
+
+            {activeTab === 'completed' &&
+              visibleTasks.some((task) => task.completed) && (
+                <button
+                  type="button"
+                  className="tasks-bulk-delete"
+                  onClick={clearVisibleCompleted}
+                >
+                  Supprimer les terminées
+                </button>
+              )}
           </div>
 
           <TasksList
@@ -286,6 +315,7 @@ export default function Tasks() {
             onEdit={openEditForm}
             onDelete={deleteTask}
             onToggleSubtask={toggleSubtask}
+            showBulkToggle
           />
 
           {visibleTasks.length === 0 && (

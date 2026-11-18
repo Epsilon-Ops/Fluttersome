@@ -286,6 +286,7 @@
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: #fff;
+  color: #17191F;
 }
 
 .task-timer-controls button:disabled {
@@ -300,8 +301,10 @@
   font-weight: 700;
 }
 
-.task-timer-ghost {
+.task-timer-ghost,
+.task-timer-controls .task-timer-ghost {
   background: transparent !important;
   border-color: transparent !important;
+  color: var(--color-text, #F7F8FF);
   opacity: 0.7;
 }

@@ -397,6 +397,55 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'washing_machine',
+        category: 'maison',
+        label: 'Machine à Laver',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'washing_machine_2',
+        category: 'maison',
+        label: 'Machine à Laver II',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'washing_machine_3',
+        category: 'maison',
+        label: 'Machine à Laver III',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'washing_machine_4',
+        category: 'maison',
+        label: 'Machine à Laver IV',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'mixer',
+        category: 'maison',
+        label: 'Mixeur',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'trashbin_recycle',
+        category: 'maison',
+        label: 'Poubelle Recyclable',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'kitchen_timer',
+        category: 'maison',
+        label: 'Chronomètre de Cuisine',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
   //  --------------------------------------------
   // Santé --------------------------------------------
@@ -413,6 +462,27 @@ export const ICON_SEARCHER = [
         name: 'tooth',
         category: 'sante',
         label: 'Dent',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'soap',
+        category: 'sante',
+        label: 'Savon',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'mouthwas',
+        category: 'sante',
+        label: 'Bain de Bouche',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'cannula',
+        category: 'sante',
+        label: 'Cannula',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -733,6 +803,17 @@ export const ICON_SEARCHER = [
           'vertical', 'développement', 'developpement',
         ],
       },
+      {
+        name: 'note_circle',
+        category: 'music',
+        label: 'Note de Musique (Cercle)',
+        keywords: [
+          'flèche', 'fleche', 'haut', 'monter', 'montée', 'ascension',
+          'progression', 'augmentation', 'croissance', 'hausse',
+          'direction', 'nord', 'précédent', 'precedent', 'up',
+          'vertical', 'développement', 'developpement',
+        ],
+      },
 
   // --------------------------------------------------------
 
@@ -794,6 +875,12 @@ export const ICON_SEARCHER = [
     name: 'check',
     category: 'interface',
     label: 'Validation',
+    keywords: ['terminé', 'fait', 'réussi', 'check', 'tâche'],
+  },
+  {
+    name: 'cross',
+    category: 'interface',
+    label: 'Croix',
     keywords: ['terminé', 'fait', 'réussi', 'check', 'tâche'],
   },
   {

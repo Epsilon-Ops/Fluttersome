@@ -1,19 +1,23 @@
-import CollapsibleBlock from '../../components/CollapsibleSection'
-
 import { useState } from 'react'
+import CollapsibleBlock, {
+  readCollapsedState,
+  writeCollapsedState,
+} from '../../components/CollapsibleSection'
 
 import {
   getToday,
   isTaskDueToday,
+  isTaskOpen,
   isTaskOverdue,
   isTaskUpcoming,
 } from '../../utils/taskHelpers'
-
-import TasksList from './TasksList'
-import { isTaskOpen } from '../../utils/taskHelpers'
 import { isRoutine } from '../../utils/recurrenceHelpers'
 
-function CollapsibleSection({
+import TasksList from './TasksList'
+
+// Section repliable dont l'état est mémorisé (comme les autres blocs de l'appli)
+function TaskSection({
+  id,
   eyebrow,
   title,
   count,
@@ -21,14 +25,24 @@ function CollapsibleSection({
   defaultOpen = false,
   variant = '',
 }) {
-  const [open, setOpen] = useState(defaultOpen)
+  const [open, setOpen] = useState(() =>
+    readCollapsedState(id, defaultOpen),
+  )
+
+  function toggle() {
+    setOpen((current) => {
+      const next = !current
+      writeCollapsedState(id, next)
+      return next
+    })
+  }
 
   return (
     <section className={`tasks-section ${variant}`}>
       <button
         type="button"
         className="tasks-collapsible-heading"
-        onClick={() => setOpen((current) => !current)}
+        onClick={toggle}
         aria-expanded={open}
       >
         <span className="tasks-collapsible-title">
@@ -47,9 +61,7 @@ function CollapsibleSection({
       </button>
 
       {open && (
-        <div className="tasks-collapsible-content">
-          {children}
-        </div>
+        <div className="tasks-collapsible-content">{children}</div>
       )}
     </section>
   )
@@ -63,8 +75,6 @@ export default function TasksOverview({
   onToggleSubtask,
   onCreate,
 }) {
-  const [statsOpen, setStatsOpen] = useState(false)
-
   const openTasks = tasks.filter(isTaskOpen)
 
   const activeTasks = openTasks.filter((task) => !task.completed)
@@ -74,10 +84,11 @@ export default function TasksOverview({
     (task) => isRoutine(task) || isTaskDueToday(task),
   )
 
-  const overdueTasks = activeTasks.filter(isTaskOverdue)
+  // Fonctions fléchées : filter() transmettrait l'index comme « today »
+  const overdueTasks = activeTasks.filter((task) => isTaskOverdue(task))
 
   const upcomingTasks = activeTasks
-    .filter(isTaskUpcoming)
+    .filter((task) => isTaskUpcoming(task))
     .sort((a, b) => a.due.localeCompare(b.due))
     .slice(0, 5)
 
@@ -96,28 +107,13 @@ export default function TasksOverview({
 
   return (
     <div className="tasks-overview">
-      <CollapsibleBlock id="task-stats" title="Statistiques" defaultOpen={false}><section className="tasks-stats-panel">
-        <button
-          type="button"
-          className="tasks-collapsible-heading"
-          onClick={() => setStatsOpen((current) => !current)}
-          aria-expanded={statsOpen}
-        >
-          <span className="tasks-collapsible-title">
-            <span className="tasks-collapsible-name">
-              Résumé de ton activité
-            </span>
-            <span className="tasks-muted">
-              {activeTasks.length} tâche(s) active(s)
-            </span>
-          </span>
-
-          <span className="tasks-chevron" aria-hidden="true">
-            {statsOpen ? '−' : '+'}
-          </span>
-        </button>
-
-        {statsOpen && (
+      <CollapsibleBlock
+        id="task-stats"
+        title="Statistiques"
+        summary={`${activeTasks.length} tâche(s) active(s)`}
+        defaultOpen={false}
+      >
+        <section className="tasks-stats-panel">
           <div className="tasks-stats-grid">
             <article className="tasks-stat-card">
               <span className="tasks-stat-label">Tâches actives</span>
@@ -141,21 +137,24 @@ export default function TasksOverview({
               <strong>{completedToday}</strong>
             </article>
           </div>
-        )}
-      </section></CollapsibleBlock>
+        </section>
+      </CollapsibleBlock>
 
       {overdueTasks.length > 0 && (
-        <CollapsibleSection
+        <TaskSection
+          id="tasks-overdue"
           eyebrow="À TRAITER"
           title="En retard"
           count={overdueTasks.length}
           variant="overdue"
+          defaultOpen
         >
           <TasksList tasks={overdueTasks} {...listProps} />
-        </CollapsibleSection>
+        </TaskSection>
       )}
 
-      <CollapsibleSection
+      <TaskSection
+        id="tasks-today"
         eyebrow="TA JOURNÉE"
         title="Aujourd'hui"
         count={todayTasks.length}
@@ -180,9 +179,10 @@ export default function TasksOverview({
             </button>
           </div>
         )}
-      </CollapsibleSection>
+      </TaskSection>
 
-      <CollapsibleSection
+      <TaskSection
+        id="tasks-upcoming"
         eyebrow="PROCHAINEMENT"
         title="À venir"
         count={upcomingTasks.length}
@@ -194,7 +194,7 @@ export default function TasksOverview({
             Aucune échéance à venir pour le moment.
           </p>
         )}
-      </CollapsibleSection>
+      </TaskSection>
     </div>
   )
 }

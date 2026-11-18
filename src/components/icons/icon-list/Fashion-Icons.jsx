@@ -35,6 +35,80 @@ export function CombIcon({ size = 20, className = '', ...props }) {
     );
 }
 
+// SwimsuitWoman1Icon
+// https://www.svgrepo.com/svg/290658/swimsuit?edit=true
+
+// SwimsuitWoman2Icon
+// https://www.svgrepo.com/svg/290660/swimsuit?edit=true
+
+// Dress1Icon
+// https://www.svgrepo.com/svg/290661/dress?edit=true
+
+// Dress2Icon
+// https://www.svgrepo.com/svg/290662/dress
+
+// Dress3Icon
+// https://www.svgrepo.com/svg/290673/dress
+
+// Dress4Icon
+// https://www.svgrepo.com/svg/290676/dress
+
+// Dress5Icon
+// https://www.svgrepo.com/svg/290677/dress
+
+// Dress6Icon
+// https://www.svgrepo.com/svg/290665/suit
+
+// RaincoatIcon
+// https://www.svgrepo.com/svg/275000/raincoat-fashion
+
+// Jean1Icon
+// https://www.svgrepo.com/svg/275013/jean
+
+// Jean2Icon
+// https://www.svgrepo.com/svg/275010/jean
+
+// Underwear1Icon
+// https://www.svgrepo.com/svg/275046/underwear
+
+// Underwear2Icon
+// https://www.svgrepo.com/svg/275050/underwear-pants
+
+// Underwear3Icon
+// https://www.svgrepo.com/svg/275048/underwear-pants
+
+// FashionShort1Icon
+// https://www.svgrepo.com/svg/275059/short
+
+// FashionShort2Icon
+// https://www.svgrepo.com/svg/275062/short-shorts
+
+// FashionClothesIcon
+// https://www.svgrepo.com/svg/275006/shirt-clothes
+
+// Shirt1Icon
+// https://www.svgrepo.com/svg/236923/shirt
+
+// Shirt2Icon
+// https://www.svgrepo.com/svg/117387/shirt
+
+// Shirt3Icon
+// https://www.svgrepo.com/svg/48940/shirt
+
+// TrousersIcon
+// https://www.svgrepo.com/svg/50642/trousers
+
+// SocksIcon
+// https://www.svgrepo.com/svg/123755/socks
+
+// SweaterIcon
+// https://www.svgrepo.com/svg/65253/sweater
+
+// WoolDressIcon
+// https://www.svgrepo.com/svg/68373/wool-dress
+
+// JacketIcon
+// https://www.svgrepo.com/svg/158681/jacket
 
 /*
     FashionIcon

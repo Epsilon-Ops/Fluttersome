@@ -11,6 +11,21 @@ function loadStates() {
   }
 }
 
+// Lecture / écriture de l'état d'un bloc, pour les blocs gérés hors de ce composant
+export function readCollapsedState(id, fallback) {
+  const saved = loadStates()
+  return typeof saved[id] === 'boolean' ? saved[id] : fallback
+}
+
+export function writeCollapsedState(id, open) {
+  try {
+    const saved = loadStates()
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...saved, [id]: open }))
+  } catch {
+    // Stockage indisponible : l'état reste valable pour la session.
+  }
+}
+
 /*
   Bloc repliable. Quand il est fermé, son titre et un résumé restent visibles
   pour retrouver l'information sans dérouler toute la page.

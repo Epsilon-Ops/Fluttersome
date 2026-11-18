@@ -128,6 +128,144 @@
   gap: 10px;
 }
 
+/* ---------- Catégories repliables ---------- */
+
+/* Cible : .app-shell .tasks-group-grip (poignée de déplacement du bloc) */
+.app-shell .tasks-group-grip {
+  padding: 4px 2px;
+  border-radius: 6px;
+  color: inherit;
+}
+
+/* Cible : .app-shell .tasks-group-grip:focus-visible */
+.app-shell .tasks-group-grip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* En-tête compact : la zone tactile du bouton titre fait 44 px */
+/* Cible : .app-shell .tasks-group-header (complément) */
+.app-shell .tasks-group-header {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Bouton titre : prend la place restante, sans style de bouton */
+/* Cible : .app-shell .tasks-group-toggle */
+.app-shell .tasks-group-toggle {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Cible : .app-shell .tasks-group-toggle:focus-visible */
+.app-shell .tasks-group-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Cible : .app-shell .tasks-group-toggle .tasks-group-title */
+.app-shell .tasks-group-toggle .tasks-group-title {
+  overflow-wrap: anywhere;
+}
+
+/* Flèche : tourne quand le bloc est replié */
+/* Cible : .app-shell .tasks-group-chevron */
+.app-shell .tasks-group-chevron {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgb(0 0 0 / 22%);
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+/* Cible : .app-shell .tasks-group.is-collapsed .tasks-group-chevron */
+.app-shell .tasks-group.is-collapsed .tasks-group-chevron {
+  transform: rotate(-90deg);
+}
+
+/* Barre de progression fine sous l'en-tête */
+/* Cible : .app-shell .tasks-group-progress */
+.app-shell .tasks-group-progress {
+  height: 4px;
+  background: rgb(0 0 0 / 25%);
+}
+
+/* Cible : .app-shell .tasks-group-progress span */
+.app-shell .tasks-group-progress span {
+  display: block;
+  height: 100%;
+  background: var(--group-ink, #FFFFFF);
+  opacity: 0.85;
+  transition: width 0.3s ease;
+}
+
+/* Corps replié : masqué (l'attribut hidden doit toujours gagner) */
+/* Cible : .app-shell .tasks-group-body[hidden] */
+.app-shell .tasks-group-body[hidden] {
+  display: none;
+}
+
+/* Barre d'actions au-dessus des blocs (Tout replier / déplier) */
+/* Cible : .app-shell .tasks-groups-toolbar */
+.app-shell .tasks-groups-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+/* Cible : .app-shell .tasks-groups-toolbar-button */
+.app-shell .tasks-groups-toolbar-button,
+.app-shell .tasks-bulk-delete {
+  min-height: 36px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  background: var(--color-surface-alt, #171824);
+  color: var(--color-text, #F7F8FF);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Cible : .app-shell .tasks-groups-toolbar-button:hover */
+.app-shell .tasks-groups-toolbar-button:hover {
+  border-color: var(--accent, var(--color-primary, #B99AFF));
+}
+
+/* Suppression groupée : ton d'alerte, sans être agressif */
+/* Cible : .app-shell .tasks-bulk-delete */
+.app-shell .tasks-bulk-delete {
+  flex: 0 0 auto;
+  align-self: center;
+  color: var(--color-danger, #FF6B6B);
+}
+
+/* Cible : .app-shell .tasks-bulk-delete:hover */
+.app-shell .tasks-bulk-delete:hover {
+  border-color: var(--color-danger, #FF6B6B);
+}
+
 /* ---------- Carte de tâche : PC ---------- */
 
 /* Cible : .app-shell .task-card */

@@ -133,6 +133,14 @@ export default function useTasks() {
     )
   }, [])
 
+  // Suppression groupée : une seule mise à jour (et une seule sauvegarde)
+  const deleteTasks = useCallback((ids) => {
+    const toDelete = new Set(ids)
+    setTasks((current) =>
+      current.filter((task) => !toDelete.has(task.id)),
+    )
+  }, [])
+
   const toggleTaskCompleted = useCallback(
     (id) => {
       updateOne(id, (task) => {
@@ -328,6 +336,7 @@ export default function useTasks() {
     addTask,
     updateTask,
     deleteTask,
+    deleteTasks,
     toggleTaskCompleted,
     changeCounter,
     timerAction,

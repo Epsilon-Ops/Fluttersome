@@ -1,3 +1,90 @@
+// HeartIcon
+// https://www.svgrepo.com/svg/535436/heart
+
+// HeartBreakIcon
+// https://www.svgrepo.com/svg/535431/heart-broken
+
+// Heart2Icon
+// https://www.svgrepo.com/svg/513212/heart
+
+// HeartTowerIcon
+// https://www.svgrepo.com/svg/499216/heart-tower
+
+// HeartPlusIcon
+// https://www.svgrepo.com/svg/485739/heart1
+
+// HeartMinusIcon
+// https://www.svgrepo.com/svg/485740/heart2
+
+// Heart3Icon
+// https://www.svgrepo.com/svg/485737/heart
+
+// HeartElectrocardiogramIcon
+// https://www.svgrepo.com/svg/482737/heart-electrocardiogram-2
+
+// HeartWolfIcon
+// https://www.svgrepo.com/svg/499276/love-howl
+
+// HeadLoveIcon
+// https://www.svgrepo.com/svg/483525/love
+
+// HandLoveIcon
+// https://www.svgrepo.com/svg/477694/love-1
+
+// LoveIcon
+// https://www.svgrepo.com/svg/410561/love
+
+// LoveFeelingIcon
+// https://www.svgrepo.com/svg/390268/love
+
+// HeartGearIcon
+// https://www.svgrepo.com/svg/322731/love-mystery
+
+// LoveMusicNoteIcon
+// https://www.svgrepo.com/svg/321075/love-song
+
+// LovebirdsIcon
+// https://www.svgrepo.com/svg/284933/love-birds
+
+// LoveLetterIcon
+// https://www.svgrepo.com/svg/272827/love-letter-love-and-romance
+
+// LoveNoteIcon
+// https://www.svgrepo.com/svg/272798/love-letter-love-and-romance
+
+// LoveEnvelloppeIcon
+// https://www.svgrepo.com/svg/247268/love-letter-love-and-romance
+
+// HeartHarmonyIcon
+// https://www.svgrepo.com/svg/295250/hearts-harmony
+
+// Love2Icon
+// https://www.svgrepo.com/svg/106507/hearts
+
+// Love3Icon
+// https://www.svgrepo.com/svg/57725/hearts-with-differences
+
+// LoveCardIcon
+// https://www.svgrepo.com/svg/247231/ace-of-hearts-black-jack
+
+// HeartSpermIcon
+// https://www.svgrepo.com/svg/168167/heart-shaped-sperm
+
+// HeartCartIcon
+// https://www.svgrepo.com/svg/175441/shopaholic-shopping-cart-with-hearts
+
+// DrawingHeartIcon
+// https://www.svgrepo.com/svg/163421/drawing-hearts
+
+// HeartBadgeIcon
+// https://www.svgrepo.com/svg/128476/badge-heart
+
+// HeartLockIcon
+// https://www.svgrepo.com/svg/19216/heart-lock-with-key-hole
+
+// HeartKeyIcon
+// https://www.svgrepo.com/svg/322511/heart-key
+
 /*
     LoveIcon
     HeartIcon

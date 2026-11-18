@@ -31,12 +31,85 @@ export function EggIcon(props) {
 // SquirrelIcon
 // https://www.svgrepo.com/svg/173879/squirrel-filled-silhouette-from-side-view
 
+// DogIcon
+// https://www.svgrepo.com/show/481503/dog-13.svg
+
+// DoggoIcon
+// https://www.svgrepo.com/show/481198/dog-5.svg
+
+// DoggiIcon
+// https://www.svgrepo.com/show/364443/dog-fill.svg
+
+// DogSquareIcon
+// https://www.svgrepo.com/show/167520/dog-with-square-head-shape.svg
+
+// DogPawHeartIcon
+// https://www.svgrepo.com/show/145308/dog-pawprint-on-a-heart.svg
+
+// DogPawsIcon
+// https://www.svgrepo.com/svg/170070/dog-pawprints
+
+// DogFoodIcon
+// https://www.svgrepo.com/svg/113124/dog-dish
+
+// DogSleepIcon
+// https://www.svgrepo.com/svg/143916/dog-sleeping
+
+// DogFirstAidIcon
+// https://www.svgrepo.com/svg/94395/dog-with-first-aid-kit-bag
+
+// DogBoneIcon
+// https://www.svgrepo.com/svg/11512/dog-smelling-a-bone
+
+// DogHouseIcon
+// https://www.svgrepo.com/svg/2265/dog-house
+
+// CatIcon
+// https://www.svgrepo.com/svg/481046/cat-silhouette
+
+// CatSilouhetteIcon
+// https://www.svgrepo.com/svg/499063/cat
+
+// KittenIcon
+// https://www.svgrepo.com/svg/364323/cat-fill
+
+// CatFoodIcon
+// https://www.svgrepo.com/svg/237569/cat-food
+
+// AnimalBuildingIcon
+// https://www.svgrepo.com/svg/176400/pets-hotel-big-building
+
+// PetHotelIcon
+// https://www.svgrepo.com/svg/136868/pet-hotel
+
+// FatLuckyCatIcon
+// https://www.svgrepo.com/svg/47936/lucky-cat-toy
+
+// PetFoodIcon
+// https://www.svgrepo.com/svg/13140/pet-food-bag
+
+// WolfIcon
+// https://www.svgrepo.com/svg/481057/wolf
+
+// WolfHeadIcon
+// https://www.svgrepo.com/svg/499455/wolf-head
+
+// FoxIcon
+// https://www.svgrepo.com/svg/481148/fox-2
+
+// SquirrelIcon
+// https://www.svgrepo.com/svg/173879/squirrel-filled-silhouette-from-side-view
+
+// AcornIcon
+// https://www.svgrepo.com/svg/190991/acorn
+
+
 /*
     MammalIcon
-    DogIcon
-    CatIcon
-    WolfIcon
-    FoxIcon
+    ++ DogIcon
+    ++ CatIcon
+    ++ WolfIcon
+    ++ FoxIcon
     BearIcon
     LionIcon
     TigerIcon

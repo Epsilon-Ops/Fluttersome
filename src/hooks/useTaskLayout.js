@@ -1,6 +1,7 @@
 /* =========================================================
-   useTaskLayout — ordre des blocs et des tâches, sauvegardé
-   dans le navigateur pour survivre à la fermeture de l'appli.
+   useTaskLayout — ordre des blocs et des tâches, et état
+   replié / déplié des catégories, sauvegardés dans le
+   navigateur pour survivre à la fermeture de l'appli.
    ========================================================= */
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
@@ -9,7 +10,11 @@ import {
   mergeOrder,
 } from '../utils/taskGroups'
 
-const EMPTY_LAYOUT = { categoryOrder: [], taskOrder: {} }
+const EMPTY_LAYOUT = {
+  categoryOrder: [],
+  taskOrder: {},
+  collapsedGroups: [],
+}
 
 function readLayout() {
   try {
@@ -29,6 +34,10 @@ function readLayout() {
         stored.taskOrder && typeof stored.taskOrder === 'object'
           ? stored.taskOrder
           : {},
+      // Absent dans les anciennes sauvegardes : tout est déplié
+      collapsedGroups: Array.isArray(stored.collapsedGroups)
+        ? stored.collapsedGroups
+        : [],
     }
   } catch {
     return EMPTY_LAYOUT
@@ -71,8 +80,40 @@ export default function useTaskLayout() {
     }))
   }, [])
 
+  // Replie ou déplie une catégorie
+  const toggleGroup = useCallback((groupId) => {
+    setLayout((current) => {
+      const collapsed = current.collapsedGroups ?? []
+      return {
+        ...current,
+        collapsedGroups: collapsed.includes(groupId)
+          ? collapsed.filter((id) => id !== groupId)
+          : [...collapsed, groupId],
+      }
+    })
+  }, [])
+
+  // Replie ou déplie plusieurs catégories d'un coup
+  const setGroupsCollapsed = useCallback((groupIds, collapsed) => {
+    setLayout((current) => {
+      const others = (current.collapsedGroups ?? []).filter(
+        (id) => !groupIds.includes(id),
+      )
+      return {
+        ...current,
+        collapsedGroups: collapsed ? [...others, ...groupIds] : others,
+      }
+    })
+  }, [])
+
   return useMemo(
-    () => ({ layout, setCategoryOrder, setTaskOrder }),
-    [layout, setCategoryOrder, setTaskOrder],
+    () => ({
+      layout,
+      setCategoryOrder,
+      setTaskOrder,
+      toggleGroup,
+      setGroupsCollapsed,
+    }),
+    [layout, setCategoryOrder, setTaskOrder, toggleGroup, setGroupsCollapsed],
   )
 }

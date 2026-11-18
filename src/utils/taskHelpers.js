@@ -18,6 +18,7 @@ export const TASK_CATEGORIES = [
   { value: 'personnel', label: 'Personnel' },
   { value: 'maison', label: 'Maison' },
   { value: 'menage', label: 'Ménage' },
+  { value: 'chambre', label: 'Chambre' },
   { value: 'courses', label: 'Courses' },
   { value: 'repas', label: 'Repas' },
 
@@ -27,6 +28,7 @@ export const TASK_CATEGORIES = [
   { value: 'sport', label: 'Sport' },
   { value: 'bien_etre', label: 'Bien-être' },
   { value: 'mental', label: 'Santé mentale' },
+  { value: 'matin', label: 'Matin' },
 
   // Travail et études
   { value: 'travail', label: 'Travail' },

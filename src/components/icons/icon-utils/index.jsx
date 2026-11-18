@@ -45,6 +45,7 @@ import {
     SparklesIcon,
     ArrowUpRightIcon,
     InfoIcon,
+    CrossIcon,
   } from '../icon-list/Interface-Icons'
 
   import {
@@ -101,11 +102,21 @@ import {
     DuckbuoyIcon,
     ShowerIcon,
     ShowerCurtainIcon,
+    WashingMachine3Icon,
+    WashingMachine4Icon,
+    WashingMachine2Icon,
+    WashingMachineIcon,
+    MixerIcon,
+    TrashBinRecycleIcon,
+    KitchenTimerIcon,
   } from '../icon-list/Home-Icons'
 
   import {
     ToothpasteNBrushIcon,
     ToothIcon,
+    SoapIcon,
+    MouthwashIcon,
+    CannulaIcon,
   } from '../icon-list/Health-Icons'
 
   import {
@@ -132,6 +143,7 @@ import {
     HeadsetIcon,
     HeadsetProIcon,
     MusicIcon,
+    MusicNoteCircleIcon,
   } from '../icon-list/Music-Icons'
   
   export const iconMap = {
@@ -185,6 +197,13 @@ import {
     mirror_bedroom: MirrorBedroomIcon,
     mirror_plate: MirrorPlateIcon,
 
+        // Cuisine
+    washing_machine: WashingMachineIcon,
+    washing_machine_2: WashingMachine2Icon,
+    washing_machine_3: WashingMachine3Icon,
+    washing_machine_4: WashingMachine4Icon,
+    mixer: MixerIcon,
+
         // >>> Electricité
     lightbulb: LightbulbIcon,
     lightbulb_power: LightbulbPowerIcon,
@@ -212,13 +231,19 @@ import {
     leaf: LeafIcon,
     sun: SunIcon,
     check: CheckIcon,
+    cross: CrossIcon,
     sparkles: SparklesIcon,
     info: InfoIcon,
+    trashbin_recycle: TrashBinRecycleIcon,
+    kitchen_timer: KitchenTimerIcon,
 
     // ----------------------------------------------------------
     // Santé ----------------------------------------------------------
     // ----------------------------------------------------------
     tooth: ToothIcon,
+    soap: SoapIcon,
+    mouthwash: MouthwashIcon,
+    cannula: CannulaIcon,
 
     // ----------------------------------------------------------
     // Animaux ----------------------------------------------------------
@@ -291,6 +316,7 @@ import {
     headset: HeadsetIcon,
     headset_pro: HeadsetProIcon,
     headset_chat: HeadsetChatIcon,
+    note_circle: MusicNoteCircleIcon,
   }
   
   export function AppIcon({

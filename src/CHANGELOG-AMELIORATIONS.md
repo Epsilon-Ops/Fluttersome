@@ -37,3 +37,15 @@
 ## Quatrième itération : blocs repliables
 - Nouveau composant `CollapsibleSection` : titre et résumé restent visibles quand le bloc est fermé ; le contenu reste monté (une saisie en cours n'est pas perdue) ; l'état ouvert/fermé est mémorisé par bloc.
 - Appliqué aux blocs longs : Entraînement (volume, bilan de semaine), Compétitions (historique), Musculation (progression, exercices d'un bloc, chaque exercice avec son résumé de séries), Coach (facteurs, décision, options, analyse, progression, repères), Sommeil (sensations, objectif), Humeur (historique, statistiques), Nutrition (historique 14 jours), Tâches (apparence, sous-tâches, statistiques).
+
+## Cinquième itération : page Tâches
+- Catégories repliables : un clic sur le titre replie ou déplie le bloc. L'en-tête affiche « faites/total », une barre de progression fine et une flèche qui pivote. L'état est mémorisé par catégorie.
+- La poignée à six points (à gauche) sert seule à déplacer le bloc, pour que le clic sur le titre ne déclenche plus de glisser-déposer. Le réordonnancement au clavier (flèches) est conservé.
+- « Tout replier » / « Tout déplier » au-dessus des blocs, dans les vues en liste.
+- « Supprimer les terminées » dans l'onglet Terminées : supprime les tâches terminées affichées (les filtres sont respectés), après confirmation. Une seule écriture de stockage (`deleteTasks`).
+- Corrections :
+  - « En retard » et « À venir » restaient vides : `filter(isTaskOverdue)` transmettait l'index du tableau comme date de référence. Appels remplacés par des fonctions fléchées. Les compteurs de la vue d'ensemble correspondent maintenant à ceux des onglets.
+  - Statistiques : deux boutons de repli empilés, un seul désormais, avec le résumé visible quand le bloc est fermé.
+  - Les sections « En retard », « Aujourd'hui » et « À venir » mémorisent leur état d'ouverture. « En retard » est ouverte par défaut.
+  - Zone tactile des en-têtes de catégorie portée à 44 px.
+- Vérification : compilation esbuild sans avertissement, test dans Chromium (bureau et mobile) des repli, persistance après rechargement, réordonnancement au clavier, suppression groupée et absence d'erreur JavaScript.
