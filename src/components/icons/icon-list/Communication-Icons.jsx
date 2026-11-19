@@ -1,3 +1,12 @@
+// SpeechbubbleTalkIcon
+// https://www.svgrepo.com/svg/368251/kakaotalk
+
+// SpeechbubbleIcon
+// https://www.svgrepo.com/svg/368252/kakao
+
+// SpeechbubbleCubeIcon
+// https://www.svgrepo.com/svg/368253/kakao-square
+
 /*
     CommunicationIcon
     MessageIcon

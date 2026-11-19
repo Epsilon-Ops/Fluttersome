@@ -102,6 +102,12 @@ export function CannulaIcon({ size = 20, className = '', ...props }) {
 // BoneDoubleIcon
 // https://www.svgrepo.com/svg/488162/dog-bone?edit=true
 
+// SmokingIcon
+// https://www.svgrepo.com/svg/368302/smoking
+
+// NoSmokingIcon
+// https://www.svgrepo.com/svg/368303/smoking-ban
+
 /*
     HealthIcon
     HealthcareIcon

@@ -7,6 +7,15 @@
 // CastleIcon
 // https://www.svgrepo.com/svg/360182/castle-f
 
+// LadderIcon
+// https://www.svgrepo.com/svg/247397/ladder
+
+// Ladder2Icon
+// https://www.svgrepo.com/svg/203430/ladder
+
+// BrokenLadderIcon
+// https://www.svgrepo.com/svg/203434/ladder
+
 /*
     BuildingIcon
     SkyscraperIcon

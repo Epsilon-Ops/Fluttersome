@@ -37,6 +37,15 @@ import {
     TrophyIcon,
     ActivityIcon,
     DumbbellIcon,
+    SprintIcon,
+    DualSprintIcon,
+    SprintLogoIcon,
+    RunningIcon,
+    Running2Icon,
+    PullUpIcon,
+    FitnessIcon,
+    IceSkateIcon,
+    RunningShoeIcon,
   } from '../icon-list/Sport-Icons'
   
   import {
@@ -109,6 +118,24 @@ import {
     MixerIcon,
     TrashBinRecycleIcon,
     KitchenTimerIcon,
+    ToiletBrushIcon,
+    RaddishLightbulbIcon,
+    KitchenKettleIcon,
+    FryingPanIcon,
+    CookingPotIcon,
+    SpoonIcon,
+    ForkIcon,
+    KnifeIcon,
+    SpatulaIcon,
+    RollinPinIcon,
+    PizzaCutterIcon,
+    ArmchairIcon,
+    ArmchairChairIcon,
+    SofaIcon,
+    ClosetIcon,
+    DrawerChestIcon,
+    DrawerDressingIcon,
+    WindowCurtainIcon,
   } from '../icon-list/Home-Icons'
 
   import {
@@ -136,6 +163,7 @@ import {
     PearIcon,
     PopsicleIcon,
     AcornIcon,
+    CookingIcon,
   } from '../icon-list/Food-Icons'
 
   import { 
@@ -145,6 +173,22 @@ import {
     MusicIcon,
     MusicNoteCircleIcon,
   } from '../icon-list/Music-Icons'
+  import {
+    Heart2Icon,
+    Heart3Icon,
+    HeartbreakIcon,
+    HeartTowerIcon
+  } from '../icon-list/Love-Icons'
+  import {
+    DropIcon,
+    WaterPowerIcon,
+    WaterPipeIcon,
+    WaterSharpIcon,
+    WaterSmoothIcon,
+    WaterFlaskIcon,
+    WhiskeyIcon,
+    StarDrinkIcon
+  } from '../icon-list/Drinks-Icons'
   
   export const iconMap = {
     // ----------------------------------------------------------
@@ -183,6 +227,13 @@ import {
     sofa_long: SofaLongIcon,
     tv: TVIcon,
     fireplace: FireplaceIcon,
+    armchair: ArmchairIcon,
+    armchair_chair: ArmchairChairIcon,
+    sofa: SofaIcon,
+    closet: ClosetIcon,
+    drawer_chest: DrawerChestIcon,
+    drawer_dressing: DrawerDressingIcon,
+    window_curtain: WindowCurtainIcon,
 
         // >>> Chambre
     bed: BedIcon,
@@ -207,6 +258,7 @@ import {
         // >>> Electricité
     lightbulb: LightbulbIcon,
     lightbulb_power: LightbulbPowerIcon,
+    raddish_lightbulb: RaddishLightbulbIcon,
 
         // >>> Bain
     bath: BathIcon,
@@ -214,12 +266,22 @@ import {
     toothpaste_n_brush: ToothpasteNBrushIcon,
     toilet_paper: ToiletPaperIcon,
     toilet: ToiletIcon,
+    toilet_brush: ToiletBrushIcon,
     duck_buoy: DuckbuoyIcon,
     shower: ShowerIcon,
     shower_curtain: ShowerCurtainIcon,
 
         // >>> Cuisine
     sink: SinkIcon,
+    kitchen_kettle: KitchenKettleIcon,
+    frying_pan: FryingPanIcon,
+    cooking_pot: CookingPotIcon,
+    spoon: SpoonIcon,
+    fork: ForkIcon,
+    knife: KnifeIcon,
+    spatula: SpatulaIcon,
+    rollinpin: RollinPinIcon,
+    pizza_cutter: PizzaCutterIcon,
 
     dashboard: DashboardIcon,
     trophy: TrophyIcon,
@@ -254,6 +316,8 @@ import {
     // Nouriturre ----------------------------------------------------------
     // ----------------------------------------------------------
     restaurant_plate: RestaurantPlateIcon,
+    cooking: CookingIcon,
+
     watermelon: WatermelonIcon,
     peach_open: PeachOpenIcon,
     peach: PeachIcon,
@@ -271,12 +335,39 @@ import {
     acorn: AcornIcon,
 
     // ----------------------------------------------------------
+    // Boissons ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> ...
+    water_i: WaterSmoothIcon,
+    water_ii: WaterSharpIcon,
+    drop: DropIcon,
+    water_power: WaterPowerIcon,
+    water_pipe: WaterPipeIcon,
+    water_flask: WaterFlaskIcon,
+    whiskey: WhiskeyIcon,
+    star_drink: StarDrinkIcon,
+
+    // ----------------------------------------------------------
     // Célébrations ----------------------------------------------------------
     // ----------------------------------------------------------
         // >>> Halloween
     ghost: GhostIcon,
     witch_hat: WitchHatIcon,
     easter_egg: EasterEggIcon,
+
+    // ----------------------------------------------------------
+    // Sport ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> ...
+    sprint: SprintIcon,
+    dual_sprint: DualSprintIcon,
+    sprint_logo: SprintLogoIcon,
+    running: RunningIcon,
+    running2: Running2Icon,
+    pull_up: PullUpIcon,
+    fitness: FitnessIcon,
+    ice_skate: IceSkateIcon,
+    running_shoe: RunningShoeIcon,
 
     // ----------------------------------------------------------
     // Finance ----------------------------------------------------------
@@ -317,6 +408,15 @@ import {
     headset_pro: HeadsetProIcon,
     headset_chat: HeadsetChatIcon,
     note_circle: MusicNoteCircleIcon,
+
+    // ----------------------------------------------------------
+    // Amour ----------------------------------------------------------
+    // ----------------------------------------------------------
+        // >>> ...
+    heart_i: Heart2Icon,
+    heartbreak: HeartbreakIcon,
+    heart_ii: Heart3Icon,
+    heart_tower: HeartTowerIcon,
   }
   
   export function AppIcon({

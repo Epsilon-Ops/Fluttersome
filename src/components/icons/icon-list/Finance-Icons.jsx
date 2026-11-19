@@ -146,6 +146,15 @@ export function CloverCoinIcon(props) {
   );
 }
 
+// CCCarcIcon
+// https://www.svgrepo.com/svg/368256/cc-card
+
+// BCCardIcon
+// https://www.svgrepo.com/svg/368257/bc-card
+
+// PaymentMethodIcon
+// https://www.svgrepo.com/svg/265743/payment-method-cash
+
 /*
     FinanceIconc
     FinancialIcon

@@ -47,6 +47,12 @@ export function EasterEggIcon(props) {
 // MoonBatsIcon
 // https://www.svgrepo.com/svg/322825/moon-bats
 
+// NinjaIcon
+// https://www.svgrepo.com/svg/368289/ninja
+
+// PartyIcon
+// https://www.svgrepo.com/svg/368291/party
+
 
 /*
     CelebrationIcon

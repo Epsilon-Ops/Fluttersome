@@ -103,6 +103,39 @@ export function EggIcon(props) {
 // AcornIcon
 // https://www.svgrepo.com/svg/190991/acorn
 
+// PantherIcon
+// https://www.svgrepo.com/svg/368236/panther
+
+// ButterflyIcon
+// https://www.svgrepo.com/svg/368237/butterfly
+
+// PigIcon
+// https://www.svgrepo.com/svg/368238/pig
+
+// NekoIcon
+// https://www.svgrepo.com/svg/368246/neko
+
+// AlpacaIcon
+// https://www.svgrepo.com/svg/368240/alpaca
+
+// SheepIcon
+// https://www.svgrepo.com/svg/368241/sheep
+
+// CamelIcon
+// https://www.svgrepo.com/svg/368242/camel
+
+// CowIcon
+// https://www.svgrepo.com/svg/368243/cow
+
+// ChickenIcon
+// https://www.svgrepo.com/svg/368244/chicken
+
+// FishIcon
+// https://www.svgrepo.com/svg/368245/fish
+
+// RacehorseIcon
+// https://www.svgrepo.com/svg/480478/racehorse-1
+
 
 /*
     MammalIcon

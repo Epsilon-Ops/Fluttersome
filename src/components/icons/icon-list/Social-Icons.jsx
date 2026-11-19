@@ -7,6 +7,24 @@
 // BirthdayIcon
 // https://www.svgrepo.com/svg/360130/birthday-cake-filled
 
+// ManWomanIcon
+// https://www.svgrepo.com/svg/368261/couple
+
+// ManWoman2Icon
+// https://www.svgrepo.com/svg/368264/couple-alt
+
+// GroupIcon
+// https://www.svgrepo.com/svg/368295/people-group
+
+// SeniorIcon
+// https://www.svgrepo.com/svg/368300/senior-elderly
+
+// SuitedManIcon
+// https://www.svgrepo.com/svg/368327/user-suit-male
+
+// PersonIcon
+// https://www.svgrepo.com/svg/6998/standing-up-man
+
 /*
     SocialIcon
     SocialMediaIcon

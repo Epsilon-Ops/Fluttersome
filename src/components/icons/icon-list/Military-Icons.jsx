@@ -1,3 +1,12 @@
+// EscapeIcon
+// https://www.svgrepo.com/svg/279689/escape
+
+// PoliceIcon
+// https://www.svgrepo.com/svg/449414/road-sign
+
+// ShooterIcon
+// https://www.svgrepo.com/svg/69219/shoot
+
 /*
     MilitaryIcon
     MilitaryServiceIcon

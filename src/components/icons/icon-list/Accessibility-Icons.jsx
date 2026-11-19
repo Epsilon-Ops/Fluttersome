@@ -13,6 +13,24 @@
 // CameraIcon
 // https://www.svgrepo.com/svg/360178/camera-f
 
+// DoorOpenIcon
+// https://www.svgrepo.com/svg/368262/door-open
+
+// DoorClosedIcon
+// https://www.svgrepo.com/svg/368263/door-closed
+
+// FloorsLightIcon
+// https://www.svgrepo.com/svg/368268/floors-light
+
+// FloorsSolidIcon
+// https://www.svgrepo.com/svg/368271/floors-solid
+
+// GanttLightIcon
+// https://www.svgrepo.com/svg/368273/gantt-light
+
+// GanttSolidIcon
+// https://www.svgrepo.com/svg/368275/gantt-solid
+
 /*
     AccessibilityIcon
     AccessibilityPersonIcon

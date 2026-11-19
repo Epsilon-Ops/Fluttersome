@@ -49,8 +49,8 @@ export function MusicNoteCircleIcon({ size = 20, className = '', ...props }) {
   )
 }
 
-// MusicNoteCircleIcon
-// https://www.svgrepo.com/svg/503061/music
+// MicIcon
+// https://www.svgrepo.com/svg/368287/microphone
 
 /*
     MusicIcon

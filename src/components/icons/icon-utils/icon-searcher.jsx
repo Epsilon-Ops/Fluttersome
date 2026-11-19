@@ -13,8 +13,10 @@ export const ICON_CATEGORIES = [
   { value: 'finance', label: 'Finance' },
   { value: 'sante', label: 'Santé' },
   { value: 'food', label: 'Nourriture' },
+  { value: 'drinks', label: 'Boissons' },
   { value: 'fashion', label: 'Fashion' },
   { value: 'music', label: 'Musique' },
+  { value: 'amour', label: 'Amour' },
 ]
 
 export const ICON_SEARCHER = [
@@ -261,6 +263,55 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'armchair',
+        category: 'maison',
+        label: 'Canapé 2',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'armchair_chair',
+        category: 'maison',
+        label: 'Canapé 3',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'sofa',
+        category: 'maison',
+        label: 'Canapé 4',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'closet',
+        category: 'maison',
+        label: 'Placard',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'drawer_chest',
+        category: 'maison',
+        label: 'Placard à Tiroirs',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'drawer_dressing',
+        category: 'maison',
+        label: 'Placard à Dressing',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'window_curtain',
+        category: 'maison',
+        label: 'Fenêtre à Rideaux',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
       // Chambre >>>
       {
@@ -345,6 +396,13 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'raddish_lightbulb',
+        category: 'maison',
+        label: 'Lumière 2',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
       // Bain >>>
 
@@ -373,6 +431,13 @@ export const ICON_SEARCHER = [
         name: 'toilet',
         category: 'maison',
         label: 'Toilette',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'toilet_brush',
+        category: 'maison',
+        label: 'Brosse à Toilette',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -446,6 +511,69 @@ export const ICON_SEARCHER = [
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
+      {
+        name: 'kitchen_kettle',
+        category: 'maison',
+        label: 'Bouilloire de Cuisine',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'frying_pan',
+        category: 'maison',
+        label: 'Poêle',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'cooking_pot',
+        category: 'maison',
+        label: 'Poêle à Cuisson',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'spoon',
+        category: 'maison',
+        label: 'Cuillière',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'fork',
+        category: 'maison',
+        label: 'Fourchette',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'knife',
+        category: 'maison',
+        label: 'Couteau',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'spatula',
+        category: 'maison',
+        label: 'Spatule',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'rollinpin',
+        category: 'maison',
+        label: 'Rouleau à Pâte',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'pizza_cutter',
+        category: 'maison',
+        label: 'Roulette à Pizza',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
 
   //  --------------------------------------------
   // Santé --------------------------------------------
@@ -507,6 +635,13 @@ export const ICON_SEARCHER = [
         name: 'restaurant_plate',
         category: 'food',
         label: 'Assiette de Restaurant',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'cooking',
+        category: 'food',
+        label: 'Cuisiner',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -631,6 +766,67 @@ export const ICON_SEARCHER = [
       },
 
   //  --------------------------------------------
+  // Boissons --------------------------------------------
+  //  --------------------------------------------
+      // Eau >>>
+      {
+        name: 'water_i',
+        category: 'drinks',
+        label: 'Eau',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'water_ii',
+        category: 'drinks',
+        label: 'Eau 2',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'drop',
+        category: 'drinks',
+        label: 'Goutte',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'water_power',
+        category: 'drinks',
+        label: 'Courant par Eau',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'water_pipe',
+        category: 'drinks',
+        label: 'Tuyeau d\'Eau',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'water_flask',
+        category: 'drinks',
+        label: 'Gourde',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'whiskey',
+        category: 'drinks',
+        label: 'Whiskey',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'star_drink',
+        category: 'drinks',
+        label: 'Boisson Étoilée',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
   // Célébrations --------------------------------------------
   //  --------------------------------------------
 
@@ -653,6 +849,74 @@ export const ICON_SEARCHER = [
         name: 'easter_egg',
         category: 'celebration',
         label: 'OEuf de Pâques',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+
+  //  --------------------------------------------
+  // Sport --------------------------------------------
+  //  --------------------------------------------
+      // ... >>>
+      {
+        name: 'sprint',
+        category: 'sport',
+        label: 'Sprint',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'dual_sprint',
+        category: 'sport',
+        label: 'Sprint Double',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'sprint_logo',
+        category: 'sport',
+        label: 'Sprint Logo',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'running',
+        category: 'sport',
+        label: 'Course',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'running2',
+        category: 'sport',
+        label: 'Course 2',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'pull_up',
+        category: 'sport',
+        label: 'Traction',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'fitness',
+        category: 'sport',
+        label: 'Fitness',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'ice_skate',
+        category: 'sport',
+        label: 'Skate sur Glace',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'running_shoe',
+        category: 'sport',
+        label: 'Chaussure de Course',
         keywords: ['maison','home','acceuil','repos','navigation',
       'homepage','start','house','building','principal','main'],
       },
@@ -813,6 +1077,40 @@ export const ICON_SEARCHER = [
           'direction', 'nord', 'précédent', 'precedent', 'up',
           'vertical', 'développement', 'developpement',
         ],
+      },
+
+  //  --------------------------------------------
+  // Amour --------------------------------------------
+  //  --------------------------------------------
+
+      // ... >>>
+      {
+        name: 'heart_i',
+        category: 'amour',
+        label: 'Coeur',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'heartbreak',
+        category: 'amour',
+        label: 'Coeur Brisé',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'heart_ii',
+        category: 'amour',
+        label: 'Coeur 2',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
+      },
+      {
+        name: 'heart_tower',
+        category: 'amour',
+        label: 'Tour de Coeur',
+        keywords: ['maison','home','acceuil','repos','navigation',
+      'homepage','start','house','building','principal','main'],
       },
 
   // --------------------------------------------------------

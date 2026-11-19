@@ -24,3 +24,12 @@
 
 // ElectricLocationIcon
 // https://www.svgrepo.com/svg/390803/pin-location-weather-forecast-storm
+
+// PhoneSignalIcon
+// https://www.svgrepo.com/svg/368284/mobile
+
+// SadSmartphoneIcon
+// https://www.svgrepo.com/svg/103047/smartphone-with-sad-face-on-screen
+
+// CPUIcon
+// https://www.svgrepo.com/svg/478251/cpu-5

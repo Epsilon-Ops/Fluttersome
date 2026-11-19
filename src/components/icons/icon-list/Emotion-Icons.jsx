@@ -44,6 +44,9 @@ function Svg({ size = 20, children, className = '' }) {
       </Svg>
     )
   }
+
+// EmojiAllergyIcon
+// https://www.svgrepo.com/svg/368267/face-allergy
   
 /*
     EmotionIcon

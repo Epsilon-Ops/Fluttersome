@@ -1,3 +1,8 @@
+// ChairCinemaIcon
+// https://www.svgrepo.com/svg/389985/chair-cinema-director
+
+// ChairDirectorIcon
+// https://www.svgrepo.com/svg/300419/chair
 /*
     EntertainmentIcon
     EntertainmentCenterIcon
