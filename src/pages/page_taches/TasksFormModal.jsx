@@ -10,6 +10,7 @@ import {
 } from '../../utils/recurrenceHelpers'
 import {
   TASK_CATEGORIES,
+  TASK_PERIODS,
   TASK_PRIORITIES,
 } from '../../utils/taskHelpers'
 import {
@@ -44,6 +45,7 @@ const EMPTY_FORM = {
   counterGoal: '',
   counterStep: '1',
   counterUnit: 'minutes',
+  periods: [],
 }
 
 function isIntegerInRange(value, min, max) {
@@ -140,6 +142,7 @@ const groupedIcons = ICON_CATEGORIES
             counterGoal: String(task.counterGoal ?? ''),
             counterStep: String(task.counterStep ?? 1),
             counterUnit: task.counterUnit ?? 'minutes',
+            periods: Array.isArray(task.periods) ? [...task.periods] : [],
           }
         : {
             ...EMPTY_FORM,
@@ -205,6 +208,16 @@ const groupedIcons = ICON_CATEGORIES
     }))
 
     setNewSubtask('')
+  }
+
+  // Coche ou décoche une période proposée (matin, aprem, soir)
+  function togglePeriodOption(value) {
+    setForm((current) => ({
+      ...current,
+      periods: current.periods.includes(value)
+        ? current.periods.filter((period) => period !== value)
+        : [...current.periods, value],
+    }))
   }
 
   function removeSubtask(id) {
@@ -435,6 +448,34 @@ const groupedIcons = ICON_CATEGORIES
                 </div>
                 <p className="tasks-form-hint">
                   {BEHAVIORS.find((item) => item.value === form.behavior)?.hint}
+                </p>
+              </div>
+            )}
+
+            {form.kind === 'normal' && form.behavior === 'check' && (
+              <div className="tasks-form-field">
+                <span>Périodes de la journée</span>
+                <div className="tasks-segmented tasks-segmented-wrap">
+                  {TASK_PERIODS.map((item) => {
+                    const selected = form.periods.includes(item.value)
+
+                    return (
+                      <button
+                        key={item.value}
+                        type="button"
+                        className={selected ? 'is-selected' : ''}
+                        aria-pressed={selected}
+                        onClick={() => togglePeriodOption(item.value)}
+                      >
+                        {item.label}
+                      </button>
+                    )
+                  })}
+                </div>
+                <p className="tasks-form-hint">
+                  {form.periods.length === 0
+                    ? 'Aucune période : une simple case à cocher.'
+                    : 'Chaque période se coche séparément. La tâche est terminée quand toutes sont faites.'}
                 </p>
               </div>
             )}

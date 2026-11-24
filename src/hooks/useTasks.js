@@ -2,6 +2,11 @@ import { useCallback, useEffect, useState } from 'react'
 import {
   createTaskData,
   createTaskId,
+  getCompletionKey,
+  hasPeriods,
+  rewardTaskXp,
+  setAllPeriods,
+  setPeriodChecked,
   sortTasksByManualOrder,
 } from '../utils/taskHelpers'
 import {
@@ -16,7 +21,7 @@ import {
   advanceTimer,
 } from '../utils/recurrenceHelpers'
 
-const STORAGE_KEY = 'epsilon-tasks-v1'
+export const STORAGE_KEY = 'epsilon-tasks-v1'
 
 function readTasks() {
   try {
@@ -89,13 +94,23 @@ export default function useTasks() {
     return () => window.clearInterval(intervalId)
   }, [])
 
+  // Met à jour une tâche. Toute transition vers « terminée » rapporte des XP
+  // (une seule fois par période, voir rewardTaskXp). Les tâches à périodes
+  // gèrent leurs propres récompenses.
   const updateOne = useCallback((id, updater) => {
     setTasks((current) =>
-      current.map((task) =>
-        task.id === id
-          ? updater(normalizeTask(task, new Date()))
-          : task,
-      ),
+      current.map((task) => {
+        if (task.id !== id) return task
+
+        const base = normalizeTask(task, new Date())
+        const next = updater(base)
+
+        if (!base.completed && next.completed && !hasPeriods(next)) {
+          return rewardTaskXp(next, getCompletionKey(next))
+        }
+
+        return next
+      }),
     )
   }, [])
 
@@ -147,6 +162,11 @@ export default function useTasks() {
         const now = new Date()
         const nowIso = now.toISOString()
 
+        // Tâche à périodes : la case coche ou décoche toutes les périodes
+        if (hasPeriods(task)) {
+          return setAllPeriods(task, !task.completed, now)
+        }
+
         // Décocher : pour un timer, la progression repart de zéro
         if (task.completed) {
           const reset = {
@@ -197,6 +217,14 @@ export default function useTasks() {
 
         return next
       })
+    },
+    [updateOne],
+  )
+
+  // Coche ou décoche une période (matin, aprem, soir) d'une tâche
+  const togglePeriod = useCallback(
+    (id, period) => {
+      updateOne(id, (task) => setPeriodChecked(task, period, new Date()))
     },
     [updateOne],
   )
@@ -338,6 +366,7 @@ export default function useTasks() {
     deleteTask,
     deleteTasks,
     toggleTaskCompleted,
+    togglePeriod,
     changeCounter,
     timerAction,
     toggleSubtask,

@@ -49,3 +49,21 @@
   - Les sections « En retard », « Aujourd'hui » et « À venir » mémorisent leur état d'ouverture. « En retard » est ouverte par défaut.
   - Zone tactile des en-têtes de catégorie portée à 44 px.
 - Vérification : compilation esbuild sans avertissement, test dans Chromium (bureau et mobile) des repli, persistance après rechargement, réordonnancement au clavier, suppression groupée et absence d'erreur JavaScript.
+
+## Sixième itération : périodes, progression, XP, icônes, popups
+- Tâches : une tâche peut avoir des périodes (Matin, Aprem, Soir). Chaque période se coche séparément ; toutes cochées = tâche terminée. Les périodes repartent de zéro à chaque période de récurrence.
+- Tâches : progression en pourcentage sur chaque carte (périodes, répétitions de timer, compteur, sous-tâches, ou case simple) et moyenne sur chaque catégorie.
+- Tâches : dans chaque catégorie, sous-blocs repliables par type : uniques, quotidiennes, hebdomadaires, mensuelles, annuelles, tous les X jours.
+- Tâches : la carte est simplifiée ; un clic ouvre une popup de détail (périodes, timer, compteur, sous-tâches, modifier, supprimer).
+- Compétition : un chrono de l'historique ouvre une popup de détail ; il peut être modifié (le formulaire se pré-remplit) ou supprimé.
+- XP : six niveaux (compétition rouge, entraînement bleu, nutrition vert, tâches jaune, sommeil indigo, musculation violet) affichés en haut à gauche, niveau logarithmique avec pourcentage et XP restante. Les XP sont calculés à partir des données enregistrées (les tâches : une récompense par tâche et par période).
+- Musculation : icônes pour les exercices (12 pictogrammes), devinées d'après le nom ou choisies à la main dans le formulaire.
+- Popup commune : composant DetailModal réutilisable par les autres modules.
+
+## Septième itération : popups musculation et entraînement
+- Musculation : chaque exercice d'une séance ouvre une popup (cible, repos, notes, séries réalisées). Depuis la popup : modifier la séance, ou retirer l'exercice (après confirmation).
+- Entraînement : la liste des séances est simplifiée (une ligne par séance) ; un clic ouvre une popup avec les blocs et les courses, et les actions terminer, annuler, modifier, supprimer (après confirmation).
+
+## Non fait
+- Popups de détail pour la nutrition, le sommeil et l'humeur (à faire module par module).
+- Vérification par compilation et par navigateur : non effectuée dans cet environnement (pas d'accès aux paquets npm). Contrôles syntaxiques uniquement.

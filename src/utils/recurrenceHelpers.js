@@ -401,6 +401,8 @@ export function resetForPeriod(task, now = new Date()) {
     completedAt: completed ? now.toISOString() : null,
     counterValue: 0,
     timer: createTimerState(),
+    // Les périodes (matin, aprem, soir) repartent aussi de zéro
+    periodsDone: [],
   }
 }
 

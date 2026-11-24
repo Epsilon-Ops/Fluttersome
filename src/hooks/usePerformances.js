@@ -37,6 +37,15 @@ export default function usePerformances() {
     return performance
   }
 
+  // Remplace une performance par ses nouvelles valeurs (id et date de création conservés)
+  function updatePerformance(id, data) {
+    setPerformances((previous) =>
+      previous.map((item) =>
+        item.id === id ? { ...item, ...data, id: item.id, createdAt: item.createdAt } : item,
+      ),
+    )
+  }
+
   function deletePerformance(id) {
     setPerformances((previous) =>
       previous.filter((item) => item.id !== id),
@@ -47,6 +56,7 @@ export default function usePerformances() {
     performances,
     setPerformances,
     addPerformance,
+    updatePerformance,
     deletePerformance,
     storageError,
   }

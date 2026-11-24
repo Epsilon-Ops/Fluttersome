@@ -9,25 +9,39 @@ import {
     getWindDirectionLabel,
   } from '../../utils/competitionHelpers'
   
+  import { useState } from 'react'
+  import PerformanceDetail from './PerformanceDetail'
+
   export default function PerformanceHistory({
     performances,
     historyTypeFilter,
     onFilterChange,
     onDelete,
+    onEdit,
   }) {
+    const [selectedId, setSelectedId] = useState(null)
+    const selected =
+      performances.find((item) => item.id === selectedId) ?? null
+
     const filteredHistory = performances.filter((item) => {
       if (historyTypeFilter === 'all') return true
       return item.type === historyTypeFilter
     })
   
-    function handleDelete(id) {
+    function handleDelete(item) {
       const confirmed = window.confirm(
         'Supprimer définitivement cette performance de ce navigateur ?',
       )
   
       if (confirmed) {
-        onDelete(id)
+        setSelectedId(null)
+        onDelete(item.id)
       }
+    }
+
+    function handleEdit(item) {
+      setSelectedId(null)
+      onEdit?.(item)
     }
   
     return (
@@ -84,7 +98,20 @@ import {
                 item.feelingNote
   
               return (
-                <div className="competition-history-row" key={item.id}>
+                <div
+                  className="competition-history-row competition-history-row-button"
+                  key={item.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedId(item.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      setSelectedId(item.id)
+                    }
+                  }}
+                  aria-label={`Détail du chrono du ${formatDate(item.date)}`}
+                >
                   <div className="competition-history-main">
                     <span className="competition-history-title">
                       {getDistanceLabel(item.distance)}
@@ -146,17 +173,6 @@ import {
                     </span>
                   </div>
   
-                  <div className="competition-history-actions">
-                    <button
-                      type="button"
-                      className="competition-delete-button"
-                      aria-label={`Supprimer le chrono du ${formatDate(item.date)}`}
-                      title="Supprimer"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      ×
-                    </button>
-                  </div>
                 </div>
               )
             })}
@@ -170,6 +186,14 @@ import {
               performance.
             </p>
           </div>
+        )}
+        {selected && (
+          <PerformanceDetail
+            item={selected}
+            onClose={() => setSelectedId(null)}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
         )}
       </section>
     )

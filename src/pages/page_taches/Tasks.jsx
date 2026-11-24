@@ -21,6 +21,8 @@ import TasksStorageNote from './TasksStorageNote'
 import useTaskLayout from '../../hooks/useTaskLayout'
 import { TaskLayoutContext, TaskActionsContext } from './TaskLayoutContext'
 import TaskTimerScreen from './TaskTimerScreen'
+import TaskDetailModal from './TaskDetailModal'
+import '../../styles/main_pages/page_taches/task-detail.css'
 import { isTaskOpen } from '../../utils/taskHelpers'
 
 // Par défaut on n'affiche que les tâches à faire (« À faire »).
@@ -49,6 +51,7 @@ export default function Tasks() {
     deleteTask,
     deleteTasks,
     toggleTaskCompleted,
+    togglePeriod,
     toggleSubtask,
     changeCounter,
     timerAction,
@@ -60,12 +63,39 @@ export default function Tasks() {
   const [formOpen, setFormOpen] = useState(false)
   const [editingTask, setEditingTask] = useState(null)
   const [timerTaskId, setTimerTaskId] = useState(null)
+  const [detailTaskId, setDetailTaskId] = useState(null)
   const layoutApi = useTaskLayout()
   const timerTask = tasks.find((task) => task.id === timerTaskId) ?? null
+  const detailTask = tasks.find((task) => task.id === detailTaskId) ?? null
 
+  // Le timer remplace la popup de détail : on ferme celle-ci d'abord
   const actionsApi = {
-    openTimer: (id) => setTimerTaskId(id),
+    openDetail: (id) => setDetailTaskId(id),
+    openTimer: (id) => {
+      setDetailTaskId(null)
+      setTimerTaskId(id)
+    },
     changeCounter,
+  }
+
+  function closeDetail() {
+    setDetailTaskId(null)
+  }
+
+  function editFromDetail(task) {
+    setDetailTaskId(null)
+    openEditForm(task)
+  }
+
+  function deleteFromDetail(task) {
+    const confirmed = window.confirm(
+      `Supprimer définitivement « ${task.title} » ?`,
+    )
+
+    if (confirmed) {
+      setDetailTaskId(null)
+      deleteTask(task.id)
+    }
   }
 
   const todayLabel = new Intl.DateTimeFormat('fr-FR', {
@@ -362,6 +392,19 @@ export default function Tasks() {
         onClose={closeForm}
         onSave={handleSave}
       />
+      {detailTask && (
+        <TaskDetailModal
+          task={detailTask}
+          onClose={closeDetail}
+          onToggleCompleted={toggleTaskCompleted}
+          onTogglePeriod={togglePeriod}
+          onToggleSubtask={toggleSubtask}
+          onChangeCounter={changeCounter}
+          onOpenTimer={actionsApi.openTimer}
+          onEdit={editFromDetail}
+          onDelete={deleteFromDetail}
+        />
+      )}
       {timerTask && (
         <TaskTimerScreen
           task={timerTask}

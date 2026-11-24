@@ -1,7 +1,11 @@
 import {
   createTimerState,
+  getCounterGoal,
   getPeriodKey,
+  getTimerView,
+  isCounterBehavior,
   isRoutine,
+  isTimerBehavior,
   RECURRENCES,
   BEHAVIORS,
   toDateKey,
@@ -107,6 +111,23 @@ export const TASK_PRIORITIES = [
   },
 ];
   
+  // Périodes de la journée : une tâche peut en avoir plusieurs, cochées une à une
+  export const TASK_PERIODS = [
+    { value: 'matin', label: 'Matin' },
+    { value: 'aprem', label: 'Aprem' },
+    { value: 'soir', label: 'Soir' },
+  ]
+
+  // Types de tâches : un bloc par type dans chaque catégorie, dans cet ordre
+  export const TASK_TYPE_SECTIONS = [
+    { key: 'none', label: 'Uniques' },
+    { key: 'daily', label: 'Quotidiennes' },
+    { key: 'weekly', label: 'Hebdomadaires' },
+    { key: 'monthly', label: 'Mensuelles' },
+    { key: 'yearly', label: 'Annuelles' },
+    { key: 'everyXDays', label: 'Tous les X jours' },
+  ]
+
   export const TASK_VIEWS = [
     'Vue d’ensemble',
     'Toutes les tâches',
@@ -233,6 +254,177 @@ export const TASK_PRIORITIES = [
     )
   }
   
+/* ---------------------------------------------------------
+   Périodes (matin / aprem / soir)
+   --------------------------------------------------------- */
+
+export function hasPeriods(task) {
+  return Array.isArray(task?.periods) && task.periods.length > 0
+}
+
+/** Ne garde que les périodes connues, dans l'ordre de la journée. */
+export function normalizePeriods(values) {
+  if (!Array.isArray(values)) return []
+  return TASK_PERIODS.map((period) => period.value).filter((value) =>
+    values.includes(value),
+  )
+}
+
+export function isPeriodChecked(task, period) {
+  return Array.isArray(task.periodsDone) && task.periodsDone.includes(period)
+}
+
+function allPeriodsDone(task, periodsDone) {
+  return task.periods.every((period) => periodsDone.includes(period))
+}
+
+/* ---------------------------------------------------------
+   Points d'expérience (XP) attribués par tâche
+   Une même action ne rapporte jamais deux fois dans la même
+   période : décocher puis recocher ne fait pas de la « farine ».
+   --------------------------------------------------------- */
+
+const XP_KEYS_LIMIT = 120
+
+export function rewardTaskXp(task, key) {
+  const keys = Array.isArray(task.xpKeys) ? task.xpKeys : []
+
+  if (keys.includes(key)) return task
+
+  return {
+    ...task,
+    xpCount: (Number(task.xpCount) || 0) + 1,
+    xpKeys: [...keys, key].slice(-XP_KEYS_LIMIT),
+  }
+}
+
+/** Clé de récompense d'une tâche complétée (une fois par période). */
+export function getCompletionKey(task) {
+  return task.periodKey ?? 'once'
+}
+
+/** Coche ou décoche une période. Renvoie la tâche mise à jour. */
+export function setPeriodChecked(task, period, now = new Date()) {
+  if (!hasPeriods(task) || !task.periods.includes(period)) return task
+
+  const nowIso = now.toISOString()
+  const current = Array.isArray(task.periodsDone) ? task.periodsDone : []
+  const checked = current.includes(period)
+
+  const periodsDone = checked
+    ? current.filter((value) => value !== period)
+    : [...current, period]
+
+  const completed = allPeriodsDone(task, periodsDone)
+
+  const next = {
+    ...task,
+    periodsDone,
+    completed,
+    completedAt: completed ? task.completedAt ?? nowIso : null,
+    updatedAt: nowIso,
+  }
+
+  return checked
+    ? next
+    : rewardTaskXp(next, `${getCompletionKey(task)}:${period}`)
+}
+
+/** Coche toutes les périodes, ou les décoche toutes. */
+export function setAllPeriods(task, checkAll, now = new Date()) {
+  if (!hasPeriods(task)) return task
+
+  const nowIso = now.toISOString()
+
+  if (!checkAll) {
+    return {
+      ...task,
+      periodsDone: [],
+      completed: false,
+      completedAt: null,
+      updatedAt: nowIso,
+    }
+  }
+
+  let next = {
+    ...task,
+    periodsDone: [...task.periods],
+    completed: true,
+    completedAt: task.completedAt ?? nowIso,
+    updatedAt: nowIso,
+  }
+
+  task.periods.forEach((period) => {
+    if (!isPeriodChecked(task, period)) {
+      next = rewardTaskXp(next, `${getCompletionKey(task)}:${period}`)
+    }
+  })
+
+  return next
+}
+
+/* ---------------------------------------------------------
+   Progression en pourcentage
+   --------------------------------------------------------- */
+
+/**
+ * Pourcentage d'avancement d'une tâche, selon son mode :
+ * périodes cochées, répétitions de timer, valeur du compteur,
+ * sous-tâches, sinon 0 % ou 100 % (case cochée).
+ */
+export function getTaskProgress(task, nowMs = Date.now()) {
+  if (task.completed) return 100
+
+  if (hasPeriods(task)) {
+    const done = task.periods.filter((period) =>
+      isPeriodChecked(task, period),
+    ).length
+
+    return Math.round((done / task.periods.length) * 100)
+  }
+
+  if (isTimerBehavior(task)) {
+    const view = getTimerView(task, nowMs)
+    const fraction =
+      view.phase === 'rest' ? 0 : view.progress ?? 0
+    const ratio = (view.repsDone + fraction) / view.repeatCount
+
+    return Math.min(100, Math.round(ratio * 100))
+  }
+
+  if (isCounterBehavior(task)) {
+    const goal = getCounterGoal(task)
+    if (goal <= 0) return 0
+
+    return Math.min(
+      100,
+      Math.round(((Number(task.counterValue) || 0) / goal) * 100),
+    )
+  }
+
+  const subtasks = getSubtaskProgress(task)
+  if (subtasks.total > 0) return subtasks.percentage
+
+  return 0
+}
+
+/** Moyenne des pourcentages d'un ensemble de tâches. */
+export function getAverageProgress(tasks, nowMs = Date.now()) {
+  if (tasks.length === 0) return 0
+
+  const total = tasks.reduce(
+    (sum, task) => sum + getTaskProgress(task, nowMs),
+    0,
+  )
+
+  return Math.round(total / tasks.length)
+}
+
+/** Identifiant du type d'une tâche : unique, daily, weekly, etc. */
+export function getTaskTypeKey(task) {
+  return task.recurrence || 'none'
+}
+
 function clampInt(value, min, max, fallback) {
   const number = Number(value)
   if (value === '' || value == null || !Number.isFinite(number)) return fallback
@@ -281,6 +473,12 @@ export function createTaskData(values, existingTask = null) {
   const recurrenceAnchor =
     existingTask?.recurrenceAnchor ?? toDateKey(now)
 
+  // Périodes : seulement pour une case à cocher classique
+  const periods =
+    kind === 'normal' && behavior === 'check'
+      ? normalizePeriods(values.periods)
+      : []
+
   // Si la cadence change, la progression repart de zéro
   const cadenceChanged =
     Boolean(existingTask) &&
@@ -291,11 +489,20 @@ export function createTaskData(values, existingTask = null) {
 
   const draft = { recurrence, recurrenceInterval, recurrenceAnchor, createdAt: existingTask?.createdAt ?? nowIso }
 
-  const completed = cadenceChanged
+  const completedBase = cadenceChanged
     ? kind === 'negative'
     : existingTask
       ? existingTask.completed
       : kind === 'negative'
+
+  // Périodes déjà cochées (repartent de zéro si la cadence change)
+  const periodsDone = (
+    cadenceChanged ? [] : existingTask?.periodsDone ?? []
+  ).filter((period) => periods.includes(period))
+
+  // Avec des périodes, la tâche est terminée quand toutes sont faites
+  const completed =
+    periods.length > 0 ? allPeriodsDone({ periods }, periodsDone) : completedBase
 
   return {
     id: existingTask?.id ?? createTaskId(),
@@ -350,6 +557,10 @@ export function createTaskData(values, existingTask = null) {
     counterStep: clampInt(values.counterStep, 1, 1000, 1),
     counterUnit: getCounterUnit(values.counterUnit).value,
 
+    // Périodes de la journée et leur avancement
+    periods,
+    periodsDone,
+
     // Progression courante
     timer: cadenceChanged
       ? createTimerState()
@@ -357,6 +568,11 @@ export function createTaskData(values, existingTask = null) {
     counterValue: cadenceChanged ? 0 : existingTask?.counterValue ?? 0,
 
     completed,
+
+    // Points d'expérience gagnés par cette tâche (conservés à l'édition)
+    xpCount: existingTask?.xpCount ?? 0,
+    xpKeys: existingTask?.xpKeys ?? [],
+
     createdAt: existingTask?.createdAt ?? nowIso,
     completedAt: existingTask?.completedAt ?? (completed && !existingTask ? nowIso : null),
     updatedAt: nowIso,

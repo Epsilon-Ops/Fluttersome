@@ -11,6 +11,9 @@ import { parseDurationToSeconds, formatSeconds } from '../../utils/timeHelpers'
 import { getLastPerformance } from '../../utils/strengthProgress'
 import { useStrengthContext } from './StrengthTimerContext'
 import { formatShortDateLabel } from './strengthFormat'
+import ExerciseIcon from '../../components/ExerciseIcon'
+import { EXERCISE_ICON_OPTIONS } from '../../utils/exerciseIcons'
+import '../../styles/main_pages/page_musculation/exercise-icons.css'
 
 export default function StrengthExerciseForm({
   exercise,
@@ -108,7 +111,10 @@ export default function StrengthExerciseForm({
       <div className="strength-exercise-heading">
         <div>
           <span className="eyebrow">EXERCICE {index + 1}</span>
-          <h4>{exercise.name || 'Nouvel exercice'}</h4>
+          <h4 className="strength-exercise-title">
+            <ExerciseIcon exercise={exercise} size={22} className="strength-exercise-icon" />
+            <span>{exercise.name || 'Nouvel exercice'}</span>
+          </h4>
         </div>
 
         <button
@@ -135,6 +141,43 @@ export default function StrengthExerciseForm({
             placeholder="Ex. Squat, rowing barre, leg curl…"
           />
         </label>
+
+        <div className="strength-field strength-field-full">
+          <span>Icône de l’exercice</span>
+          <div
+            className="strength-icon-picker"
+            role="group"
+            aria-label="Icône de l’exercice"
+          >
+            <button
+              type="button"
+              className={`strength-icon-option strength-icon-auto ${
+                exercise.icon ? '' : 'is-selected'
+              }`}
+              aria-pressed={!exercise.icon}
+              onClick={() => updateField('icon', '')}
+              title="Automatique, d’après le nom de l’exercice"
+            >
+              Auto
+            </button>
+
+            {EXERCISE_ICON_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                className={`strength-icon-option ${
+                  exercise.icon === option.value ? 'is-selected' : ''
+                }`}
+                aria-pressed={exercise.icon === option.value}
+                aria-label={option.label}
+                title={option.label}
+                onClick={() => updateField('icon', option.value)}
+              >
+                <ExerciseIcon exercise={{ icon: option.value }} size={20} />
+              </button>
+            ))}
+          </div>
+        </div>
 
         <label className="strength-field">
           <span>Catégorie</span>

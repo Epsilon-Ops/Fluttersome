@@ -103,6 +103,8 @@ export function createEmptyExercise(overrides = {}) {
   return {
     id: makeStrengthId(),
     name: '',
+    // Icône choisie ('' = devinée d'après le nom, voir exerciseIcons.js)
+    icon: '',
     category: 'Force',
     muscleGroup: 'Corps entier',
     equipment: 'Barre',

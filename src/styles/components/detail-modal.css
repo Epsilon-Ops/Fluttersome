@@ -1,0 +1,155 @@
+/* ============================================================
+   FICHIER : styles/components/detail-modal.css
+   RÔLE    : coque des popups de détail (tous les modules).
+   ============================================================ */
+
+/* Cible : .detail-modal-backdrop */
+.detail-modal-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(3 4 10 / 72%);
+  backdrop-filter: blur(6px);
+}
+
+/* Cible : .detail-modal */
+.detail-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(100%, 520px);
+  max-height: min(90vh, 860px);
+  max-height: min(90dvh, 860px);
+  padding: 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--color-border-strong);
+  border-top: 5px solid var(--detail-accent);
+  border-radius: 22px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 6px 0 rgb(0 0 0 / 40%);
+}
+
+/* Cible : .detail-modal-header */
+.detail-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-modal-header h2 {
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+}
+
+/* Cible : .detail-modal-close */
+.detail-modal-close {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Cible : .detail-modal-body — liste « libellé / valeur » */
+.detail-modal-body {
+  display: grid;
+  gap: 10px;
+}
+
+/* Cible : .detail-modal-row */
+.detail-modal-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+}
+
+.detail-modal-row dt {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.detail-modal-row dd {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* Cible : .detail-modal-footer */
+.detail-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-modal-footer > button {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Cible : .detail-modal-primary */
+.detail-modal-primary {
+  border: 0;
+  background: var(--detail-accent);
+  color: #fff;
+}
+
+/* Cible : .detail-modal-danger */
+.detail-modal-danger {
+  margin-left: auto;
+  border: 1.5px solid var(--color-danger);
+  background: transparent;
+  color: var(--color-danger);
+}
+
+@media (max-width: 640px) {
+  .detail-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .detail-modal {
+    width: 100%;
+    max-height: 92dvh;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .detail-modal-danger {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Cible : .competition-history-row-button — ligne cliquable de l'historique */
+.competition-history-row-button {
+  cursor: pointer;
+}
+
+.competition-history-row-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}

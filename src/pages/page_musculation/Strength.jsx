@@ -145,6 +145,15 @@ export default function Strength() {
     setIsFormOpen(false)
   }
   
+  // Remplace une séance modifiée directement (ex. exercice retiré)
+  function handleChangeSession(updated) {
+    setSessions((current) =>
+      current.map((session) =>
+        session.id === updated.id ? updated : session,
+      ),
+    )
+  }
+
   function handleCancelForm() {
     setEditingSession(null)
     setIsFormOpen(false)
@@ -211,6 +220,7 @@ export default function Strength() {
                 <StrengthSessionPreview
                   key={session.id}
                   session={session}
+                  onSessionChange={handleChangeSession}
                   onEdit={() => {
                     setEditingSession(session)
                     setIsFormOpen(true)

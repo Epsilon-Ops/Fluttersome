@@ -1,5 +1,18 @@
+/* =========================================================
+   TrainingSessionList — liste simple des séances du jour.
+   Chaque séance est une ligne ; un clic ouvre la popup de détail
+   (TrainingSessionDetail) où se font les actions.
+   ========================================================= */
 
+import { useState } from 'react'
 import { getBlockStats } from '../../utils/trainingHelpers'
+import TrainingSessionDetail from './TrainingSessionDetail'
+
+function statusLabel(status) {
+  if (status === 'completed') return 'Réalisée'
+  if (status === 'cancelled') return 'Annulée'
+  return 'Planifiée'
+}
 
 export default function TrainingSessionList({
   sessions,
@@ -10,10 +23,24 @@ export default function TrainingSessionList({
   onUpdateStatus,
   onAdd,
 }) {
+  const [selectedId, setSelectedId] = useState(null)
+  const selectedSession =
+    sessions.find((session) => session.id === selectedId) ?? null
+
   const selectedDateLabel = new Intl.DateTimeFormat('fr-FR', {
     day: 'numeric',
     month: 'long',
   }).format(new Date(`${selectedDay}T12:00:00`))
+
+  function handleEdit(session) {
+    setSelectedId(null)
+    onEdit(session)
+  }
+
+  function handleDelete(id) {
+    setSelectedId(null)
+    onDelete(id)
+  }
 
   return (
     <section className="training-panel">
@@ -37,199 +64,40 @@ export default function TrainingSessionList({
       </div>
 
       {sessions.length > 0 ? (
-        <div className="training-session-list">
+        <ul className="training-session-list">
           {sessions.map((session) => {
-            const blocks = session.blocks || []
-            const summary = getBlockStats(blocks)
+            const summary = getBlockStats(session.blocks || [])
 
             return (
-              <article
-                className="training-session-card"
-                key={session.id}
-              >
-                <div className="training-session-marker" />
+              <li key={session.id}>
+                <button
+                  type="button"
+                  className="training-session-row"
+                  onClick={() => setSelectedId(session.id)}
+                  aria-label={`Détail de la séance ${session.title || session.type}`}
+                >
+                  <span className="training-session-marker" aria-hidden="true" />
 
-                <div className="training-session-content">
-                  <span className="training-session-type">
-                    {session.type}
+                  <span className="training-session-row-main">
+                    <span className="training-session-type">{session.type}</span>
+                    <strong>{session.title || 'Séance sans titre'}</strong>
+                    <span className="training-field-help">
+                      {(session.blocks || []).length} bloc(s) ·{' '}
+                      {summary.repetitions} courses ·{' '}
+                      {summary.distance.toLocaleString('fr-FR')} m prévus
+                    </span>
                   </span>
-
-                  <h3>{session.title}</h3>
-
-                  {session.notes && (
-                    <p className="training-session-notes">
-                      {session.notes}
-                    </p>
-                  )}
-
-                  <p className="training-field-help">
-                    {blocks.length} bloc(s) · {summary.repetitions}{' '}
-                    courses · {summary.distance.toLocaleString('fr-FR')}{' '}
-                    m prévus
-                  </p>
-
-                  {blocks.map((block, blockIndex) => {
-                    const courses = Array.isArray(block.courses)
-                      ? block.courses
-                      : []
-
-                    // Compatibilité d'affichage avec les anciens blocs.
-                    const legacyDistances = typeof block.distances === 'string'
-                      ? block.distances
-                          .split(/[;\n,]/)
-                          .map((value) => value.trim())
-                          .filter(Boolean)
-                      : []
-
-                    return (
-                      <div
-                        className="training-session-block-summary"
-                        key={block.id || blockIndex}
-                      >
-                        <h4>
-                          Bloc {blockIndex + 1}
-                          {block.name ? ` — ${block.name}` : ''}
-                        </h4>
-
-                        {courses.length > 0 ? (
-                          <div className="training-session-courses">
-                            {courses.map((course, courseIndex) => (
-                              <div
-                                className="training-session-course"
-                                key={course.id || courseIndex}
-                              >
-                                <div className="training-session-course-main">
-                                  <strong>
-                                    {course.distance || '—'} m
-                                  </strong>
-
-                                  <span>
-                                    {course.condition === 'Condition personnalisée'
-                                      ? course.customCondition ||
-                                        course.condition
-                                      : course.condition || 'Départ non précisé'}
-                                  </span>
-                                </div>
-
-                                <div className="training-session-course-details">
-                                  {course.targetIntensity != null &&
-                                    course.targetIntensity !== '' && (
-                                      <span>
-                                        Intensité : {course.targetIntensity} %
-                                      </span>
-                                    )}
-
-                                  {course.recoveryAfter && (
-                                    <span>
-                                      Récupération : {course.recoveryAfter}
-                                    </span>
-                                  )}
-
-                                  {course.result && (
-                                    <span>
-                                      Chrono : {course.result} s
-                                    </span>
-                                  )}
-
-                                  {course.referenceDistance &&
-                                    course.referenceDistance !== 'none' && (
-                                      <span>
-                                        Référence : {course.referenceDistance} m
-                                      </span>
-                                    )}
-                                </div>
-
-                                {course.notes && (
-                                  <p className="training-session-notes">
-                                    {course.notes}
-                                  </p>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        ) : legacyDistances.length > 0 ? (
-                          <p className="training-field-help">
-                            Anciennes distances : {legacyDistances.join(', ')} m
-                            {block.condition ? ` · ${block.condition}` : ''}
-                          </p>
-                        ) : (
-                          <p className="training-field-help">
-                            Aucune course configurée.
-                          </p>
-                        )}
-
-                        {block.recoveryAfterBlock && (
-                          <p className="training-field-help">
-                            Récupération après le bloc :{' '}
-                            {block.recoveryAfterBlock}
-                          </p>
-                        )}
-
-                        {block.notes && (
-                          <p className="training-session-notes">
-                            {block.notes}
-                          </p>
-                        )}
-                      </div>
-                    )
-                  })}
 
                   <span
                     className={`training-status training-status-${session.status}`}
                   >
-                    {session.status === 'completed'
-                      ? 'Réalisée'
-                      : session.status === 'cancelled'
-                        ? 'Annulée'
-                        : 'Planifiée'}
+                    {statusLabel(session.status)}
                   </span>
-                </div>
-
-                <div className="training-session-actions">
-                  {session.status === 'planned' && (
-                    <>
-                      <button
-                        type="button"
-                        className="training-secondary-button"
-                        onClick={() =>
-                          onUpdateStatus(session.id, 'completed')
-                        }
-                      >
-                        Terminer
-                      </button>
-
-                      <button
-                        type="button"
-                        className="training-text-button"
-                        onClick={() =>
-                          onUpdateStatus(session.id, 'cancelled')
-                        }
-                      >
-                        Annuler
-                      </button>
-                    </>
-                  )}
-
-                  <button
-                    type="button"
-                    className="training-secondary-button"
-                    onClick={() => onEdit(session)}
-                  >
-                    Modifier
-                  </button>
-
-                  <button
-                    type="button"
-                    className="training-text-button"
-                    onClick={() => onDelete(session.id)}
-                  >
-                    Supprimer
-                  </button>
-                </div>
-              </article>
+                </button>
+              </li>
             )
           })}
-        </div>
+        </ul>
       ) : (
         <div className="training-empty-state">
           <span className="training-empty-icon" aria-hidden="true">
@@ -247,6 +115,18 @@ export default function TrainingSessionList({
             Planifier une séance
           </button>
         </div>
+      )}
+
+      {selectedSession && (
+        <TrainingSessionDetail
+          session={selectedSession}
+          onClose={() => setSelectedId(null)}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          onUpdateStatus={(id, status) => {
+            onUpdateStatus(id, status)
+          }}
+        />
       )}
     </section>
   )

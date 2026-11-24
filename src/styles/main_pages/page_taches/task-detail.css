@@ -1,0 +1,428 @@
+/* ============================================================
+   FICHIER : styles/main_pages/page_taches/task-detail.css
+   RÔLE    : carte simplifiée, progression en pourcentage,
+             périodes, popup de détail, sous-blocs par type.
+   ============================================================ */
+
+/* Cible : .task-card-open — zone cliquable de la carte (titre, badges, progression) */
+.task-card-open {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-card-open:focus-visible {
+  outline: 2px solid var(--task-primary, var(--color-accent));
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Cible : .task-card-open .task-card-title */
+.task-card-open .task-card-title {
+  display: block;
+  font-weight: 800;
+}
+
+/* Cible : .task-card-open .task-card-badges */
+.task-card-open .task-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Cible : .task-card-chevron — indication « on ouvre la tâche » */
+.task-card-chevron {
+  align-self: center;
+  flex: 0 0 auto;
+  color: var(--color-muted);
+  font-size: 24px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+/* Cible : .task-badge-periods */
+.task-badge-periods {
+  background: rgb(88 204 2 / 14%);
+  color: #58CC02;
+}
+
+/* Cible : .task-progress-row — barre et pourcentage */
+.task-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Cible : .task-progress-bar — barre de progression d'une tâche */
+.task-progress-bar {
+  position: relative;
+  flex: 1 1 auto;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 9%);
+}
+
+.task-progress-bar > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--task-primary, var(--color-accent));
+  transition: width 0.35s ease;
+}
+
+.task-progress-bar.is-large {
+  height: 12px;
+  flex: none;
+}
+
+/* Cible : .task-progress-value */
+.task-progress-value {
+  min-width: 46px;
+  color: var(--task-primary, var(--color-accent));
+  font-size: 12px;
+  font-weight: 800;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cible : .task-card-status */
+.task-card-status {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Cible : .tasks-group-percent — pourcentage dans l'en-tête de catégorie */
+.tasks-group-percent {
+  color: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.85;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------
+   Sous-blocs par type (uniques, quotidiennes, hebdo…)
+   --------------------------------------------------------- */
+
+/* Cible : .tasks-type — un type de tâche dans une catégorie */
+.tasks-type {
+  margin: 10px 0 0;
+}
+
+/* Cible : .tasks-type-toggle — en-tête repliable du type */
+.tasks-type-toggle {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tasks-type-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Cible : .tasks-type-title */
+.tasks-type-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Cible : .tasks-type-count */
+.tasks-type-count {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cible : .tasks-type-bar — barre fine de progression */
+.tasks-type-bar {
+  position: relative;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 9%);
+}
+
+.tasks-type-bar > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: var(--color-accent);
+  transition: width 0.35s ease;
+}
+
+/* Cible : .tasks-type-percent */
+.tasks-type-percent {
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cible : .tasks-type-chevron — tourne quand le type est replié */
+.tasks-type-chevron {
+  color: var(--color-muted);
+  transition: transform 0.2s ease;
+}
+
+.tasks-type.is-collapsed .tasks-type-chevron {
+  transform: rotate(-90deg);
+}
+
+/* Cible : .tasks-type-body */
+.tasks-type-body {
+  padding-top: 8px;
+}
+
+.tasks-type-body[hidden] {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+   Périodes (matin / aprem / soir)
+   --------------------------------------------------------- */
+
+/* Cible : .task-period-grid */
+.task-period-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cible : .task-period-chip */
+.task-period-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.task-period-chip.is-checked {
+  border-color: var(--task-primary, var(--color-accent));
+  background: var(--task-primary, var(--color-accent));
+  color: var(--task-ink, #fff);
+}
+
+/* Cible : .task-period-box */
+.task-period-box {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid currentColor;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   Popup de détail
+   --------------------------------------------------------- */
+
+/* Cible : .task-detail — la popup */
+.task-detail {
+  width: min(100%, 560px);
+  gap: 18px;
+}
+
+/* Cible : .task-detail-header */
+.task-detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Cible : .task-detail-icon */
+.task-detail-icon {
+  display: grid;
+  flex: 0 0 56px;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--task-primary, var(--color-accent));
+  color: var(--task-ink, #fff);
+  box-shadow: 0 4px 0 rgb(0 0 0 / 35%);
+}
+
+/* Cible : .task-detail-heading */
+.task-detail-heading {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 6px;
+  min-width: 0;
+}
+
+.task-detail-heading h2 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Cible : .task-detail-progress */
+.task-detail-progress {
+  display: grid;
+  gap: 8px;
+}
+
+.task-detail-progress-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.task-detail-progress-head strong {
+  color: var(--task-primary, var(--color-accent));
+  font-size: 22px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.task-detail-status {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Cible : .task-detail-section */
+.task-detail-section {
+  display: grid;
+  gap: 10px;
+}
+
+.task-detail-section h3 {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.task-detail-subtasks {
+  display: grid;
+  gap: 6px;
+}
+
+.task-detail-notes {
+  margin: 0;
+  color: var(--color-text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Cible : .task-detail-facts — échéance, priorité, durée */
+.task-detail-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.task-detail-facts > div {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+}
+
+.task-detail-facts dt {
+  color: var(--color-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.task-detail-facts dd {
+  margin: 4px 0 0;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* Cible : .task-detail-actions */
+.task-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.task-detail-actions > button {
+  min-height: 44px;
+}
+
+/* Cible : .task-detail-delete */
+.task-detail-delete {
+  margin-left: auto;
+  padding: 0 16px;
+  border: 1.5px solid var(--color-danger);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--color-danger);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.task-detail-delete:hover {
+  background: rgb(255 75 75 / 12%);
+}
+
+/* Cible : .task-detail .task-subtask — réutilise le style existant des sous-tâches */
+.task-detail .task-subtask {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .task-detail-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .task-detail-delete {
+    margin-left: 0;
+    width: 100%;
+  }
+}

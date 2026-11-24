@@ -3,7 +3,13 @@
    couleur dominante de chaque bloc, et utilitaires d'ordre.
    ========================================================= */
 
-import { TASK_CATEGORIES, getCategoryLabel } from './taskHelpers'
+import {
+  TASK_CATEGORIES,
+  TASK_TYPE_SECTIONS,
+  getAverageProgress,
+  getCategoryLabel,
+  getTaskTypeKey,
+} from './taskHelpers'
 import {
   DEFAULT_TASK_COLOR,
   getTaskColorPalette,
@@ -93,6 +99,28 @@ function getCategoryKey(task) {
 }
 
 /**
+ * Découpe les tâches d'une catégorie par type (uniques, quotidiennes,
+ * hebdomadaires, etc.). Seuls les types non vides sont renvoyés.
+ * L'ordre des tâches à l'intérieur d'un type est celui de la catégorie.
+ */
+export function buildTypeSections(tasks) {
+  return TASK_TYPE_SECTIONS.map((type) => {
+    const sectionTasks = tasks.filter(
+      (task) => getTaskTypeKey(task) === type.key,
+    )
+
+    return {
+      key: type.key,
+      label: type.label,
+      tasks: sectionTasks,
+      done: sectionTasks.filter((task) => task.completed).length,
+      total: sectionTasks.length,
+      progress: getAverageProgress(sectionTasks),
+    }
+  }).filter((section) => section.tasks.length > 0)
+}
+
+/**
  * Construit les blocs à afficher.
  * Ordre des blocs : ordre sauvegardé, sinon ordre par défaut des catégories.
  * Ordre des tâches dans un bloc : ordre sauvegardé, sinon ordre d'ajout.
@@ -131,6 +159,9 @@ export function buildTaskGroups(tasks, layout) {
         label: key === OTHER_KEY ? 'Autre' : getCategoryLabel(key),
         tasks: sorted,
         colors: getDominantColors(items),
+        // Progression moyenne de toutes les tâches du bloc
+        progress: getAverageProgress(sorted),
+        typeSections: buildTypeSections(sorted),
       }
     })
 }

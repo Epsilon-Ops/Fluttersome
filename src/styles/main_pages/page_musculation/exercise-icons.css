@@ -1,0 +1,91 @@
+/* ============================================================
+   FICHIER : styles/main_pages/page_musculation/exercise-icons.css
+   RÔLE    : icônes des exercices (en-tête du formulaire,
+             sélecteur d'icône, aperçu de séance).
+   ============================================================ */
+
+/* Cible : .strength-exercise-title — icône + nom de l'exercice */
+.strength-exercise-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Cible : .strength-exercise-icon */
+.strength-exercise-icon {
+  flex: 0 0 auto;
+  color: var(--color-accent, currentColor);
+}
+
+/* Cible : .strength-icon-picker — grille des icônes proposées */
+.strength-icon-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cible : .strength-icon-option */
+.strength-icon-option {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: 12px;
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.strength-icon-option.is-selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-tint, rgb(28 176 246 / 15%));
+  color: var(--color-accent);
+}
+
+/* Cible : .strength-icon-auto — bouton « Auto » en texte */
+.strength-icon-auto {
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Cible : .strength-preview-exercise-name — aperçu de séance */
+.strength-preview-exercise-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cible : .strength-preview-exercise-button — ligne d'exercice cliquable */
+.strength-preview-exercise-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Cible : .strength-exercise-detail-head */
+.strength-exercise-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.strength-exercise-detail-icon {
+  color: var(--detail-accent, var(--color-accent));
+}
+
+/* Cible : .strength-exercise-detail-sets */
+.strength-exercise-detail-sets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

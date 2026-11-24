@@ -1,6 +1,42 @@
+import { useState } from 'react'
+import ExerciseIcon from '../../components/ExerciseIcon'
+import StrengthExerciseDetail from './StrengthExerciseDetail'
 
-export default function StrengthSessionPreview({ session, onEdit }) {
+export default function StrengthSessionPreview({ session, onEdit, onSessionChange }) {
     const blocks = Array.isArray(session.blocks) ? session.blocks : []
+
+    // Exercice ouvert dans la popup : identifiants du bloc et de l'exercice
+    const [openExercise, setOpenExercise] = useState(null)
+
+    const openedBlock = openExercise
+      ? blocks.find((block) => block.id === openExercise.blockId) ?? null
+      : null
+    const openedExercise = openedBlock
+      ? (openedBlock.exercises ?? []).find(
+          (exercise) => exercise.id === openExercise.exerciseId,
+        ) ?? null
+      : null
+
+    // Retire un exercice de la séance, après confirmation
+    function deleteExercise(blockId, exerciseId) {
+      const confirmed = window.confirm('Retirer cet exercice de la séance ?')
+      if (!confirmed) return
+
+      onSessionChange?.({
+        ...session,
+        blocks: blocks.map((block) =>
+          block.id === blockId
+            ? {
+                ...block,
+                exercises: (block.exercises ?? []).filter(
+                  (exercise) => exercise.id !== exerciseId,
+                ),
+              }
+            : block,
+        ),
+      })
+      setOpenExercise(null)
+    }
   
     const exercises = blocks.flatMap((block) =>
       Array.isArray(block.exercises) ? block.exercises : [],
@@ -89,8 +125,19 @@ export default function StrengthSessionPreview({ session, onEdit }) {
   
                         return (
                           <li key={exercise.id}>
-                            <strong>
-                              {exercise.name || 'Exercice sans nom'}
+                            <button
+                              type="button"
+                              className="strength-preview-exercise-button"
+                              onClick={() =>
+                                setOpenExercise({
+                                  blockId: block.id,
+                                  exerciseId: exercise.id,
+                                })
+                              }
+                            >
+                            <strong className="strength-preview-exercise-name">
+                              <ExerciseIcon exercise={exercise} size={18} />
+                              <span>{exercise.name || 'Exercice sans nom'}</span>
                             </strong>
   
                             <p className="strength-session-meta">
@@ -98,6 +145,7 @@ export default function StrengthSessionPreview({ session, onEdit }) {
                               {' · '}
                               {exerciseSets.length} série(s)
                             </p>
+                            </button>
   
                             {exerciseSets.length > 0 && (
                               <ul className="strength-preview-sets">
@@ -148,6 +196,20 @@ export default function StrengthSessionPreview({ session, onEdit }) {
             </button>
           </div>
         </details>
+        {openedExercise && (
+          <StrengthExerciseDetail
+            exercise={openedExercise}
+            blockName={openedBlock.name}
+            onClose={() => setOpenExercise(null)}
+            onEdit={() => {
+              setOpenExercise(null)
+              onEdit?.()
+            }}
+            onDelete={() =>
+              deleteExercise(openedBlock.id, openedExercise.id)
+            }
+          />
+        )}
       </article>
     )
   }

@@ -1,22 +1,28 @@
+/* =========================================================
+   TasksCard — une tâche dans sa liste : case, icône, titre,
+   barre de progression en pourcentage. Un clic sur la carte
+   ouvre la popup de détail (modifier, supprimer, périodes,
+   timer, compteur, sous-tâches).
+   ========================================================= */
+
 import { useContext } from 'react'
 import { AppIcon } from '../../components/icons/icon-utils/index'
 import { getTaskColorPalette } from '../../components/icons/icon-utils/icon-colors'
-import TasksSubtasks from './TasksSubtasks'
 import { TaskActionsContext } from './TaskLayoutContext'
 import {
   getCategoryLabel,
+  getTaskProgress,
+  hasPeriods,
 } from '../../utils/taskHelpers'
 import {
   getBehaviorLabel,
-  getCounterGoal,
-  getCounterUnit,
   getRecurrenceLabel,
-  getTimerConfig,
   isCounterBehavior,
   isNegative,
   isRecurring,
   isTimerBehavior,
 } from '../../utils/recurrenceHelpers'
+import { getStatusLine } from './taskStatus'
 
 // Couleur d'icône lisible : sombre sur fond clair, blanche sur fond foncé.
 function getReadableInk(hex = '#000000') {
@@ -28,51 +34,18 @@ function getReadableInk(hex = '#000000') {
   return luminance > 0.6 ? '#1A1400' : '#FFFFFF'
 }
 
-// Statut d'un timer, sans horloge en direct (la carte ne se met pas à jour seconde par seconde)
-function getTimerStatus(task) {
-  if (task.completed) return 'Terminé'
-
-  const timer = task.timer ?? {}
-  const { repeatCount, targetSec } = getTimerConfig(task)
-
-  if (timer.runningSince != null) return 'En cours'
-  if (timer.phase === 'rest') return 'En récupération'
-
-  if (repeatCount > 1) {
-    return `${timer.repsDone ?? 0}/${repeatCount} faites · ${targetSec / 60} min chacune`
-  }
-
-  return (timer.elapsedSec ?? 0) > 0
-    ? `En pause · ${targetSec / 60} min`
-    : `${targetSec / 60} min à compléter`
-}
-
 export default function TasksCard({
   task,
   dragHandleProps,
   onToggleCompleted,
-  onEdit,
-  onDelete,
-  onToggleSubtask,
 }) {
   const actions = useContext(TaskActionsContext)
   const palette = getTaskColorPalette(task.color)
 
   const negative = isNegative(task)
   const routine = isRecurring(task)
-  const timer = isTimerBehavior(task)
-  const counter = isCounterBehavior(task)
-  const canEdit = !task.completed || routine || negative
-
-  function handleDelete() {
-    const confirmed = window.confirm(
-      `Supprimer définitivement « ${task.title} » ?`,
-    )
-
-    if (confirmed) {
-      onDelete?.(task.id)
-    }
-  }
+  const progress = getTaskProgress(task)
+  const statusLine = getStatusLine(task)
 
   let checkboxLabel = task.completed
     ? 'Marquer comme non terminée'
@@ -84,11 +57,11 @@ export default function TasksCard({
       : 'Marquer comme tenu'
   }
 
-  const counterGoal = getCounterGoal(task)
-  const counterValue = Number(task.counterValue) || 0
-  const counterUnit = getCounterUnit(task)
-  const counterRatio =
-    counterGoal > 0 ? Math.min(100, (counterValue / counterGoal) * 100) : 0
+  if (hasPeriods(task)) {
+    checkboxLabel = task.completed
+      ? 'Décocher toutes les périodes'
+      : 'Cocher toutes les périodes'
+  }
 
   return (
     <article
@@ -114,22 +87,20 @@ export default function TasksCard({
       <div className="task-card-icon sortable-handle" {...dragHandleProps}>
         <AppIcon
           name={task.icon || 'check'}
-          size={36}
+          size={30}
           strokeWidth={1.4}
         />
       </div>
 
-      <div className="task-card-main">
-        <button
-          type="button"
-          className="task-card-title-button"
-          onClick={() => onEdit?.(task)}
-          disabled={!canEdit}
-        >
-          <span className="task-card-title">{task.title}</span>
-        </button>
+      <button
+        type="button"
+        className="task-card-open"
+        onClick={() => actions?.openDetail(task.id)}
+        aria-label={`Ouvrir le détail de ${task.title}`}
+      >
+        <span className="task-card-title">{task.title}</span>
 
-        <div className="task-card-badges">
+        <span className="task-card-badges">
           {task.category && (
             <span className="task-card-category">
               {getCategoryLabel(task.category)}
@@ -145,93 +116,31 @@ export default function TasksCard({
               À éviter
             </span>
           )}
-          {timer && (
+          {(isTimerBehavior(task) || isCounterBehavior(task)) && (
             <span className="task-badge">{getBehaviorLabel(task)}</span>
           )}
-          {counter && (
-            <span className="task-badge">{getBehaviorLabel(task)}</span>
+          {hasPeriods(task) && (
+            <span className="task-badge task-badge-periods">
+              {task.periods.length} période{task.periods.length > 1 ? 's' : ''}
+            </span>
           )}
-        </div>
+        </span>
 
-        {negative && !task.completed && (
-          <p className="task-relapse-message">Tu vas y arriver !</p>
+        <span className="task-progress-row">
+          <span className="task-progress-bar" aria-hidden="true">
+            <span style={{ width: `${progress}%` }} />
+          </span>
+          <span className="task-progress-value">{progress}&nbsp;%</span>
+        </span>
+
+        {statusLine && (
+          <span className="task-card-status">{statusLine}</span>
         )}
+      </button>
 
-        {timer && (
-          <div className="task-behavior">
-            <span className="task-behavior-status">
-              {getTimerStatus(task)}
-            </span>
-            <button
-              type="button"
-              className="task-timer-open"
-              onClick={() => actions?.openTimer(task.id)}
-            >
-              {task.completed ? 'Voir le timer' : 'Ouvrir le timer'}
-            </button>
-          </div>
-        )}
-
-        {counter && (
-          <div
-            className="task-counter"
-            role="group"
-            aria-label={`Compteur en ${counterUnit.label.toLowerCase()}`}
-          >
-            <button
-              type="button"
-              onClick={() => actions?.changeCounter(task.id, -1)}
-              disabled={counterValue <= 0}
-              aria-label="Diminuer"
-            >
-              −
-            </button>
-
-            <span className="task-counter-value">
-              <strong>{counterValue}</strong>
-              <span> / {counterGoal} {counterUnit.shortLabel}</span>
-            </span>
-
-            <button
-              type="button"
-              onClick={() => actions?.changeCounter(task.id, 1)}
-              aria-label="Augmenter"
-            >
-              +
-            </button>
-
-            <span className="task-counter-bar" aria-hidden="true">
-              <span style={{ width: `${counterRatio}%` }} />
-            </span>
-          </div>
-        )}
-
-        <TasksSubtasks task={task} onToggleSubtask={onToggleSubtask} />
-      </div>
-
-      <div className="task-card-actions">
-        {canEdit && (
-          <button
-            type="button"
-            className="task-action-button"
-            onClick={() => onEdit?.(task)}
-            aria-label={`Modifier ${task.title}`}
-            title="Modifier"
-          >
-            ✎
-          </button>
-        )}
-
-        <button
-          type="button"
-          className="task-action-button delete"
-          onClick={handleDelete}
-          aria-label={`Supprimer ${task.title}`}
-          title="Supprimer"
-        >
-          ×
-        </button>
-      </div>
+      <span className="task-card-chevron" aria-hidden="true">
+        ›
+      </span>
     </article>
   )
 }

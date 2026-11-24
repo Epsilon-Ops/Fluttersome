@@ -25,7 +25,8 @@ export default function TasksGroup({
 
   const total = group.tasks.length
   const done = group.tasks.filter((task) => task.completed).length
-  const ratio = total > 0 ? Math.round((done / total) * 100) : 0
+  // Progression moyenne de toutes les tâches (périodes, timers, compteurs inclus)
+  const progress = group.progress ?? 0
 
   const bodyId = `tasks-group-body-${group.id}`
 
@@ -60,6 +61,7 @@ export default function TasksGroup({
           >
             {done}/{total}
           </span>
+          <span className="tasks-group-percent">{progress}&nbsp;%</span>
           <span className="tasks-group-chevron" aria-hidden="true">
             ▾
           </span>
@@ -70,7 +72,7 @@ export default function TasksGroup({
       </header>
 
       <div className="tasks-group-progress" aria-hidden="true">
-        <span style={{ width: `${ratio}%` }} />
+        <span style={{ width: `${progress}%` }} />
       </div>
 
       <div id={bodyId} className="tasks-group-body" hidden={collapsed}>

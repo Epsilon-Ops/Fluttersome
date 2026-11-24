@@ -7,6 +7,7 @@ import { categories } from './constants/categories'
 import { AppIcon } from './components/icons/icon-utils/index.jsx'
 
 import Sidebar from './components/Sidebar'
+import XpStrip from './components/XpStrip'
 import BottomNav from './components/BottomNav'
 
 import Dashboard from './pages/Dashboard'
@@ -37,6 +38,7 @@ import './styles/layout/sidebar.css'
 import './styles/layout/topbar.css'
 import './styles/layout/footer.css'
 import './styles/layout/bottom-nav.css'
+import './styles/layout/xp-strip.css'
 
 import './styles/loading/status.css'
 import './styles/pages/empty-page.css'
@@ -89,12 +91,16 @@ export default function App() {
 
       <main className="main-content" id="contenu" tabIndex={-1}>
         <header className="topbar">
-          <div className="topbar-context">
-            <span className="eyebrow">ESPACE ATHLÈTE</span>
-            <span className="topbar-divider">/</span>
-            <span className="topbar-current">
-              {currentPage?.label ?? 'Dashboard'}
-            </span>
+          <div className="topbar-left">
+            <XpStrip />
+
+            <div className="topbar-context">
+              <span className="eyebrow">ESPACE ATHLÈTE</span>
+              <span className="topbar-divider">/</span>
+              <span className="topbar-current">
+                {currentPage?.label ?? 'Dashboard'}
+              </span>
+            </div>
           </div>
 
           <div className="topbar-right">

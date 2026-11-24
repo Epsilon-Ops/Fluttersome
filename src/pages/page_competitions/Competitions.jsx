@@ -1,6 +1,6 @@
 import CollapsibleSection from '../../components/CollapsibleSection'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import '../../styles/main_pages/page_competitions/index.css'
 
 import CompetitionHeader from './CompetitionHeader'
@@ -27,9 +27,13 @@ export default function Competitions() {
   const {
     performances,
     addPerformance,
+    updatePerformance,
     deletePerformance,
     storageError,
   } = usePerformances()
+
+  // Id de la performance en cours de modification (null = nouvelle performance)
+  const [editingId, setEditingId] = useState(null)
 
   const [activeSection, setActiveSection] =
     useState('Vue d’ensemble')
@@ -154,7 +158,7 @@ export default function Competitions() {
       return
     }
 
-    addPerformance({
+    const payload = {
       date,
       distance,
       time: numericTime,
@@ -168,7 +172,15 @@ export default function Competitions() {
       windDirection,
       feeling: Number(feeling),
       feelingNote: feelingNote.trim(),
-    })
+    }
+
+    if (editingId) {
+      updatePerformance(editingId, payload)
+    } else {
+      addPerformance(payload)
+    }
+
+    setEditingId(null)
 
     setSelectedDistance(distance)
     setHistoryTypeFilter('all')
@@ -185,6 +197,35 @@ export default function Competitions() {
     setFormOpen(false)
     setError('')
   }
+
+  // Pré-remplit le formulaire avec une performance existante
+  function startEdit(item) {
+    setDate(item.date)
+    setDistance(item.distance)
+    setTime(String(item.time))
+    setType(item.type)
+    setTiming(item.timing)
+    setVenue(item.venue ?? '')
+    setNotes(item.notes ?? '')
+    setConditions(item.conditions ?? 'outdoor')
+    setConditionDetails(item.conditionDetails ?? '')
+    setWindSpeed(
+      item.windSpeed === null || item.windSpeed === undefined
+        ? ''
+        : String(item.windSpeed),
+    )
+    setWindDirection(item.windDirection ?? '')
+    setFeeling(String(item.feeling ?? 5))
+    setFeelingNote(item.feelingNote ?? '')
+    setEditingId(item.id)
+    setActiveSection('Vue d’ensemble')
+    setFormOpen(true)
+  }
+
+  // Fermer le formulaire sans enregistrer annule la modification en cours
+  useEffect(() => {
+    if (!formOpen) setEditingId(null)
+  }, [formOpen])
 
   const showForm =
     activeSection === 'Vue d’ensemble' ||
@@ -276,6 +317,7 @@ export default function Competitions() {
           historyTypeFilter={historyTypeFilter}
           onFilterChange={setHistoryTypeFilter}
           onDelete={deletePerformance}
+          onEdit={startEdit}
         /></CollapsibleSection>
       )}
 
