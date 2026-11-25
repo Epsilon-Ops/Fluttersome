@@ -46,6 +46,11 @@ import {
     FitnessIcon,
     IceSkateIcon,
     RunningShoeIcon,
+    RaceflagIcon,
+    ShotPutIcon,
+    TrackNFieldIcon,
+    SprintMedalIcon,
+    VictoryChaliceIcon,
   } from '../icon-list/Sport-Icons'
   
   import {
@@ -136,6 +141,11 @@ import {
     DrawerChestIcon,
     DrawerDressingIcon,
     WindowCurtainIcon,
+    DrawerGridIcon,
+    WindowDragIcon,
+    DrawerTableIcon,
+    LampTableIcon,
+    TableIcon,
   } from '../icon-list/Home-Icons'
 
   import {
@@ -174,10 +184,15 @@ import {
     MusicNoteCircleIcon,
   } from '../icon-list/Music-Icons'
   import {
+    HeadLoveIcon,
     Heart2Icon,
     Heart3Icon,
     HeartbreakIcon,
-    HeartTowerIcon
+    HeartElectrocardiogramIcon,
+    HeartMinusIcon,
+    HeartPlusIcon,
+    HeartTowerIcon,
+    HeartWolfIcon
   } from '../icon-list/Love-Icons'
   import {
     DropIcon,
@@ -234,6 +249,11 @@ import {
     drawer_chest: DrawerChestIcon,
     drawer_dressing: DrawerDressingIcon,
     window_curtain: WindowCurtainIcon,
+    drawer_grid: DrawerGridIcon,
+    window_drag: WindowDragIcon,
+    drawer_table: DrawerTableIcon,
+    lamp_table: LampTableIcon,
+    table: TableIcon,
 
         // >>> Chambre
     bed: BedIcon,
@@ -368,6 +388,11 @@ import {
     fitness: FitnessIcon,
     ice_skate: IceSkateIcon,
     running_shoe: RunningShoeIcon,
+    race_flag: RaceflagIcon,
+    shot_put: ShotPutIcon,
+    track_n_field: TrackNFieldIcon,
+    sprint_medal: SprintMedalIcon,
+    victory_chalice: VictoryChaliceIcon,
 
     // ----------------------------------------------------------
     // Finance ----------------------------------------------------------
@@ -417,6 +442,11 @@ import {
     heartbreak: HeartbreakIcon,
     heart_ii: Heart3Icon,
     heart_tower: HeartTowerIcon,
+    heart_plus: HeartPlusIcon,
+    heart_minus: HeartMinusIcon,
+    heart_electrocardiogram: HeartElectrocardiogramIcon,
+    heart_wolf: HeartWolfIcon,
+    head_love: HeadLoveIcon,
   }
   
   export function AppIcon({

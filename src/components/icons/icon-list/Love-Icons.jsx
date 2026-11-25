@@ -41,26 +41,36 @@ export function HeartTowerIcon({ size = 20, className = '', ...props }) {
     )
 }
 
-// HeartTowerIcon
-// https://www.svgrepo.com/svg/499216/heart-tower
 
-// HeartPlusIcon
-// https://www.svgrepo.com/svg/485739/heart1
+export function HeartPlusIcon({ size = 20, className = '', ...props }) {
+  return (
+        <svg fill="currentColor" size={size} {...props} viewBox="2 3.99 28 24.021" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><title>heart1</title><path d="M24 12.977c-3.866 0-7 3.158-7 7.055 0 2.22 1.02 4.197 2.609 5.491A59 59 0 0 1 16 28.011S2 19.359 2 12.389c0-4.2 2.583-8.399 7.5-8.399 4.5 0 6.5 4.296 6.5 4.296s1.75-4.296 6.5-4.296 7.416 4.115 7.416 8.399c0 .958-.272 1.943-.716 2.932a6.95 6.95 0 0 0-5.2-2.344m0 1.007c3.313 0 6 2.707 6 6.047s-2.687 6.048-6 6.048-6-2.708-6-6.048 2.686-6.047 6-6.047m-3 7.055h2v2.016h2v-2.016h2v-2.016h-2v-2.016h-2v2.016h-2z"/></svg>
+    );
+}
 
-// HeartMinusIcon
-// https://www.svgrepo.com/svg/485740/heart2
+export function HeartMinusIcon({ size = 20, className = '', ...props }) {
+  return (
+        <svg fill="currentColor" size={size} {...props} viewBox="2 3.99 28 24.021" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><title>heart2</title><path d="M24 12.977c-3.866 0-7 3.158-7 7.055 0 2.22 1.02 4.197 2.609 5.491A59 59 0 0 1 16 28.011S2 19.359 2 12.389c0-4.2 2.583-8.399 7.5-8.399 4.5 0 6.5 4.296 6.5 4.296s1.75-4.296 6.5-4.296 7.416 4.115 7.416 8.399c0 .958-.272 1.943-.716 2.932a6.95 6.95 0 0 0-5.2-2.344m0 1.007c3.313 0 6 2.707 6 6.047s-2.687 6.048-6 6.048-6-2.708-6-6.048 2.686-6.047 6-6.047m-3 7.055h6v-2.016h-6z"/></svg>
+    );
+}
 
-// Heart3Icon
-// https://www.svgrepo.com/svg/485737/heart
+export function HeartElectrocardiogramIcon({ size = 20, className = '', ...props }) {
+  return (
+        <svg version="1.1" size={size} {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 36.221 512 439.558" xml:space="preserve" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"><path class="st0" d="m319.141 324.732-39.844-79.218-46.625 140.703-62.969-214.25-29.437 112.75H64.953l191.031 191.062 191.063-191.062h-89.188z"/><path class="st0" d="M473.984 74.248c-50.688-50.703-132.875-50.703-183.563 0-17.563 17.563-29.031 38.891-34.438 61.391-5.375-22.5-16.844-43.828-34.406-61.391-50.688-50.703-132.875-50.703-183.563 0-50.688 50.672-50.688 132.875 0 183.547l3.594 3.594h80.625l46.125-176.703 65.656 223.328 40.875-123.281 50.344 100.156 22.75-23.5h122.406l3.594-3.594c50.689-50.672 50.689-132.875.001-183.547"/></g></svg>
+    );
+}
 
-// HeartElectrocardiogramIcon
-// https://www.svgrepo.com/svg/482737/heart-electrocardiogram-2
+export function HeartWolfIcon({ size = 20, className = '', ...props }) {
+  return (
+        <svg fill="currentColor" size={size} {...props} viewBox="1.306 1.873 29.55 28.084" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><title>love-howl</title><path d="M30.851 10.221C30.58 1.583 20.134-1.331 15.788 6.197 13.173-1.152 1.031 1.436 1.311 10.221c.077 2.396 1.031 4.529 2.423 6.469l6.645-2.215c-1.24-.065-2.555-.59-4.289-2.035 2-1.18 3.612-1.295 5.674-1.464 1.667-.898 4.147-1.679 5.248-1.093 1.933-1.143 4.344-2.612 6.778-3.535.317 1.243.333 2.779.219 4.227l-.656-.875c-3.211.722-4.826 7.037-.036 4.409l.656-1.057c.11.991.212 1.908 0 2.733a40.5 40.5 0 0 1-6.45 3.717c-1.107.974-3.283 4.091-3.921 6.796 1.249 1.253 2.18 2.458 2.502 3.659 1.289-4.812 15.023-10.971 14.748-19.737zm-16.958 1.425a5.17 5.17 0 0 1 2.685-.557c.285 1.984-1.61 1.757-2.685.557"/></svg>
+    );
+}
 
-// HeartWolfIcon
-// https://www.svgrepo.com/svg/499276/love-howl
-
-// HeadLoveIcon
-// https://www.svgrepo.com/svg/483525/love
+export function HeadLoveIcon({ size = 20, className = '', ...props }) {
+  return (
+        <svg size={size} {...props} viewBox="34.744 0.003 442.512 511.994" xml:space="preserve" fill="currentColor"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="m475.619 295.503-41.406-87.766c.094-2.641.203-5.266.203-7.906C434.416 89.472 344.932.003 234.588.003 124.213.003 34.744 89.472 34.744 199.831c0 62.047 28.281 117.5 72.672 154.156v70.625c0 6.891 4.109 13.125 10.453 15.813l165.5 70.203a17.16 17.16 0 0 0 16.172-1.469 17.17 17.17 0 0 0 7.703-14.313v-59.859c0-9.469 7.688-17.172 17.172-17.172h84.75c9.484 0 17.156-7.688 17.156-17.156V349.05a17.2 17.2 0 0 1 9.672-15.453l31.578-15.328c8.469-4.125 12.047-14.266 8.047-22.766m-154.859-87.75c0 4.266-2.422 9.797-5.344 12.281l-82.469 69.797c-2.922 2.484-7.75 2.484-10.688 0l-82.469-69.797c-2.938-2.484-5.344-8.016-5.344-12.281v-47.406c0-4.266 2.094-10.219 4.656-13.234l19.859-23.438c2.563-3.016 7.594-5.484 11.234-5.484h25.234c3.609 0 8.438 2.719 10.75 6.016l17.266 24.906c2.281 3.297 6.031 3.297 8.313 0l17.266-24.906c2.313-3.297 7.141-6.016 10.75-6.016h25.266c3.609 0 8.656 2.469 11.203 5.484l19.875 23.438c2.547 3.016 4.641 8.969 4.641 13.234z"/></svg>
+    );
+}
 
 // HandLoveIcon
 // https://www.svgrepo.com/svg/477694/love-1
